@@ -1,0 +1,29 @@
+@import "./variables";
+@import "./mixins";
+
+.referenca-proudzbine-box {
+    -webkit-box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93); 
+    box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93);
+    margin: 5rem 0;
+    .kupovina {
+        padding: 1.5rem;
+        .referenca-proudzbine  {
+            font-size: 1.35rem;
+            font-weight: 500;
+            color: lighten($brown-black-color, 19%);
+        }
+        .referenca-proudzbine-padding {
+            padding: 1.5rem 0;
+        }
+        .text-za-referencu {
+            font-size: 1.2rem;
+        }
+        .info-o-kupcu {
+            font-size: 1.2rem;
+    font-weight: 500;
+    margin-bottom: .7rem;
+        }
+    }
+
+
+}

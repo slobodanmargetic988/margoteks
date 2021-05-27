@@ -48,7 +48,8 @@
                         <ol class="breadcrumb">
                             <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
                             <li class="breadcrumb-item"><a th:href="@{/shop}">Proizvodi</a></li>
-                            <li class="breadcrumb-item active" aria-current="page">Krevet za pse</li>
+                            <li class="breadcrumb-item active" aria-current="page"><span th:text="${proizvod.ime}"></span></li>
+
                         </ol>
                     </nav>
                     <!--th:pid="${fragmentProizvod.getId()}" th:kolicina="${fragmentProizvod.getKolicina()}"-->

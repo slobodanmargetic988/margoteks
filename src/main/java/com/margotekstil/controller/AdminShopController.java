@@ -42,6 +42,13 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 //@Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class AdminShopController {
+    
+     
+     @GetMapping("/admin/adminShopPregled")
+    public String adminShopPregled(Model model) {
+        return "main/admin/adminShopPregled";
+    }
+
 
     @GetMapping(value = "/admin/noviProizvod")
     public String adminShopNoviProizvod(
@@ -232,7 +239,7 @@ public class AdminShopController {
     public String adminShopMargotekstil(final Model model,@PageableDefault(value = 12) final Pageable pageable) {
     model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
         model.addAttribute("listaProizvoda",  proizvodiService.findAllByActiveOrderByImeAsc(true,pageable));
-
+model.addAttribute("trenutnaKategorija", "sveKategorije");
         return "main/admin/adminShop";
     }
 

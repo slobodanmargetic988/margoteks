@@ -64,7 +64,7 @@ $(document).ready(function () {
     $("#predzadnjiKorak").on("click", function (e) {
         $("#zadnjiKorakIme").text($("#predzadnjiKorakIme").val());
         $("#zadnjiKorakPrezime").text($("#predzadnjiKorakPrezime").val());
-        $("#zadnjiKorakUlica").text($("#predzadnjiKorakAdresa").val() + ",");
+        $("#zadnjiKorakUlica").text($("#predzadnjiKorakAdresa").val() );
         $("#zadnjiKorakPB").text($("#predzadnjiKorakPB").val());
         $("#zadnjiKorakGrad").text($("#predzadnjiKorakGrad").val());
         $("#zadnjiKorakTelefon").text($("#predzadnjiKorakTelefon").val());

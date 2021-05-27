@@ -20,15 +20,15 @@
 
             <div class="container">
                 <th:block>
-                    <div class="all-categories-left-nav-container all-categories-left-nav-containerADMIN">
-                        <a th:href="@{/admin/shop}"><p>Sve kategorije</p></a>
-                        <ul id="myCategory">
-                            <th:block th:each="jednaKategorija:${listakategorija}">
-                                <li class="category"><a th:href="@{/admin/shop/{kategorija} (kategorija=${jednaKategorija})}" class=""><span th:text="${jednaKategorija}"></span></a></li>
-                            </th:block>
-                        </ul>
+                  <div class="all-categories-left-nav-container all-categories-left-nav-containerADMIN">
+                            <a  th:href="@{/admin/shop}"><p  id="sveKategorije" th:classappend="${trenutnaKategorija.equals('sveKategorije') ? 'currentCategoryItem' : ''}">Sve kategorije</p></a>
+                            <ul id="myCategory">
+                                <th:block th:each="jednaKategorija:${listakategorija}">
+                                    <li class="category"><a th:classappend="${trenutnaKategorija.equals(jednaKategorija) ? 'currentCategoryItem' : ''}" th:href="@{/admin/shop/{kategorija} (kategorija=${jednaKategorija})}" ><span th:text="${jednaKategorija}"></span></a></li>
+                                </th:block>
+                            </ul>
 
-                    </div>
+                        </div>
                 </th:block>
             </div>
 
@@ -51,7 +51,7 @@
                                             <ol class="breadcrumb  ">
                                                 <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
                                                 <li class="breadcrumb-item active" aria-current="page"><a th:href="@{/admin/shop}">Proizvodi</a></li>
-                                                <li th:if="${trenutnaKategorija}" class="breadcrumb-item"><a th:href="@{/admin/shop/{kategorija} (kategorija=${trenutnaKategorija})}" th:text="${trenutnaKategorija}"></a></li>
+                                                <li th:if="${not trenutnaKategorija.equals('sveKategorije')}" class="breadcrumb-item"><a th:href="@{/admin/shop/{kategorija} (kategorija=${trenutnaKategorija})}" th:text="${trenutnaKategorija}"></a></li>
                                             </ol>
 
                                         </nav>

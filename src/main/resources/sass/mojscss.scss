@@ -18,6 +18,7 @@
 @import "./mojscss-istorijaKupovine";
 @import "./mojscss-pagination";
 @import "./mojscss-profil";
+@import "./mojscss-adminShopPregled";
 
 
 
@@ -74,7 +75,7 @@ img {
     }
     .nav-link {
         color: $white-color;
-        font-size: 1.55vw;
+        font-size: 1.2vw;
         font-family: $font-rest;
         font-weight: 600;
     }

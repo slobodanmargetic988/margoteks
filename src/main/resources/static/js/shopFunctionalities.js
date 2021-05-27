@@ -1,17 +1,5 @@
 
 jQuery(document).ready(function () {
-    
-
- //Highlight current category menu item
-    $(function () {
-        let url = window.location.href;
-        $('#myCategory li a').each(function () {
-            if (this.href === url) {
-                $(this).addClass('currentCategoryItem');
-            }
-        });
-    });
-    
 
 /*
     $(".dodajuKorpu-shop-page").on("click", function (e) {

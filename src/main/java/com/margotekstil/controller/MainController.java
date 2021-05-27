@@ -182,7 +182,7 @@ if (!lozinkaRepeat.equals("")){
 
         model.addAttribute("listaProizvoda", proizvodiService.findAllByActiveOrderByImeAsc(true, pageable));
         model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
-        
+         model.addAttribute("trenutnaKategorija", "sveKategorije");
          Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.getPrincipal().equals("anonymousUser")) {
                    return "neregistrovani/shop";

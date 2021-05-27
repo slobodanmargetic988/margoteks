@@ -96,7 +96,6 @@ jQuery(document).ready(function () {
 $(function() {
     if(location.pathname==="/"){
         $('#homeLink').addClass('currentNavItem');
-      
     }
     else{
         if (location.pathname.split("/")[1]=="admin"){
