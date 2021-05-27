@@ -20,8 +20,73 @@
         }
         .info-o-kupcu {
             font-size: 1.2rem;
-    font-weight: 500;
-    margin-bottom: .7rem;
+            font-weight: 500;
+            margin-bottom: .7rem;
+        }
+        .img-frame {
+            width: 100%;
+            height: 500px;
+        }
+        .img-order {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+    }
+
+
+}
+
+@media screen and (max-width:1200px) {
+    .referenca-proudzbine-box {
+        .kupovina {
+            .img-frame {
+                height: 420px;
+            }
+
+        }
+    }
+}
+
+@media screen and (max-width:992px) {
+    .referenca-proudzbine-box {
+         margin: 4rem 0;
+        .kupovina {
+            .img-frame {
+                height: 600px;
+            }
+            .text-za-referencu-o-proizvodu {
+                margin-top:1.5rem;
+            }
+        }
+    }
+
+
+}
+
+@media screen and (max-width:767px) {
+    .referenca-proudzbine-box {
+        margin: 3rem 0;
+        .kupovina {
+            .img-frame {
+                height: 480px;
+            }
+        }
+    }
+
+
+}
+
+@media screen and (max-width:576px) {
+    .referenca-proudzbine-box {
+        margin: 2rem 0;
+        .kupovina {
+            .referenca-proudzbine {
+                font-size: 1.2rem;
+            }
+            .img-frame {
+                height: 75vw;
+            }
         }
     }
 
