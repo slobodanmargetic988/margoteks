@@ -94,7 +94,17 @@ jQuery(document).ready(function () {
 
 //Highlight current page navigation menu item
 $(function() {
-  $('#nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('currentNavItem');
+    if(location.pathname==="/"){
+        $('#homeLink').addClass('currentNavItem');
+      
+    }
+    else{
+        if (location.pathname.split("/")[1]=="admin"){
+  $('#nav a[href^="/admin/' + location.pathname.split("/")[2] + '"]').addClass('currentNavItem');
+    }else{
+    $('#nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('currentNavItem');  
+    }
+    }
 });
 
 
