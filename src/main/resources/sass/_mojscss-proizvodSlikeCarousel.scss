@@ -1,0 +1,152 @@
+
+
+.prikaz {
+    width: 500px;
+    height: 500px;
+    margin-left: 1rem;
+    position: relative;
+}
+#show-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.small-img {
+    width: 480px;
+    height: 70px;
+    margin-top: 10px;
+    position: relative;
+    left: 25px;
+    .icon-left {
+        width: 30px;
+        height: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        padding-right: 10px;
+        &:hover {
+            opacity: .5;
+        }
+    }
+    .icon-right {
+        transform: rotate(180deg);
+
+        width: 30px;
+        height: 24px;
+        cursor: pointer;
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        margin: auto 0;
+        right: 0;
+        padding-left: 10px;
+        &:hover {
+            opacity: .5;
+        }
+    }
+}
+.small-container {
+    width: 380px;
+    height: 70px;
+    overflow: hidden;
+    position: absolute;
+    left: 0;
+    right: 0;
+    margin: 0 auto;
+    div {
+        width: 800%;
+        position: relative;
+    }
+    .show-small-img {
+        width: 70px;
+        height: 70px;
+        margin-right: 6px;
+        cursor: pointer;
+        float: left;
+        object-fit:cover;
+        &:last-of-type {
+            margin-right: 0;
+        }
+    }
+}
+
+
+
+@media screen and (max-width:1200px) {
+    .prikaz {
+        width: 450px;
+        height: 450px;
+    }
+    .small-img {
+        width: 445px;
+        left: 18px;
+    }
+}
+@media screen and (max-width:992px) {
+    .prikaz {
+        width: 342px;
+        height: 342px;
+    }
+    .small-img {
+        width: 340px;
+        left: 18px;
+    }
+    .small-container {
+        width: 270px;
+    }
+}
+@media screen and (max-width:768px) {
+    .prikaz {
+        width: 253px;
+        height: 253px;
+    }
+    .small-img {
+        width: 250px;
+    }
+    .small-container {
+        width: 180px;
+        height: 60px;
+        .show-small-img {
+            width: 60px;
+            height: 60px;
+        }
+    }
+}
+
+@media screen and (max-width:575px) {
+    .single-product-show {
+        padding: 1.5rem 0 3rem 0;
+        h3 {
+            font-size: 1.5rem;
+    margin: 1.6rem 0;
+        }
+    }
+    
+    .prikaz {
+        width: 90vw;
+        height: 90vw;
+    }
+    .small-img {
+        width: 90vw;
+        margin-bottom: 2rem;
+    }
+    .small-container {
+        width: 60vw;
+    }
+}
+
+/*@media screen and (max-width:399px) {
+    .prikaz {
+        width: 300px;
+        height: 300px;
+    }
+    .small-img {
+        width: 522px;
+        margin-bottom: 2rem;
+    }
+    .small-container {
+        width: 400px;
+    }
+}*/

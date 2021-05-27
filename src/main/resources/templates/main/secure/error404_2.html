@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Greška</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/error.jpg" class="header-img" alt="header-image">
+
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>LOGIN PROBLEM</h2>
+                <p>GREŠKA</p>
+            </div>
+
+
+            <section class="error-page-area text-center">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-md-8 offset-md-2">
+                            <h1>404</h1>
+                            <h2>Stranica nije pronađena!</h2>
+                            <p>
+                                Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. 
+                            </p>
+                            <a class="btn btn-theme effect btn-md" th:href="@{/}">Nazad na početnu</a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <th:block th:insert="fragments/footer :: footer" />
+
+            <div id="backToTop"></div>
+
+            <th:block th:insert="fragments/scripts :: scripts" />
+
+    </body>
+
+</html>

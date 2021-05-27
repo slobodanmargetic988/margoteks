@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Proizvodi</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/proizvodi-head.jpg" class="header-img" alt="header-image">
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>MARGOTEKSTIL</h2>                                              
+                <p>PRODAVNICA</p>
+            </div>
+
+            <div class="container">
+                <th:block>
+                    <div class="all-categories-left-nav-container all-categories-left-nav-containerADMIN">
+                        <a th:href="@{/admin/shop}"><p>Sve kategorije</p></a>
+                        <ul id="myCategory">
+                            <th:block th:each="jednaKategorija:${listakategorija}">
+                                <li class="category"><a th:href="@{/admin/shop/{kategorija} (kategorija=${jednaKategorija})}" class=""><span th:text="${jednaKategorija}"></span></a></li>
+                            </th:block>
+                        </ul>
+
+                    </div>
+                </th:block>
+            </div>
+
+            <section id="products-show">
+                <div class="container">
+                    
+                    <a th:href="@{/admin/noviProizvod}" class="dodajProizvodBtn-adminShopPageLink" >
+                        <button type="button" class="dodajProizvodBtn-adminShopPage">Dodaj proizvod</button>
+                    </a>
+
+                    <div>
+                        <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+                        <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+                        
+                        
+
+                                <div class="row" >     
+                                    <div class=" col-md-6 col-sm-6">
+                                        <nav aria-label="breadcrumb" >
+                                            <ol class="breadcrumb  ">
+                                                <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                                                <li class="breadcrumb-item active" aria-current="page"><a th:href="@{/admin/shop}">Proizvodi</a></li>
+                                                <li th:if="${trenutnaKategorija}" class="breadcrumb-item"><a th:href="@{/admin/shop/{kategorija} (kategorija=${trenutnaKategorija})}" th:text="${trenutnaKategorija}"></a></li>
+                                            </ol>
+
+                                        </nav>
+                                    </div>
+                                    
+                                         <!--kategorije za male ekrane start-->
+                            <th:block>
+                                <div class="all-categories-left-nav-container-small-screen dropdown show col-6" >
+                                    <a class="btn-kategorije shadow-none  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        Kategorije
+                                    </a>
+
+                                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                        <a class="dropdown-item" th:href="@{/shop}">Sve kategorije</a>
+
+                                        <th:block th:each="jednaKategorija:${listakategorija}">
+                                            <a th:href="@{/shop/{kategorija} (kategorija=${jednaKategorija})}" class="dropdown-item"><span th:text="${jednaKategorija}"></span></a>
+                                        </th:block>
+                                    </div>
+                                </div>
+                            </th:block>
+                            <!--kategorije za male ekrane end-->
+                                    
+                                    <div class=" col-md-6 col-sm-6 col-6 p-0">
+                                        <th:block th:insert="fragments/pagination :: pagination (${listaProizvoda})" />
+                                    </div>
+                                </div>
+
+
+                                <!-- --popup sa svime sto treba -->                            
+                                <div id="addedToCart-window" >
+                                    <div class="addedToCart-window-content ">
+                                        <h4 id="ProizvodDodat">Proizvod je dodat u korpu</h4>
+                                        <div class="container">
+                                            <div class="row mt-3">
+                                                <div class="col col-md-5 figure-left">
+                                                    <figure class="master-img"><img id="popupimg" src="" class="img-fluid" /></figure>
+                                                </div>
+                                                <div class="col col-md-7">
+                                                    <span class="productName" id="popupnaziv"  text=""> </span><br>
+                                                        <span class="master-price" id="popupcena" text=""></span> <span>RSD</span>
+                                                        <div class="shop-buttons">
+                                                            <a th:href="@{/shoppingCart}"><button class="btn-cart">Idi u korpu</button></a>
+                                                            <button class="btn-shop-outline" id="nazad-na-shop-btn">Nazad</button>
+                                                        </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- --popup sa svime sto treba -->    
+
+                                <div class="row">
+
+                                    <th:block th:each="proizvod : ${listaProizvoda}" >
+                                        <th:block th:if="${proizvod.active == true} " >  
+
+                                            <th:block th:insert="fragments/shopFragment :: jedanProizvodAdmin (${proizvod})" />
+                                        </th:block>
+                                    </th:block>
+
+                                </div>
+
+
+                                <th:block th:insert="fragments/pagination :: pagination  (${listaProizvoda})" />
+
+
+                                </div>
+                                </div>
+                                </section>
+
+                                <th:block th:insert="fragments/footer :: footer" />
+
+                                <div id="backToTop"></div>
+
+
+                                <th:block th:insert="fragments/scripts :: scripts" />
+                                <th:block th:insert="fragments/scripts :: shopScriptsRegistered" />
+                                
+                                
+
+                                </body>
+
+                                </html>

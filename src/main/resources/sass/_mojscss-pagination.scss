@@ -1,0 +1,75 @@
+@import "./variables";
+@import "./mixins";
+
+
+/*start of pagination*/
+.pagination {
+margin-right: .9rem;
+    >.disabled {
+        >a {
+            color: #ccc;
+            background-color: transparent;
+            border-color: rgba(18,18,18,.13);
+            cursor: not-allowed;
+            &:focus, &:hover {
+                color: #ccc;
+                background-color: transparent;
+                border-color: rgba(18,18,18,.13);
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    >li.active {
+        >a {
+            color: $white-color;
+            border-color: $burgundy-color;
+            background: $burgundy-color;
+            &:active, &:focus, &:hover {
+                color: $white-color;
+                border-color: $burgundy-color;
+                background: $burgundy-color;
+                font-weight: 600;
+
+            }
+        }
+    }
+
+    .page-link {
+        color: $redish-color;
+        &:hover {
+            background: transparent;
+            border-color: $redish-color;
+            color: $redish-color;
+        }
+    }
+
+}
+/*end of pagination*/
+
+
+
+@media screen and (max-width:1200px) {
+    .page-link {
+        padding: .35rem .65rem !important;
+    }
+}
+
+@media screen and (max-width:992px) {
+    .page-link {
+        padding: 0.25rem 0.55rem !important;
+    }
+}
+
+@media screen and (max-width:768px) {
+    .page-link {
+        padding: 0.15rem 0.45rem !important;
+    }
+}
+@media screen and (max-width:575px) {
+    .pagination {
+        margin-right: 1rem;
+    }
+    .page-link {
+padding: 0.08rem 0.42rem !important;    }
+}

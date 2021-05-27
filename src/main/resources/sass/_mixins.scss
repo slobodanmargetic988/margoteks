@@ -1,0 +1,218 @@
+
+@mixin flexCenter {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin headerImage() {
+    max-width:100%;
+    display: block;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+@mixin textboxHeader {
+    position: absolute;
+    transform: translate(-50%);
+    flex-direction: column;
+    h2 {
+        color: $white-color;
+        font-family: $font-big-header;
+        letter-spacing: 2px;
+    }
+    p {
+        color: $white-color;
+        font-family: $font-rest;
+        letter-spacing: 1px;
+        text-align: center;
+        display: inline-block;
+        span {
+            font-family: $font-for-numbers;
+        }
+    }
+}
+
+@mixin pratiteNasText {
+    color: $burgundy-color;
+    font-size: 2rem;
+    font-family: $font-rest;
+    padding-bottom: 1.2rem;
+    font-weight: 500;
+
+}
+
+@mixin fullColorBtn {
+    cursor: pointer;
+    outline: none;
+    background: $burgundy-color;
+    color: $white-color;
+    transition: outline-offset 200ms ease;
+    border-radius: .25rem;
+    outline-color: darken($white-color, 1%);
+    &:hover,
+        &:focus {
+        outline: 2px solid $white-color;
+        outline-offset: -6px;
+        background-color: $redish-color;
+        text-decoration: none;
+
+    }
+}
+
+@mixin outlineBtn {
+    background: transparent;
+    border: 2px solid $burgundy-color;
+    color: $burgundy-color;
+    transition: outline-offset 200ms ease;
+    border-radius: .25rem;
+    cursor: pointer;
+    &:hover,
+        &:focus {
+        outline: 2px solid $redish-color;
+        outline-offset: -6px;
+        color: $redish-color;
+        text-decoration: none;
+
+    }
+}
+
+@mixin sacuvajBtn {
+    margin-right: .2rem;
+    cursor: pointer;
+    border: 0;
+    background: $burgundy-color;
+    color: $white-color;
+    padding: .6em 1em;
+    position: relative;
+    z-index: 1;
+    border-radius: .3rem;
+    outline: none;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $redish-color;
+        z-index: -1;
+        transition: transform 200ms ease-in;
+        transform: scale(0);
+        transform-origin: top bottom;
+    }
+    &:hover {
+        &::after {
+            transform: scale(1);
+            transform-origin: bottom top;
+            border-radius: .3rem;
+        }
+    }
+}
+
+@mixin nazadBtn {
+    cursor: pointer;
+    border: 0;
+    background: none;
+    color: $redish-color;
+    padding: .6em 1em;
+    position: relative;
+    z-index: 1;
+    border: 2px solid $redish-color;
+    border-radius: .3rem;
+    &::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: $redish-color;
+        z-index: -1;
+        transition: transform 200ms ease-in;
+        transform: scale(0);
+        transform-origin: top bottom;
+    }
+    &:hover {
+        color: $white-color;
+        text-decoration: none;
+        &::after {
+            transform: scale(1);
+            transform-origin: bottom top;
+        }
+    }
+}
+
+@mixin btnChooseFile {
+    border: 2px solid $redish-color;
+    color: $redish-color;
+    padding: 0.3rem 1rem;
+    cursor: pointer;
+    font-weight: 600;
+    &:hover {
+        border: 2px solid $redish-color;
+        color: $white-color;
+        background-color: $redish-color;
+    }
+}
+
+@mixin breadcrumb {
+    .breadcrumb {
+        font-family: $font-rest;
+        background: none;
+        padding: 0;
+        .breadcrumb-item {
+            a {
+                color: $burgundy-color;
+                &:hover {
+                    color: $redish-color;
+                    font-weight: 500;
+                }
+            }
+        }
+    }
+}
+
+@mixin addToCartWithIcon {
+    font-family: $font-rest;
+    font-size: .87rem;
+    text-align: center;
+    cursor: pointer;
+    background-color: $burgundy-color;
+    color: $white-color;
+    letter-spacing: 1px;
+    /*        margin-top:1rem;*/
+    border-radius: .25rem;
+    padding: 0.7rem 1rem;
+    &:hover {
+        background-color: $redish-color;
+    }
+}
+
+
+@mixin social-icons {
+    list-style-type: none;
+    padding-top: 2rem;
+    /*margin-left: 2.5rem;*/
+    .follow {
+        @include pratiteNasText;
+    }
+    li {
+        display: inline-block;
+        padding-right: 2rem;
+    }
+    i {
+        color: $white-color;
+        background-color: $burgundy-color;
+        border-radius: 50%;
+        width: 3.125rem;
+        height: 3.125rem;
+        text-align: center;
+        line-height: 3.125rem;
+        &:hover {
+            background-color: $redish-color;
+        }
+    }
+}

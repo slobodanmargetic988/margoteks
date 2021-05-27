@@ -1,0 +1,218 @@
+@import "./variables";
+@import "./mixins";
+
+
+.about-section {
+    position: relative;
+    padding: 7.5rem 0 4.375rem;
+    .container {
+        .content-column {
+            position: relative;
+            margin-bottom: 3.125rem;
+            .inner-column {
+                position: relative;
+                /*padding-left: 1.875rem;*/
+                .sec-title {
+                    margin-bottom: 2rem;
+                    .title {
+                        position: relative;
+                        display: block;
+                        font-size: 1.2rem;
+                        line-height: 1.5rem;
+                        color: $redish-color;
+                        font-weight: 500;
+                        margin-bottom: 0.625rem;
+                    }
+                    h2 {
+                        position: relative;
+                        display: block;
+                        font-size: 2.5rem;
+                        line-height: 1.28em;
+                        color: $brown-black-color;
+                        font-weight: 600;
+                        padding-bottom: 1.125rem;
+                        &:before {
+                            position: absolute;
+                            content: '';
+                            left: 0px;
+                            bottom: 0px;
+                            width: 5rem;
+                            height: 3px;
+                            background-color: #d1d2d6;
+                        }
+                    }
+                }
+                .text {
+                    margin-bottom: 2rem;
+                    font-size: 1.125rem;
+                    line-height: 1.625rem;
+                    color: $greyish-color;
+                }
+                .list-style-one {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    margin-bottom: 2.813rem;
+                    li {
+                        position: relative;
+                        font-weight: 500;
+                        line-height: 1.625rem;
+                        color: $brown-black-color;
+                        padding-left: 2.188rem;
+                        margin-bottom: 0.75rem;
+                        &:before {
+                            content: "\f058";
+                            position: absolute;
+                            left: 0;
+                            top: 0px;
+                            display: block;
+                            font-size: 18px;
+                            padding: 0px;
+                            color: $redish-color;
+                            font-weight: 600;
+                            -webkit-font-smoothing: antialiased;
+                            font-style: normal;
+                            font-variant: normal;
+                            /*text-rendering: auto;*/
+                            line-height: 1.6;
+                            font-family: FontAwesome;
+                        }
+                    }
+                }
+                .btn-box {
+                    position: relative;
+                    a {
+                        padding: 0.75rem 1.125rem;
+                    }
+                    .kontaktirajteNas-onama-page {
+                        @include fullColorBtn;
+                        position: relative;
+                        display: inline-block;
+                        font-size: 1.063rem;
+                        line-height: 1.875rem;
+                        letter-spacing: 0.02em;
+                        font-weight: 600;
+                        margin-bottom: .5rem;
+                    }
+                    .shop-btn-o-nama-page {
+                        @include outlineBtn;
+                        position: relative;
+                        z-index: 1;
+                        transition: outline-offset 200ms ease;
+                        letter-spacing: .03rem;
+                        font-size: .96rem;
+                        width: 175px;
+                        text-align: center;
+                        font-weight: 600;
+                        line-height: 1.7rem;
+                        margin-left: .4rem;
+                    }
+                }
+            }
+        }
+        .image-column {
+            position: relative;
+            .inner-column {
+                position: relative;
+                padding-left: 7.5rem;
+                padding-bottom: 7.813rem;
+                .image-1 {
+                    position: relative;
+                }
+                .image-2 {
+                    position: absolute;
+                    left: 0;
+                    bottom: 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:1200px) {
+    .about-section { 
+        padding: 4rem 0 1rem;
+    }
+}
+
+
+@media screen and (max-width:414px) {
+    .about-section {
+        padding: 2rem 0 0;
+        .container {
+            .content-column {
+                .inner-column {
+                    .text {
+                        font-size: 1rem;
+                    }
+                    .sec-title {
+                        h2 {
+                            font-size: 2.2rem;
+                        }
+                    }
+                    .btn-box {
+                        .kontaktirajteNas-onama-page {
+                            font-size: .95rem;
+                            letter-spacing: 0.04em;
+                        }
+                        .shop-btn-o-nama-page {
+                            margin: .3rem 0 0 0;
+                            width: 167px;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .onama-img2 {
+        width: 250px;
+        height: 250px;
+    }
+}
+
+@media screen and (max-width:375px) {
+    .about-section {
+        padding: 1rem 0 0;
+        .container {
+            .content-column {
+                .inner-column {
+                    .text {
+                        font-size: 1rem;
+                    }
+                    .sec-title {
+                        h2 {
+                            font-size: 1.95rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .onama-img2 {
+        max-width: 200px;
+        max-height: 200px;
+    }
+}
+
+@media screen and (max-width:353px) {
+    .onama-img2 {
+        max-width: 160px;
+        max-height: 160px;
+    }
+}
+
+@media screen and (max-width:280px) {
+    .about-section {
+        .container {
+            .image-column {
+                .inner-column {
+                    padding-left: 6rem;
+                }
+            }
+        }
+    }
+    .onama-img2 {
+        max-width: 150px;
+        max-height: 150px;
+    }
+}

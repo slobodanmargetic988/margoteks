@@ -1,0 +1,223 @@
+@import "./variables";
+@import "./mixins";
+
+
+/*to remove arrows from input type number*/
+/*end of - to remove arrows from input type number*/
+#regi-login-form {
+    position: relative;
+    // min-height: 80vh;
+    @include flexCenter;
+    padding: 2.5rem 0;
+    .container-registration {
+        position: relative;
+        min-height: 23.5rem;
+        background-color: $white-color;
+        box-shadow: 0 0.1rem 2rem rgba(76, 22, 22, 0.4);
+        overflow: hidden;
+        .user {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            @include flexCenter;
+            .formBx {
+                position: relative;
+                width: 70%;
+                height: 100%;
+                background-color: darken($white-color, 1%);
+                @include flexCenter;
+                padding: 2.5rem;
+                transition: 0.5s;
+                form {
+                    h2 {
+                        font-size: 1.8rem;
+                        font-weight: 700;
+                        text-transform: uppercase;
+                        letter-spacing: 2px;
+                        text-align: center;
+                        width: 100%;
+                        margin-bottom: 0.938rem;
+                        color: $redish-color;
+                    }
+                    input {
+                        position: relative;
+                        width: 100%;
+                        padding: 0.625rem;
+                        background-color: darken($white-color, 1%);
+                        color: $brown-black-color;
+                        border: 1px solid $burgundy-color;
+                        border-radius: 5px;
+                        outline: none;
+                        box-shadow: none;
+                        margin: 0.5rem 0;
+                        font-size: 0.9rem;
+                        letter-spacing: 1px;
+                        font-weight: 300;
+                        &:focus {
+                            background-color: darken($white-color, 1%);
+                        }
+                    }
+                    input[type='submit'] {
+                        width: 50%;
+                        @include fullColorBtn;
+                        text-transform: uppercase;
+                    }
+                    .signup {
+                        position: relative;
+                        margin-top: 1rem;
+                        font-size: 0.9rem;
+                        letter-spacing: 0.2px;
+                        color: $brown-black-color;
+                        text-transform: uppercase;
+                        font-weight: 600;
+                        margin-bottom: 0;
+                        outline: none;
+                        border: none;
+                        background-color: darken($white-color, 1%);
+                        &:hover {
+                            text-decoration: underline;
+                        }
+                    }
+                    .singups {
+                        margin-top: 0;
+                    }
+                    .checkbox {
+                        .rememberMe {
+                            color: $brown-black-color;
+                            letter-spacing: 0.3px;
+                            .remember-me {
+                                width: 0.813rem;
+                                height: 0.813rem;
+                            }
+                            .uslovi-koriscenja {
+                                cursor: pointer;
+                                color: $burgundy-color;
+                                &:hover {
+                                    color: $redish-color;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .signinBx {
+            .formBx {
+                right: 0%;
+            }
+        }
+        .signinBx.active {
+            .formBx {
+                right: 100%;
+            }
+        }
+        .signupBx {
+            pointer-events: none;
+            .formBx {
+                right: 100%;
+            }
+        }
+        .signupBx.active {
+            pointer-events: initial;
+            .formBx {
+                right: 0;
+            }
+        }
+        .forgotBx {
+            pointer-events: none;
+            .formBx {
+                right: 100%;
+            }
+        }
+        .forgotBx.active {
+            pointer-events: initial;
+            .formBx {
+                right: 0;
+            }
+        }
+    }
+}
+
+
+
+.no-arrow {
+    &::-webkit-inner-spin-button {
+        display: none;
+        -webkit-appearance: none;
+        margin: 0;
+    }
+    &::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0;
+    }
+}
+
+@media (max-width: 1200px) {
+    #regi-login-form {
+        .container-registration {
+            .user {
+                .formBx {
+                    form {
+                        h2 {
+                            font-size: 1.65rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+@media (max-width: 992px) {
+    #regi-login-form {
+        .container-registration {
+            max-width: 600px;
+            min-height: 27rem;
+            .user {
+                .formBx {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+@media (max-width: 500px) {
+    #regi-login-form {
+        .container-registration {
+            .user {
+                .formBx {
+                    form {
+                        h2 {
+                            font-size: 1.48rem;
+                        }
+                        input[type='submit'] {
+                            width: 100%;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+
+@media (max-width: 362px) {
+    #regi-login-form {
+        .container-registration {
+            .user {
+                .formBx {
+                    form {
+                        h2 {
+                            font-size: 1.3rem;
+                        }
+                        p {
+                            font-size: .85rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

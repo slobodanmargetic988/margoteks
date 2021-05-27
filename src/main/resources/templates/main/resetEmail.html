@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title> Margotekstil Registracija</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/registracija.jpg" class="header-img" alt="header-image">
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>MARGOTEKSTIL</h2>
+                <p>REGISTRACIJA</p>
+            </div>
+
+            <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+            <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+
+ <section id="regi-login-form">
+     <div class="container container-registration">
+         
+            <div class="user ">
+                <div class="formBx">
+                    <form th:action="@{/resetEmail/{email} (email=${email})}" method="POST" >
+                        <h2>Promena lozinke</h2>
+                        <input type="password" name="password" placeholder="Nova lozinka" />
+                        <input type="password" name="passwordrepeat" placeholder="Ponovljena nova lozinka" />
+                        <input type="submit" name="submit" value="Pošalji zahtev" />
+                        <!--<p> <button href="#"  class="signup" type="button" onclick="toggleForgotSignin();">&larr; Nazad</button></p>-->
+                    </form>
+                </div>
+            </div>
+         
+</div>
+ </section>
+            <!--end of registration/login-->
+
+
+
+
+            <th:block th:insert="fragments/footer :: footer" />
+
+            <div id="backToTop"></div>
+
+            <th:block th:insert="fragments/scripts :: scripts" />
+
+    </body>
+
+</html>

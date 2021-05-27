@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title>Margotekstil Navigation</title>
+
+
+    </head>
+   
+
+    <body>
+        <th:block th:fragment="navbar">
+            <nav class="navbar navbar-expand-md fixed-top ">
+                <a href="/" class="navbar-brand mr-0" ><img class="img-fluid"  id="brandlogo" src="/img/logocrveni.png"></a>
+                <button class="navbar-toggler navbar-toggler-admin ml-1 " type="button" data-toggle="collapse" data-target="#collapsingNavbar2" id="closeHamburger">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse" id="collapsingNavbar2">
+
+
+                    <ul id="nav" class="navbar-nav mx-auto justify-content-center fancy-link-24">
+
+                        <li class="nav-item active">
+                            <a class="nav-link nav-link-admin" th:href="@{/}">HOME<span class="sr-only"></span></a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-admin" th:href="@{/onama}">O NAMA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-admin" th:href="@{/shop}">SHOP</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-admin" th:href="@{/galerija}">GALERIJA</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link nav-link-admin" th:href="@{/contact}">KONTAKT</a>
+                        </li>
+                        <li class="nav-item"  sec:authorize="hasAnyAuthority('ADMIN')" >
+                            <a class="nav-link nav-link-admin" th:href="@{/admin/shop}">ADMIN SHOP</a>
+                        </li>
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')" >
+                            <a class="nav-link nav-link-admin"  th:href="@{/admin/galerija}">ADMIN GALERIJA</a>
+                        </li>
+
+                    </ul>
+                    <ul class="nav navbar-icons navbar-nav flex-row flex-nowrap ">
+                        <li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/shoppingCart}" data-toggle="popover"  data-content="Korpa"><span  class="maliekran"  >Korpa&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i>
+
+                                <li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registration}" data-toggle="popover"  data-content="Uloguj se" ><span class="maliekran">Uloguj se&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>
+
+                                <li sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"  class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/profil}" data-toggle="popover"  data-content="Profil" ><span th:text ="${#authentication.getPrincipal().getUser().getIme()}" ></span>&nbsp;<i class="fa fa-user fa-lg"></i></a> </li>
+
+                                <li class="nav-item nav-item-custom" sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/logout}" data-toggle="popover"  data-content="Odjava"><span  class="maliekran"  >Odjava&nbsp;&nbsp;</span><i class="fa fa-power-off"></i></a></li>
+                                </ul>
+                                </div>                                            
+
+                                </nav>
+
+
+                                </th:block>
+
+
+
+                                </body>
+                                </html>

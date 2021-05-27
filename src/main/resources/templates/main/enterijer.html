@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Uređenje enterijera</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/horecatextile1.jpg" class="header-img" alt="header-image">
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>MARGOTEKSTIL</h2>
+                <p>HORECA TEKSTIL</p>
+            </div>
+
+            <section class="about-section">
+                <div class="container">
+                    <div class="row">                
+                        <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+                            <div class="inner-column">
+                                <div class="sec-title">
+                                    <span class="title">Horeca tekstil</span>
+                                    <h2>Prostor uređen<br>po Vašoj meri</h2>
+                                </div>
+                                <div class="text">Izuzetan kvalitet i savremeni dizajn najbolje definišu prostor. <br><br>
+                                            Oni koji pružaju vrhunske ugostiteljske usluge znaju da znalački osmišljen i skrojen 
+                                            ambijent čini okruženje prijatnim za boravak i druženje. <br><br> 
+                                                    Naše dugogodišnje iskustvo šivenja po meri i širok asortiman proizvoda učiniće da Vaš prostor ostavi nezaboravan utisak na Vaše klijente.<br><br>
+                                                            Od HoReCa programa nudimo Vam izuzetan kvalitet, povoljne cene i kratke rokove izrade za:
+                                                            </div>
+                                                            <ul class="list-style-one">
+                                                                <li>Stolnjake i nadstolnjake</li>
+                                                                <li>Presvlake za stolove i stolice - STRETCH (univerzalne)</li>
+                                                                <li>Ukrasne jastuke</li>
+                                                                <li>Dekoracija za svečane sale</li>
+                                                                <li>Zavese i draperi</li>
+                                                                <li>Mnoštvo drugih proizvoda po porudžbini</li>
+                                                            </ul>
+                                                            <div class="btn-box">
+                                                                <a th:href="@{/contact}" class="kontaktirajteNas-onama-page" type="button">Kontaktirajte nas</a>
+                                                                <a th:href="@{/shop}" class="shop-btn-o-nama-page" type="button">Shop</a>
+                                                                <!-- <br>
+                                                                <a th:href="@{/proizvodi}" class="btn-style-two" type="button">Shop</a>-->
+                                                            </div>
+                                                            </div>
+                                                            </div>
+
+                                                            <!-- Image Column -->
+                                                            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                                                                <div class="inner-column">
+                                                                    <figure class="image-1"><a href="#" class="lightbox-image" data-fancybox="images"><img class="onama-img1" src="/img/ent2.png" alt=""></a></figure>
+                                                                    <figure class="image-2"><a href="#" class="lightbox-image" data-fancybox="images"><img class="onama-img2" src="/img/ent1.png" alt=""></a></figure>
+                                                                </div>
+                                                            </div>
+                                                            </div>
+                                                            </div>
+                                                            </section>
+
+                                                            </div>
+
+                                                            <th:block th:insert="fragments/footer :: footer" />
+
+                                                            <div id="backToTop"></div>
+
+                                                            <th:block th:insert="fragments/scripts :: scripts" />
+
+                                                            </body>
+
+                                                            </html>

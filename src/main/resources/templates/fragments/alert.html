@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+        <title></title>
+    </head>
+
+    <body>
+
+        <div th:fragment="success (message)" class="alert alert-custom alert-dismissible fade show" role="alert" th:if="${message}">
+            <button type="button" class="close zatvori-alert" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="xTimes">&times;</span>
+            </button>
+            <h4 class="alert-heading" th:text="${message}">Uspešno!</h4>
+        </div>
+
+        <div th:fragment="error (message)" class="alert alert alert-custom alert-dismissible fade show" role="alert" th:if="${message}">
+            <button type="button" class="close zatvori-alert" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true" class="xTimes">&times;</span>
+            </button>
+            <h4 class="alert-heading" th:text="${message}">Neuspešno!</h4>
+        </div>
+
+        <div th:fragment="gotovaporudzbina (message)" class="alert-order" id="alertHvalaPorudzbina" role="alert" th:if="${message}">
+            <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
+            <div class="img-wrapp">
+                <img class="alert-img" src="/img/cart-thanks.png">
+            </div>
+            <h4 class="alert-naslov">Hvala na porudžbini!</h4>
+            <p class="alert-text">Porudžbina je uspešno poslata.<br>Stići će Vam email sa potvrdom.</p>
+            <a href="#" class="nazad-button" id="nazadBTN">Nazad</a>
+        </div>
+
+        <div th:fragment="uspesnaPrijava (message)" class="alert-uspesna-prijava" id="alertUspesnaPrijava" role="alert" th:if="${message}">
+            <span class="close-btn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
+            <div class="alert-poruka-uspesna-prijava">
+                <i class="fa fa-check-circle fa-2x"></i> <span class="alert-heading">Uspešno ste se prijavili!</span>
+            </div>
+        </div>
+
+
+    </body>
+
+</html>
+
+<!--
+<div th:fragment="success (message)" class="alert alert-warning alert-dismissible fade show" role="alert"  th:if="${message}">
+           <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+            <h4 class="alert-heading" th:text="${message}">Uspešno!</h4>
+        </div>-->

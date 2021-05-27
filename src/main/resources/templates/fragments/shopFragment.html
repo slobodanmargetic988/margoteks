@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+    </head>
+
+    <body>
+        <th:block th:fragment="praznaKorpa">
+            <div class="empty-cart">
+                <p class="cart-text">Korpa je trenutno prazna.</p>
+                <p class="return-to-shop">
+                    <a class="return-to-shop-btn" th:href="@{/shop}">
+                        Nazad na shop</a>
+                </p>
+            </div>
+        </th:block>
+
+
+
+        <th:block th:fragment="jedanProizvod (fragmentProizvod)">
+            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniReg" >
+                <div class="img-wrapper">
+                    <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+                        <th:block th:if="${fragmentProizvod.glavnaslika != null}">
+                            <img class="proizvod-slika" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}">
+                        </th:block>
+                        <th:block th:if="${fragmentProizvod.glavnaslika==null}">
+                            <img class="proizvod-slika" src="/img/imageNotFound.jpg">
+                                <!--ubaciti precrtanu sliku kad proizvod nema sliku-->
+                        </th:block>
+                    </a>
+                </div>
+
+                <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+                    <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
+                </a>
+                <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
+                <span th:pid="${fragmentProizvod.getId()}" class="buttonAdd2Cart" >
+                    <button type="button" class="dodajJS dodajuKorpu-shop-page" th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}" th:pid="${fragmentProizvod.id}" >Dodaj u korpu</button>
+                </span>
+                <br><br>
+                        </div>
+
+                        </th:block>
+
+
+
+                        <th:block th:fragment="jedanProizvodNeregistrovan (fragmentProizvod)">
+                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniNereg" >
+                                <div class="img-wrapper">
+                                    <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+                                        <th:block th:if="${fragmentProizvod.glavnaslika != null}">
+                                            <img class="proizvod-slika" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}">
+                                        </th:block>
+                                        <th:block th:if="${fragmentProizvod.glavnaslika==null}">
+                                            <img class="proizvod-slika" src="/img/imageNotFound.jpg">
+                                                <!--ubaciti precrtanu sliku kad proizvod nema sliku-->
+                                        </th:block>
+                                    </a>
+                                </div>
+
+                                <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+                                    <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
+                                </a>
+                                <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
+                                <span th:pid="${fragmentProizvod.getId()}" class="buttonAdd2Cart" >
+                                    <button type="button" class="dodajuKorpu-shop-page JSdodajUKorpuProizvodStranaNEREGSlicni" th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}"th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" th:pid="${fragmentProizvod.id}" >Dodaj u korpu</button>
+                                </span>
+                                <br><br>
+                                        </div>
+
+                                        </th:block>
+
+
+
+                                        <th:block th:fragment="jedanProizvodAdmin (fragmentProizvod)">
+                                            <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniAdmin" >
+                                                <div class="img-wrapper">
+                                                    <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+                                                        <th:block th:if="${fragmentProizvod.glavnaslika != null}">
+                                                            <img class="proizvod-slika"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}">
+                                                        </th:block>
+                                                        <th:block th:if="${fragmentProizvod.glavnaslika==null}">
+                                                            <img class="proizvod-slika" src="/img/imageNotFound.jpg">
+                                                                <!--ubaciti precrtanu sliku kad proizvod nema sliku-->
+                                                        </th:block>
+                                                    </a>
+
+                                                </div>
+                                                <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+                                                    <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
+                                                </a>
+                                                <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
+                                                <div class="row">
+                                                    <div class="col-md-12">
+                                                        <a href="#" class=" buttonAdd2Cart">
+                                                            <button type="button" class=" dodajJS dodajuKorpu-admin-shop"  th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}" th:pid="${fragmentProizvod.id}">Dodaj u korpu</button>
+                                                        </a>
+                                                    </div>
+                                                     <div class="col-md-12">
+                                                        <a th:href="@{/admin/obrisiProizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}"  >
+                                                            <button type="button" class="ukloniProizvod-admin-shop"  >Ukloni proizvod</button>
+                                                        </a>
+                                                    </div>
+                                                </div>
+
+                                            </div>
+                                        </th:block>
+
+
+
+                                        <th:block th:fragment="korpaStavka (stavka)">
+
+                                            <div class="row border-top border-bottom stavkaJS korpaStavkeSmallerScreen" th:pid="${stavka.proizvod.id}">
+                                                <div class="row main align-items-center mt-2 mb-2">
+                                                    <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}"></div>
+                                                    <div class="col nazivOpisSmallerScreen">
+                                                        <div class="row naslov"><span th:text="${stavka.proizvod.getIme()}"></span></div>
+                                                        <div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>
+                                                    </div>
+                                                    <div class="col minusiplus minusiplusSmallerScreen">
+                                                        <input type='button'  value='-' class='minusBtn minusBtnSmallerScreen smanjiJS' field='quantity'  th:pid="${stavka.proizvod.id}" />
+                                                        <input  type='number' name='quantity' th:value='${stavka.kolicina}' class='qty qtySmallerScreen border-number kolicinaJS'  th:pid="${stavka.proizvod.id}" />
+                                                        <input type='button'  value='+' class='plusBtn plusBtnSmallerScreen povecajJS' field='quantity'  th:pid="${stavka.proizvod.id}"/>
+                                                        <input  type='number' name='kilaza' th:value='${stavka.proizvod.kilaza}' class='qty border-number kilazaJS'  th:pid="${stavka.proizvod.id}" style="display: none" />
+                                                    </div>
+                                                    <div class="col cenaKilazaSmallerScreen">
+                                                        <div class="cenapr cenaprSmallerScreen">Cena: </div>
+                                                        <span class="cenaproizvoda" th:pid="${stavka.proizvod.id}" th:text="${#numbers.formatDecimal(stavka.proizvod.cena, 0, 'NONE', 2, 'POINT')}"></span>
+                                                        <span style="font-size: .95rem;font-weight: 700;"> RSD</span>
+                                                        <div class="cenapr cenaprSmallerScreen">Ukupna cena: </div><span class="totalcenaproizvoda" th:pid="${stavka.proizvod.id}"></span> <span style="font-size: .95rem;font-weight: 700;">RSD</span>
+                                                        <div class="cenapr cenaprSmallerScreen">Ukupna kilaza: </div>
+                                                        <span class="totalkilazaproizvoda" th:pid="${stavka.proizvod.id}"></span> <span style="font-size: .95rem;font-weight: 700;">kg</span>
+                                                    </div>
+                                                    <span class=" skloni"  th:pid="${stavka.proizvod.id}" >&#10005;&nbsp;<span class="ukloniSmallerScreen">Ukloni</span></span>
+                                                </div>
+                                            </div>
+
+
+                                        </th:block>
+        
+
+                                        <th:block th:fragment="korpaStavkaPregled (stavka)">
+
+                                            <div class="row border-top border-bottom stavkaPregledJS korpaStavkeSmallerScreen" th:pid="${stavka.proizvod.id}">
+                                                <div class="row main align-items-center mt-2 mb-2">
+                                                    <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavkaPregled  slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}"></div>
+                                                    <div class="col nazivOpisSmallerScreen">
+                                                        <div class="row naslov"><span th:text="${stavka.proizvod.getIme()}"></span></div>
+                                                        <div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>
+                                                    </div>
+                                                    <div class="cenaprSmallerScreenStavkaPregled">
+                                                        <div class="col cenaprSmallerScreen cenaprSmallerScreenStavkaPregled" style="font-weight: 500">Kolicina:  <span class="kolicinaPregledJS" th:pid="${stavka.proizvod.id}" style="font-weight: 600"></span> </div>
+                                                        <div class="col cenaprSmallerScreen cenaprSmallerScreenStavkaPregled" style="font-weight: 500; padding-bottom: 1rem;">Cena: <span th:text="${stavka.proizvod.cena}" style="font-weight: 600"></span> RSD </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+
+                                        </th:block>
+                                        </body>
+                                        </html>

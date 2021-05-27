@@ -1,0 +1,42 @@
+@import "./variables";
+@import "./mixins";
+
+.error-page-area {
+    padding: 3.75rem;
+    margin-bottom: 1.875rem;
+    h1, h2 {
+        color: $burgundy-color;
+    }
+    h1 {
+        font-size: 8rem;
+        font-weight: 900;
+        line-height: 7.5rem;
+        margin-bottom: 1.875rem;
+        font-family: $font-for-numbers;
+    }
+    h2 {
+        font-weight: 600;
+        text-transform: capitalize;
+        margin-bottom: 1.4rem;
+    }
+    p {
+        font-size: 1.1rem;
+        color: $brown-black-color;
+    }
+    a {
+        margin: 0.938rem 0.313rem 0;
+        text-decoration: none;
+        outline: none;
+        &:hover, &:focus, &:active {
+            text-decoration: none;
+            outline: none;
+        }
+    }
+    .btn-theme.btn-md {
+        @include fullColorBtn;
+    }
+}
+
+
+
+

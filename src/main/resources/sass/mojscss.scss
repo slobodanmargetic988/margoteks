@@ -1,0 +1,960 @@
+@import "./variables";
+@import "./mixins";
+@import "./mojscss-contact";
+@import "./mojscss-onama";
+@import "./mojscss-galerija";
+@import "./mojscss-shop";
+@import "./mojscss-proizvod";
+@import "./mojscss-registracija";
+@import "./mojscss-error404";
+@import "./mojscss-emptyCart";
+@import "./mojscss-shoppingCart";
+@import "./mojscss-alert";
+@import "./mojscss-adminNoviProizvod";
+@import "./mojscss-adminNovaSlika";
+@import "./mojscss-adminIzmeniProizvod";
+@import "./mojscss-usloviKoriscenja";
+@import "./mojscss-proizvodSlikeCarousel";
+@import "./mojscss-istorijaKupovine";
+@import "./mojscss-pagination";
+@import "./mojscss-profil";
+
+
+
+
+
+
+* {
+    font-family: $font-rest;
+}
+
+body {
+    overflow-x: hidden;
+}
+
+img {
+    height: auto;
+    max-width: 100%;
+    vertical-align: middle;
+}
+
+.kontejner {
+    position: relative;
+    text-align: center;
+}
+.maliekran {
+    display: none;
+
+}
+.header-img {
+    @include headerImage();
+    filter: brightness(70%);
+}
+.navbar-expand-xl {
+    display: none;
+}
+
+
+
+/*navigation start*/
+.navbar {
+    max-width:100%;
+    z-index:1;
+    .navbar-brand {
+        /*color: $white-color;*/
+    }
+    .nav-item {
+        padding: 0 0.8rem;
+    }
+    .nav-item-custom {
+        padding: 0 0.4rem;
+    }
+    .nav-link-admin {
+        font-size: 1.156vw;
+    }
+    .nav-link {
+        color: $white-color;
+        font-size: 1.55vw;
+        font-family: $font-rest;
+        font-weight: 600;
+    }
+
+    .nav-link-custom {
+        &:hover {
+            color: $light-beige-color;
+        }
+    }
+    .fancy-link-24 {
+        a {
+            position: relative;
+            &:before, &:after {
+                -webkit-transition: all 0.35s ease;
+                transition: all 0.35s ease;
+                height: 2px;
+                width: 35%;
+                background-color: $white-color;
+                position: absolute;
+                content: "";
+                opacity: 0;
+            }
+            &:before {
+                top: 0;
+                left: 0;
+            }
+            &:after {
+                bottom: 0;
+                right: 0;
+            }
+            &:hover {
+                &:before, &:after {
+                    opacity: 1;
+                }
+                &:before {
+                    left: 60%;
+                }
+                &:after {
+                    right: 60%;
+                }
+            }
+        }
+    }
+}
+
+.currentNavItem {
+    &:before, &:after {
+        opacity: 1 !important;
+    }
+
+}
+
+
+
+#brandlogo {
+    max-width: 13vw;
+}
+
+.navbar-toggler-icon {
+    position: relative;
+
+}
+.navbar-toggler-icon:before {
+    content: "\f0c9";
+    font-family: FontAwesome;
+    position:absolute;
+    font-size: 1.5rem;
+    color: white;
+    &:focus {
+        outline: none;
+    }
+}
+/*navigation end*/
+
+
+/*floating placeholder on keypress start*/
+
+.floating-placeholder {
+    padding-top: 20px;
+    margin-bottom: 5px;
+    position: relative;
+    display: inline-block;
+    label {
+        position: absolute;
+        line-height: 20px;
+        left: 5px;
+        bottom: 8px;
+        opacity: 0;
+        font-size: .9rem;
+        transition: all .2s;
+        pointer-events: none;
+    }
+}
+.floating-placeholder.float {
+    label {
+        bottom: 35px;
+        opacity: 1;
+    }
+}
+
+
+
+.floating-placeholder-textarea {
+    /*	padding-top: 20px;
+            margin-bottom: 5px;*/
+    position: relative;
+    label {
+        position: absolute;
+        line-height: 20px;
+        left: 5px;
+        bottom: 8px;
+        opacity: 0;
+        font-size: .9rem;
+        transition: all .2s;
+        pointer-events: none;
+    }
+}
+.floating-placeholder-textarea.float {
+    label {
+        bottom: 155px;
+        opacity: 1;
+    }
+}
+
+/*floating placeholder on keypress end*/
+
+
+
+
+
+
+
+/*change navbar background color on scroll START*/
+.fixed-top.scrolled {
+    background-color: $burgundy-color;
+    transition: background-color 200ms linear;
+}
+/*change navbar background color on scroll END*/
+
+
+
+/*naslov preko slike head start*/
+.text-box {
+    @include flexCenter;
+    @include textboxHeader;
+    top: 10vw;
+    left: 50vw;
+    h2 {
+        font-size: 5vw;
+    }
+    p {
+        padding-top: .8rem;
+        font-size: 3.6vw;
+    }
+}
+/*naslov preko slike head end*/
+
+
+
+/*NAŠE USLUGE start*/
+.services {
+    text-align: center;
+    margin-top: 3.125rem;
+    h3 {
+        font-size: 2.5rem;
+        text-transform: uppercase;
+        font-weight: 700;
+        color: $redish-color;
+        margin-bottom: 2.188rem;
+    }
+    p {
+        color: $brown-black-color;
+        font-size: 1.563rem;
+        line-height: 1.2;
+
+    }
+}
+/*NAŠE USLUGE end*/
+
+
+/*3 karte za usluge start*/
+.karte {
+    .card {
+        margin-bottom: 5rem;
+        box-shadow: 1px 10px 31px -1px rgba(179,167,167,0.79);
+        -webkit-box-shadow: 1px 10px 31px -1px rgba(179,167,167,0.79);
+        -moz-box-shadow: 1px 10px 31px -1px rgba(179,167,167,0.79);
+        .card-content {
+            padding-bottom: 4rem;
+            .card-title {
+                color:  $redish-color;
+                font-size: 1.7rem;
+                margin: 1rem 0 .4rem 0;
+                font-weight: 600;
+            }
+            .card-text {
+                color: $brown-black-color;
+                font-size: 1.3rem;
+                line-height: 1.2;
+                padding: 1rem 0.2rem 4rem 0.2rem;
+            }
+            .card-text1 {
+                color: $brown-black-color;
+                font-size: 1.3rem;
+                line-height: 1.2;
+                padding: .5rem 0.2rem 5rem 0.2rem;
+
+            }
+            .card-text2 {
+                color: $brown-black-color;
+                font-size: 1.3rem;
+                line-height: 1.2;
+                padding: .5rem 0.2rem 3.5rem 0.2rem;
+
+            }
+            .detail-button {
+                @include fullColorBtn;
+                border: 0;
+                padding: .8em 1.6em;
+                position: relative;
+                z-index: 1;
+                letter-spacing: 1px;
+                text-transform: uppercase;
+                font-weight: 500;
+            }
+        }
+    }
+}
+/*3 karte za usluge end*/
+
+
+/*footer start*/
+footer {
+    margin-top: 10px;
+
+    .links-social {
+        background: $burgundy-color;
+        padding: 20px 0 50px 0;
+        h3.title {
+            padding-top: 40px;
+            font-size: 16px;
+            font-weight: normal;
+            color: #e4e4e4;
+            line-height: 24px;
+            margin: 0;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+        }
+        .link-groups {
+            .links {
+                ul {
+                    margin: 0;
+                    padding: 0;
+                    list-style: none;
+                    li {
+                        a {
+                            font-size: .9rem;
+                            color: #d8c7c4;
+                            line-height: 22px;
+                            -webkit-transition: all linear 0.2s;
+                            -moz-transition: all linear 0.2s;
+                            -ms-transition: all linear 0.2s;
+                            -o-transition: all linear 0.2s;
+                            transition: all linear 0.2s;
+                            &:hover, &:focus, &:active {
+                                color: #e4e4e4;
+                                text-decoration: none;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .social-newsletter {
+            .social-links {
+                ul {
+                    margin-bottom: 40px;
+                    li {
+                        a {
+                            font-size: 16px;
+                            padding: 8px 14px;
+                            color: #FFF5F3;
+                            border: 1px solid #bfa6a2;
+                            display: inline-block;
+                            -webkit-transition: all linear 0.2s;
+                            -moz-transition: all linear 0.2s;
+                            -ms-transition: all linear 0.2s;
+                            -o-transition: all linear 0.2s;
+                            transition: all linear 0.2s;
+                            &:hover, &:focus, &:active {
+                                background: #FFF5F3;
+                                color: #892f2b;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+    .copyright {
+        font-style: italic;
+        font-size: 13px;
+        font-weight: normal;
+        color: #bfa6a2;
+        line-height: 20px;
+        padding: 32px 0;
+        text-align: center;
+        background: #7d2a27;
+    }
+}
+
+
+.list-inline {
+    padding-left: 0;
+    list-style: none;
+    margin-left: -5px;
+    >li {
+        display: inline-block;
+        padding-left: 5px;
+        padding-right: 5px;
+    }
+}
+
+/*footer end*/
+
+
+
+
+
+
+.img-parallax {
+    background-image: url("/img/paralaxmozda10.jpg");
+    @include headerImage();
+    /*    filter: brightness(80%);*/
+    min-height: 18.75rem;
+    @include flexCenter;
+    box-shadow: 1px 1px 13px 7px rgba(202,199,199,0.75);
+    -webkit-box-shadow: 1px 1px 13px 7px rgba(202,199,199,0.75);
+    -moz-box-shadow: 1px 1px 13px 7px rgba(202,199,199,0.75);
+    p {   
+        color: $brown-black-color;
+        line-height: 1.3;
+        font-size: 2.8vw;
+        font-weight: 500;
+    }
+}
+
+
+
+/* Slider Neki od naših klijenata start*/
+.partneri {
+    margin-top:1rem;
+    h2 {
+        text-align: center;
+        padding: 20px;
+        font-weight: 500;
+    }
+    .customer-logos {
+        margin-top: 2rem;
+        .img-with-margin {
+            margin-top: 4rem;
+        }
+    }
+    .slick-slide {
+        margin: 0px 10px;
+        display: none;
+        float: left;
+        height: 100%;
+        min-height: 1px;
+        img {
+            width: 100%;
+            display: block;
+        }
+    }
+    .slick-slider {
+        position: relative;
+        display: block;
+        box-sizing: border-box;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        -ms-user-select: none;
+        user-select: none;
+        -webkit-touch-callout: none;
+        -khtml-user-select: none;
+        -ms-touch-action: pan-y;
+        touch-action: pan-y;
+        -webkit-tap-highlight-color: transparent;
+        .slick-track {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+        .slick-list {
+            -webkit-transform: translate3d(0, 0, 0);
+            -moz-transform: translate3d(0, 0, 0);
+            -ms-transform: translate3d(0, 0, 0);
+            -o-transform: translate3d(0, 0, 0);
+            transform: translate3d(0, 0, 0);
+        }
+    }
+    .slick-list {
+        position: relative;
+        display: block;
+        overflow: hidden;
+        margin: 0;
+        padding: 0;
+        &:focus {
+            outline: none;
+        }
+    }
+    .slick-list.dragging {
+        cursor: pointer;
+    }
+    .slick-track {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: block;
+        &:before {
+            display: table;
+            content: '';
+        }
+        &:after {
+            display: table;
+            content: '';
+            clear: both;
+        }
+    }
+    .slick-loading {
+        .slick-track {
+            visibility: hidden;
+        }
+        .slick-slide {
+            visibility: hidden;
+        }
+    }
+    [dir='rtl'] {
+        .slick-slide {
+            float: right;
+        }
+    }
+    .slick-slide.slick-loading {
+        img {
+            display: none;
+        }
+    }
+    .slick-slide.dragging {
+        img {
+            pointer-events: none;
+        }
+    }
+    .slick-initialized {
+        .slick-slide {
+            display: block;
+        }
+    }
+    .slick-vertical {
+        .slick-slide {
+            display: block;
+            height: auto;
+            border: 1px solid transparent;
+        }
+    }
+    .slick-arrow.slick-hidden {
+        display: none;
+    }
+}
+/* Slider Neki od naših klijenata end*/
+
+
+
+
+
+/*posaljite nam poruku/kontaktirajte nas forma start*/
+.contact-us {
+    margin-top: 3.125rem;
+    padding-bottom: 3.75rem;
+    background-color: darken($white-color, 1%);
+    .send-us-a-message-header {
+        color: $burgundy-color;
+        margin-top: 4rem;
+        padding-bottom: 1.7rem;
+        margin-left: 3rem;
+        font-size: 2.5rem;
+        font-weight: 700;
+    }
+    .forma {
+        max-width: 90%;
+        /*        margin: 0 auto;*/
+        margin-left: 3rem;
+        padding-bottom:2.5rem;
+        input, textarea {
+            background: transparent;
+            border: 1px solid $brown-black-color;
+
+            &:focus {
+                outline: 0;
+                border-color: $burgundy-color;
+                box-shadow: none;
+
+            }
+        }
+        input {
+            max-width: 95%;
+        }
+        textarea {
+            max-width: 97.5%;
+            margin-bottom: 1.25rem;
+        }
+        label {
+            color: $burgundy-color;
+        }
+        .posalji-btn-contact-form-home-page {
+            @include fullColorBtn;
+            padding: .8em 1.6em;
+            letter-spacing: 1px;
+            font-weight: 600;
+            position: relative;
+            z-index: 1;
+            border: 0;
+            text-transform: uppercase;
+        }
+    }
+
+    .bg-color-contact {
+        .contact-header {
+            color: $burgundy-color;
+            margin-top: 4rem;
+            padding-bottom: 1.7rem;
+            font-size: 2.5rem;
+            font-weight: 700;
+            /*margin-left: 2.5rem;*/
+        }
+        .list-info {
+            list-style-type: none;
+            li {
+                font-size: 1.2rem;
+                color: $greyish-color;
+                padding-bottom: 2rem;
+                span {
+                    font-family: $font-for-numbers;
+                    color: $greyish-color;
+                }
+            }
+        }
+        .social-icons-contact {
+            padding-top: 0 !important;
+            @include social-icons;
+
+        }
+    }
+}
+/*posaljite nam poruku/kontaktirajte nas forma end*/
+
+
+
+/*back to top button start*/
+#backToTop {
+    .backToTop {
+        display: none;
+        position: fixed;
+        bottom: 5rem;
+        right: 6.25rem;
+        z-index: 9999;
+        /*height: 3.125rem;*/
+        width: 3.2rem;
+        /*background-image: url("/img/backToTopBlack.png") no-repeat;*/
+        cursor: pointer;
+        -webkit-filter: brightness(100%);
+        &:hover {
+            -webkit-filter: brightness(80%);
+            transition: all 1s ease;
+        }
+    }
+}
+/*back to top button end*/
+
+
+
+
+@media (max-width: 1200px) {
+    .text-box {
+        p {
+            padding-top: 0;
+        }
+    }
+
+    .card {
+        .card-title {
+            font-size: 1.5rem !important;
+            line-height: 1.2 !important;
+        }
+        .card-text {
+            padding: .5rem .7rem 3rem .7rem !important;
+        }
+        .card-text1 {
+            padding: 1rem 0.5rem 4.7rem 0.4rem !important;
+        }
+        .card-text2 {
+            padding: 1rem 0.4rem 3.2rem 0.4rem !important;
+        }
+    }
+
+    /*NAŠE USLUGE start*/
+    .services {
+        h3 {
+            font-size: 2.2rem;
+            margin-bottom: 1.6rem;
+        }
+        p {
+            font-size: 1.3rem;
+        }
+    }
+    /*NAŠE USLUGE end*/
+
+
+
+
+    .customer-logos {
+        .img-with-margin {
+            margin-top: 3.3rem !important;
+        }
+    }
+
+
+    .img-parallax {
+        min-height: 15rem;
+        p {   
+            line-height: 1.6;
+        }
+    }
+
+
+}
+
+
+
+
+
+@media (max-width: 992px) {
+    .card {
+        .card-content {
+            padding-bottom: 3rem;
+        }
+        .card-content2 {
+            padding-bottom: 2rem;
+        }
+        .card-title {
+            font-size: 1.1rem !important;
+            line-height: 1.2 !important;
+        }
+        .card-text {
+            font-size: 1rem !important;
+            padding: .8rem .7rem 4rem .7rem !important;
+
+        }
+        .card-text1 {
+            padding: 1rem 0.4rem 5.6rem 0.4rem !important;
+            font-size: 1rem !important;
+
+        }
+        .card-text2 {
+            padding: 1rem 0.4rem 4.2rem 0.4rem !important;
+            font-size: 1rem !important;
+
+        }
+        .detail-button {
+            padding: .8em 1.6em;
+            font-size: .8rem;
+        }
+    }
+    /*NAŠE USLUGE start*/
+    .services {
+        h3 {
+            font-size: 1.85rem;
+            margin-bottom: 1.6rem;
+        }
+        p {
+            font-size: 1.23rem;
+        }
+    }
+    /*NAŠE USLUGE end*/
+
+    .customer-logos {
+        .img-with-margin {
+            margin-top: 2.5rem !important;
+        }
+    }
+
+    .img-parallax {
+        p {   
+            font-size: 3.4vw;
+            line-height: 1.8;
+        }
+    }
+}
+
+@media screen and (max-width: 767px) {
+    #backToTop {
+        .backToTop {
+            bottom: 3rem;
+            right: 4rem;
+            width: 2.9rem;
+        }
+    }
+
+
+
+    .navbar-toggler {
+        /*            background: $white-color !important;*/
+
+        &:focus {
+            outline: none;
+
+        }
+    }
+    .navbar-collapse {
+        background: $burgundy-color;
+    }
+    .navbar-icons, .nav-link {
+        float: right;
+        font-size: 15px !important;
+    }
+    .navbar-icons {
+        display: inline-block !important;
+        margin-right: 7px;
+        .maliekran {
+            display: inline-block;
+
+        }
+    }
+
+    .bg-color-contact {
+        .contact-header {
+            margin-left: 2.8rem;
+        }
+        .list-info {
+            margin-left: 2.8rem;
+        }
+        .social-icons-contact {
+            margin-left: 2.8rem;
+        }
+    }
+
+    .karte {
+        .card {
+            margin-bottom: 3rem;
+        }
+    }
+
+    .img-parallax {
+        p {   
+            font-size: 3.2vw;
+            padding: 0 .5rem;
+            font-weight: 600;
+        }
+    }
+}
+
+@media screen and (max-width: 575px) {
+
+
+
+    .contact-us {
+        padding-bottom: 3.4rem;
+        .send-us-a-message-header {
+            margin-left: 0.938rem;
+            margin: 2rem 0 0 0.938rem;
+            padding-bottom: 1rem;;
+            font-size: 2rem;
+
+        }
+        .forma {
+            margin-left: 0.938rem;
+
+        }
+        .bg-color-contact {
+            .contact-header {
+                margin-left: 0.938rem;
+                font-size: 2rem;
+                margin-top: 3rem;
+            }
+            .list-info {
+                margin-left: 0.938rem;
+                li {
+                    font-size: 1.1rem;
+                    padding-bottom: 1.5rem;
+                    i {
+                        font-size: 1.8em;
+                    }
+                }
+            }
+            .social-icons-contact {
+                margin-left: 0.938rem;
+                .follow {
+                    font-size: 1.8rem;
+                }
+                i {
+                    width: 2.8rem;
+                    height: 2.8rem;
+                    line-height: 2.8rem;
+                    font-size: 1.7rem;
+                }
+            }
+        }
+    }
+    #backToTop {
+        .backToTop {
+            bottom: 2.5rem;
+            right: 3rem;
+            width: 2.5rem;
+        }
+    }
+    footer {
+        .links-social {
+            padding: 20px 0;
+        }
+    }
+    .services {
+        margin-top: 1.8rem;
+        h3 {
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+        }
+        p {
+            font-size: 1.1rem;
+        }
+    }
+
+    .karte {
+        .card {
+            margin-bottom: 2rem;
+        }
+    }
+    .img-parallax {
+        min-height: 10rem;
+        p {   
+            font-size: 3.2vw;
+            padding: 0 0.9rem;
+        }
+    }
+
+    .partneri {
+        h2 {
+            font-size: 1.7rem;
+            padding: 10px;
+        }
+    }
+}
+
+
+
+@media screen and (max-width: 400px) {
+
+
+    .img-parallax {
+        p {   
+            font-size: 4vw;
+            padding: 1rem 1rem 0 1rem;
+        }
+    }
+}
+
+
+
+
+@media only screen and (min-width:575px) and (max-width:768px){
+    #brandlogo {
+        max-width: 140px;
+    }
+}
+@media only screen and (min-width:447px) and (max-width:575px){
+    #brandlogo {
+        max-width: 140px;
+    }
+}
+@media only screen and (max-width:447px){
+    #brandlogo {
+        max-width: 90px;
+    }
+}

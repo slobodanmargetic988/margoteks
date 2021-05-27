@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+    </head>
+
+    <body>
+
+        <th:block th:fragment="view_photo (slika)">
+         
+               
+                <div class="panel-body">
+
+                 
+<!--                        <p th:text="${slika.title}"></p>-->
+                        <img th:src="${photoUrl + slika.id}" style="max-width: 100%" />
+                 
+
+                </div>
+           
+        </th:block>
+
+
+
+    </body>
+</html>

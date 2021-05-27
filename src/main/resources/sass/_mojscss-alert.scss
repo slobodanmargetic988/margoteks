@@ -1,0 +1,201 @@
+@import "./variables";
+@import "./mixins";
+
+
+.alert-custom {
+    background: darken($white-color, 9%);
+    color: $burgundy-color;
+    position: relative;
+    padding: .75rem 1.25rem;
+    margin-bottom: 1rem;
+    border: 1px solid transparent;
+    border-radius: .25rem;
+}
+
+.zatvori-alert {
+    float: right;
+    font-size: 1.5rem;
+    font-weight: 700;
+    line-height: 1;
+    color: $burgundy-color;
+    text-shadow: 0 1px 0 $white-color;
+    opacity: .5;
+    padding: 0;
+    background-color: transparent;
+    border: 0;
+    &:focus {
+        outline:none;
+    }
+}
+
+.xTimes {
+    font-size: 2rem;
+    color: $burgundy-color;
+}
+
+.alert-heading {
+    font-size: 1.4rem;
+    text-align: center;
+}
+
+
+/*Alert za porudzinu*/
+.alert-order {
+    padding: 20px;
+    color: $brown-black-color;
+    max-width: 500px;
+    height: 500px;
+    -webkit-box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
+    box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
+    border-radius: 0.2rem;
+    margin: 0 auto;
+    position: fixed;
+    top: 100px;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: $white-color;
+    z-index: 1;
+
+    .closebtn {
+        margin-left: 15px;
+        color: $redish-color;
+        /*font-weight: bold;*/
+        float: right;
+        font-size: 55px;
+        line-height: 20px;
+        cursor: pointer;
+        transition: 0.3s;
+        &:hover {
+            color: $brown-black-color;
+        }
+    }
+    .img-wrapp {
+        padding-top: 30px;
+        position: relative;
+        max-width: 150px;
+        max-height: 150px;
+        display: block;
+        margin: 0 auto;
+    }
+    .alert-img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+    .alert-naslov {
+        text-align: center;
+        font-family: "Playfair Display", serif;
+        font-size: 1.6rem;
+        margin-top: 3.2rem;
+        margin-bottom: 1.1rem;
+        font-weight: 600;
+    }
+    .alert-text {
+        line-height: 1.6;
+        text-align: center;
+        font-family: "Raleway", sans-serif;
+        font-size: 1.1rem;
+        margin-top: 0;
+        margin-bottom: 35px;
+    }
+    .nazad-button {
+        cursor: pointer;
+        outline: none;
+        background: $burgundy-color;
+        color: white;
+        transition: outline-offset 200ms ease;
+        border-radius: 0.25rem;
+        outline-color: #fcfcfc;
+        border: 0;
+        padding: 0.8em 1.6em;
+        position: relative;
+        z-index: 1;
+        letter-spacing: 1px;
+        text-transform: uppercase;
+        font-weight: 500;
+        margin: 0 auto;
+        display: block;
+        width: 35%;
+        border: none;
+        font-size: 14px;
+        text-align: center;
+        margin: 0 auto;
+        text-decoration: none;
+        font-family: "Raleway", sans-serif;
+        &:hover, &:focus  {
+            outline: 2px solid $white-color;
+            outline-offset: -6px;
+            background-color: $redish-color;
+            text-decoration: none;
+            color: $white-color;
+        }
+    }
+    /*   &:focus {
+           outline: 2px solid $white-color;
+           outline-offset: -6px;
+           background-color: #b23539;
+           text-decoration: none;
+           color: white;
+       }*/
+}
+
+@media screen and (max-width: 875px) {
+    .alert-order {
+        max-width: 80%;
+        height: 500px;
+    }
+    .nazad-button {
+        width: 50%;
+    }
+}
+
+
+
+
+//alert za uspesnu prijavu
+.alert-uspesna-prijava {
+    padding: 20px;
+    color: black;
+    max-width: 375px;
+    // max-height: 700px;
+    -webkit-box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
+    box-shadow: 2px 2px 15px 5px rgba(178, 178, 178, 0.75);
+    border-radius: 0.2rem;
+    // margin: 0 auto;
+    position: fixed;
+    top: 120px;
+    left: 15px;
+    right: 0;
+    background: $white-color;
+    z-index: 1;
+}
+.close-btn {
+    margin-left: 0.938rem;
+    color: $burgundy-color;
+    font-weight: bold;
+    float: right;
+    font-size: 2rem;
+    line-height: 1.25rem;
+    cursor: pointer;
+    transition: 0.3s;
+    &:hover {
+        color: $brown-black-color;
+    }
+}
+
+.alert-heading {
+    text-align: center;
+    /*font-family: $font-big-header;*/
+    font-size: 1.3rem;
+    margin-left: .5rem;
+    font-weight: 500;
+}
+
+.alert-poruka-uspesna-prijava {
+    margin-top: 3rem;
+    margin-bottom: 1rem;
+}
+.fa-check-circle {
+    color: $burgundy-color;
+}

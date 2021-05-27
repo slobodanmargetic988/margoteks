@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+
+    <head>
+
+    </head>
+
+    <body>
+
+        <th:block th:fragment="footer">
+
+         
+
+
+            <footer class="animation-element bounce-up">
+                <div class="links-social">
+                    <div class="container-class container">
+                        <div class="links-social-inner">
+                            <div class="row">
+                                <div class="col-md-8">
+                                    <div class="link-groups">
+                                        <div class="row">
+                                            <div class="col-sm-4">
+                                                <div class="links">
+                                                    <h3 class="title">Informacije</h3>
+                                                    <ul>
+                                                        <li><a th:href="@{/onama}">O nama</a></li>
+                                                        <li><a th:href="@{/infoDostava}">Informacije o dostavi i reklamacijama</a></li>
+                                                        <li><a th:href="@{/usloviKoriscenja}">Uslovi korišćenja</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="links">
+                                                    <h3 class="title">Vaš nalog</h3>
+                                                    <ul>
+                                                        <li><a th:href="@{/registration}">Uloguj se</a></li>
+                                                        <li><a th:href="@{/registration}">Registruj se</a></li>
+                                                        <li><a th:href="@{/shoppingCart}">Vaša korpa</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                            <div class="col-sm-4">
+                                                <div class="links">
+                                                    <h3 class="title">Preporuka</h3>
+                                                    <ul>
+                                                        <li><a th:href="@{/petmania}" >Petmania</a></li>
+                                                        <li><a th:href="@{/enterijer}" >HORECA tekstil</a></li>
+                                                        <li><a th:href="@{/dekorativniProgram}">Dekorativni tekstil za kuću</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="col-md-4">
+                                    <div class="social-newsletter">
+                                        <div class="social-links">
+                                            <h3 class="title">Povežite se sa nama</h3>
+                                            <ul class="social list-inline list-unstyled">
+                                                <li><a href="https://www.facebook.com/margoteks/" ><i class="fa fa-facebook"></i></a></li>
+                                                <li><a href="#"><i class="fa fa-instagram"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="copyright">© Margotekstil | All rights reserved. <br>
+                </div>
+
+            </footer>
+
+        </th:block>
+
+
+
+
+    </body>
+</html>

@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title> Margotekstil Registracija</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/registracija.jpg" class="header-img" alt="header-image">
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>MARGOTEKSTIL</h2>
+                <p>REGISTRACIJA</p>
+            </div>
+
+            <!--registration/login-->
+            <section id="regi-login-form">
+                <div class="container container-registration">
+                    <div class="user signinBx">
+                        <div class="formBx">
+                            <form  th:action="@{/login}"  method="POST">
+                                <h2>Prijava za registrovane korisnike</h2>
+                                <input type="email" name="email" placeholder="Email"   />
+                                <input class="mb-3" type="password" name="password" placeholder="Lozinka (minimum 8 karaktera)" minlength="8" required />
+                                <div class="checkbox ">
+                                    <label class="rememberMe mb-0"><input class="remember-me" type="checkbox">&nbsp; Zapamti me</label>
+                                </div>
+                                <div class="checkbox">
+                                    <label class="rememberMe"><input class="remember-me" type="checkbox">&nbsp; Prihvatam <span><a class="uslovi-koriscenja">uslove korišćenja</a></span></label>
+                                </div>
+                                <input type="submit" name="" value="Prijavite se" />
+                                <!--<p class="signup"> Nemate nalog ? <button href="#" type="button" onclick="toggleRegisterSignin();">Registrujte svoj nalog</button> </p>-->
+                                <p><button href="#" type="button" class="signup" onclick="toggleRegisterSignin();">Nemate nalog ?</button></p>
+                                <!--<p class="signup singups"> Zaboravili ste lozinku ? <button href="#" type="button" onclick="toggleForgotSignin();">Resetujte lozinku</button> </p>-->
+                                <p><button href="#" class="signup singups" type="button" onclick="toggleForgotSignin();">Zaboravili ste lozinku ?</button> </p>
+                            </form>
+                        </div>
+                    </div>
+
+                    <div class="user signupBx">
+                        <div class="formBx">
+                            <form th:action="@{/register}"  method="POST" >
+                                <h2>Registracija novog naloga</h2>
+                                <input type="text" name="ime" placeholder="Ime " />
+                                <input type="text" name="prezime" placeholder="Prezime" />
+                                <input type="email" name="email" placeholder="Email" />
+                                <input type="password" name="lozinka" placeholder="Lozinka (minimum 8 karaktera)" minlength="8" required />
+                                <input type="password" name="lozinkaRepeat" placeholder="Potvrdi lozinku" />
+                                <input type="text" name="adresa" placeholder="Adresa" />
+                                <input type="number" name="telefon" placeholder="Telefon" class="no-arrow" />
+                                <input type="submit" name="" value="Registruj se"/>
+                                <p style="font-family: 'Raleway', sans-serif;"> Već imate nalog ? <button href="#" type="button" class="signup" onclick="toggleRegisterSignin();">Prijavite se</button></p>
+
+                            </form>
+                        </div>
+                    </div>
+                    <div class="user forgotBx">
+                        <div class="formBx">
+                            <form action=""  onsubmit="return false;">
+                                <h2>Promena lozinke</h2>
+                                <input type="email" name="email" placeholder="Email adresa" />
+                                <input type="submit" name="" value="Pošalji zahtev" />
+                                <p> <button href="#"  class="signup" type="button" onclick="toggleForgotSignin();">&larr; Nazad</button></p>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!--end of registration/login-->
+
+
+
+
+            <th:block th:insert="fragments/footer :: footer" />
+
+            <div id="backToTop"></div>
+
+            <th:block th:insert="fragments/scripts :: scripts" />
+
+    </body>
+
+</html>

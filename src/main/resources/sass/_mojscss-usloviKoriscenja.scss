@@ -1,0 +1,57 @@
+@import "./variables";
+
+.body-content {
+    .content {
+        margin: 2rem 0 3rem 0;
+        h1 {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+        }
+        .italic {
+            font-style: italic;
+        }
+        .email-poverenik {
+            color: $redish-color;
+            &:hover {
+                color: #00a5b5;
+            }
+        }
+
+
+    }
+}
+
+@media screen and (max-width:575px) {
+    .body-content {
+        .content {
+            h1 {
+                font-size: 1.8rem;
+            }
+        }
+    }
+}
+
+
+
+    @media screen and (max-width:400px) {
+        .body-content {
+            .content {
+                h1 {
+                    font-size: 1.56rem;
+                }
+            }
+        }
+
+    }
+
+
+
+
+
+
+
+
+
+
+
+

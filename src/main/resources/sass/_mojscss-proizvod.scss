@@ -1,0 +1,496 @@
+@import "./variables";
+@import "./mixins";
+
+.single-product-show {
+    padding: 5rem 0 5rem 0;
+    @include breadcrumb;
+    .breadcrumb {
+        font-size: 1.3rem;
+        padding-bottom: 1rem;
+    }
+    h1 {
+        font-family: $font-rest;
+        color: $brown-black-color;
+        font-size: 2.3rem;
+    }
+    h2 {
+        font-family: $font-for-numbers;
+        color: $burgundy-color;
+        font-size: 1.8rem;
+    }
+    .description {
+        p {
+            font-family: $font-rest;
+            color: $greyish-color;
+            font-size: 1.1rem;
+        }
+    }
+    form { 
+        .quantity {
+            input {
+                display: inline-block;
+                /*height: 3.125rem;*/
+                padding: 0;
+                text-align: center;
+                border: none;
+            }
+            .qty {
+                border: none;
+                font-size: 1.063rem;
+                font-family: $font-rest;
+                padding-top: 0.313rem;
+                max-width: 7%;
+                padding: .3rem .9rem;
+            }
+            .minus, .plus {
+                /*width: 3.125rem;*/
+                background-color: $burgundy-color;
+                color: $white-color;
+                padding: .3rem .9rem;
+                /*font-size: 1.563rem;*/
+                font-family: $font-rest;
+                outline: none;
+                border-radius: .25rem;
+                &:hover {
+                    background-color: $redish-color;
+                }
+            }
+        }
+        input[type="button"] {
+            cursor: pointer;
+        }
+    }
+    /*add to cart button*/
+    .add-to-cart-with-icon-productAdminPage {
+        @include addToCartWithIcon;
+        line-height: 4rem;
+    }
+    .add-to-cart-with-icon-productPage {
+        @include addToCartWithIcon;
+        line-height: 4rem;
+    }
+    /*end of add to cart button*/
+
+    h3 {
+        margin: 5rem 0 3rem 0;
+        font-family: $font-rest;
+        color: $brown-black-color;
+        font-size: 2rem;
+    }
+    h4 {
+        margin-top: 0.625rem;
+        font-family: $font-rest;
+        color: $brown-black-color;
+        font-size: 1.5rem;
+    }
+    .similar-products {
+        cursor: pointer;
+    }
+    .price {
+        font-family: $font-for-numbers;
+        color: $burgundy-color;
+        font-size: 1.2rem;
+    }
+    .product-img {
+        width: 570px;
+        height: 500px;    
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        img {
+            max-width: 100%;
+            max-height: 100%;
+
+        }
+    }
+}
+
+
+
+.add-img-btn-adminProductPage, .edit-product-adminProductPage {
+    @include outlineBtn;
+    font-size: 1.063rem;
+    line-height: 1.875rem;
+    letter-spacing: 0.02em;
+    font-weight: 600;
+    padding: 0.3rem .8rem;
+}
+
+
+
+
+
+
+.addedToCart-window {
+    display: block;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    z-index: 9999999;
+    visibility: hidden;
+    .addedToCart-window-content {
+        display: block;
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        background: $white-color;
+        width: 50%;
+        max-width: 500px;
+        min-width: 300px;
+        padding: 4.375rem 1.25rem 1.25rem;
+        transition: all 0.25s ease;
+        top: 0px;
+        /*bottom: 550px;*/
+        h4 {
+            font-size: 1.313rem;
+            text-align: left;
+            font-weight: 400;
+            letter-spacing: 0.2px;
+            padding: 0.938rem 0.625rem 0.938rem 5rem;
+            line-height: 1.313rem;
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            color: $brown-black-color;
+            margin: 0;
+            border-bottom: 1px solid darken($white-color,12%);
+            &:before {
+                font-family: fontawesome;
+                content: "\F058";
+                padding-bottom: 14px;
+                font-size: 2.625rem;
+                color: $burgundy-color;
+                display: block;
+                position: absolute;
+                left: 20px;
+                top: 14px;
+            }
+        }
+        .productName {
+            font-size: 1.15rem;
+            font-weight: 600;
+            margin-bottom: .4rem;
+        }
+        .master-price {
+            font-size: 1.3rem;
+        }
+        .shop-buttons {
+            margin-top: 6.5rem;
+
+            .btn-cart {
+                margin-right: 0.438rem;
+                color: $white-color;
+                font-weight: 600;
+                background: $burgundy-color;
+                line-height: 2.063rem;
+                font-size: 0.938rem;
+                font-weight: 600;
+                z-index: 99;
+                outline: none;
+                padding: 0 0.75rem 0.125rem;
+                border-radius: 0.188rem;
+                border: 2px solid $burgundy-color;
+                &:hover {
+                    background: $redish-color;
+                    border: 2px solid $redish-color;
+                }
+            }
+            .btn-shop-outline {
+                color: $burgundy-color;
+                cursor: pointer;
+                background: $white-color;
+                border: 2px solid $burgundy-color;
+                line-height: 2.063rem;
+                font-size: 0.938rem;
+                font-weight: 600;
+                z-index: 99;
+                outline: none;
+                padding: 0 0.75rem 0.125rem;
+                border-radius: 0.188rem;
+                &:hover {
+                    background: $redish-color;
+                    color: $white-color;
+                    border-color: $redish-color;
+                }
+            }
+        }
+        figure {
+            text-align: center;
+            text-align: left;
+        }
+    }
+}
+.addedToCart-window.active {
+    opacity: 1;
+    visibility: visible;
+    -webkit-transition: opacity 0.3s, visibility 0s;
+    -moz-transition: opacity 0.3s, visibility 0s;
+    transition: opacity 0.3s, visibility 0s;
+    transition-delay: 0.5s;
+}
+
+
+@media screen and (max-width: 992px) {
+    .single-product-show {
+        h1, h3 {
+            font-size: 1.9rem;
+        }
+        h2 {
+            font-size: 1.5rem;
+        }
+        .description {
+            p {
+                font-size: 1.05rem;
+            }
+        }
+        form {
+            .quantity {
+                .qty {
+                    max-width: 10%;
+                }
+            }
+        }
+    }
+      .img-list img {
+        height: 7rem;
+        width: 32.5%;
+    }
+    .proizvod-slika {
+        width: 40vw;
+    height: 35vh;
+    }
+}
+
+@media screen and (max-width: 875px) {
+    .btn-cart {
+        margin-bottom: .5rem;
+    }
+    .shop-buttons {
+        margin-top: 1rem !important;
+    }
+
+}
+
+/*@media screen and (min-width: 450px) {
+    .btn-shop-outline {
+
+        padding: 0 0.563rem 0.125rem !important;
+        font-size: .8rem !important;
+
+    }
+}*/
+
+@media screen and (max-width: 673px) {
+    .productName{ 
+        font-size: 1rem !important;
+    }
+}
+
+
+
+
+
+
+.dodajuKorpu-admin-shop {
+    @include fullColorBtn;
+    border: 1px solid $burgundy-color;
+    padding: 0.5em;
+    position: relative;
+    z-index: 1;
+    /*text-transform: uppercase;*/
+    letter-spacing: .03rem;
+    font-size: .96rem;
+    width: 100%;
+    margin-bottom: .5rem;
+
+    &:hover,
+        &:focus {
+        border: 1px solid $redish-color;
+
+    }
+}
+
+.ukloniProizvod-admin-shop {
+    @include outlineBtn;
+    padding: 0.5em;
+    position: relative;
+    z-index: 1;
+    /*text-transform: uppercase;*/
+    letter-spacing: .03rem;
+    font-size: .96rem;
+    font-weight: 500;
+    width: 100%;
+
+}
+
+.proizvod-slika {
+    width: 40vw;
+    object-fit: cover; 
+    height: 40vh;
+}
+
+@media screen and (max-width:1200px) {
+    .single-product-show {
+    padding: 4rem 0 5rem 0;
+}
+    .proizvod-slika {
+        height: 100%;
+        height: 35vh;
+        .img-list img {
+            height: 8rem;
+            width: 32.7%;
+            display: inline;
+        }
+        .dodajuKorpu-admin-shop {
+            font-size: 0.9em;
+        }
+        .ukloniProizvod-admin-shop {
+            font-size: 0.9em;
+
+        }
+    }
+}
+
+
+/*@media (min-width: 576px){*/
+.img-list img {
+    height: 10rem;
+    width: 32.78%;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    display: inline;
+}
+.img-item {
+    display: inline;
+}
+/*}*/
+
+
+@media (max-width: 768px){
+    .img-list img {
+        height: 5rem;
+        width: 32.3%;
+    }
+    .proizvod-slika {
+        height: 25vh;
+    }
+    .dodajuKorpu-admin-shop {
+
+        padding: 0.4rem;
+        font-size: .9rem;
+    }
+    .ukloniProizvod-admin-shop {
+        padding: 0.3rem;
+        font-size: .9rem;
+
+    }
+    .single-product-show {
+        h1, h3 {
+             font-size: 1.7rem;
+        }
+        h2 {
+             font-size: 1.4rem;
+        }
+    }
+    
+    .edit-product-adminProductPage { 
+            margin-bottom: .8rem;
+    }
+
+
+}
+
+@media (max-width: 575px){
+    .img-list img {
+        height: 10rem;
+        width: 32.8%;
+    }
+    .proizvod-slika {
+        width: 100%;
+        object-fit: cover;
+        height: 90vw;
+    }
+    .dodajuKorpu-admin-shop, .ukloniProizvod-admin-shop  {
+        padding: 0.4rem;
+        font-size: .9rem;
+    }
+    .single-product-show {
+        .breadcrumb {
+            font-size: 1.08rem;
+    padding-bottom: 0;
+        }
+    }
+}
+
+
+
+.product-description {
+    font-size: 1.4rem;
+    color: $brown-black-color;
+    margin-bottom: 0;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-family: $font-for-numbers;
+    color: $burgundy-color;
+    font-weight: 600;
+    text-align: center;
+}
+
+.dodajuKorpu-button {
+    /*    @include flexCenter;
+        cursor: pointer;
+        border: 0;
+        background: $burgundy-color;
+        color: $white-color;
+        padding: 0.8em 1.6em;
+        position: relative;
+        z-index: 1;
+        transition: outline-offset 200ms ease;
+        letter-spacing: 1px;
+        border-radius: .25rem;
+        text-transform: uppercase;
+        font-weight: 500;
+        text-decoration: none;
+        outline-color: #fcfcfc;
+        position: absolute !important;
+        bottom: 1rem;
+        right: 50%;
+        transform: translate(50%, -50%);
+        position: absolute !important;
+        bottom: 1rem;
+        right: 50%;
+        &:hover,
+            &:focus {
+            outline: 2px solid $white-color;
+            outline-offset: -6px;
+            background-color: $redish-color;
+        }*/
+
+}
+
+.dodajuKorpu-shop-page {
+    /*@include flexCenter;*/
+    @include fullColorBtn;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    padding: .5rem 1rem;
+    border: none;
+    outline: none;
+}
+
+
+
+
+

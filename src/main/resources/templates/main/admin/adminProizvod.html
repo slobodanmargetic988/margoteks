@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Proizvod</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/proizvodi-head.jpg" class="header-img" alt="header-image">
+
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>MARGOTEKSTIL</h2>
+                <p>KREVET ZA PSE</p>
+            </div>
+
+            <!-- --popup sa svime sto treba -->                            
+            <div id="addedToCart-window" >
+                <div class="addedToCart-window-content ">
+                    <h4 id="ProizvodDodat">Proizvod je dodat u korpu</h4>
+                    <div class="container">
+
+                        <div class="row mt-3">
+                            <div class="col col-md-4 figure-left">
+                                <figure class="master-img"><img id="popupimg" src="/img/170/51" class="img-fluid" style="height: 200px; width: 350px;object-fit: cover;"/></figure>
+                            </div>
+                            <div class="col col-md-8">
+                                <span class="productName" id="popupnaziv"  text=""> </span><br>
+                                    <span class="master-price" id="popupcena" text=""></span> <span style="">RSD</span>
+                                    <div class="shop-buttons ">
+                                        <a th:href="@{/shoppingCart}"><button class="btn-cart">Idi u korpu</button></a>
+                                        <a th:href="@{/admin/shop}" ><button style="padding: 0 .6rem 0.15rem !important;" class="btn-shop-outline">Nazad na shop</button></a>
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- --popup sa svime sto treba -->
+
+
+            <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+            <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+
+
+            <div class="single-product-show">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb">
+                            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                            <li class="breadcrumb-item"><a th:href="@{/admin/shop}">Proizvodi</a></li>
+                            <li class="breadcrumb-item active" aria-current="page">Krevet za pse</li>
+                        </ol>
+                    </nav>
+                    <div class="row">
+                        <th:block>
+                            <div class="col-sm-6">
+                                <th:block th:if="${proizvod.glavnaslika!=null}">
+                                    <th:block th:if="${proizvod.glavnaslika!=null}">
+                                        <div class="row">
+                                            <section id="prikazShow">
+                                                <div class="prikaz img-wrapper" >
+                                                    <a th:href="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" id="show-img-link">      
+                                                        <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" id="show-img" class="img-fluid">
+                                                    </a>
+                                                    <div class="img-overlay"></div>
+                                                </div>
+
+                                                <div class="small-img ">
+                                                    <img src="https://cdn2.iconfinder.com/data/icons/arrows-vol-1-1/32/left-512.png" class="icon-left" alt="" id="prev-img">
+                                                        <div class="small-container">
+                                                            <th:block th:if="${not #lists.isEmpty(proizvod.photos)}">
+
+                                                                <div id="small-img-roll" style="left: 0px;">
+                                                                    <!--                                                            <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" class="show-small-img" style="border: 1px solid rgb(149, 27, 37); padding: 2px;">-->
+
+                                                                    <img id="007" alt="Glavna slika" class="show-small-img sledece" style="border: 1px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" />
+
+
+
+                                                                    <th:block th:each="slika,iterator:${proizvod.photos}" >       
+                                                                        <!--                                                                    <img  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" th:alt="${iterator.count}+'. slika'" class="show-small-img" style="border: none; padding: 0px;" alt="now">-->
+
+                                                                        <img th:id="'007'+${iterator.index}" th:alt="${iterator.count}+'. slika'" class="show-small-img sledece" style="border: none; padding: 0px;"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" />
+
+
+                                                                    </th:block>  
+                                                                </div>
+                                                            </th:block>
+                                                        </div>
+                                                        <img src="https://cdn2.iconfinder.com/data/icons/arrows-vol-1-1/32/left-512.png" class="icon-right" alt="" id="next-img">
+                                                            </div>
+                                                            </section>
+
+                                                            </div>
+                                                            <!--<img class=""  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}">-->
+                                                            </th:block>
+                                                            </th:block>
+                                                            <th:block th:if="${proizvod.glavnaslika==null}">
+                                                                <img class="" style="height: 100%; width: 100%; object-fit: cover" src="/img/imageNotFound.jpg">
+                                                                    <!--ubaciti precrtanu sliku-->
+                                                            </th:block>
+                                                            </div>
+                                                            <div class="col-sm-6">
+                                                                <h1><span th:text="${proizvod.getIme()}"></span></h1>
+                                                                <h2><span th:text="${proizvod.getCena()}"></span>&nbsp;RSD</h2>
+                                                                <div class="description mt-4">
+                                                                    <p><span th:text="${proizvod.getOpis()}"></span></p>
+                                                                    <p><span style="font-weight: 600">Kategorija: </span><span th:text="${proizvod.getKategorija()}"></span></p>
+                                                                    <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
+                                                                    <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>                                   
+                                                                </div>
+                                                                <form method='POST' action='#'>
+                                                                    <div class="quantity">
+                                                                        <input type='button'  value='-' class='minus' field='quantity' />
+                                                                        <input  type='text' name='quantity' value='1' class='qty'id="kolicina"  />
+                                                                        <input type='button' value='+' class='plus' field='quantity' />
+                                                                    </div>
+                                                                    <a style="text-decoration: none;">
+                                                                        <span class=" dodajKolicinuJS add-to-cart-with-icon-productAdminPage buttonAdd2Cart"id="buttonAdd2Cart" th:pid="${proizvod.getId()}" th:photoid="${proizvod.glavnaslika.id}" th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" >Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
+                                                                        </span>
+                                                                    </a>
+                                                                    <br>  <a th:href="@{/admin/izmeniProizvod/{proizvodId} (proizvodId=${proizvod.id})}"  class="mr-1"><button type="button" class="edit-product-adminProductPage" >Izmeni proizvod</button></a>
+                                                                            <a th:href="@{/admin/izmeniProizvod/{proizvodId}/dodajSliku (proizvodId=${proizvod.id})}"  ><button type="button" class="add-img-btn-adminProductPage" >Dodaj sliku</button></a>
+
+                                                                            </form> 
+
+                                                                            <th:block th:insert="fragments/addToCartPopup :: addToCartPopup (${proizvod})" />
+
+                                                                            </div>
+                                                                            </th:block>
+                                                                            <div class="col-sm-12 mt-3">
+                                                                                <h3>Slični proizvodi</h3>
+                                                                            </div>
+                                                                            <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}">
+
+                                                                                <th:block th:each="sproizvod : ${proizvod.slicniproizvodi}" >
+                                                                                    <th:block th:if="${sproizvod.active == true} " > 
+
+                                                                                        <th:block th:insert="fragments/shopFragment :: jedanProizvodAdmin (${sproizvod})" />
+
+                                                                                    </th:block>
+                                                                                </th:block>
+
+
+
+
+
+
+                                                                            </th:block>
+                                                                            <th:block th:if="${#lists.isEmpty(proizvod.slicniproizvodi)}">
+                                                                                <th:block th:each="sproizvod : ${prvaTriProizvoda}" >
+                                                                                    <th:block th:if="${sproizvod.active == true} " > 
+
+                                                                                        <th:block th:insert="fragments/shopFragment :: jedanProizvodAdmin (${sproizvod})" />
+
+                                                                                    </th:block>
+                                                                                </th:block> 
+
+                                                                            </th:block>
+
+                                                                            </div>
+                                                                            </div>
+                                                                            </div>
+
+
+                                                                            <th:block th:insert="fragments/footer :: footer" />
+
+                                                                            <div id="backToTop"></div>
+
+                                                                            <th:block th:insert="fragments/scripts :: scripts" />
+                                                                            <th:block th:insert="fragments/scripts :: shopScriptsRegistered" />
+                                                                            <script th:src="@{/js/proizvodSlikeCarousel.js}" type="text/javascript"></script>
+                                                                            <script th:src="@{/js/proizvodSlikeSlide.js}" type="text/javascript"></script>
+                                                                            </body>
+
+                                                                            </html>
+

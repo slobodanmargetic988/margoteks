@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Proizvodi</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/proizvodi-head.jpg" class="header-img" alt="header-image">
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>MARGOTEKSTIL</h2>                                              
+                <p>PRODAVNICA</p>
+            </div>
+
+            <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+                <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+            
+            <section id="products-show">
+                
+
+                <div class="container">
+
+                    <form th:action="@{/admin/noviProizvod/save}" enctype="multipart/form-data" method="post" class="form-horizontal adminNoviProizvodForma" autocomplete="off">
+
+                        <div class="form-group ">
+                            <h3 class="dodavanje-novog-proizvoda col-md-8">Dodavanje novog proizvoda</h3>
+                            <div class="col-md-8 centrirajFormuInput">
+                                <label>Naziv proizvoda:</label>
+                                <input type="text" class=" form-control input-custom-border"  name="ime" >
+                            </div>
+                            <br>
+                                <div class="col-md-8 centrirajFormuInput ">
+                                    <label>Opis proizvoda:</label>
+                                    <input type="text" class=" form-control input-custom-border"  name="opis" >
+                                </div>
+                                <br>
+                                    <div class="col-md-8 centrirajFormuInput ">
+                                        <label>Keywords (ključne reči):</label>
+                                        <input type="text" class=" form-control input-custom-border"  name="keywords" >
+                                    </div>
+                                    <br>
+                                        <div class="col-md-8 centrirajFormuInput ">
+                                            <label>Kategorija:</label>
+                                            <input type="text" class=" form-control input-custom-border"  name="kategorija" >
+                                        </div> 
+                                        <br>
+                                            <div class="col-md-8 centrirajFormuInput ">
+                                                <label>Cena:</label>
+                                                <input type="text" step="0.01"  class=" form-control input-custom-border"  name="cena" >
+                                            </div>
+                                            <br>
+                                                <div class="col-md-8 centrirajFormuInput ">
+                                                    <label>PDV:</label>
+                                                    <input type="text" step="0.01"  class=" form-control input-custom-border"  name="pdv" >
+                                                </div>  
+                                                <br>
+                                                    <div class="col-md-8 centrirajFormuInput ">
+                                                        <label>Dimenzije:</label>
+                                                        <input type="text" class=" form-control input-custom-border"  name="dimenzije" >
+                                                    </div>  
+                                                    <br>
+                                                        <div class="col-md-8 centrirajFormuInput ">
+                                                            <label>Kilaža:</label>
+                                                            <input type="text" step="0.01" class=" form-control input-custom-border"  name="kilaza" >
+                                                        </div> 
+                                                        <br>
+                                                            <div class="col-md-8 centrirajFormuInput ">
+                                                                <label>Glavna slika (naslov):</label>
+                                                                <input type="text"  class=" form-control input-custom-border"  name="title" >
+                                                            </div> 
+                                                            <div class="col-md-8 centrirajFormuInput custom-file-upload">
+                                                                <label>(*.jpg, max. 80 MB)</label>
+                                                                <br>
+                                                                    <!--<input type="file" name="file">-->
+
+                                                                    <!-- actual upload which is hidden -->
+                                                                    <input type="file" name="file" id="actual-btn" hidden/>
+
+                                                                    <!-- custom upload button -->
+                                                                    <label for="actual-btn"  class="btn-choose-file">Choose File</label>
+
+                                                                    <!-- name of file chosen -->
+                                                                    <span id="file-chosen">No file chosen</span>
+                                                            </div> 
+                                                            <br>
+                                                                <div class="col-md-8 centrirajFormuInput ">
+                                                                    <label>Dodavanje sličnih proizvoda:</label>
+                                                                    <select class="col-md-12 form-control input-custom-border mb-3"  name="slicniProizvod1"  >
+                                                                        <th:block th:each="proizvod : ${listaProizvoda}">
+                                                                            <th:block th:if="${proizvod.active==true}">
+                                                                                <option   th:value="${proizvod.id}" th:text="${proizvod.ime}">Tekst</option>
+                                                                            </th:block>
+                                                                        </th:block>
+                                                                    </select> 
+                                                                    <select class="col-md-12 form-control input-custom-border mb-3"  name="slicniProizvod2"  >
+                                                                        <th:block th:each="proizvod : ${listaProizvoda}">
+                                                                            <th:block th:if="${proizvod.active==true}">   
+                                                                                <option  th:value="${proizvod.id}" th:text="${proizvod.ime}">Tekst</option>
+                                                                            </th:block>
+                                                                        </th:block>
+                                                                    </select> 
+                                                                    <select class="col-md-12 form-control input-custom-border"  name="slicniProizvod3"  >
+                                                                        <th:block th:each="proizvod : ${listaProizvoda}">
+                                                                            <th:block th:if="${proizvod.active==true}">     
+                                                                                <option  th:value="${proizvod.id}" th:text="${proizvod.ime}">Tekst</option>
+                                                                            </th:block>
+                                                                        </th:block>
+                                                                    </select> 
+                                                                </div>
+
+                                                                </div>
+
+                                                                <div class=" col-md-8 buttonsSaveAndBack" >
+                                                                    <button type="submit" class="btn-save">Sačuvaj</button>
+                                                                    <a th:href="@{/admin/shop}" class="btn-back">Nazad</a>
+                                                                </div>   
+
+                                                                </form>
+
+                                                                </div>
+                                                                </section>
+
+                                                                <th:block th:insert="fragments/footer :: footer" />
+
+                                                                <div id="backToTop"></div>
+
+
+                                                                <th:block th:insert="fragments/scripts :: scripts" />
+                                                                <script>
+                                                                    const actualBtn = document.getElementById('actual-btn');
+
+                                                                    const fileChosen = document.getElementById('file-chosen');
+
+                                                                    actualBtn.addEventListener('change', function () {
+                                                                        fileChosen.textContent = this.files[0].name;
+                                                                    });
+                                                                </script>
+                                                                </body>
+
+                                                                </html>
