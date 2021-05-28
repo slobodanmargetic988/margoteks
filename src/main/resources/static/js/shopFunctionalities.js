@@ -266,7 +266,7 @@ var id = $(element).attr("pid");
         success: function (response) {
         //   alert(response);
 if (response == "Proizvod je već u korpi!"){
-     $("#ProizvodDodat").text("Proizvod je već u korpi");
+     $("#ProizvodDodatJS").text("Proizvod je već u korpi");
 }
         $("#popupnaziv").text(naziv);
         $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
@@ -378,7 +378,7 @@ var id = $(element).attr("pid");
           
         //   alert(response);
 if (response == "Proizvod je već u korpi!"){
-     $("#ProizvodDodat").text("Proizvod je već u korpi");
+     $("#ProizvodDodatJS").text("Proizvod je već u korpi");
 }
         $("#popupnaziv").text(naziv);
         $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);

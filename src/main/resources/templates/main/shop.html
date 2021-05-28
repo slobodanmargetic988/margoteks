@@ -73,27 +73,26 @@
 
 
                             <!-- --popup sa svime sto treba -->                            
-                            <div id="addedToCart-window" >
-                                <div class="addedToCart-window-content ">
-                                    <h4 id="ProizvodDodat">Proizvod je dodat u korpu</h4>
-                                    <div class="container">
-                                        <div class="row mt-3">
-                                            <div class="col col-md-5 figure-left">
-                                                <figure class="master-img"><img id="popupimg" src="" class="img-fluid" /></figure>
+                        <div id="addedToCart-window" >
+                            <div class="addedToCart-window-content ">
+                                <h4 id="ProizvodDodatJS">Proizvod je dodat u korpu</h4>
+                                <div class="row mt-3" style="padding:.5rem">
+                                    <div class="col-md-6 figure-left">
+                                        <div class="master-img"><img id="popupimg" src="" class="popup-slika img-fluid" /></div>
+                                    </div>
+                                    <div class="col-md-6 figure-right">
+                                        <span class="productName" id="popupnaziv"  text=""> </span><br>
+                                            <span class="master-price" id="popupcena" text=""></span> <span style="">RSD</span>
+                                            <div class="shop-buttons row">
+                                                <a th:href="@{/shoppingCart}" class="btn-cart col-12">Idi u korpu</a>
+
+                                                <a class="btn-shop-outline col-12" id="nazad-na-shop-btn">Nazad</a>
                                             </div>
-                                            <div class="col col-md-7">
-                                                <span class="productName" id="popupnaziv"  text=""> </span><br>
-                                                    <span class="master-price" id="popupcena" text=""></span> <span style="">RSD</span>
-                                                    <div class="shop-buttons ">
-                                                        <a th:href="@{/shoppingCart}"><button class="btn-cart">Idi u korpu</button></a>
-                                                        <button class="btn-shop-outline" id="nazad-na-shop-btn">Nazad</button>
-                                                    </div>
-                                            </div>
-                                        </div>
                                     </div>
                                 </div>
                             </div>
-                            <!-- --popup sa svime sto treba -->          
+                        </div>
+                        <!-- --popup sa svime sto treba -->    
 
                             <div class="row">
 
@@ -123,9 +122,9 @@
 
 
                 <th:block th:insert="fragments/scripts :: scripts" />
-
+ </div>
                 <th:block th:insert="fragments/scripts :: shopScriptsRegistered" />
-        </div>
+       
 
     </body>
 

@@ -89,9 +89,9 @@ function prikaziPopup(element, vecukorpi) {
     $("#popupcena").text(cena);
     $("#addedToCart-window").css("display", "block");
     if (vecukorpi){
-         $("#ProizvodDodat").text("Proizvod je već u korpi");
+         $("#ProizvodDodatJS").text("Proizvod je već u korpi");
     }else{
-         $("#ProizvodDodat").text("Proizvod je dodat u korpu");
+         $("#ProizvodDodatJS").text("Proizvod je dodat u korpu");
     }
 
 }

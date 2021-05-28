@@ -8,7 +8,7 @@ $(document).ready(function () {
         dots: false,
         pauseOnHover: false,
         responsive: [{
-                breakpoint: 768,
+                breakpoint: 767,
                 settings: {
                     slidesToShow: 4
                 }
