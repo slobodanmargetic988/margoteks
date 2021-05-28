@@ -2,3 +2,4 @@
 uploads/
 target/
 src/main/resources/application.properties
+pom.xml
