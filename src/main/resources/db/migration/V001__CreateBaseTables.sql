@@ -16,9 +16,8 @@ PRIMARY KEY (id)
 
 create table `margotekstil`.`korpa` (
 `id` int NOT NULL AUTO_INCREMENT,
-`user_id` int not null,
-primary key (`id`),
-foreign key(`user_id`) references `users`(`id`)
+
+primary key (`id`)
 )ENGINE=InnoDB;
 
 
