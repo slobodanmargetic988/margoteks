@@ -7,6 +7,7 @@ package com.margotekstil.controller;
 
 import com.margotekstil.model.Photo;
 import com.margotekstil.model.Proizvodi;
+import com.margotekstil.model.ZavrsenePorudzbine;
 import com.margotekstil.service.PhotoService;
 import com.margotekstil.service.ProizvodiService;
 
@@ -19,6 +20,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.margotekstil.service.UsersService;
+import com.margotekstil.service.ZavrsenePorudzbineService;
 import com.margotekstil.storage.StorageService;
 import java.util.ArrayList;
 import java.util.List;
@@ -42,11 +44,18 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 //@Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class AdminShopController {
-    
-     
-     @GetMapping("/admin/adminShopPregled")
-    public String adminShopPregled(Model model) {
-        return "main/admin/adminShopPregled";
+    @Autowired
+    ZavrsenePorudzbineService zavrsenePorudzbineService;
+
+    @GetMapping("/admin/adminPregledPorudzbine/{zavrsenaPorudzbinaId}")
+    public String adminShopPregled(Model model,
+            @PathVariable final Integer zavrsenaPorudzbinaId,
+            RedirectAttributes redirectAttributes) {
+        ZavrsenePorudzbine zavrsenaPorudzbina = zavrsenePorudzbineService.findFirstById(zavrsenaPorudzbinaId);
+
+        model.addAttribute("zavrsenaPorudzbina", zavrsenaPorudzbina);
+
+        return "main/admin/adminPregledPorudzbine";
     }
 
 

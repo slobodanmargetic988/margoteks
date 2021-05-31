@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Proizvodi</title>
+
+        <th:block th:insert="fragments/head :: head" />
+
+    </head>
+
+    <body>
+        <img src="/img/proizvodi-head.jpg" class="header-img" alt="header-image">
+
+            <th:block th:insert="fragments/navigation :: navbar" />
+
+            <div class="text-box">
+                <h2>MARGOTEKSTIL</h2>                                              
+                <p>PREGLED KORPE</p>
+            </div>
+
+
+
+
+            <div class="container referenca-proudzbine-box">
+                <div class="kupovina">
+
+                    <div>
+
+                        <p class="referenca-proudzbine">Referenca porudžbine: <span th:text="${zavrsenaPorudzbina.id}">gtrftg5</span></p>
+
+                        <div class="info-o-kupcu">Informacije o kupcu</div>
+                        <div class="kupacBold">Ime i prezime: <span th:text="${zavrsenaPorudzbina.ime+' '+zavrsenaPorudzbina.prezime}" class="kupacNotBold"></span></div>  
+                        <div class="kupacBold">Adresa: <span th:text="${zavrsenaPorudzbina.adresa}" class="kupacNotBold"></span></div> 
+                        <div class="kupacBold">Telefon: <span th:text="${zavrsenaPorudzbina.broj_telefona}" class="kupacNotBold"></span></div> 
+                        <div class="kupacBold">Email adresa: <span th:text="${zavrsenaPorudzbina.email}" class="kupacNotBold"></span></div> 
+                        <div class="kupacBold mb-4">Način plaćanja: <span th:text="${zavrsenaPorudzbina.nacin_placanja}" class="kupacNotBold"></span></div> 
+
+                    </div>
+
+                    <th:block th:each="korpaProizvod : ${zavrsenaPorudzbina.korpa.korpaproizvodi}">   
+
+                        <th:block th:insert="fragments/shopFragment :: porudzbinaStavkaPregled (${korpaProizvod})" />
+
+                    </th:block>
+
+
+
+                </div>
+
+            </div>
+
+
+
+
+
+
+
+
+
+
+
+
+            <th:block th:insert="fragments/footer :: footer" />
+
+            <div id="backToTop"></div>
+
+
+            <th:block th:insert="fragments/scripts :: scripts" />
+            <th:block th:insert="fragments/scripts :: shopScriptsRegistered" />
+
+
+
+    </body>
+
+</html>

@@ -100,6 +100,7 @@ public class KorpaRestController {
             zavrsena.setNapomena(korisnik.getString("napomena"));
             zavrsena.setPostanski_broj(korisnik.getString("postanskibroj"));
             zavrsena.setPrezime(korisnik.getString("prezime"));
+           
             zavrsenePorudzbineService.saveAndFlush(zavrsena);
         } catch (Exception e) {
 
@@ -110,9 +111,9 @@ return e.getMessage();
             if (zavrsena.getNacin_placanja().equalsIgnoreCase("Plaćanje prilikom preuzimanja")) {
                 //  System.out.println("so far so good2");
                 String htmlPrikaz = "";
-                EmailController.SendVasaPorudzbinaEmail(zavrsena.getEmail(), user, tempKorpa, zavrsena.getNacin_placanja(), zavrsena.getNapomena());
+                EmailController.SendVasaPorudzbinaEmail(user, zavrsena);
 
-                EmailController.SendkorisnikPorucioEmail(user, tempKorpa, zavrsena.getNacin_placanja(), zavrsena.getNapomena());
+                EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 
             } else {
                 // System.out.println("so far so good3");
@@ -120,15 +121,15 @@ return e.getMessage();
                     // System.out.println("so far so good4");
                     String htmlPrikaz = "";
                     String uplatnica = "";
-                    EmailController.SendVasaPorudzbinaiUplatnicaEmail(zavrsena.getEmail(), user, zavrsena.getKorpa(), zavrsena.getNacin_placanja(), zavrsena.getNapomena());
+                    EmailController.SendVasaPorudzbinaiUplatnicaEmail( user, zavrsena);
                     //  System.out.println("so far so good5");
-                    EmailController.SendkorisnikPorucioEmail(user, zavrsena.getKorpa(), zavrsena.getNacin_placanja(), zavrsena.getNapomena());
+                    EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 //System.out.println("so far so good6");
                 } else {
                     String htmlPrikaz = "";
-                    EmailController.SendVasaPorudzbinaEmail(zavrsena.getEmail(), user, zavrsena.getKorpa(), zavrsena.getNacin_placanja(), zavrsena.getNapomena());
+                    EmailController.SendVasaPorudzbinaEmail(user, zavrsena);
 
-                    EmailController.SendkorisnikPorucioEmail(user, zavrsena.getKorpa(), zavrsena.getNacin_placanja(), zavrsena.getNapomena());
+                    EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 
                 }
 

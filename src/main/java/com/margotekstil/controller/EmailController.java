@@ -9,6 +9,7 @@ import static com.margotekstil.controller.EmailController.uplatnicaSlika;
 import com.margotekstil.model.Korpa;
 import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Users;
+import com.margotekstil.model.ZavrsenePorudzbine;
 import com.margotekstil.storage.StorageFileNotFoundException;
 import com.margotekstil.storage.StorageService;
 import java.io.ByteArrayOutputStream;
@@ -121,6 +122,7 @@ public class EmailController {
     //kada neregistrovani korisnik posalje poruku preko forme na home ili kontakt strani - stize email Violeti
     public static void SendEmailPoruka(String ime, String prezime, String telefon, String email, String poruka) throws Exception {
         // Create a Properties object to contain connection configuration information.
+        
         Properties props = System.getProperties();
         props.put("mail.transport.protocol", "smtp");
         props.put("mail.smtp.port", PORT);
@@ -245,8 +247,12 @@ public class EmailController {
     }
 
     //kada ulogovani korisnik naruci proizvode, pa mu na email stigne "izvestaj" o tome / licno preuzimanje ili placanje prilikom preuzimanja
-    public static void SendVasaPorudzbinaEmail(String recipient, Users user, Korpa korpa, String nacinisporuke, String komentar) throws Exception {
-
+    public static void SendVasaPorudzbinaEmail( Users user, ZavrsenePorudzbine zavrsenePorudzbine) throws Exception {
+        
+String recipient=zavrsenePorudzbine.getEmail();
+Korpa korpa=zavrsenePorudzbine.getKorpa();
+String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
+ String komentar=zavrsenePorudzbine.getNapomena();
 // Create a Properties object to contain connection configuration information.
         Properties props = System.getProperties();
         props.put("mail.transport.protocol", "smtp");
@@ -267,7 +273,7 @@ public class EmailController {
                 + emailsadrzajContainer
                 + standardnaporuka(user.getIme(), user.getPrezime(), nacinisporuke)
                 + ""
-                + podaciokupcuiprodavcu(user, komentar)
+                + podaciokupcuiprodavcu(user, komentar, zavrsenePorudzbine)
                 + ""
                 + listaproizvoda(korpa)
                 + "           "
@@ -294,6 +300,179 @@ public class EmailController {
         }
     }
 
+   public static void SendVasaPorudzbinaiUplatnicaEmail( Users user, ZavrsenePorudzbine zavrsenePorudzbine) throws Exception {
+//        String proizvodid = "170";
+//        String photoid = "27";
+//        Date date = new Date();
+//        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
+// Create a Properties object to contain connection configuration information.
+
+
+String recipient=zavrsenePorudzbine.getEmail();
+Korpa korpa=zavrsenePorudzbine.getKorpa();
+String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
+ String komentar=zavrsenePorudzbine.getNapomena();
+
+
+Properties props = System.getProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.port", PORT);
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.auth", "true");
+   Session session = Session.getDefaultInstance(props);
+ Transport transport = session.getTransport();    
+try {   
+        // Create a Session object to represent a mail session with the specified properties.
+     
+        // Create a message with the specified information.
+        MimeMessage msg = new MimeMessage(session);
+        msg.setFrom(new InternetAddress(FROM, FROMNAME));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+        msg.setSubject(SUBJECTPORUDZBINA);
+        String BODY = String.join(
+                System.getProperty("line.separator"),
+                emailzaglavlje
+                + emailsadrzajContainer
+                + standardnaporuka(user.getIme(), user.getPrezime(), nacinisporuke)
+                + ""
+                + podaciokupcuiprodavcu(user, komentar, zavrsenePorudzbine)
+                + ""
+                + listaproizvoda(korpa)
+                + "           "
+                + cenaSumaproizvodasegment(korpa)
+                + uplatnicaSlika( )
+                + emailsadrzajContainerClose
+                + emailfooter
+        );
+           MimeBodyPart textBodyPart = new MimeBodyPart();
+            textBodyPart.setContent(BODY, "text/html;charset=utf-8");
+       ByteArrayOutputStream outputStream= new ByteArrayOutputStream();
+         
+           ClassLoader cl = ClassLoader.class.getClassLoader();
+ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(cl);
+Resource resource = resolver.getResource(pathtouplatnicatemplate);
+
+       
+
+           InputStream is=resource.getInputStream();
+                   
+      PDDocument pDDocument = PDDocument.load(is);
+ PDAcroForm pDAcroForm = pDDocument.getDocumentCatalog().getAcroForm();
+    PDField fieldName = pDAcroForm.getField("uplatilac");
+    fieldName.setValue(user.getIme()+" "+user.getPrezime()+"\n"+user.getAdresa()+"\n"+user.getPostanski_broj()+" "+user.getMesto()); // <-- Replacement
+   PDField fieldName2 = pDAcroForm.getField("svrha");
+     fieldName2.setValue("porudžbina br. 210"+ korpa.getId());
+    PDField fieldName3 = pDAcroForm.getField("primalac");
+     fieldName3.setValue("Margotekstil doo \nČaslava Veljića 53");
+      PDField fieldName4 = pDAcroForm.getField("sifra");
+     fieldName4.setValue("221");
+      PDField fieldName5 = pDAcroForm.getField("valuta");
+     fieldName5.setValue("RSD");
+      PDField fieldName6 = pDAcroForm.getField("iznos");
+     fieldName6.setValue(""+String.format("%.2f",cenaSumaproizvoda(korpa)));
+      PDField fieldName7 = pDAcroForm.getField("racun");
+     fieldName7.setValue(brojtekucegracuna);
+      PDField fieldName8 = pDAcroForm.getField("model");
+     //fieldName8.setValue("2");
+      PDField fieldName9 = pDAcroForm.getField("poziv");
+     fieldName9.setValue("210"+korpa.getId());
+   pDDocument.save(outputStream);
+//pDDocument.save("uplatnicatest.pdf");
+//pDDocument.close();
+
+
+           
+            byte[] bytes = outputStream.toByteArray();
+            
+            DataSource dataSource = new ByteArrayDataSource(bytes, "application/pdf");
+           
+            MimeBodyPart pdfBodyPart = new MimeBodyPart();
+        pdfBodyPart.setDataHandler(new DataHandler(dataSource));
+            pdfBodyPart.setFileName("uplatnica.pdf");
+             
+        MimeMultipart mimeMultipart = new MimeMultipart();
+            mimeMultipart.addBodyPart(textBodyPart);
+            mimeMultipart.addBodyPart(pdfBodyPart);
+        
+        
+        msg.setContent(mimeMultipart, "text/html;charset=utf-8");
+        // Add a configuration set header. Comment or delete the
+        // next line if you are not using a configuration set
+        msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
+        // Create a transport.
+       
+        // Send the message.
+       
+            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
+            transport.sendMessage(msg, msg.getAllRecipients());
+        } catch (Exception ex) {
+            String err = ex.getMessage();
+            System.out.println(ex);
+        } finally {
+            // Close and terminate the connection.
+            transport.close();
+        }
+    }
+
+    //email da stigne Violeti o tome sta je kupac narucio
+    public static void SendkorisnikPorucioEmail(Users user, ZavrsenePorudzbine zavrsenePorudzbine) throws Exception { //String recipient,
+        // Create a Properties object to contain connection configuration information.
+        
+        
+String recipient=zavrsenePorudzbine.getEmail();
+Korpa korpa=zavrsenePorudzbine.getKorpa();
+String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
+ String komentar=zavrsenePorudzbine.getNapomena();
+        
+        
+        
+        Properties props = System.getProperties();
+        props.put("mail.transport.protocol", "smtp");
+        props.put("mail.smtp.port", PORT);
+        props.put("mail.smtp.starttls.enable", "true");
+        props.put("mail.smtp.auth", "true");
+        // Create a Session object to represent a mail session with the specified properties.
+        Session session = Session.getDefaultInstance(props);
+        // Create a message with the specified information.
+        MimeMessage msg = new MimeMessage(session);
+        msg.setFrom(new InternetAddress(FROM, FROMNAME));
+        // msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("tusen.takk0@gmail.com"));
+
+        msg.setSubject(SUBJECTPORUCENAROBA, "UTF-8");
+        String BODY = String.join(
+                System.getProperty("line.separator"),
+                emailzaglavlje
+                + emailsadrzajContainer
+                + standardnaporukazafirmu(nacinisporuke, user.getIme(), user.getPrezime())
+                + ""
+                + podaciOKupcu(user,  zavrsenePorudzbine)
+                + ""
+                + listaproizvoda(korpa)
+                + "           "
+                + cenaSumaproizvodasegment(korpa)
+                + emailsadrzajContainerClose
+                + emailfooter
+        );
+      
+        
+        msg.setContent(BODY, "text/html;charset=utf-8");
+        // Add a configuration set header. Comment or delete the
+        // next line if you are not using a configuration set
+        msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
+        // Create a transport.
+        Transport transport = session.getTransport();
+        // Send the message.
+        try {
+            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
+            transport.sendMessage(msg, msg.getAllRecipients());
+        } catch (Exception ex) {
+            String err = ex.getMessage();
+        } finally {
+            // Close and terminate the connection.
+            transport.close();
+        }
+    }
     public static String listaproizvoda(Korpa korpa) {
         String poruceno = "            <tr style=\"background:#ffffff\">"
                 + "              <td style=\"padding: 30px 30px 30px 12px\">"
@@ -542,7 +721,7 @@ public class EmailController {
                 + "            </tr>";
     }
 
-    public static String podaciokupcuiprodavcu(Users user, String komentar) {
+    public static String podaciokupcuiprodavcu(Users user, String komentar, ZavrsenePorudzbine zavrsenePorudzbine) {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         String ime = user.getIme();
@@ -552,6 +731,7 @@ public class EmailController {
         String adresa = user.getAdresa();
         String postanskibroj = user.getPostanski_broj();
         String grad = user.getMesto();
+       
 
         return "            <tr>"
                 + "              <td style=\"padding:20px\">"
@@ -569,7 +749,7 @@ public class EmailController {
                 + "                          <b>Referenca porudžbine</b>"
                 + "                        </p>"
                 + "                        <p style=\"margin:0;padding:0;text-align:left;font-size:14px;color:#000000;font-weight:400\">"
-                + "                          6068bd1f8a462"
+                + "                          "+"210"+zavrsenePorudzbine.getKorpa().getId()+"\"></a>"
                 + "                        </p>"
                 + "                        <p style=\"margin: 15px 0 0 0;padding:0;text-align:left;font-size:13px;color:#892f2b;font-weight:400\">"
                 + "                          <b>Podaci o kupcu</b>"
@@ -606,7 +786,7 @@ public class EmailController {
                 + "            </tr>";
     }
 
-    public static String podaciOKupcu(Users user, String komentar) {
+    public static String podaciOKupcu(Users user, ZavrsenePorudzbine zavrsenePorudzbine) {
         Date date = new Date();
         SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
         String ime = user.getIme();
@@ -616,6 +796,7 @@ public class EmailController {
         String adresa = user.getAdresa();
         String postanskibroj = user.getPostanski_broj();
         String grad = user.getMesto();
+        String komentar=zavrsenePorudzbine.getNapomena();
         return "            <tr>"
                 + "              <td style=\"padding:20px\">"
                 + "                <table style=\"padding:10px\" width=\"100%\" cellpadding=\"0\" cellspacing=\"0\">"
@@ -632,7 +813,7 @@ public class EmailController {
                 + "                          <b>Referenca porudžbine</b>"
                 + "                        </p>"
                 + "                        <p style=\"margin:0;padding:0;text-align:left;font-size:14px;color:#000000;font-weight:400\">"
-                + "                          6068bd1f8a462"
+                + "                         <a href=\"http://" + serverip + "/admin/adminPregledPorudzbine/"+zavrsenePorudzbine.getId()+"\"></a>"
                 + "                        </p>"
                 + "                        <p style=\"margin: 15px 0 0 0;padding:0;text-align:left;font-size:15px;color:#892f2b;font-weight:400\">"
                 + "                          <b>Podaci o kupcu</b>"
@@ -655,162 +836,6 @@ public class EmailController {
 
     //kada ulogovani korisnik naruci proizvode, pa mu na email stigne "izvestaj" o tome - uplata na tekuci racun/uplatnica
 
-   public static void SendVasaPorudzbinaiUplatnicaEmail(String recipient, Users user, Korpa korpa, String nacinisporuke, String komentar) throws Exception {
-//        String proizvodid = "170";
-//        String photoid = "27";
-//        Date date = new Date();
-//        SimpleDateFormat formatter = new SimpleDateFormat("dd.MM.yyyy");
-// Create a Properties object to contain connection configuration information.
-Properties props = System.getProperties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.port", PORT);
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.auth", "true");
-   Session session = Session.getDefaultInstance(props);
- Transport transport = session.getTransport();    
-try {   
-        // Create a Session object to represent a mail session with the specified properties.
-     
-        // Create a message with the specified information.
-        MimeMessage msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress(FROM, FROMNAME));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-        msg.setSubject(SUBJECTPORUDZBINA);
-        String BODY = String.join(
-                System.getProperty("line.separator"),
-                emailzaglavlje
-                + emailsadrzajContainer
-                + standardnaporuka(user.getIme(), user.getPrezime(), nacinisporuke)
-                + ""
-                + podaciokupcuiprodavcu(user, komentar)
-                + ""
-                + listaproizvoda(korpa)
-                + "           "
-                + cenaSumaproizvodasegment(korpa)
-                + uplatnicaSlika( )
-                + emailsadrzajContainerClose
-                + emailfooter
-        );
-           MimeBodyPart textBodyPart = new MimeBodyPart();
-            textBodyPart.setContent(BODY, "text/html;charset=utf-8");
-       ByteArrayOutputStream outputStream= new ByteArrayOutputStream();
-         
-           ClassLoader cl = ClassLoader.class.getClassLoader();
-ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(cl);
-Resource resource = resolver.getResource(pathtouplatnicatemplate);
-
-       
-
-           InputStream is=resource.getInputStream();
-                   
-      PDDocument pDDocument = PDDocument.load(is);
- PDAcroForm pDAcroForm = pDDocument.getDocumentCatalog().getAcroForm();
-    PDField fieldName = pDAcroForm.getField("uplatilac");
-    fieldName.setValue(user.getIme()+" "+user.getPrezime()+"\n"+user.getAdresa()+"\n"+user.getPostanski_broj()+" "+user.getMesto()); // <-- Replacement
-   PDField fieldName2 = pDAcroForm.getField("svrha");
-     fieldName2.setValue("porudžbina br. 210"+ korpa.getId());
-    PDField fieldName3 = pDAcroForm.getField("primalac");
-     fieldName3.setValue("Margotekstil doo \nČaslava Veljića 53");
-      PDField fieldName4 = pDAcroForm.getField("sifra");
-     fieldName4.setValue("221");
-      PDField fieldName5 = pDAcroForm.getField("valuta");
-     fieldName5.setValue("RSD");
-      PDField fieldName6 = pDAcroForm.getField("iznos");
-     fieldName6.setValue(""+String.format("%.2f",cenaSumaproizvoda(korpa)));
-      PDField fieldName7 = pDAcroForm.getField("racun");
-     fieldName7.setValue(brojtekucegracuna);
-      PDField fieldName8 = pDAcroForm.getField("model");
-     //fieldName8.setValue("2");
-      PDField fieldName9 = pDAcroForm.getField("poziv");
-     fieldName9.setValue("210"+korpa.getId());
-   pDDocument.save(outputStream);
-//pDDocument.save("uplatnicatest.pdf");
-//pDDocument.close();
-
-
-           
-            byte[] bytes = outputStream.toByteArray();
-            
-            DataSource dataSource = new ByteArrayDataSource(bytes, "application/pdf");
-           
-            MimeBodyPart pdfBodyPart = new MimeBodyPart();
-        pdfBodyPart.setDataHandler(new DataHandler(dataSource));
-            pdfBodyPart.setFileName("uplatnica.pdf");
-             
-        MimeMultipart mimeMultipart = new MimeMultipart();
-            mimeMultipart.addBodyPart(textBodyPart);
-            mimeMultipart.addBodyPart(pdfBodyPart);
-        
-        
-        msg.setContent(mimeMultipart, "text/html;charset=utf-8");
-        // Add a configuration set header. Comment or delete the
-        // next line if you are not using a configuration set
-        msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
-        // Create a transport.
-       
-        // Send the message.
-       
-            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
-            transport.sendMessage(msg, msg.getAllRecipients());
-        } catch (Exception ex) {
-            String err = ex.getMessage();
-            System.out.println(ex);
-        } finally {
-            // Close and terminate the connection.
-            transport.close();
-        }
-    }
-
-    //email da stigne Violeti o tome sta je kupac narucio
-    public static void SendkorisnikPorucioEmail(Users user, Korpa korpa, String nacinisporuke, String komentar) throws Exception { //String recipient,
-        // Create a Properties object to contain connection configuration information.
-        Properties props = System.getProperties();
-        props.put("mail.transport.protocol", "smtp");
-        props.put("mail.smtp.port", PORT);
-        props.put("mail.smtp.starttls.enable", "true");
-        props.put("mail.smtp.auth", "true");
-        // Create a Session object to represent a mail session with the specified properties.
-        Session session = Session.getDefaultInstance(props);
-        // Create a message with the specified information.
-        MimeMessage msg = new MimeMessage(session);
-        msg.setFrom(new InternetAddress(FROM, FROMNAME));
-        // msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("tusen.takk0@gmail.com"));
-
-        msg.setSubject(SUBJECTPORUCENAROBA, "UTF-8");
-        String BODY = String.join(
-                System.getProperty("line.separator"),
-                emailzaglavlje
-                + emailsadrzajContainer
-                + standardnaporukazafirmu(nacinisporuke, user.getIme(), user.getPrezime())
-                + ""
-                + podaciOKupcu(user, komentar)
-                + ""
-                + listaproizvoda(korpa)
-                + "           "
-                + cenaSumaproizvodasegment(korpa)
-                + emailsadrzajContainerClose
-                + emailfooter
-        );
-      
-        
-        msg.setContent(BODY, "text/html;charset=utf-8");
-        // Add a configuration set header. Comment or delete the
-        // next line if you are not using a configuration set
-        msg.setHeader("X-SES-CONFIGURATION-SET", CONFIGSET);
-        // Create a transport.
-        Transport transport = session.getTransport();
-        // Send the message.
-        try {
-            transport.connect(HOST, SMTP_USERNAME, SMTP_PASSWORD);
-            transport.sendMessage(msg, msg.getAllRecipients());
-        } catch (Exception ex) {
-            String err = ex.getMessage();
-        } finally {
-            // Close and terminate the connection.
-            transport.close();
-        }
-    }
 
     public static String emailzaglavlje = "<table style=\"border-spacing:0!important;border-collapse:collapse!important;table-layout:fixed!important;\" cellspacing=\"0\" cellpadding=\"0\" border=\"0\" width=\"750\">"
             + "  <tbody>"

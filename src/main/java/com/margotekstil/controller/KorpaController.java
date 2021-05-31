@@ -125,23 +125,23 @@ public class KorpaController {
 
                 if (nacinplacanja.equalsIgnoreCase("Plaćanje prilikom preuzimanja")) {
                     String htmlPrikaz = "";
-                    EmailController.SendVasaPorudzbinaEmail(email, user, zavrsena.getKorpa(), nacinplacanja, komentar);
+                    EmailController.SendVasaPorudzbinaEmail( user, zavrsena);
                 
-                    EmailController.SendkorisnikPorucioEmail(user, zavrsena.getKorpa(), nacinplacanja, komentar);
+                    EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 
                 } else {
                     if (nacinplacanja.equalsIgnoreCase("Uplata na tekući račun")) {
                         String htmlPrikaz = "";
                         String uplatnica = "";
-                        EmailController.SendVasaPorudzbinaiUplatnicaEmail(email, user, zavrsena.getKorpa(), nacinplacanja, komentar);
+                        EmailController.SendVasaPorudzbinaiUplatnicaEmail(user, zavrsena);
                     
-                        EmailController.SendkorisnikPorucioEmail( user, zavrsena.getKorpa(), nacinplacanja, komentar);
+                        EmailController.SendkorisnikPorucioEmail( user, zavrsena);
 
                     } else {
                         String htmlPrikaz = "";
-                        EmailController.SendVasaPorudzbinaEmail(email, user, zavrsena.getKorpa(), nacinplacanja, komentar);
+                        EmailController.SendVasaPorudzbinaEmail(user, zavrsena);
                       
-                        EmailController.SendkorisnikPorucioEmail( user, zavrsena.getKorpa(), nacinplacanja, komentar);
+                        EmailController.SendkorisnikPorucioEmail( user, zavrsena);
 
                     }
                 }

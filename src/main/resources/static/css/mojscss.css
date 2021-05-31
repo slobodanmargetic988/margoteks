@@ -3536,9 +3536,9 @@ select {
   padding: 1.5rem;
 }
 .referenca-proudzbine-box .kupovina .referenca-proudzbine {
-  font-size: 1.35rem;
-  font-weight: 500;
-  color: #5d4c39;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #60584f;
 }
 .referenca-proudzbine-box .kupovina .referenca-proudzbine-padding {
   padding: 1.5rem 0;
@@ -3548,7 +3548,7 @@ select {
 }
 .referenca-proudzbine-box .kupovina .info-o-kupcu {
   font-size: 1.2rem;
-  font-weight: 500;
+  font-weight: 600;
   margin-bottom: .7rem;
 }
 .referenca-proudzbine-box .kupovina .img-frame {
@@ -3560,10 +3560,41 @@ select {
   height: 100%;
   object-fit: cover;
 }
+.referenca-proudzbine-box .kupovina .kupacBold {
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+.referenca-proudzbine-box .kupovina .kupacNotBold {
+  font-weight: 400;
+}
+.referenca-proudzbine-box .kupovina .naslov-porudzbinaStavkaPregled {
+  font-size: 1.3rem;
+  font-weight: 600;
+  color: #211b14;
+}
+.referenca-proudzbine-box .kupovina .naslov-porudzbinaStavkaPregled:hover {
+  opacity: .7;
+}
+.referenca-proudzbine-box .kupovina .opis-proizvoda-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .kolicina-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .cena-porudzbinaStavkaPregled {
+  font-size: 1.2rem;
+}
+
+.containerImgPorudzbinaStavkaPregled {
+  height: 35vh;
+}
+.containerImgPorudzbinaStavkaPregled .slika-porudzbinaStavkaPregled {
+  height: 100%;
+  object-fit: cover;
+  width: 100%;
+}
 
 @media screen and (max-width: 1200px) {
   .referenca-proudzbine-box .kupovina .img-frame {
     height: 420px;
+  }
+
+  .containerImgPorudzbinaStavkaPregled {
+    height: 30vh;
   }
 }
 @media screen and (max-width: 992px) {
@@ -3576,6 +3607,16 @@ select {
   .referenca-proudzbine-box .kupovina .text-za-referencu-o-proizvodu {
     margin-top: 1.5rem;
   }
+  .referenca-proudzbine-box .kupovina .naslov-porudzbinaStavkaPregled {
+    font-size: 1.2rem;
+  }
+  .referenca-proudzbine-box .kupovina .opis-proizvoda-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .kolicina-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .cena-porudzbinaStavkaPregled {
+    font-size: 1.1rem;
+  }
+
+  .containerImgPorudzbinaStavkaPregled {
+    height: 20vh;
+  }
 }
 @media screen and (max-width: 767px) {
   .referenca-proudzbine-box {
@@ -3583,6 +3624,16 @@ select {
   }
   .referenca-proudzbine-box .kupovina .img-frame {
     height: 480px;
+  }
+  .referenca-proudzbine-box .kupovina .naslov-porudzbinaStavkaPregled {
+    font-size: 1.05rem;
+  }
+  .referenca-proudzbine-box .kupovina .opis-proizvoda-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .kolicina-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .cena-porudzbinaStavkaPregled {
+    font-size: .95rem;
+  }
+
+  .containerImgPorudzbinaStavkaPregled {
+    height: 13vh;
   }
 }
 @media screen and (max-width: 576px) {
@@ -3594,6 +3645,22 @@ select {
   }
   .referenca-proudzbine-box .kupovina .img-frame {
     height: 75vw;
+  }
+  .referenca-proudzbine-box .kupovina .info-o-kupcu {
+    font-size: 1.1rem;
+  }
+  .referenca-proudzbine-box .kupovina .kupacBold {
+    font-size: 1rem;
+  }
+  .referenca-proudzbine-box .kupovina .naslov-porudzbinaStavkaPregled {
+    font-size: .95rem;
+  }
+  .referenca-proudzbine-box .kupovina .opis-proizvoda-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .kolicina-porudzbinaStavkaPregled, .referenca-proudzbine-box .kupovina .cena-porudzbinaStavkaPregled {
+    font-size: .85rem;
+  }
+
+  .containerImgPorudzbinaStavkaPregled {
+    height: 20vw;
   }
 }
 * {

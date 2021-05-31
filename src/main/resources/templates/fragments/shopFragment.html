@@ -98,7 +98,7 @@
                                                             <button type="button" class=" dodajJS dodajuKorpu-admin-shop"  th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}" th:pid="${fragmentProizvod.id}">Dodaj u korpu</button>
                                                         </a>
                                                     </div>
-                                                     <div class="col-md-12">
+                                                    <div class="col-md-12">
                                                         <a th:href="@{/admin/obrisiProizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}"  >
                                                             <button type="button" class="ukloniProizvod-admin-shop"  >Ukloni proizvod</button>
                                                         </a>
@@ -139,7 +139,7 @@
 
 
                                         </th:block>
-        
+
 
                                         <th:block th:fragment="korpaStavkaPregled (stavka)">
 
@@ -159,5 +159,34 @@
 
 
                                         </th:block>
+
+
+
+                                        <th:block th:fragment="porudzbinaStavkaPregled (stavka)">
+
+                                            <div class="row border-top border-bottom stavkaPregledJS " th:pid="${stavka.proizvod.id}">
+                                                <div class="row main align-items-center mt-2 mb-2">
+                                                    <div class="col-4 containerImgPorudzbinaStavkaPregled">
+                                                        <a th:href="@{/proizvod/{proizvodId} (proizvodId=${stavka.proizvod.id})}"><img class="img-fluid slika-porudzbinaStavkaPregled "  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}">
+                                                        </a>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <a th:href="@{/proizvod/{proizvodId} (proizvodId=${stavka.proizvod.id})}"> <div class="naslov-porudzbinaStavkaPregled"><span th:text="${stavka.proizvod.getIme()}"></span></div></a>
+                                                        <div class="opis-proizvoda-porudzbinaStavkaPregled"><span th:text="${stavka.proizvod.opis}"></span></div>
+                                                    </div>
+                                                    <div class="col-4">
+                                                        <div class="kolicina-porudzbinaStavkaPregled">Kolicina:  <span class="kolicinaPregledJS" th:text="${stavka.kolicina}" style="font-weight: 600"></span> </div>
+                                                        <div class="cena-porudzbinaStavkaPregled">Cena: <span th:text="${stavka.proizvod.cena*stavka.kolicina}" style="font-weight: 600" ></span> RSD </div>
+                                                    </div>
+                                                </div>
+
+
+                                            </div>
+
+
+                                        </th:block>
+
+
                                         </body>
+
                                         </html>

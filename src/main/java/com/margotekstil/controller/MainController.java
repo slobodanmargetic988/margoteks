@@ -442,17 +442,13 @@ if (!lozinkaRepeat.equals("")){
             @RequestParam(name = "email") String email,
             RedirectAttributes redirectAttributes
     ) {
-        Users user = new Users();
-        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        if (!authentication.getPrincipal().equals("anonymousUser")) {
-            Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
-            user = userService.findFirstByEmail(myUser.getEmail());
-        } else {
-            redirectAttributes.addFlashAttribute("errorMessage", "Morate biti ulogovani da biste resetovali lozinku");
-
+   
+        if (userService.findFirstByEmail(email)==null) {
+            redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetim emailom ne postoji.");
             return "redirect:/registration";
         }
-
+        
+ Users user = userService.findFirstByEmail(email);
         ResetTokeni resetTokeni = new ResetTokeni();
         int leftLimit = 48; // numeral '0'
         int rightLimit = 122; // letter 'z'
