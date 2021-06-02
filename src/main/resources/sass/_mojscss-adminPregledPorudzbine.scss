@@ -57,13 +57,14 @@
 }
 
 .containerImgPorudzbinaStavkaPregled {
-    height: 35vh;
+    height: 33vh;
     .slika-porudzbinaStavkaPregled {
         height: 100%;
         object-fit: cover;
-        width: 100%;
-    }
+            width: 70vw;
 }
+    }
+
 
 
 @media screen and (max-width:1200px) {

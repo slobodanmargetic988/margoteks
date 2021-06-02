@@ -12,11 +12,11 @@
     object-fit: cover;
 }
 .small-img {
-    width: 480px;
+    width: 495px;
     height: 70px;
     margin-top: 10px;
     position: relative;
-    left: 25px;
+    left: 20px;
     .icon-left {
         width: 30px;
         height: 24px;
@@ -48,7 +48,7 @@
     }
 }
 .small-container {
-    width: 380px;
+    width: 395px;
     height: 70px;
     overflow: hidden;
     position: absolute;
@@ -82,6 +82,9 @@
     .small-img {
         width: 445px;
         left: 18px;
+    }
+    .small-container {
+        width: 385px;
     }
 }
 @media screen and (max-width:992px) {

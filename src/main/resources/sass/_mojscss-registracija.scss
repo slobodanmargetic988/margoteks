@@ -96,6 +96,7 @@
                                 color: $burgundy-color;
                                 &:hover {
                                     color: $redish-color;
+                                    text-decoration: underline !important;
                                 }
                             }
                         }
@@ -140,8 +141,38 @@
     }
 }
 
+#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat{
+    color: #8a8383;
+}
+#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat {
+    display: none;
+    color: $burgundy-color;
+}
+#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf {
+    margin-top: -38px;
+    @include show-hide-btn;
+}
+.openPasswordLogin, .closedPasswordLogin {
+    margin-top: -46px;
+    @include show-hide-btn;
+
+}
+
+#showPassword, #hidePassword, #showPasswordRepeat, #hidePasswordRepeat {
+    margin-top: -40px;
+    @include show-hide-btn;
+
+}
 
 
+#label, #label-2 {
+    font-size: .85em;
+    color: #445252;
+    letter-spacing: .02rem;
+    display: none;
+}
+
+/*za telefon input*/
 .no-arrow {
     &::-webkit-inner-spin-button {
         display: none;
@@ -200,6 +231,13 @@
             }
         }
     }
+
+    #openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf,
+    .openPasswordLogin, .closedPasswordLogin, #showPassword, #hidePassword, 
+    #showPasswordRepeat, #hidePasswordRepeat {
+        font-size: 1rem;
+    }
+    
 }
 
 

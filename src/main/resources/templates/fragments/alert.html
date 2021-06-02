@@ -21,14 +21,14 @@
             <h4 class="alert-heading" th:text="${message}">Neuspešno!</h4>
         </div>
 
-        <div th:fragment="gotovaporudzbina (message)" class="alert-order" id="alertHvalaPorudzbina" role="alert" th:if="${message}">
+        <div th:fragment="gotovaporudzbina (message)" class="alert-order" id="alertThankYouPorudzbina" role="alert" th:if="${message}">
             <span class="closebtn" onclick="this.parentElement.style.display = 'none';">&times;</span> 
             <div class="img-wrapp">
                 <img class="alert-img" src="/img/cart-thanks.png">
             </div>
             <h4 class="alert-naslov">Hvala na porudžbini!</h4>
             <p class="alert-text">Porudžbina je uspešno poslata.<br>Stići će Vam email sa potvrdom.</p>
-            <a href="#" class="nazad-button" id="nazadBTN">Nazad</a>
+            <a href="#" class="nazad-button" id="OKBtn">OK</a>
         </div>
 
         <div th:fragment="uspesnaPrijava (message)" class="alert-uspesna-prijava" id="alertUspesnaPrijava" role="alert" th:if="${message}">

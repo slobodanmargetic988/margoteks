@@ -37,6 +37,24 @@
     }
 }
 
+@media screen and (max-width:575px) {
+    .error-page-area {
+        padding: 2.5rem;
+        h1 {
+            font-size: 6rem;
+            margin-bottom: 1rem;
+        }
+        h2 {
+            font-size: 1.75rem;
+        }
+        p {
+            font-size: 1rem;
+        }
+        .btn-theme.btn-md {
+            font-size: .93rem;
+        }
+    }
+}
 
 
 

@@ -429,7 +429,7 @@ if (!lozinkaRepeat.equals("")){
 
             return "redirect:/registration";
         }
-        redirectAttributes.addFlashAttribute("successMessage", "Korisnik je uspesno dodat.");
+        redirectAttributes.addFlashAttribute("successMessage", "Lozinka je uspešno promenjena.");
 
         return "redirect:/registration";
     }
@@ -437,8 +437,8 @@ if (!lozinkaRepeat.equals("")){
     @Autowired
     private ResetTokeniService resetTokeniService;
 
-    @PostMapping(value = "/resetEmail")
-    public String publicResetEmailpMargotekstil(final Model model,
+    @PostMapping(value = "/resetPassword")
+    public String publicResetPasswordMargotekstil(final Model model,
             @RequestParam(name = "email") String email,
             RedirectAttributes redirectAttributes
     ) {
@@ -465,7 +465,7 @@ if (!lozinkaRepeat.equals("")){
         resetTokeni.setEmail(email);
         resetTokeniService.save(resetTokeni);
         try {
-            EmailController.SendResetEmail(email, generatedString, user);
+            EmailController.SendResetPassword(email, generatedString, user);
         } catch (Exception e) {
             System.out.println(e.getMessage());
         }
@@ -475,13 +475,13 @@ if (!lozinkaRepeat.equals("")){
         return "redirect:/registration";
     }
 
-    @GetMapping(value = "/resetEmail")
+    @GetMapping(value = "/resetPassword")
     public String resetPasswordMargotekstil(final Model model) {
 
-        return "main/resetEmail";
+        return "main/resetPassword";
     }
 
-    @GetMapping(value = "/resetEmail/{resetToken}")
+    @GetMapping(value = "/resetPassword/{resetToken}")
     public String resetPassword2Margotekstil(final Model model,
             @PathVariable final String resetToken
     ) {
@@ -490,10 +490,10 @@ if (!lozinkaRepeat.equals("")){
             model.addAttribute("email", resetTokeni.getEmail());
         }
         resetTokeniService.delete(resetTokeni);
-        return "main/resetEmail";
+        return "main/resetPassword";
     }
 
-    @PostMapping(value = "/resetEmail/{email}")
+    @PostMapping(value = "/resetPassword/{email}")
     public String resetPassword3Margotekstil(final Model model,
             RedirectAttributes redirectAttributes,
             @PathVariable final String email,
@@ -524,7 +524,7 @@ if (!lozinkaRepeat.equals("")){
 
             return "redirect:/registration";
         }
-        redirectAttributes.addFlashAttribute("successMessage", "Korisnik je uspesno dodat.");
+        redirectAttributes.addFlashAttribute("successMessage", "Lozinka je uspešno promenjena.");
 
         return "redirect:/registration";
     }

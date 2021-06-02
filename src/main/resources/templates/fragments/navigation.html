@@ -44,13 +44,13 @@
 
                     </ul>
                     <ul class="nav navbar-icons navbar-nav flex-row flex-nowrap ">
-                        <li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/shoppingCart}" data-toggle="popover"  data-content="Korpa"><span  class="maliekran"  >Korpa&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i>
+                        <li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/shoppingCart}" data-toggle="popover"  data-content="Korpa"><span  class="maliekran"  >KORPA&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i>
 
-                                <li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registration}" data-toggle="popover"  data-content="Uloguj se" ><span class="maliekran">Uloguj se&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>
+                                <li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registration}" data-toggle="popover"  data-content="Uloguj se" ><span class="maliekran">ULOGUJ SE&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>
 
-                                <li sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"  class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/profil}" data-toggle="popover"  data-content="Profil" ><span th:text ="${#authentication.getPrincipal().getUser().getIme()}" ></span>&nbsp;<i class="fa fa-user fa-lg"></i></a> </li>
+                                <li sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"  class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/profil}" data-toggle="popover"  data-content="Profil" ><span style="text-transform: uppercase" th:text ="${#authentication.getPrincipal().getUser().getIme()}" ></span>&nbsp;<i class="fa fa-user fa-lg"></i></a> </li>
 
-                                <li class="nav-item nav-item-custom" sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/logout}" data-toggle="popover"  data-content="Odjava"><span  class="maliekran"  >Odjava&nbsp;&nbsp;</span><i class="fa fa-power-off"></i></a></li>
+                                <li class="nav-item nav-item-custom" sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/logout}" data-toggle="popover"  data-content="Odjava"><span  class="maliekran"  >ODJAVA&nbsp;&nbsp;</span><i class="fa fa-power-off"></i></a></li>
                                 </ul>
                                 </div>                                            
 

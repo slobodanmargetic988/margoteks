@@ -18,7 +18,7 @@ $(function () {
 
 
 jQuery(document).ready(function () {
-    
+
     /*back to top button*/
 //   insert back to top button dynamicly
     /*stacked font awesome icons*/
@@ -27,7 +27,7 @@ jQuery(document).ready(function () {
 
     var $window = $(window);
     var distance = 80;
-/*end of back to top button*/
+    /*end of back to top button*/
 
 
 
@@ -71,20 +71,23 @@ jQuery(document).ready(function () {
 
 
     /*hamnurger meni da se zatvori kad se klikne bilo gde - radi i ovaj ALI
-         oba se suzava kad se klikne */
+     oba se suzavaju kad se klikne */
     $(function () {
         $(document).click(function (event) {
             $('.navbar-collapse').collapse('hide');
+
         });
     });
-    
-        /*hamnurger meni da se zatvori kad se klikne bilo gde - radi i ovaj ALI
-         oba se suzava kad se klikne */
-//    $(document).click(
-//        function (event) {
+
+
+
+
+    /*hamnurger meni da se zatvori kad se klikne bilo gde - radi i ovaj ALI
+     oba se suzava kad se klikne */
+//    $(document).click(function (event) {
 //            var target = $(event.target);
-//            var _mobileMenuOpen = $(".navbar-collapse").hasClass("show");
-//            if (_mobileMenuOpen === true && !target.hasClass("navbar-toggler")) {
+//            var mobileMenuOpen = $(".navbar-collapse").hasClass("show");
+//            if (mobileMenuOpen === true && !target.hasClass("navbar-toggler")) {
 //                $("button.navbar-toggler").click();
 //            }
 //        }
@@ -93,18 +96,17 @@ jQuery(document).ready(function () {
 
 
 //Highlight current page navigation menu item
-$(function() {
-    if(location.pathname==="/"){
-        $('#homeLink').addClass('currentNavItem');
-    }
-    else{
-        if (location.pathname.split("/")[1]=="admin"){
-  $('#nav a[href^="/admin/' + location.pathname.split("/")[2] + '"]').addClass('currentNavItem');
-    }else{
-    $('#nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('currentNavItem');  
-    }
-    }
-});
+    $(function () {
+        if (location.pathname === "/") {
+            $('#homeLink').addClass('currentNavItem');
+        } else {
+            if (location.pathname.split("/")[1] == "admin") {
+                $('#nav a[href^="/admin/' + location.pathname.split("/")[2] + '"]').addClass('currentNavItem');
+            } else {
+                $('#nav a[href^="/' + location.pathname.split("/")[1] + '"]').addClass('currentNavItem');
+            }
+        }
+    });
 
 
 
@@ -345,12 +347,13 @@ $(function() {
 
 
 
-
+//tooltip na navbar-u
 $(document).ready(function () {
     $('[data-toggle="popover"]').popover({
         placement: 'bottom',
         trigger: 'hover'
     });
 });
+
 
 

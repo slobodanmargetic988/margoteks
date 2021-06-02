@@ -20,12 +20,18 @@
   font-family: "Lato", sans-serif;
   font-size: 1.2rem;
 }
+.infos .center-info .c-info p a {
+  color: #211b14;
+}
+.infos .center-info .c-info p a:hover {
+  color: #b23539;
+}
 
 .contact-us-page {
   /*    background-image: url("/img/contact3.jpg");
       @include headerImage();*/
   margin-top: 2rem;
-  margin-bottom: 3.125rem;
+  margin-bottom: 4rem;
 }
 .contact-us-page .bg-color-contact-page p {
   font-size: 1.2rem;
@@ -388,6 +394,16 @@ iframe {
     padding: 4rem 0 1rem;
   }
 }
+@media screen and (max-width: 991px) {
+  .about-section .container .image-column .inner-column {
+    padding-left: 13rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .about-section .container .image-column .inner-column {
+    padding-left: 7.5rem;
+  }
+}
 @media screen and (max-width: 414px) {
   .about-section {
     padding: 2rem 0 0;
@@ -661,19 +677,20 @@ a .remove-img-btn-adminGalerijaPage:hover {
 
 #exitButton {
   color: white;
-  font-size: 2em;
+  font-size: 2.75em;
   transition: opacity 0.8s;
   position: absolute;
-  top: 3.75rem;
-  right: 3.75rem;
+  top: 4rem;
+  right: 2rem;
   cursor: pointer;
 }
 #exitButton:hover {
   opacity: 0.7;
 }
-@media screen and (min-width: 767px) {
+@media screen and (max-width: 767px) {
   #exitButton {
-    font-size: 2.75em;
+    font-size: 2em;
+    right: 2.8rem;
   }
 }
 
@@ -973,11 +990,12 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 #addedToCart-window .addedToCart-window-content .master-img {
   width: 100%;
-  height: 20vh;
+  height: 22vh;
 }
 #addedToCart-window .addedToCart-window-content .master-img .popup-slika {
   height: 100%;
   object-fit: cover;
+  width: 100%;
 }
 #addedToCart-window .addedToCart-window-content .productName {
   font-size: 1.2rem;
@@ -988,7 +1006,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   font-size: 1.3rem;
 }
 #addedToCart-window .addedToCart-window-content .shop-buttons {
-  margin-top: 3.4rem;
+  margin-top: 4.8rem;
 }
 #addedToCart-window .addedToCart-window-content .shop-buttons .btn-cart {
   color: white;
@@ -1093,10 +1111,10 @@ a .remove-img-btn-adminGalerijaPage:hover {
   }
 
   #addedToCart-window .addedToCart-window-content .master-img {
-    height: 16vh;
+    height: 17.5vh;
   }
   #addedToCart-window .addedToCart-window-content .shop-buttons {
-    margin-top: 2rem;
+    margin-top: 3.1rem;
   }
   #addedToCart-window .addedToCart-window-content .shop-buttons .btn-cart {
     margin-bottom: .3rem;
@@ -1124,9 +1142,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   }
 
   .dodajuKorpu-shop-page {
-    font-size: .9rem;
-    padding: 0.3rem 1rem;
-    border: none;
+    font-size: .95rem;
     font-weight: 500;
   }
 
@@ -1685,7 +1701,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   }
 
   .dodajuKorpu-admin-shop, .ukloniProizvod-admin-shop {
-    padding: 0.4rem;
+    padding: 0.5rem;
     font-size: .9rem;
   }
 
@@ -1881,6 +1897,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 #regi-login-form .container-registration .user .formBx form .checkbox .rememberMe .uslovi-koriscenja:hover {
   color: #b23539;
+  text-decoration: underline !important;
 }
 #regi-login-form .container-registration .signinBx .formBx {
   right: 0%;
@@ -1913,6 +1930,50 @@ a .remove-img-btn-adminGalerijaPage:hover {
   right: 0;
 }
 
+#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat {
+  color: #8a8383;
+}
+
+#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat {
+  display: none;
+  color: #892f2b;
+}
+
+#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf {
+  margin-top: -38px;
+  float: right;
+  position: relative;
+  font-size: 1.2rem;
+  margin-right: .8rem;
+  cursor: pointer;
+}
+
+.openPasswordLogin, .closedPasswordLogin {
+  margin-top: -46px;
+  float: right;
+  position: relative;
+  font-size: 1.2rem;
+  margin-right: .8rem;
+  cursor: pointer;
+}
+
+#showPassword, #hidePassword, #showPasswordRepeat, #hidePasswordRepeat {
+  margin-top: -40px;
+  float: right;
+  position: relative;
+  font-size: 1.2rem;
+  margin-right: .8rem;
+  cursor: pointer;
+}
+
+#label, #label-2 {
+  font-size: .85em;
+  color: #445252;
+  letter-spacing: .02rem;
+  display: none;
+}
+
+/*za telefon input*/
 .no-arrow::-webkit-inner-spin-button {
   display: none;
   -webkit-appearance: none;
@@ -1943,6 +2004,12 @@ a .remove-img-btn-adminGalerijaPage:hover {
   }
   #regi-login-form .container-registration .user .formBx form input[type='submit'] {
     width: 100%;
+  }
+
+  #openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf,
+  .openPasswordLogin, .closedPasswordLogin, #showPassword, #hidePassword,
+  #showPasswordRepeat, #hidePasswordRepeat {
+    font-size: 1rem;
   }
 }
 @media (max-width: 362px) {
@@ -2001,6 +2068,24 @@ a .remove-img-btn-adminGalerijaPage:hover {
   text-decoration: none;
 }
 
+@media screen and (max-width: 575px) {
+  .error-page-area {
+    padding: 2.5rem;
+  }
+  .error-page-area h1 {
+    font-size: 6rem;
+    margin-bottom: 1rem;
+  }
+  .error-page-area h2 {
+    font-size: 1.75rem;
+  }
+  .error-page-area p {
+    font-size: 1rem;
+  }
+  .error-page-area .btn-theme.btn-md {
+    font-size: .93rem;
+  }
+}
 .empty-cart {
   width: 70%;
   margin: 0 auto;
@@ -2037,18 +2122,18 @@ a .remove-img-btn-adminGalerijaPage:hover {
 
 @media (max-width: 1200px) {
   .empty-cart {
-    padding: 5rem 0;
+    padding: 7rem 0;
     width: 100%;
   }
 }
 @media (max-width: 992px) {
   .empty-cart {
-    padding: 4rem 0;
+    padding: 7.8rem 0;
   }
 }
 @media (max-width: 767px) {
   .empty-cart {
-    padding: 3rem 0;
+    padding: 5.4rem 0;
   }
   .empty-cart .cart-text {
     font-size: 1rem;
@@ -2302,7 +2387,7 @@ input[value='+'], input[value='-'] {
 }
 
 .korpa {
-  margin-top: 14.1vh;
+  margin-top: 12.5vh;
 }
 
 .fieldset-korpa {
@@ -2310,7 +2395,7 @@ input[value='+'], input[value='-'] {
   border: 0 none;
   border-radius: 0.188rem;
   box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-  padding: 1.25rem 1.875rem;
+  padding: 1.25rem 1.875rem 2rem;
   box-sizing: border-box;
   width: 100%;
 }
@@ -2480,7 +2565,7 @@ input[type=number] {
   }
 
   .fieldset-korpa {
-    padding: 1.8rem 1rem 1rem 1rem;
+    padding: 1.8rem 2rem 2rem 2rem;
   }
 }
 @media (max-width: 992px) {
@@ -2582,13 +2667,6 @@ input[type=number] {
   bottom: 0;
   background: white;
   z-index: 1;
-  /*   &:focus {
-         outline: 2px solid $white-color;
-         outline-offset: -6px;
-         background-color: #b23539;
-         text-decoration: none;
-         color: white;
-     }*/
 }
 .alert-order .closebtn {
   margin-left: 15px;
@@ -2665,14 +2743,42 @@ input[type=number] {
   color: white;
 }
 
-@media screen and (max-width: 875px) {
+@media screen and (max-width: 991px) {
   .alert-order {
-    max-width: 80%;
+    max-width: 50%;
     height: 500px;
   }
 
   .nazad-button {
     width: 50%;
+  }
+}
+@media screen and (max-width: 776px) {
+  .alert-order {
+    max-width: 500px;
+    height: 500px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .alert-order {
+    max-width: 300px;
+    height: 450px;
+  }
+  .alert-order .img-wrapp {
+    max-width: 120px;
+    max-height: 120px;
+  }
+  .alert-order .alert-naslov {
+    font-size: 1.4rem;
+  }
+  .alert-order .alert-text {
+    font-size: 1rem;
+    line-height: 1.2;
+    margin-bottom: 40px;
+  }
+
+  .nazad-button {
+    width: 120px !important;
   }
 }
 .alert-uspesna-prijava {
@@ -3116,11 +3222,11 @@ select {
 }
 
 .small-img {
-  width: 480px;
+  width: 495px;
   height: 70px;
   margin-top: 10px;
   position: relative;
-  left: 25px;
+  left: 20px;
 }
 .small-img .icon-left {
   width: 30px;
@@ -3152,7 +3258,7 @@ select {
 }
 
 .small-container {
-  width: 380px;
+  width: 395px;
   height: 70px;
   overflow: hidden;
   position: absolute;
@@ -3185,6 +3291,10 @@ select {
   .small-img {
     width: 445px;
     left: 18px;
+  }
+
+  .small-container {
+    width: 385px;
   }
 }
 @media screen and (max-width: 992px) {
@@ -3312,6 +3422,21 @@ select {
   margin-bottom: .5rem;
 }
 
+.empty-purchase-history {
+  width: 70%;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+.empty-purchase-history .empty-purchase-history-text {
+  border-top: 3px solid #892f2b;
+  background-color: #f7f7f7;
+  padding: 2rem;
+  margin-bottom: 2.4rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
 @media screen and (max-width: 1200px) {
   .box-history .okvirSlikeZaProizvod {
     width: 225px;
@@ -3326,8 +3451,8 @@ select {
 }
 @media screen and (max-width: 767px) {
   .box-history .okvirSlikeZaProizvod {
-    width: 250px;
-    height: 250px;
+    width: 100%;
+    height: 80vw;
   }
   .box-history .centrirajTextuDiv {
     margin-bottom: 1rem;
@@ -3580,12 +3705,12 @@ select {
 }
 
 .containerImgPorudzbinaStavkaPregled {
-  height: 35vh;
+  height: 33vh;
 }
 .containerImgPorudzbinaStavkaPregled .slika-porudzbinaStavkaPregled {
   height: 100%;
   object-fit: cover;
-  width: 100%;
+  width: 70vw;
 }
 
 @media screen and (max-width: 1200px) {
@@ -3687,7 +3812,7 @@ img {
 }
 
 .header-img {
-  max-width: 100%;
+  width: 100%;
   display: block;
   background-attachment: fixed;
   background-position: center;
@@ -3706,7 +3831,7 @@ img {
   z-index: 1;
 }
 .navbar .navbar-brand {
-  /*color: $white-color;*/
+  position: absolute;
 }
 .navbar .nav-item {
   padding: 0 0.8rem;
@@ -3762,7 +3887,7 @@ img {
 }
 
 #brandlogo {
-  max-width: 13vw;
+  max-width: 12vw;
 }
 
 .navbar-toggler-icon {
@@ -3841,7 +3966,7 @@ img {
   position: absolute;
   transform: translate(-50%);
   flex-direction: column;
-  top: 10vw;
+  top: 11vw;
   left: 50vw;
 }
 .text-box h2 {
@@ -3947,7 +4072,7 @@ img {
 /*3 karte za usluge end*/
 /*footer start*/
 footer {
-  margin-top: 10px;
+  /*margin-top: 10px;*/
 }
 footer .links-social {
   background: #892f2b;
@@ -3969,7 +4094,7 @@ footer .links-social .link-groups .links ul {
   list-style: none;
 }
 footer .links-social .link-groups .links ul li a {
-  font-size: .9rem;
+  font-size: .95rem;
   color: #d8c7c4;
   line-height: 22px;
   -webkit-transition: all linear 0.2s;
@@ -4011,6 +4136,9 @@ footer .copyright {
   text-align: center;
   background: #7d2a27;
 }
+footer .copyright a {
+  color: #bfa6a2;
+}
 
 .list-inline {
   padding-left: 0;
@@ -4026,7 +4154,7 @@ footer .copyright {
 /*footer end*/
 .img-parallax {
   background-image: url("/img/paralaxmozda10.jpg");
-  max-width: 100%;
+  width: 100%;
   display: block;
   background-attachment: fixed;
   background-position: center;
@@ -4162,7 +4290,7 @@ footer .copyright {
 .contact-us {
   margin-top: 3.125rem;
   padding-bottom: 3.75rem;
-  background-color: #fcfcfc;
+  background-color: #fafafa;
 }
 .contact-us .send-us-a-message-header {
   color: #892f2b;
@@ -4238,6 +4366,12 @@ footer .copyright {
 .contact-us .bg-color-contact .list-info li span {
   font-family: "Lato", sans-serif;
   color: #525252;
+}
+.contact-us .bg-color-contact .list-info li a {
+  color: #211b14;
+}
+.contact-us .bg-color-contact .list-info li a:hover {
+  color: #b23539;
 }
 .contact-us .bg-color-contact .social-icons-contact {
   padding-top: 0 !important;
@@ -4328,6 +4462,10 @@ footer .copyright {
   .img-parallax p {
     line-height: 1.6;
   }
+
+  .navbar .navbar-brand {
+    position: static;
+  }
 }
 @media (max-width: 992px) {
   .card .card-content {
@@ -4342,14 +4480,14 @@ footer .copyright {
   }
   .card .card-text {
     font-size: 1rem !important;
-    padding: 0.8rem 0.7rem 4rem 0.7rem !important;
+    padding: 0.8rem 0.7rem 3rem 0.7rem !important;
   }
   .card .card-text1 {
-    padding: 1rem 0.4rem 5.6rem 0.4rem !important;
+    padding: 2rem 0.4rem 3.2rem 0.4rem !important;
     font-size: 1rem !important;
   }
   .card .card-text2 {
-    padding: 1rem 0.4rem 4.2rem 0.4rem !important;
+    padding: 2rem 0.4rem 2rem 0.4rem !important;
     font-size: 1rem !important;
   }
   .card .detail-button {
@@ -4420,6 +4558,21 @@ footer .copyright {
   .karte .card {
     margin-bottom: 3rem;
   }
+  .karte .card .card-title {
+    font-size: 1.4rem !important;
+  }
+  .karte .card .card-content .card-text {
+    font-size: 1.17rem !important;
+    padding: 1.5rem 1.8rem 3rem 1.8rem !important;
+  }
+  .karte .card .card-text2 {
+    padding: 1.5rem 1.8rem 2rem 1.8rem !important;
+    font-size: 1.17rem !important;
+  }
+  .karte .card .card-text1 {
+    font-size: 1.17rem !important;
+    padding: 2rem 1.8rem 3.2rem 1.8rem !important;
+  }
 
   .img-parallax p {
     font-size: 3.2vw;
@@ -4487,10 +4640,6 @@ footer .copyright {
   }
   .services p {
     font-size: 1.1rem;
-  }
-
-  .karte .card {
-    margin-bottom: 2rem;
   }
 
   .img-parallax {

@@ -166,9 +166,12 @@
 
                                             <div class="row border-top border-bottom stavkaPregledJS " th:pid="${stavka.proizvod.id}">
                                                 <div class="row main align-items-center mt-2 mb-2">
-                                                    <div class="col-4 containerImgPorudzbinaStavkaPregled">
-                                                        <a th:href="@{/proizvod/{proizvodId} (proizvodId=${stavka.proizvod.id})}"><img class="img-fluid slika-porudzbinaStavkaPregled "  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}">
-                                                        </a>
+                                                    <div class="col-4">
+                                                        <div class="containerImgPorudzbinaStavkaPregled">
+                                                            <a th:href="@{/proizvod/{proizvodId} (proizvodId=${stavka.proizvod.id})}">
+                                                                <img class="img-fluid slika-porudzbinaStavkaPregled "  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}">
+                                                            </a>
+                                                        </div>
                                                     </div>
                                                     <div class="col-4">
                                                         <a th:href="@{/proizvod/{proizvodId} (proizvodId=${stavka.proizvod.id})}"> <div class="naslov-porudzbinaStavkaPregled"><span th:text="${stavka.proizvod.getIme()}"></span></div></a>

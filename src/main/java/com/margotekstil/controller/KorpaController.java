@@ -56,9 +56,6 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class KorpaController {
 
-
-    
-    
     @GetMapping(value = "/shoppingCart")
     public String publicShoppingCart2Margotekstil(final Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
@@ -71,7 +68,7 @@ public class KorpaController {
             model.addAttribute("korpa", user.getKorpa());
 
         } else {
-                   return "neregistrovani/shoppingCart";
+            return "neregistrovani/shoppingCart";
         }
 
         return "main/shoppingCart";
@@ -115,7 +112,7 @@ public class KorpaController {
             zavrsena.setNapomena(komentar);
             zavrsena.setPostanski_broj(postanskibroj);
             zavrsena.setPrezime(prezime);
-               EmailController em= new EmailController();
+            EmailController em = new EmailController();
             try {
                 zavrsenePorudzbineService.save(zavrsena);
                 Korpa korpa = new Korpa();
@@ -125,8 +122,8 @@ public class KorpaController {
 
                 if (nacinplacanja.equalsIgnoreCase("Plaćanje prilikom preuzimanja")) {
                     String htmlPrikaz = "";
-                    EmailController.SendVasaPorudzbinaEmail( user, zavrsena);
-                
+                    EmailController.SendVasaPorudzbinaEmail(user, zavrsena);
+
                     EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 
                 } else {
@@ -134,14 +131,14 @@ public class KorpaController {
                         String htmlPrikaz = "";
                         String uplatnica = "";
                         EmailController.SendVasaPorudzbinaiUplatnicaEmail(user, zavrsena);
-                    
-                        EmailController.SendkorisnikPorucioEmail( user, zavrsena);
+
+                        EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 
                     } else {
                         String htmlPrikaz = "";
                         EmailController.SendVasaPorudzbinaEmail(user, zavrsena);
-                      
-                        EmailController.SendkorisnikPorucioEmail( user, zavrsena);
+
+                        EmailController.SendkorisnikPorucioEmail(user, zavrsena);
 
                     }
                 }
@@ -156,10 +153,4 @@ public class KorpaController {
         return "redirect:/";
     }
 
-    
-    
-     
-    
-    
-    
 }

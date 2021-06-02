@@ -19,6 +19,12 @@
             p {
                 font-family: $font-for-numbers;
                 font-size: 1.2rem;
+                a {
+                    color: $brown-black-color;
+                    &:hover {
+                        color: $redish-color;
+                    }
+                }
             }
         }
     }
@@ -28,7 +34,7 @@
     /*    background-image: url("/img/contact3.jpg");
         @include headerImage();*/
     margin-top: 2rem;
-    margin-bottom: 3.125rem;
+    margin-bottom: 4rem;
     .bg-color-contact-page {
 
         p {
@@ -213,8 +219,8 @@ iframe {
                 font-size: 2rem;
             }
             p {
-                  font-size: 1rem;
-                  margin-bottom: 0;
+                font-size: 1rem;
+                margin-bottom: 0;
             }
         }
         .bg-color-contact-page {
@@ -243,5 +249,5 @@ iframe {
             }
         }
     }
-    
+
 }

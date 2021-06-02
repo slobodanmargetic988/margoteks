@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <img src="/img/shop-image.jpg" class="header-img" alt="header-image">
+        <img src="/img/shop-image.jpg" class="header-img" alt="shopping-cart-header-image">
 
 
             <th:block th:insert="fragments/navigation :: navbar" />
@@ -69,7 +69,7 @@
                                     <label class="labela">Adresa:</label>
                                     <input type="text" name="adresa" id="predzadnjiKorakAdresa" th:value="${user.adresa}" />
                                     <label class="labela">Poštanski broj:</label>
-                                    <input type="text" name="postanskibroj" id="predzadnjiKorakPB" th:value="${user.postanski_broj}" />
+                                    <input type="number" name="postanskibroj" id="predzadnjiKorakPB" th:value="${user.postanski_broj}" />
                                     <label class="labela">Grad: </label>
                                     <input type="text" name="grad" th:value="${user.mesto}" id="predzadnjiKorakGrad"/>
 

@@ -135,6 +135,31 @@
     }
 }
 
+@media screen and (max-width:991px) {
+    .about-section {
+        .container {
+            .image-column {
+                .inner-column {
+                    padding-left: 13rem;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (max-width:767px) {
+    .about-section {
+        .container {
+            .image-column {
+                .inner-column {
+                    padding-left: 7.5rem;
+                }
+            }
+        }
+    }
+}
+
+
 
 @media screen and (max-width:414px) {
     .about-section {

@@ -1,61 +1,6 @@
 
 jQuery(document).ready(function () {
 
-/*
-    $(".dodajuKorpu-shop-page").on("click", function (e) {
-        photo = $(this).attr("photoid");
-        naziv = $(this).attr("naziv");
-        cena = $(this).attr("cena");
-        proizvod = $(this).attr("proizvodid");
-
-        $("#popupnaziv").text(naziv);
-        $("#popupimg").attr("src", "/photo" + "/" + proizvod + "/" + photo);
-
-        $("#popupcena").text(cena);
-        $("#addedToCart-window").css("display", "block");
-    });
-
-
-    $(".dodajuKorpu-proizvod-page").on("click", function (e) {
-        photo = $(this).attr("photoid");
-        naziv = $(this).attr("naziv");
-        cena = $(this).attr("cena");
-        proizvod = $(this).attr("proizvodid");
-
-        $("#popupnaziv").text(naziv);
-        $("#popupimg").attr("src", "/photo" + "/" + proizvod + "/" + photo);
-
-        $("#popupcena").text(cena);
-        $("#addedToCart-window").css("display", "block");
-    });
-
-$(".dodajuKorpu-admin-shop").on("click", function (e) {
-        photo = $(this).attr("photoid");
-        naziv = $(this).attr("naziv");
-        cena = $(this).attr("cena");
-        proizvod = $(this).attr("proizvodid");
-
-        $("#popupnaziv").text(naziv);
-        $("#popupimg").attr("src", "/photo" + "/" + proizvod + "/" + photo);
-
-        $("#popupcena").text(cena);
-        $("#addedToCart-window").css("display", "block");
-    });
-    
-    $(".add-to-cart-with-icon-productAdminPage").on("click", function (e) {
-        photo = $(this).attr("photoid");
-        naziv = $(this).attr("naziv");
-        cena = $(this).attr("cena");
-        proizvod = $(this).attr("proizvodid");
-
-        $("#popupnaziv").text(naziv);
-        $("#popupimg").attr("src", "/photo" + "/" + proizvod + "/" + photo);
-
-        $("#popupcena").text(cena);
-        $("#addedToCart-window").css("display", "block");
-    });
-
-*/
     /*klik bilo gde na ekranu da se zatvori popup proizvoda koji je dodat u korpu*/
     var modal = document.getElementById('addedToCart-window');
     window.onclick = function (event) {
@@ -71,49 +16,22 @@ $(".dodajuKorpu-admin-shop").on("click", function (e) {
     });
 
 
-    //alert za uspesnu porudzbinu da nestane nakon nekoliko sekundi 
-    setTimeout(function () {
-        $("#alertHvalaPorudzbina").fadeOut(400);
-    }, 3500);
-    
-    
-   
-
-
-
-///*klik na dugme nazad na popupu sa dodatim proizvodom da se zatvori popup proizvoda koji je dodat u korpu*/
-//var modal2 = document.getElementById('nazad-na-shop-btn');
-//window.onclick = function (event) {
-//    if (event.target === modal2) {
-//        modal.style.display = "none";
-//    }
-//    ;
-//};
-
-
-//jos ne radi
-    $(".alert-order").on("click", function () {
-        $("#alertHvalaPorudzbina").fadeOut();
-    });
-
-//radi
-    $("#nazadBTN").on("click", function () {
-        $("#alertHvalaPorudzbina").fadeOut();
-    });
-
-
-//        setTimeout(function () { $("#alertHvalaPorudzbina"); }, 3000);
-
-
+//    //alert za uspesnu porudzbinu da nestane nakon nekoliko sekundi 
+//    setTimeout(function () {
+//        $("#alertThankYouPorudzbina").fadeOut(400);
+//    }, 3500);
+//    
+//    
+//   
+////radi
+////    $("#nazadBTN").on("click", function () {
+////        $("#alertHvalaPorudzbina").fadeOut();
+////    });
+////    
+//     $(".OKBtn").on("click", function () {
+//        $("#alertThankYouPorudzbina").fadeOut();
+//    });
 //
-///*klik na dugme nazad na popupu sa dodatim proizvodom da se zatvori popup proizvoda koji je dodat u korpu*/
-//var modal2 = document.getElementById('nazad-na-shop-btn');
-//window.onclick = function (event) {
-//    if (event.target === modal2) {
-//        modal.style.display = "none";
-//    }
-//    ;
-//};
 
 
 });
@@ -434,33 +352,6 @@ jQuery(document).ready(function () {
 
 
 });
-/*minus i plus dugme na proizvod strani*/
-
-
-
-
-
-
-
-//        /*popup*/
-//       $(document).ready(function ($) {
-//$(".buttonAdd2Cart").on("click", function (event) {
-//event.preventDefault();
-//       $("#addedToCart-window").addClass("active");
-//       setTimeout(function () {
-//            $(".submit-window").removeClass("active");
-//        }, 5000);
-//});
-
-
-/*
- dodavanje u korpuy popup vindow treba srediti
- $(".popup").on("click", function () {
- var id = $(this).attr("pid");
- $('.addedToCart-window['+id']').css("display","block");
- };
- */
-
 
 
 

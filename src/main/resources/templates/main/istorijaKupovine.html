@@ -9,7 +9,7 @@
     </head>
 
     <body>
-        <img src="/img/sewing1.jpg" class="header-img" alt="header-image">
+        <img src="/img/sewing1.jpg" class="header-img" alt="istorija-kupovine-header-image" >
 
             <th:block th:insert="fragments/navigation :: navbar" />
 
@@ -23,6 +23,12 @@
 
 
             <div class="container do-sada-poruceno-box">
+
+
+                <div class="empty-purchase-history" style="display: none">
+                    <p class="empty-purchase-history-text">Još uvek niste poručili nijedan proizvod.</p>
+                </div>
+
 
                 <div class="box-history">
                     <p class="dateOfPurchase">Proizvodi koje ste do sada poručili<span></span></p>

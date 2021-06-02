@@ -76,7 +76,7 @@ public class EmailController {
     static final String SUBJECTPORUCENAROBA = "Poručeni proizvodi";
  static final String SUBJECTPrimljena = "Primljena poruka";
     public static String welcomeEmaillink = "http://localhost:8081/";
-    public static String resetEmaillink = "http://localhost:8081/resetEmail/";
+    public static String resetEmaillink = "http://localhost:8081/resetPassword/";
 
     //registracija novog korisnika, pa tom korisniku stize poruka na email
     public static void SendEmailRegistracija(Users user) throws Exception {
@@ -134,7 +134,7 @@ public class EmailController {
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         //    msg.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("tusen.takk0@gmail.com"));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
 
         msg.setSubject(SUBJECTPrimljena);
         String BODY = String.join(
@@ -206,7 +206,7 @@ public class EmailController {
     }
 
     //kada je korisnik zaboravio lozinku, pa da mu stigne email da je resetuje
-    public static void SendResetEmail(String recipient, String resetToken, Users user) throws Exception {
+    public static void SendResetPassword(String recipient, String resetToken, Users user) throws Exception {
         // Create a Properties object to contain connection configuration information.
         Properties props = System.getProperties();
         props.put("mail.transport.protocol", "smtp");
@@ -437,7 +437,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         // msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("tusen.takk0@gmail.com"));
+        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
 
         msg.setSubject(SUBJECTPORUCENAROBA, "UTF-8");
         String BODY = String.join(
@@ -446,7 +446,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + emailsadrzajContainer
                 + standardnaporukazafirmu(nacinisporuke, user.getIme(), user.getPrezime())
                 + ""
-                + podaciOKupcu(user,  zavrsenePorudzbine)
+                + podaciOKupcu(user, zavrsenePorudzbine)
                 + ""
                 + listaproizvoda(korpa)
                 + "           "
@@ -628,7 +628,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "   <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;line-height:1.4\">"
                 + "    <span style=\"font-style: italic\">Email adresa:</span> " + telefon + "<br>"
                 + "    <span style=\"font-style: italic\">Telefon:</span> " + email + "<br><br>"
-                + "     sa sadržajem: <br><br>"
+                + "     sa sadržajem: <br>"
                 + "   </p>"
                 + "   <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;line-height:1.4\">"
                 + "    " + poruka + " "
@@ -653,7 +653,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                 <tbody>"
                 + "                   <tr>"
                 + "                     <td bgcolor=\"#f16922\" height=\"50\" align=\"center\" valign=\"middle\" style=\"font-family:Gotham,Arial,sans-serif;font-size:16px;background-color:#B23539;color:#ffffff;border-radius:3px\">"
-                + "                       <div id=\"m_-1272894485461758630button\"><a href=\"http://" + serverip + "/resetEmail/" + resetToken + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Resetuj lozinku</a></div>"
+                + "                       <div id=\"m_-1272894485461758630button\"><a href=\"http://" + serverip + "/resetPassword/" + resetToken + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Resetuj lozinku</a></div>"
                 + "                     </td>"
                 + "                   </tr>"
                 + "                 </tbody>"
@@ -662,7 +662,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "           </tr>"
                 + "           <tr>"
                 + "             <td valign=\"top\" style=\"font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:11px;line-height:28px;color:#363636\">"
-                + "               <div id=\"m_-1272894485461758630training\" style=\"margin-left: 30px;\">*Ako niste podneli ovaj zahtev ili ste ga podneli greškom, zanemarite ovaj imejl. Vaša lozinka će ostati takva kakva je bila.</div>"
+                + "               <div id=\"m_-1272894485461758630training\" style=\"margin-left: 30px;\">*Ako niste podneli ovaj zahtev ili ste ga podneli greškom, zanemarite ovaj email. Vaša lozinka će ostati takva kakva je bila.</div>"
                 + "             </td>"
                 + "           </tr>"
                 + "           <tr>"
@@ -749,7 +749,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                          <b>Referenca porudžbine</b>"
                 + "                        </p>"
                 + "                        <p style=\"margin:0;padding:0;text-align:left;font-size:14px;color:#000000;font-weight:400\">"
-                + "                          "+"210"+zavrsenePorudzbine.getKorpa().getId()+"\"></a>"
+                + "                          "+"210"+zavrsenePorudzbine.getKorpa().getId()+"</a>"
                 + "                        </p>"
                 + "                        <p style=\"margin: 15px 0 0 0;padding:0;text-align:left;font-size:13px;color:#892f2b;font-weight:400\">"
                 + "                          <b>Podaci o kupcu</b>"
@@ -813,7 +813,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                          <b>Referenca porudžbine</b>"
                 + "                        </p>"
                 + "                        <p style=\"margin:0;padding:0;text-align:left;font-size:14px;color:#000000;font-weight:400\">"
-                + "                         <a href=\"http://" + serverip + "/admin/adminPregledPorudzbine/"+zavrsenePorudzbine.getId()+"\"></a>"
+                + "                         <a href=\"http://" + serverip + "/admin/adminPregledPorudzbine/"+zavrsenePorudzbine.getId()+"\">"+zavrsenePorudzbine.getId()+"</a>"
                 + "                        </p>"
                 + "                        <p style=\"margin: 15px 0 0 0;padding:0;text-align:left;font-size:15px;color:#892f2b;font-weight:400\">"
                 + "                          <b>Podaci o kupcu</b>"
@@ -869,7 +869,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
             + "                    <tr>"
             + "                      <td style=\"color:white\" width=\"50%\">"
             + "                        <p style=\"font-size:14px;letter-spacing:1px;font-weight:200;margin:0;padding:5px;float:left;font-family:Roboto, sans-serif;color:white\">"
-            + "                          Kontakt telefon: <span style=\"margin:0;padding:0;color:white;font-weight:400;font-family:Roboto, sans-serif;font-size:16px\"> 064 45 14 050</span>"
+            + "                          Kontakt telefon: <span style=\"margin:0;padding:0;color:white;font-weight:400;font-family:Roboto, sans-serif;font-size:16px\"> +381 64 112 51 29</span>"
             + "                        </p>"
             + ""
             + "                      </td>"

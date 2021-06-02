@@ -225,14 +225,14 @@ input[value='+'], input[value='-'] {
     border: 1px solid $burgundy-color !important;
 }
 .korpa {
-    margin-top: 14.1vh;
+    margin-top: 12.5vh;
 }
 .fieldset-korpa {
     background: $white-color;
     border: 0 none;
     border-radius: 0.188rem;
     box-shadow: 0 0 15px 1px rgba(0, 0, 0, 0.4);
-    padding: 1.25rem 1.875rem;
+    padding: 1.25rem 1.875rem 2rem;
     box-sizing: border-box;
     width: 100%;
 }
@@ -416,7 +416,7 @@ input[type=number] {
 
     }
     .fieldset-korpa {
-        padding: 1.8rem 1rem 1rem 1rem;
+        padding: 1.8rem 2rem 2rem 2rem;
     }
 }
 

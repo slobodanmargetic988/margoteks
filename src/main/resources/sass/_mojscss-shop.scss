@@ -250,10 +250,11 @@
         }
         .master-img {
             width: 100%;
-            height: 20vh;
+            height: 22vh;
             .popup-slika {
                 height: 100%;
                 object-fit: cover;
+                 width: 100%;
             }
         }
         .productName {
@@ -265,7 +266,7 @@
             font-size: 1.3rem;
         }
         .shop-buttons {
-            margin-top: 3.4rem;
+            margin-top: 4.8rem;
             .btn-cart {
                 color: $white-color;
                 background: $burgundy-color;
@@ -386,10 +387,10 @@
     #addedToCart-window {
         .addedToCart-window-content {
             .master-img {
-                height:16vh;
+                height:17.5vh;
             }
             .shop-buttons {
-                margin-top: 2rem;
+                margin-top: 3.1rem;
                 .btn-cart {
                     margin-bottom: .3rem;
                 }
@@ -422,9 +423,7 @@
         }
     }
     .dodajuKorpu-shop-page {
-        font-size: .9rem;
-        padding: .3rem 1rem;
-        border: none;
+        font-size: .95rem;
         font-weight: 500;
     }
     .all-categories-left-nav-container {
