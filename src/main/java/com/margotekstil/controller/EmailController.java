@@ -50,7 +50,7 @@ import org.springframework.core.io.support.ResourcePatternResolver;
 //@Controller
 public class EmailController {
 
-    public static String serverip = "109.92.20.155:8081";
+    public static String serverip = "margotekstil.com";
     static final String FROM = "slobodanmargetic988@gmail.com";
     static final String FROMNAME = "Margotekstil";
     static final String brojtekucegracuna="265-1680310001802-85";
@@ -75,8 +75,8 @@ public class EmailController {
     static final String SUBJECTPORUDZBINA = "Potvrda porudžbine";
     static final String SUBJECTPORUCENAROBA = "Poručeni proizvodi";
  static final String SUBJECTPrimljena = "Primljena poruka";
-    public static String welcomeEmaillink = "http://localhost:8081/";
-    public static String resetEmaillink = "http://localhost:8081/resetPassword/";
+    public static String welcomeEmaillink = "https://margotekstil.com";
+    public static String resetEmaillink = "https://margotekstil.com/resetPassword/";
 
     //registracija novog korisnika, pa tom korisniku stize poruka na email
     public static void SendEmailRegistracija(Users user) throws Exception {
@@ -483,7 +483,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
         for (KorpaProizvodi korpaproizvod : korpa.getKorpaproizvodi()) {
             poruceno += "                    <tr>"
                     + "                      <td style=\"padding:0;text-align:center\" width=\"20%\" valign=\"top\">"
-                    + "                        <img style=\"background:transparent; object-fit:cover;\" src=\"http://" + serverip + "/photo/" + korpaproizvod.getProizvod().getId() + "/" + korpaproizvod.getProizvod().getGlavnaslika().getId() + "\" width=\"100\" height=\"100\" border=\"0\" >"
+                    + "                        <img style=\"background:transparent; object-fit:cover;\" src=\"https://" + serverip + "/photo/" + korpaproizvod.getProizvod().getId() + "/" + korpaproizvod.getProizvod().getGlavnaslika().getId() + "\" width=\"100\" height=\"100\" border=\"0\" >"
                     + "                      </td>"
                     + "                      <td style=\"color:#000000;font-size:14px;float:left\" width=\"100%\" valign=\"top\">"
                     + "                        <table style=\"border-top:1px solid #892f2b;border-bottom:1px solid #892f2b;padding:32px 0; margin-bottom:20px\" width=\"100%\">"
@@ -589,7 +589,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                 Zdravo " + ime + " " + prezime + ","
                 + "               </p> "
                 + "               <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;\"> "
-                + "                 Hvala što ste napravili nalog na Margotekstil. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate narudžbine, promenite lozinku i u druge svrhe, na adresi: <a href=\"http://" + serverip + "/registration/\" rel=\"nofollow\" style=\"color:#3fabd6;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.margotekstil.rs/<wbr>moj-nalog/</a>  "
+                + "                 Hvala što ste napravili nalog na Margotekstil. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate narudžbine, promenite lozinku i u druge svrhe, na adresi: <a href=\"https://" + serverip + "/registration/\" rel=\"nofollow\" style=\"color:#3fabd6;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.margotekstil.rs/<wbr>moj-nalog/</a>  "
                 + "                 <br> <br> "
                 + "                 Nadamo se da ćemo vas uskoro videti. "
                 + "                </p> "
@@ -653,7 +653,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                 <tbody>"
                 + "                   <tr>"
                 + "                     <td bgcolor=\"#f16922\" height=\"50\" align=\"center\" valign=\"middle\" style=\"font-family:Gotham,Arial,sans-serif;font-size:16px;background-color:#B23539;color:#ffffff;border-radius:3px\">"
-                + "                       <div id=\"m_-1272894485461758630button\"><a href=\"http://" + serverip + "/resetPassword/" + resetToken + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Resetuj lozinku</a></div>"
+                + "                       <div id=\"m_-1272894485461758630button\"><a href=\"https://" + serverip + "/resetPassword/" + resetToken + "\" style=\"text-decoration:none;color:#ffffff;display:block;line-height:49px;letter-spacing:.05rem\" target=\"_blank\" data-saferedirecturl=\"\">Resetuj lozinku</a></div>"
                 + "                     </td>"
                 + "                   </tr>"
                 + "                 </tbody>"
@@ -813,7 +813,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                          <b>Referenca porudžbine</b>"
                 + "                        </p>"
                 + "                        <p style=\"margin:0;padding:0;text-align:left;font-size:14px;color:#000000;font-weight:400\">"
-                + "                         <a href=\"http://" + serverip + "/admin/adminPregledPorudzbine/"+zavrsenePorudzbine.getId()+"\">"+zavrsenePorudzbine.getId()+"</a>"
+                + "                         <a href=\"https://" + serverip + "/admin/adminPregledPorudzbine/"+zavrsenePorudzbine.getId()+"\">"+zavrsenePorudzbine.getId()+"</a>"
                 + "                        </p>"
                 + "                        <p style=\"margin: 15px 0 0 0;padding:0;text-align:left;font-size:15px;color:#892f2b;font-weight:400\">"
                 + "                          <b>Podaci o kupcu</b>"
