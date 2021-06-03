@@ -224,8 +224,11 @@ function updateTotals() {
 }
 
 function napraviKorpaStavke() {
-    var celaKorpa = JSON.parse(Cookies.get('korpa'));
+   
     var stavke = "";
+    if (Cookies.get('korpa') !== undefined){
+ 
+     var celaKorpa = JSON.parse(Cookies.get('korpa'));
     for (var i = 0; i < celaKorpa.length; i++) {
 
 
@@ -251,6 +254,7 @@ function napraviKorpaStavke() {
                 + " </div>"
                 + "  </div>";
         stavke += stavka;
+    }
     }
     return stavke;
 }

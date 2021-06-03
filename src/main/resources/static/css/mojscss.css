@@ -990,7 +990,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 #addedToCart-window .addedToCart-window-content .master-img {
   width: 100%;
-  height: 22vh;
+  height: 228px;
 }
 #addedToCart-window .addedToCart-window-content .master-img .popup-slika {
   height: 100%;
@@ -1111,7 +1111,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   }
 
   #addedToCart-window .addedToCart-window-content .master-img {
-    height: 17.5vh;
+    height: 183px;
   }
   #addedToCart-window .addedToCart-window-content .shop-buttons {
     margin-top: 3.1rem;

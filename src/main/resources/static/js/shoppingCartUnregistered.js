@@ -116,8 +116,10 @@ $(document).ready(function () {
 
 
 function napraviKorpaStavkePregled() {
+      var stavke = "";
+     if (Cookies.get('korpa') !== undefined){
     var celaKorpa = JSON.parse(Cookies.get('korpa'));
-    var stavke = "";
+
     for (var i = 0; i < celaKorpa.length; i++) {
 
 
@@ -136,6 +138,7 @@ function napraviKorpaStavkePregled() {
                 + "        </div>";
         stavke += stavka;
     }
+     }
     return stavke;
 }
 
