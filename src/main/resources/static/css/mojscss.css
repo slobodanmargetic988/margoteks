@@ -323,6 +323,9 @@ iframe {
   font-family: FontAwesome;
   font-display: swap;
 }
+.about-section .container .content-column .inner-column .list-style-one li a {
+  color: #211b14;
+}
 .about-section .container .content-column .inner-column .btn-box {
   position: relative;
 }
@@ -4153,7 +4156,6 @@ footer .copyright a {
   cursor: pointer;
 }
 .partneri .slick-track {
-  aria-label: "otvori / zatvori meni";
   position: relative;
   top: 0;
   left: 0;

@@ -77,9 +77,15 @@
                             line-height: 1.6;
                             font-family: FontAwesome;
                             font-display: swap;
-                        }
+                        
+                         
+                    }
+                       a {
+                                 color: $brown-black-color;
+                            }
                     }
                 }
+                
                 .btn-box {
                     position: relative;
                     a {
