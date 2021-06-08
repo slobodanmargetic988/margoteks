@@ -18,21 +18,9 @@ $(function () {
 
 
 jQuery(document).ready(function () {
-
-    /*back to top button*/
-//   insert back to top button dynamicly
-    /*stacked font awesome icons*/
-//    $("#backToTop").append('<a class="backToTop" href="javascript:void(null);" style="display: none;"><span class="fa-stack fa-lg">  <i class="fa fa-circle fa-stack-2x"></i><i class="fa fa-angle-up fa-stack-1x"></i></span></a>');
     $("#backToTop").append('<a class="backToTop" style="display:none;"><img class="JSb2t" src="/img/backToTopRedish.png" alt="back to top button"></a>');
-
     var $window = $(window);
     var distance = 80;
-    /*end of back to top button*/
-
-
-
-
-    //ako je refreshovana stranica pa je vec skrolovana da se odmah pojavi back to top i meni promeni boju
     if ($window.scrollTop() >= distance) {
         $(".backToTop").fadeIn();
         var $nav = $(".fixed-top");
@@ -63,37 +51,12 @@ jQuery(document).ready(function () {
         }, 800);
     });
 
-//    $(".JSb2t").mouseover(function () {
-//        this.src = "/img/backToTopRedish.png";
-//    }).mouseout(function () {
-//        this.src = "/img/backToTopBlack.png";
-//    });
-
-
-    /*hamnurger meni da se zatvori kad se klikne bilo gde - radi i ovaj ALI
-     oba se suzavaju kad se klikne */
     $(function () {
         $(document).click(function (event) {
             $('.navbar-collapse').collapse('hide');
 
         });
     });
-
-
-
-
-    /*hamnurger meni da se zatvori kad se klikne bilo gde - radi i ovaj ALI
-     oba se suzava kad se klikne */
-//    $(document).click(function (event) {
-//            var target = $(event.target);
-//            var mobileMenuOpen = $(".navbar-collapse").hasClass("show");
-//            if (mobileMenuOpen === true && !target.hasClass("navbar-toggler")) {
-//                $("button.navbar-toggler").click();
-//            }
-//        }
-//    );
-
-
 
 //Highlight current page navigation menu item
     $(function () {

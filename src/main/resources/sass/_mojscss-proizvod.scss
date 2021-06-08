@@ -10,17 +10,20 @@
     }
     h1 {
         font-family: $font-rest;
+        font-display: swap;
         color: $brown-black-color;
         font-size: 2.3rem;
     }
     h2 {
         font-family: $font-for-numbers;
+        font-display: swap;
         color: $burgundy-color;
         font-size: 1.8rem;
     }
     .description {
         p {
             font-family: $font-rest;
+            font-display: swap;
             color: $greyish-color;
             font-size: 1.1rem;
         }
@@ -38,6 +41,7 @@
                 border: none;
                 font-size: 1.063rem;
                 font-family: $font-rest;
+            font-display: swap;
                 padding-top: 0.313rem;
                 max-width: 7%;
                 padding: .3rem .9rem;
@@ -49,6 +53,7 @@
                 padding: .3rem .9rem;
                 /*font-size: 1.563rem;*/
                 font-family: $font-rest;
+            font-display: swap;
                 outline: none;
                 border-radius: .25rem;
                 &:hover {
@@ -74,12 +79,14 @@
     h3 {
         margin: 5rem 0 3rem 0;
         font-family: $font-rest;
+            font-display: swap;
         color: $brown-black-color;
         font-size: 2rem;
     }
     h4 {
         margin-top: 0.625rem;
         font-family: $font-rest;
+            font-display: swap;
         color: $brown-black-color;
         font-size: 1.5rem;
     }
@@ -88,6 +95,7 @@
     }
     .price {
         font-family: $font-for-numbers;
+            font-display: swap;
         color: $burgundy-color;
         font-size: 1.2rem;
     }
@@ -118,123 +126,6 @@
 
 
 
-
-/*
-#addedToCart-window {
-
-.addedToCart-window {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 9999999;
-    visibility: hidden;
-    .addedToCart-window-content {
-        display: block;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background: $white-color;
-        width: 50%;
-        max-width: 500px;
-        min-width: 300px;
-        padding: 4.375rem 1.25rem 1.25rem;
-        transition: all 0.25s ease;
-        top: 0px;
-        bottom: 550px;
-        h4 {
-            font-size: 1.313rem;
-            text-align: left;
-            font-weight: 400;
-            letter-spacing: 0.2px;
-            padding: 0.938rem 0.625rem 0.938rem 5rem;
-            line-height: 1.313rem;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            color: $brown-black-color;
-            margin: 0;
-            border-bottom: 1px solid darken($white-color,12%);
-            &:before {
-                font-family: fontawesome;
-                content: "\F058";
-                padding-bottom: 14px;
-                font-size: 2.625rem;
-                color: $burgundy-color;
-                display: block;
-                position: absolute;
-                left: 20px;
-                top: 14px;
-            }
-        }
-        .productName {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: .4rem;
-        }
-        .master-price {
-            font-size: 1.3rem;
-        }
-        .shop-buttons {
-            margin-top: 6.5rem;
-
-            .btn-cart {
-                margin-right: 0.438rem;
-                color: $white-color;
-                font-weight: 600;
-                background: $burgundy-color;
-                line-height: 2.063rem;
-                font-size: 0.938rem;
-                font-weight: 600;
-                z-index: 99;
-                outline: none;
-                padding: 0 0.75rem 0.125rem;
-                border-radius: 0.188rem;
-                border: 2px solid $burgundy-color;
-                &:hover {
-                    background: $redish-color;
-                    border: 2px solid $redish-color;
-                }
-            }
-            .btn-shop-outline {
-                color: $burgundy-color;
-                cursor: pointer;
-                background: $white-color;
-                border: 2px solid $burgundy-color;
-                line-height: 2.063rem;
-                font-size: 0.938rem;
-                font-weight: 600;
-                z-index: 99;
-                outline: none;
-                padding: 0 0.75rem 0.125rem;
-                border-radius: 0.188rem;
-                &:hover {
-                    background: $redish-color;
-                    color: $white-color;
-                    border-color: $redish-color;
-                }
-            }
-        }
-        figure {
-            text-align: center;
-            text-align: left;
-        }
-    }
-}
-}
-.addedToCart-window.active {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: opacity 0.3s, visibility 0s;
-    -moz-transition: opacity 0.3s, visibility 0s;
-    transition: opacity 0.3s, visibility 0s;
-    transition-delay: 0.5s;
-}*/
 
 
 @media screen and (max-width: 992px) {
@@ -437,6 +328,7 @@
 .product-price {
     font-size: 1.1rem;
     font-family: $font-for-numbers;
+            font-display: swap;
     color: $burgundy-color;
     font-weight: 600;
     text-align: center;

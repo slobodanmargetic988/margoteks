@@ -1,5 +1,6 @@
 $(document).ready(function () {
     $('.customer-logos').slick({
+       
         slidesToShow: 5,
         slidesToScroll: 2,
         autoplay: true,
@@ -19,4 +20,7 @@ $(document).ready(function () {
                 }
             }]
     });
+      $('.slick-track').attr('aria-label', 'Our customers logos');
+             
+              
 });

@@ -18,6 +18,7 @@
 }
 .infos .center-info .c-info p {
   font-family: "Lato", sans-serif;
+  font-display: swap;
   font-size: 1.2rem;
 }
 .infos .center-info .c-info p a {
@@ -51,6 +52,7 @@
   font-family: "Raleway", sans-serif;
   padding-bottom: 1.2rem;
   font-weight: 500;
+  font-display: swap;
 }
 .contact-us-page .bg-color-contact-page .social-icons-contact-page li {
   display: inline-block;
@@ -319,6 +321,7 @@ iframe {
   /*text-rendering: auto;*/
   line-height: 1.6;
   font-family: FontAwesome;
+  font-display: swap;
 }
 .about-section .container .content-column .inner-column .btn-box {
   position: relative;
@@ -731,6 +734,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 #products-show .breadcrumb {
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   background: none;
   padding: 0;
 }
@@ -1263,6 +1267,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 .single-product-show .breadcrumb {
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   background: none;
   padding: 0;
 }
@@ -1279,16 +1284,19 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 .single-product-show h1 {
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   color: #211b14;
   font-size: 2.3rem;
 }
 .single-product-show h2 {
   font-family: "Lato", sans-serif;
+  font-display: swap;
   color: #892f2b;
   font-size: 1.8rem;
 }
 .single-product-show .description p {
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   color: #525252;
   font-size: 1.1rem;
 }
@@ -1303,6 +1311,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   border: none;
   font-size: 1.063rem;
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   padding-top: 0.313rem;
   max-width: 7%;
   padding: 0.3rem 0.9rem;
@@ -1314,6 +1323,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   padding: 0.3rem 0.9rem;
   /*font-size: 1.563rem;*/
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   outline: none;
   border-radius: .25rem;
 }
@@ -1325,6 +1335,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 .single-product-show .add-to-cart-with-icon-productAdminPage {
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   font-size: .87rem;
   text-align: center;
   cursor: pointer;
@@ -1341,6 +1352,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 .single-product-show .add-to-cart-with-icon-productPage {
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   font-size: .87rem;
   text-align: center;
   cursor: pointer;
@@ -1358,12 +1370,14 @@ a .remove-img-btn-adminGalerijaPage:hover {
 .single-product-show h3 {
   margin: 5rem 0 3rem 0;
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   color: #211b14;
   font-size: 2rem;
 }
 .single-product-show h4 {
   margin-top: 0.625rem;
   font-family: "Raleway", sans-serif;
+  font-display: swap;
   color: #211b14;
   font-size: 1.5rem;
 }
@@ -1372,6 +1386,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 }
 .single-product-show .price {
   font-family: "Lato", sans-serif;
+  font-display: swap;
   color: #892f2b;
   font-size: 1.2rem;
 }
@@ -1407,122 +1422,6 @@ a .remove-img-btn-adminGalerijaPage:hover {
   text-decoration: none;
 }
 
-/*
-#addedToCart-window {
-
-.addedToCart-window {
-    display: block;
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    background: rgba(0, 0, 0, 0.7);
-    z-index: 9999999;
-    visibility: hidden;
-    .addedToCart-window-content {
-        display: block;
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        background: $white-color;
-        width: 50%;
-        max-width: 500px;
-        min-width: 300px;
-        padding: 4.375rem 1.25rem 1.25rem;
-        transition: all 0.25s ease;
-        top: 0px;
-        bottom: 550px;
-        h4 {
-            font-size: 1.313rem;
-            text-align: left;
-            font-weight: 400;
-            letter-spacing: 0.2px;
-            padding: 0.938rem 0.625rem 0.938rem 5rem;
-            line-height: 1.313rem;
-            display: block;
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            color: $brown-black-color;
-            margin: 0;
-            border-bottom: 1px solid darken($white-color,12%);
-            &:before {
-                font-family: fontawesome;
-                content: "\F058";
-                padding-bottom: 14px;
-                font-size: 2.625rem;
-                color: $burgundy-color;
-                display: block;
-                position: absolute;
-                left: 20px;
-                top: 14px;
-            }
-        }
-        .productName {
-            font-size: 1.15rem;
-            font-weight: 600;
-            margin-bottom: .4rem;
-        }
-        .master-price {
-            font-size: 1.3rem;
-        }
-        .shop-buttons {
-            margin-top: 6.5rem;
-
-            .btn-cart {
-                margin-right: 0.438rem;
-                color: $white-color;
-                font-weight: 600;
-                background: $burgundy-color;
-                line-height: 2.063rem;
-                font-size: 0.938rem;
-                font-weight: 600;
-                z-index: 99;
-                outline: none;
-                padding: 0 0.75rem 0.125rem;
-                border-radius: 0.188rem;
-                border: 2px solid $burgundy-color;
-                &:hover {
-                    background: $redish-color;
-                    border: 2px solid $redish-color;
-                }
-            }
-            .btn-shop-outline {
-                color: $burgundy-color;
-                cursor: pointer;
-                background: $white-color;
-                border: 2px solid $burgundy-color;
-                line-height: 2.063rem;
-                font-size: 0.938rem;
-                font-weight: 600;
-                z-index: 99;
-                outline: none;
-                padding: 0 0.75rem 0.125rem;
-                border-radius: 0.188rem;
-                &:hover {
-                    background: $redish-color;
-                    color: $white-color;
-                    border-color: $redish-color;
-                }
-            }
-        }
-        figure {
-            text-align: center;
-            text-align: left;
-        }
-    }
-}
-}
-.addedToCart-window.active {
-    opacity: 1;
-    visibility: visible;
-    -webkit-transition: opacity 0.3s, visibility 0s;
-    -moz-transition: opacity 0.3s, visibility 0s;
-    transition: opacity 0.3s, visibility 0s;
-    transition-delay: 0.5s;
-}*/
 @media screen and (max-width: 992px) {
   .single-product-show h1, .single-product-show h3 {
     font-size: 1.9rem;
@@ -1723,6 +1622,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 .product-price {
   font-size: 1.1rem;
   font-family: "Lato", sans-serif;
+  font-display: swap;
   color: #892f2b;
   font-weight: 600;
   text-align: center;
@@ -2033,6 +1933,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   line-height: 7.5rem;
   margin-bottom: 1.875rem;
   font-family: "Lato", sans-serif;
+  font-display: swap;
 }
 .error-page-area h2 {
   font-weight: 600;
@@ -2701,6 +2602,7 @@ input[type=number] {
   margin-top: 3.2rem;
   margin-bottom: 1.1rem;
   font-weight: 600;
+  font-display: swap;
 }
 .alert-order .alert-text {
   line-height: 1.6;
@@ -2709,6 +2611,7 @@ input[type=number] {
   font-size: 1.1rem;
   margin-top: 0;
   margin-bottom: 35px;
+  font-display: swap;
 }
 .alert-order .nazad-button {
   cursor: pointer;
@@ -2734,6 +2637,7 @@ input[type=number] {
   margin: 0 auto;
   text-decoration: none;
   font-family: "Raleway", sans-serif;
+  font-display: swap;
 }
 .alert-order .nazad-button:hover, .alert-order .nazad-button:focus {
   outline: 2px solid white;
@@ -2812,7 +2716,6 @@ input[type=number] {
 
 .alert-heading {
   text-align: center;
-  /*font-family: $font-big-header;*/
   font-size: 1.3rem;
   margin-left: .5rem;
   font-weight: 500;
@@ -2927,7 +2830,6 @@ select {
 
 #file-chosen {
   margin-left: 0.3rem;
-  /*font-family: sans-serif;*/
 }
 
 .dodavanje-novog-proizvoda {
@@ -3059,7 +2961,6 @@ select {
 
 #file-chosen {
   margin-left: 0.3rem;
-  /*font-family: sans-serif;*/
 }
 
 .dodavanje-nove-slike {
@@ -3170,7 +3071,6 @@ select {
 
 #file-chosen {
   margin-left: 0.3rem;
-  /*font-family: sans-serif;*/
 }
 
 .izmena-proizvoda {
@@ -3536,6 +3436,8 @@ select {
   }
 
   .page-link {
+    width: 48px;
+    height: 48px;
     padding: 0.08rem 0.42rem !important;
   }
 }
@@ -3790,6 +3692,7 @@ select {
 }
 * {
   font-family: "Raleway", sans-serif;
+  font-display: swap;
 }
 
 body {
@@ -3845,8 +3748,10 @@ img {
 .navbar .nav-link {
   color: white;
   font-size: 1.2vw;
-  font-family: "Raleway", sans-serif;
   font-weight: 600;
+}
+.navbar .nav-link:hover {
+  color: white;
 }
 .navbar .nav-link-custom:hover {
   color: #e6e6e4;
@@ -3900,6 +3805,7 @@ img {
   position: absolute;
   font-size: 1.5rem;
   color: white;
+  font-display: swap;
 }
 .navbar-toggler-icon:before:focus {
   outline: none;
@@ -3973,6 +3879,7 @@ img {
   color: white;
   font-family: "Playfair Display", serif;
   letter-spacing: 2px;
+  font-display: swap;
 }
 .text-box p {
   color: white;
@@ -3980,9 +3887,11 @@ img {
   letter-spacing: 1px;
   text-align: center;
   display: inline-block;
+  font-display: swap;
 }
 .text-box p span {
   font-family: "Lato", sans-serif;
+  font-display: swap;
 }
 .text-box h2 {
   font-size: 5vw;
@@ -4096,7 +4005,7 @@ footer .links-social .link-groups .links ul {
 footer .links-social .link-groups .links ul li a {
   font-size: .95rem;
   color: #d8c7c4;
-  line-height: 22px;
+  line-height: 48px;
   -webkit-transition: all linear 0.2s;
   -moz-transition: all linear 0.2s;
   -ms-transition: all linear 0.2s;
@@ -4130,14 +4039,14 @@ footer .copyright {
   font-style: italic;
   font-size: 13px;
   font-weight: normal;
-  color: #bfa6a2;
+  color: white;
   line-height: 20px;
   padding: 32px 0;
   text-align: center;
   background: #7d2a27;
 }
 footer .copyright a {
-  color: #bfa6a2;
+  color: white;
 }
 
 .list-inline {
@@ -4244,6 +4153,7 @@ footer .copyright a {
   cursor: pointer;
 }
 .partneri .slick-track {
+  aria-label: "otvori / zatvori meni";
   position: relative;
   top: 0;
   left: 0;
@@ -4366,6 +4276,7 @@ footer .copyright a {
 .contact-us .bg-color-contact .list-info li span {
   font-family: "Lato", sans-serif;
   color: #525252;
+  font-display: swap;
 }
 .contact-us .bg-color-contact .list-info li a {
   color: #211b14;
@@ -4385,6 +4296,7 @@ footer .copyright a {
   font-family: "Raleway", sans-serif;
   padding-bottom: 1.2rem;
   font-weight: 500;
+  font-display: swap;
 }
 .contact-us .bg-color-contact .social-icons-contact li {
   display: inline-block;

@@ -1,12 +1,12 @@
 <!DOCTYPE html>
-<html xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org">
 
-    <head th:fragment="head">
+    <th:block th:fragment="head">
         <meta charset="utf-8"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
         <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
-        <title>Margotekstil Head</title>
+      
 
         <!--favicon-->
         <link rel="icon" type="image/png" href="/img/margotekstil-favicon.png">
@@ -20,8 +20,8 @@
                     <link th:href="@{/css/mojscss.css}" rel="stylesheet" type="text/css" />
 
                     <!--bootstrap-->
-                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
+<!--                    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">-->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
                         <!--google fonts-->
                         <link rel="preconnect" href="https://fonts.gstatic.com">
                             <link href="https://fonts.googleapis.com/css2?family=Lato&family=Playfair+Display:wght@800&family=Raleway:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -29,7 +29,7 @@
 
 
 
-                                </head>
+                                </th:block>
 
                                 <body>
                                     

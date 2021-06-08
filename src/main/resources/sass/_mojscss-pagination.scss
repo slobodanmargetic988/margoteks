@@ -63,13 +63,17 @@ margin-right: .9rem;
 
 @media screen and (max-width:767px) {
     .page-link {
+  
         padding: 0.15rem 0.45rem !important;
     }
 }
 @media screen and (max-width:575px) {
     .pagination {
+      
         margin-right: 1rem;
     }
     .page-link {
+           width: 48px;
+            height:48px;
 padding: 0.08rem 0.42rem !important;    }
 }

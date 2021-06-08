@@ -27,6 +27,7 @@
 
 * {
     font-family: $font-rest;
+    font-display: swap;
 }
 
 body {
@@ -76,8 +77,11 @@ img {
     .nav-link {
         color: $white-color;
         font-size: 1.2vw;
-        font-family: $font-rest;
+     
         font-weight: 600;
+           &:hover {
+            color: $white-color;
+        }
     }
 
     .nav-link-custom {
@@ -147,6 +151,7 @@ img {
     &:focus {
         outline: none;
     }
+    font-display: swap;
 }
 /*navigation end*/
 
@@ -334,7 +339,7 @@ footer {
                         a {
                             font-size: .95rem;
                             color: #d8c7c4;
-                            line-height: 22px;
+                            line-height: 48px;
                             -webkit-transition: all linear 0.2s;
                             -moz-transition: all linear 0.2s;
                             -ms-transition: all linear 0.2s;
@@ -379,13 +384,13 @@ footer {
         font-style: italic;
         font-size: 13px;
         font-weight: normal;
-        color: #bfa6a2;
+        color: $white-color;
         line-height: 20px;
         padding: 32px 0;
         text-align: center;
         background: #7d2a27;
         a {
-            color: #bfa6a2;
+            color:  $white-color;
         }
     }
 }
@@ -495,6 +500,7 @@ footer {
         cursor: pointer;
     }
     .slick-track {
+          
         position: relative;
         top: 0;
         left: 0;
@@ -623,6 +629,7 @@ footer {
                 span {
                     font-family: $font-for-numbers;
                     color: $greyish-color;
+                    font-display: swap;
                 }
                 a {
                     color: $brown-black-color;

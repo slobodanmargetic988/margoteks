@@ -22,6 +22,7 @@
         color: $white-color;
         font-family: $font-big-header;
         letter-spacing: 2px;
+        font-display: swap;
     }
     p {
         color: $white-color;
@@ -29,8 +30,10 @@
         letter-spacing: 1px;
         text-align: center;
         display: inline-block;
+        font-display: swap;
         span {
             font-family: $font-for-numbers;
+            font-display: swap;
         }
     }
 }
@@ -41,6 +44,7 @@
     font-family: $font-rest;
     padding-bottom: 1.2rem;
     font-weight: 500;
+    font-display: swap;
 
 }
 
@@ -161,6 +165,7 @@
 @mixin breadcrumb {
     .breadcrumb {
         font-family: $font-rest;
+        font-display: swap;
         background: none;
         padding: 0;
         .breadcrumb-item {
@@ -177,6 +182,7 @@
 
 @mixin addToCartWithIcon {
     font-family: $font-rest;
+    font-display: swap;
     font-size: .87rem;
     text-align: center;
     cursor: pointer;

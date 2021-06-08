@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html xmlns="https://www.w3.org/1999/xhtml"
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml"
       xmlns:th="https://www.thymeleaf.org" 
 
       xmlns:sec="https://www.thymeleaf.org/extras/spring-security" 
       >
 
     <head>
-        <title>Margotekstil</title>
-
+        <title>Margotekstil početna strana</title>
+ <meta name="description" content="Margotekstil početna strana. Šijemo za Vas širok asortiman proizvoda,od svih raspoloživih vrsta tekstila. Home page."/> 
         <th:block th:insert="fragments/head :: head" />
 
     </head>
@@ -49,32 +49,41 @@
                         <div class="col-md-4" >
                             <div class="card">
                                 <a th:href="@{/dekorativniProgram}"><img src="/img/stolnjaci.jpg" alt="deco-textile-img"></a>
-                                <a style="text-decoration: none" th:href="@{/dekorativniProgram}"><div class="card-content card-content2">
+                                <a style="text-decoration: none" th:href="@{/dekorativniProgram}">
+                                    <div class="card-content card-content2">
                                         <div class="card-title" style="line-height: 1.2">DEKORATIVNI TEKSTIL <br>ZA KUĆU</div>
                                         <p class="card-text">Šivenje i izrada kompletnog tekstilnog programa za Vaš dom.</p>
-                                        <a th:href="@{/dekorativniProgram}" class="detail-button">Detaljnije</a>
-                                    </div></a>
+                                        <p class="detail-button">Detaljnije</p>
+                                    </div>
+                                        
+                                </a>
                             </div>
                         </div>
 
                         <div class="col-md-4" >
                             <div class="card">
                                 <a th:href="@{/enterijer}"><img src="/img/enterijer.jpg" alt="horeca-textile-img"></a>
-                                <a style="text-decoration: none" th:href="@{/enterijer}"><div class="card-content card-content2">
+                                <a style="text-decoration: none" th:href="@{/enterijer}">
+                                    <div class="card-content card-content2">
                                         <div class="card-title">HORECA TEKSTIL</div>
                                         <p class="card-text2">Skrojen ambijent po meri čini okruženje prijatnim za boravak i druženje.</p>
-                                        <a th:href="@{/enterijer}" class="detail-button">Detaljnije</a>
-                                    </div></a>
+                                        <p class="detail-button">Detaljnije</p>
+                                    </div>
+                                        
+                                </a>
                             </div>
                         </div>
                         <div class="col-md-4" >
                             <div class="card">
                                 <a th:href="@{/petmania}"><img src="/img/psic.jpg" alt="petmania-img"></a>
-                                <a style="text-decoration: none" th:href="@{/petmania}"><div class="card-content card-content1">
+                                <a style="text-decoration: none" th:href="@{/enterijer}">
+                                    <div class="card-content card-content1">
                                         <div class="card-title">PET MANIA</div>
                                         <p class="card-text1">Širok izbor ležajeva i prostirki za pse i mačke.</p>
-                                        <a th:href="@{/petmania}" class="detail-button">Detaljnije</a>
-                                    </div></a>
+                                        <p  class="detail-button">Detaljnije</p>
+                                    </div>
+                                        </a>
+                               
                             </div>
                         </div>
                     </div>
@@ -95,7 +104,7 @@
         
                                 <div class="container partneri mt-5">
                                     <h2>Neki od naših klijenata</h2>
-                                    <section class="customer-logos slider">
+                                    <section class="customer-logos slider" >
                                         <div class="slide"><img src="/img/grand.png" alt="hotel-grand-image"></div>
                                         <div class="slide"><img src="/img/gorski.jpg" alt="hotel-gorski-image"></div>
                                         <div class="onelogo"> <img  src="/img/moskva.png" alt="hotel-moskva-image"/></div>
@@ -170,11 +179,11 @@
                                                 <li><i class="fa fa-envelope fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:margoteks.doo@gmail.com" target="_blank" rel="noopener">margoteks.doo@gmail.com</a></li>
                                                 <li><i class="fa fa-phone fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>+381 64 112 51 29</span></li>
                                             </ul>
+                                               <p class="follow">Pratite nas:</p>
                                             <ul class="social-icons-contact">
-                                                <li class="follow">Pratite nas:</li><br>
-                                                    <li><a href="https://www.facebook.com/margoteks/"><i class="fa fa-facebook fa-2x"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-instagram fa-2x"></i></a></li>
-                                                    <li><a href="#"><i class="fa fa-twitter-square fa-2x"></i></a></li>
+                                                    <li><a href="https://www.facebook.com/margoteks/" aria-label="Our Facebook page"><i class="fa fa-facebook fa-2x"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-instagram fa-2x" aria-label="Our Instagram page"></i></a></li>
+                                                    <li><a href="#"><i class="fa fa-twitter-square fa-2x"aria-label="Our Twitter page"></i></a></li>
                                             </ul>
                                         </div>
                                     </div>

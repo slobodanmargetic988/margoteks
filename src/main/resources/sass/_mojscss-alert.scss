@@ -90,6 +90,7 @@
         margin-top: 3.2rem;
         margin-bottom: 1.1rem;
         font-weight: 600;
+        font-display: swap;
     }
     .alert-text {
         line-height: 1.6;
@@ -98,6 +99,7 @@
         font-size: 1.1rem;
         margin-top: 0;
         margin-bottom: 35px;
+        font-display: swap;
     }
     .nazad-button {
         cursor: pointer;
@@ -123,6 +125,7 @@
         margin: 0 auto;
         text-decoration: none;
         font-family: "Raleway", sans-serif;
+        font-display: swap;
         &:hover, &:focus  {
             outline: 2px solid $white-color;
             outline-offset: -6px;
@@ -209,7 +212,7 @@
 
 .alert-heading {
     text-align: center;
-    /*font-family: $font-big-header;*/
+
     font-size: 1.3rem;
     margin-left: .5rem;
     font-weight: 500;
