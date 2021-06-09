@@ -4422,28 +4422,6 @@ footer .copyright a {
     margin-left: 2.8rem;
   }
 
-  /*    .karte {
-          .card {
-              margin-bottom: 3rem;
-              .card-title {
-                  font-size: 1.4rem !important;
-              }
-              .card-content {
-                  .card-text {
-                      font-size: 1.17rem !important;
-                      padding: 1.5rem 1.8rem 3rem 1.8rem !important;
-                  }
-              }
-              .card-text2 {
-                  padding: 1.5rem 1.8rem 2rem 1.8rem !important;
-                  font-size: 1.17rem !important;
-              }
-              .card-text1 {
-                  font-size: 1.17rem !important;
-                  padding: 2rem 1.8rem 3.2rem 1.8rem !important;
-              }
-          }
-      }*/
   .karte .card {
     height: 700px;
   }
@@ -4542,6 +4520,22 @@ footer .copyright a {
   .partneri h2 {
     font-size: 1.7rem;
     padding: 10px;
+  }
+
+  .karte .card {
+    height: 700px;
+  }
+  .karte .card .card-content .card-title {
+    height: 70px;
+    font-size: 1.4rem;
+    line-height: 1.4;
+  }
+  .karte .card .card-content .card-text {
+    font-size: 1.2rem;
+    padding: 0.7rem 2rem 3rem 2rem;
+  }
+  .karte .card .card-content .detail-button {
+    font-size: 1rem;
   }
 }
 @media screen and (max-width: 400px) {
