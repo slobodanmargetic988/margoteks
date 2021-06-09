@@ -33,6 +33,9 @@ public class Photo {
     @Column(name = "title")
     private String title;
 
+     @Column(name = "alt_text")
+    private String alt_text;
+    
     @Column(name = "file_name")
     private String filename;
     
@@ -48,22 +51,6 @@ public class Photo {
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "glavna_slika", referencedColumnName = "id")
     private Proizvodi glavnazaproizvod;
-
-    public Proizvodi getGlavnazaproizvod() {
-        return glavnazaproizvod;
-    }
-
-    public void setGlavnazaproizvod(Proizvodi glavnazaproizvod) {
-        this.glavnazaproizvod = glavnazaproizvod;
-    }
-    
-    public Boolean getActive() {
-        return active;
-    }
-
-    public void setActive(Boolean active) {
-        this.active = active;
-    }
 
     public int getId() {
         return id;
@@ -81,7 +68,13 @@ public class Photo {
         this.title = title;
     }
 
-    
+    public String getAlt_text() {
+        return alt_text;
+    }
+
+    public void setAlt_text(String alt_text) {
+        this.alt_text = alt_text;
+    }
 
     public String getFilename() {
         return filename;
@@ -91,6 +84,14 @@ public class Photo {
         this.filename = filename;
     }
 
+    public Boolean getActive() {
+        return active;
+    }
+
+    public void setActive(Boolean active) {
+        this.active = active;
+    }
+
     public Proizvodi getProizvod() {
         return proizvod;
     }
@@ -98,7 +99,14 @@ public class Photo {
     public void setProizvod(Proizvodi proizvod) {
         this.proizvod = proizvod;
     }
-    
-    
 
+    public Proizvodi getGlavnazaproizvod() {
+        return glavnazaproizvod;
+    }
+
+    public void setGlavnazaproizvod(Proizvodi glavnazaproizvod) {
+        this.glavnazaproizvod = glavnazaproizvod;
+    }
+
+ 
 }

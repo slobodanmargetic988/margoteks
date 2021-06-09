@@ -1449,24 +1449,6 @@ a .remove-img-btn-adminGalerijaPage:hover {
     height: 35vh;
   }
 }
-/*
-@media screen and (max-width: 875px) {
-    .btn-cart {
-        margin-bottom: .5rem;
-    }
-    .shop-buttons {
-        margin-top: 1rem !important;
-    }
-
-}*/
-/*@media screen and (min-width: 450px) {
-    .btn-shop-outline {
-
-        padding: 0 0.563rem 0.125rem !important;
-        font-size: .8rem !important;
-
-    }
-}*/
 .dodajuKorpu-admin-shop {
   cursor: pointer;
   outline: none;
@@ -1631,39 +1613,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
   text-align: center;
 }
 
-.dodajuKorpu-button {
-  /*    @include flexCenter;
-      cursor: pointer;
-      border: 0;
-      background: $burgundy-color;
-      color: $white-color;
-      padding: 0.8em 1.6em;
-      position: relative;
-      z-index: 1;
-      transition: outline-offset 200ms ease;
-      letter-spacing: 1px;
-      border-radius: .25rem;
-      text-transform: uppercase;
-      font-weight: 500;
-      text-decoration: none;
-      outline-color: #fcfcfc;
-      position: absolute !important;
-      bottom: 1rem;
-      right: 50%;
-      transform: translate(50%, -50%);
-      position: absolute !important;
-      bottom: 1rem;
-      right: 50%;
-      &:hover,
-          &:focus {
-          outline: 2px solid $white-color;
-          outline-offset: -6px;
-          background-color: $redish-color;
-      }*/
-}
-
 .dodajuKorpu-shop-page {
-  /*@include flexCenter;*/
   cursor: pointer;
   outline: none;
   background: #892f2b;
@@ -3930,33 +3880,29 @@ img {
   box-shadow: 1px 10px 31px -1px rgba(179, 167, 167, 0.79);
   -webkit-box-shadow: 1px 10px 31px -1px rgba(179, 167, 167, 0.79);
   -moz-box-shadow: 1px 10px 31px -1px rgba(179, 167, 167, 0.79);
+  border-radius: unset;
+  height: 620px;
 }
 .karte .card .card-content {
-  padding-bottom: 4rem;
+  /*padding-bottom: 4rem;*/
+  padding: .5rem;
 }
 .karte .card .card-content .card-title {
   color: #b23539;
   font-size: 1.7rem;
-  margin: 1rem 0 0.4rem 0;
+  /*margin: 1rem 0 .4rem 0;*/
+  margin-top: .2rem;
+  margin-bottom: 0;
   font-weight: 600;
+  line-height: 1.2;
+  height: 85px;
 }
 .karte .card .card-content .card-text {
   color: #211b14;
   font-size: 1.3rem;
-  line-height: 1.2;
-  padding: 1rem 0.2rem 4rem 0.2rem;
-}
-.karte .card .card-content .card-text1 {
-  color: #211b14;
-  font-size: 1.3rem;
-  line-height: 1.2;
-  padding: 0.5rem 0.2rem 5rem 0.2rem;
-}
-.karte .card .card-content .card-text2 {
-  color: #211b14;
-  font-size: 1.3rem;
-  line-height: 1.2;
-  padding: 0.5rem 0.2rem 3.5rem 0.2rem;
+  line-height: 1.25;
+  padding: 1.2rem 0.2rem 0 0.2rem;
+  height: 120px;
 }
 .karte .card .card-content .detail-button {
   cursor: pointer;
@@ -4042,7 +3988,7 @@ footer .copyright {
   font-style: italic;
   font-size: 13px;
   font-weight: normal;
-  color: white;
+  color: #f7f7f7;
   line-height: 20px;
   padding: 32px 0;
   text-align: center;
@@ -4267,6 +4213,13 @@ footer .copyright a {
   font-weight: 700;
   /*margin-left: 2.5rem;*/
 }
+.contact-us .bg-color-contact .pratite-nas {
+  color: #892f2b;
+  font-size: 2rem;
+  font-family: "Raleway", sans-serif;
+  padding-bottom: 1.2rem;
+  font-weight: 500;
+}
 .contact-us .bg-color-contact .list-info {
   list-style-type: none;
 }
@@ -4342,18 +4295,28 @@ footer .copyright a {
     padding-top: 0;
   }
 
-  .card .card-title {
-    font-size: 1.5rem !important;
-    line-height: 1.2 !important;
+  /*    .karte {
+          height:550px;
+          .card {
+              .card-title {
+                  font-size: 1.5rem !important;
+                  line-height: 1.2 !important;
+              }
+              .card-text {
+                  padding: .5rem .7rem 3rem .7rem !important;
+              }
+          }
+      }*/
+  .karte .card {
+    height: 550px;
   }
-  .card .card-text {
-    padding: 0.5rem 0.7rem 3rem 0.7rem !important;
+  .karte .card .card-content .card-title {
+    font-size: 1.5rem;
+    height: 75px;
   }
-  .card .card-text1 {
-    padding: 1rem 0.5rem 4.7rem 0.4rem !important;
-  }
-  .card .card-text2 {
-    padding: 1rem 0.4rem 3.2rem 0.4rem !important;
+  .karte .card .card-content .card-text {
+    font-size: 1.2rem;
+    padding: 1.2rem 0.8rem 0 0.8rem;
   }
 
   /*NAŠE USLUGE start*/
@@ -4382,30 +4345,20 @@ footer .copyright a {
   }
 }
 @media (max-width: 992px) {
-  .card .card-content {
-    padding-bottom: 3rem;
+  .karte .card {
+    height: 430px;
   }
-  .card .card-content2 {
-    padding-bottom: 2rem;
+  .karte .card .card-content .card-title {
+    height: 55px;
+    font-size: 1.116rem;
   }
-  .card .card-title {
-    font-size: 1.1rem !important;
-    line-height: 1.2 !important;
+  .karte .card .card-content .card-text {
+    font-size: 1rem;
+    padding: 0.7rem 0 3rem 0;
+    height: 100px;
+    line-height: 1.4;
   }
-  .card .card-text {
-    font-size: 1rem !important;
-    padding: 0.8rem 0.7rem 3rem 0.7rem !important;
-  }
-  .card .card-text1 {
-    padding: 2rem 0.4rem 3.2rem 0.4rem !important;
-    font-size: 1rem !important;
-  }
-  .card .card-text2 {
-    padding: 2rem 0.4rem 2rem 0.4rem !important;
-    font-size: 1rem !important;
-  }
-  .card .detail-button {
-    padding: 0.8em 1.6em;
+  .karte .card .card-content .detail-button {
     font-size: .8rem;
   }
 
@@ -4459,7 +4412,7 @@ footer .copyright a {
     display: inline-block;
   }
 
-  .bg-color-contact .contact-header {
+  .bg-color-contact .contact-header, .bg-color-contact .pratite-nas {
     margin-left: 2.8rem;
   }
   .bg-color-contact .list-info {
@@ -4469,23 +4422,42 @@ footer .copyright a {
     margin-left: 2.8rem;
   }
 
+  /*    .karte {
+          .card {
+              margin-bottom: 3rem;
+              .card-title {
+                  font-size: 1.4rem !important;
+              }
+              .card-content {
+                  .card-text {
+                      font-size: 1.17rem !important;
+                      padding: 1.5rem 1.8rem 3rem 1.8rem !important;
+                  }
+              }
+              .card-text2 {
+                  padding: 1.5rem 1.8rem 2rem 1.8rem !important;
+                  font-size: 1.17rem !important;
+              }
+              .card-text1 {
+                  font-size: 1.17rem !important;
+                  padding: 2rem 1.8rem 3.2rem 1.8rem !important;
+              }
+          }
+      }*/
   .karte .card {
-    margin-bottom: 3rem;
+    height: 700px;
   }
-  .karte .card .card-title {
-    font-size: 1.4rem !important;
+  .karte .card .card-content .card-title {
+    height: 70px;
+    font-size: 1.4rem;
+    line-height: 1.4;
   }
   .karte .card .card-content .card-text {
-    font-size: 1.17rem !important;
-    padding: 1.5rem 1.8rem 3rem 1.8rem !important;
+    font-size: 1.2rem;
+    padding: 0.7rem 2rem 3rem 2rem;
   }
-  .karte .card .card-text2 {
-    padding: 1.5rem 1.8rem 2rem 1.8rem !important;
-    font-size: 1.17rem !important;
-  }
-  .karte .card .card-text1 {
-    font-size: 1.17rem !important;
-    padding: 2rem 1.8rem 3.2rem 1.8rem !important;
+  .karte .card .card-content .detail-button {
+    font-size: 1rem;
   }
 
   .img-parallax p {
@@ -4511,6 +4483,9 @@ footer .copyright a {
     margin-left: 0.938rem;
     font-size: 2rem;
     margin-top: 3rem;
+  }
+  .contact-us .bg-color-contact .pratite-nas {
+    margin-left: 0.938rem;
   }
   .contact-us .bg-color-contact .list-info {
     margin-left: 0.938rem;

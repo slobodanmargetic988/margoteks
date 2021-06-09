@@ -44,7 +44,7 @@
                                 <th:block th:if="${slika.proizvod==null and slika.active == true and slika.glavnazaproizvod==null} " >  
                                     <div class="col-lg-3 col-md-6 col-sm-6 col-6 image">
                                         <div class="img-wrapper">
-                                            <a th:href="@{/photo/{photoId} (photoId=${slika.id})}"> <img th:src="@{/photo/{photoId} (photoId=${slika.id})}" style="height: 100%; width: 100%; object-fit: cover" /></a>
+                                            <a th:href="@{/photo/{photoId} (photoId=${slika.id})}"> <img th:src="@{/photo/{photoId} (photoId=${slika.id})}" th:alt="${slika.alt_text}" th:title="${slika.title}" style="height: 100%; width: 100%; object-fit: cover" /></a>
 
                                             <div class="img-overlay">
                                             </div>

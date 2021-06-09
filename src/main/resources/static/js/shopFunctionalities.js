@@ -189,7 +189,7 @@ if (response == "Proizvod je već u korpi!"){
         $("#popupnaziv").text(naziv);
         $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
 
-        $("#popupcena").text(cena);
+       $("#popupcena").text(cena);
         $("#addedToCart-window").css("display", "block");
 
         },
@@ -298,10 +298,10 @@ var id = $(element).attr("pid");
 if (response == "Proizvod je već u korpi!"){
      $("#ProizvodDodatJS").text("Proizvod je već u korpi");
 }
-        $("#popupnaziv").text(naziv);
-        $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
+      //  $("#popupnaziv").text(naziv);
+     //   $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
 
-        $("#popupcena").text(cena);
+   //     $("#popupcena").text(cena);
         $("#addedToCart-window").css("display", "block");
 
         },

@@ -23,7 +23,7 @@
                 <div class="img-wrapper">
                     <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
                         <th:block th:if="${fragmentProizvod.glavnaslika != null}">
-                            <img class="proizvod-slika" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}">
+                            <img class="proizvod-slika" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}"  th:alt="${fragmentProizvod.glavnaslika.alt_text}" th:title="${fragmentProizvod.glavnaslika.title}">
                         </th:block>
                         <th:block th:if="${fragmentProizvod.glavnaslika==null}">
                             <img class="proizvod-slika" src="/img/imageNotFound.jpg">
@@ -51,7 +51,7 @@
                                 <div class="img-wrapper">
                                     <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
                                         <th:block th:if="${fragmentProizvod.glavnaslika != null}">
-                                            <img class="proizvod-slika" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}">
+                                            <img class="proizvod-slika" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}" th:alt="${fragmentProizvod.glavnaslika.alt_text}" th:title="${fragmentProizvod.glavnaslika.title}">
                                         </th:block>
                                         <th:block th:if="${fragmentProizvod.glavnaslika==null}">
                                             <img class="proizvod-slika" src="/img/imageNotFound.jpg">
@@ -79,7 +79,7 @@
                                                 <div class="img-wrapper">
                                                     <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
                                                         <th:block th:if="${fragmentProizvod.glavnaslika != null}">
-                                                            <img class="proizvod-slika"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}">
+                                                            <img class="proizvod-slika"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${fragmentProizvod.glavnaslika.id},proizvodId=${fragmentProizvod.id})}"  th:alt="${fragmentProizvod.glavnaslika.alt_text}" th:title="${fragmentProizvod.glavnaslika.title}">
                                                         </th:block>
                                                         <th:block th:if="${fragmentProizvod.glavnaslika==null}">
                                                             <img class="proizvod-slika" src="/img/imageNotFound.jpg">
@@ -114,7 +114,7 @@
 
                                             <div class="row border-top border-bottom stavkaJS korpaStavkeSmallerScreen" th:pid="${stavka.proizvod.id}">
                                                 <div class="row main align-items-center mt-2 mb-2">
-                                                    <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}"></div>
+                                                    <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}" th:alt="${stavka.proizvod.glavnaslika.alt_text}" th:title="${stavka.proizvod.glavnaslika.title}"></div>
                                                     <div class="col nazivOpisSmallerScreen">
                                                         <div class="row naslov"><span th:text="${stavka.proizvod.getIme()}"></span></div>
                                                         <div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>
@@ -145,7 +145,7 @@
 
                                             <div class="row border-top border-bottom stavkaPregledJS korpaStavkeSmallerScreen" th:pid="${stavka.proizvod.id}">
                                                 <div class="row main align-items-center mt-2 mb-2">
-                                                    <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavkaPregled  slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}"></div>
+                                                    <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavkaPregled  slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}" th:alt="${stavka.proizvod.glavnaslika.alt_text}" th:title="${stavka.proizvod.glavnaslika.title}"></div>
                                                     <div class="col nazivOpisSmallerScreen">
                                                         <div class="row naslov"><span th:text="${stavka.proizvod.getIme()}"></span></div>
                                                         <div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>
@@ -169,7 +169,7 @@
                                                     <div class="col-4">
                                                         <div class="containerImgPorudzbinaStavkaPregled">
                                                             <a th:href="@{/proizvod/{proizvodId} (proizvodId=${stavka.proizvod.id})}">
-                                                                <img class="img-fluid slika-porudzbinaStavkaPregled "  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}">
+                                                                <img class="img-fluid slika-porudzbinaStavkaPregled "  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}" th:alt="${stavka.proizvod.glavnaslika.alt_text}" th:title="${stavka.proizvod.glavnaslika.title}">
                                                             </a>
                                                         </div>
                                                     </div>

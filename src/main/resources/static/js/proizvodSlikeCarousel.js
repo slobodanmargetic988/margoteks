@@ -5,15 +5,15 @@ $(".show-small-img:first-of-type").css({
     padding: "2px"
 });
 $(".show-small-img:first-of-type")
-        .attr("alt", "now")
+        .attr("walt", "now")
         .siblings()
-        .removeAttr("alt");
+        .removeAttr("walt");
 $(".show-small-img").click(function () {
     $("#show-img").attr("src", $(this).attr("src"));
     $("#show-img-link").attr("href", $(this).attr("src"));
 
     $("#big-img").attr("src", $(this).attr("src"));
-    $(this).attr("alt", "now").siblings().removeAttr("alt");
+    $(this).attr("walt", "now").siblings().removeAttr("walt");
     $(this)
             .css({border: "solid 1px #951b25", padding: "2px"})
             .siblings()
@@ -38,36 +38,36 @@ $(".show-small-img").click(function () {
 $("#next-img").click(function () {
     $("#show-img").attr(
             "src",
-            $(".show-small-img[alt='now']").next().attr("src")
+            $(".show-small-img[walt='now']").next().attr("src")
             );
     $("#show-img-link").attr(
             "href",
-            $(".show-small-img[alt='now']").next().attr("src")
+            $(".show-small-img[walt='now']").next().attr("src")
             );
 
-    $("#big-img").attr("src", $(".show-small-img[alt='now']").next().attr("src"));
-    $(".show-small-img[alt='now']")
+    $("#big-img").attr("src", $(".show-small-img[walt='now']").next().attr("src"));
+    $(".show-small-img[walt='now']")
             .next()
             .css({border: "solid 1px #951b25", padding: "2px"})
             .siblings()
             .css({border: "none", padding: "0"});
-    $(".show-small-img[alt='now']")
+    $(".show-small-img[walt='now']")
             .next()
-            .attr("alt", "now")
+            .attr("walt", "now")
             .siblings()
-            .removeAttr("alt");
+            .removeAttr("walt");
     if ($("#small-img-roll").children().length > 4) {
         if (
-                $(".show-small-img[alt='now']").index() >= 3 &&
-                $(".show-small-img[alt='now']").index() <
+                $(".show-small-img[walt='now']").index() >= 3 &&
+                $(".show-small-img[walt='now']").index() <
                 $("#small-img-roll").children().length - 1
                 ) {
             $("#small-img-roll").css(
                     "left",
-                    -($(".show-small-img[alt='now']").index() - 2) * 76 + "px"
+                    -($(".show-small-img[walt='now']").index() - 2) * 76 + "px"
                     );
         } else if (
-                $(".show-small-img[alt='now']").index() ==
+                $(".show-small-img[walt='now']").index() ==
                 $("#small-img-roll").children().length - 1
                 ) {
             $("#small-img-roll").css(
@@ -83,37 +83,37 @@ $("#next-img").click(function () {
 $("#prev-img").click(function () {
     $("#show-img").attr(
             "src",
-            $(".show-small-img[alt='now']").prev().attr("src")
+            $(".show-small-img[walt='now']").prev().attr("src")
             );
     $("#show-img-link").attr(
             "href",
-            $(".show-small-img[alt='now']").prev().attr("src")
+            $(".show-small-img[walt='now']").prev().attr("src")
             );
 
 
-    $("#big-img").attr("src", $(".show-small-img[alt='now']").prev().attr("src"));
-    $(".show-small-img[alt='now']")
+    $("#big-img").attr("src", $(".show-small-img[walt='now']").prev().attr("src"));
+    $(".show-small-img[walt='now']")
             .prev()
             .css({border: "solid 1px #951b25", padding: "2px"})
             .siblings()
             .css({border: "none", padding: "0"});
-    $(".show-small-img[alt='now']")
+    $(".show-small-img[walt='now']")
             .prev()
-            .attr("alt", "now")
+            .attr("walt", "now")
             .siblings()
-            .removeAttr("alt");
+            .removeAttr("walt");
     if ($("#small-img-roll").children().length > 4) {
         if (
-                $(".show-small-img[alt='now']").index() >= 3 &&
-                $(".show-small-img[alt='now']").index() <
+                $(".show-small-img[walt='now']").index() >= 3 &&
+                $(".show-small-img[walt='now']").index() <
                 $("#small-img-roll").children().length - 1
                 ) {
             $("#small-img-roll").css(
                     "left",
-                    -($(".show-small-img[alt='now']").index() - 2) * 76 + "px"
+                    -($(".show-small-img[walt='now']").index() - 2) * 76 + "px"
                     );
         } else if (
-                $(".show-small-img[alt='now']").index() ==
+                $(".show-small-img[walt='now']").index() ==
                 $("#small-img-roll").children().length - 1
                 ) {
             $("#small-img-roll").css(

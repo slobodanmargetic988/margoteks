@@ -66,7 +66,7 @@
                                             <section id="prikazShow">
                                                 <div class="prikaz img-wrapper" >
                                                     <a th:href="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" id="show-img-link">      
-                                                        <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" id="show-img" class="img-fluid">
+                                                        <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.title}" id="show-img" class="img-fluid">
                                                     </a>
                                                     <div class="img-overlay"></div>
                                                 </div>
@@ -79,7 +79,7 @@
                                                                 <div id="small-img-roll" style="left: 0px;">
                                                                     <!--                                                            <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" class="show-small-img" style="border: 1px solid rgb(149, 27, 37); padding: 2px;">-->
 
-                                                                    <img id="007" alt="Glavna slika" class="show-small-img sledece" style="border: 1px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" />
+                                                                    <img id="007" th:alt="${proizvod.glavnaslika.alt_text}" class="show-small-img sledece" style="border: 1px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" />
 
 
 
@@ -93,7 +93,7 @@
                                                                 </div>
                                                             </th:block>
                                                         </div>
-                                                        <img src="https://cdn2.iconfinder.com/data/icons/arrows-vol-1-1/32/left-512.png" class="icon-right" alt="" id="next-img">
+                                                        <img src="https://cdn2.iconfinder.com/data/icons/arrows-vol-1-1/32/left-512.png" class="icon-right" id="next-img">
                                                             </div>
                                                             </section>
 

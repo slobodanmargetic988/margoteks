@@ -77,9 +77,9 @@ img {
     .nav-link {
         color: $white-color;
         font-size: 1.2vw;
-     
+
         font-weight: 600;
-           &:hover {
+        &:hover {
             color: $white-color;
         }
     }
@@ -268,33 +268,27 @@ img {
         box-shadow: 1px 10px 31px -1px rgba(179,167,167,0.79);
         -webkit-box-shadow: 1px 10px 31px -1px rgba(179,167,167,0.79);
         -moz-box-shadow: 1px 10px 31px -1px rgba(179,167,167,0.79);
+        border-radius: unset;
+        height: 620px;
         .card-content {
-            padding-bottom: 4rem;
+            /*padding-bottom: 4rem;*/
+            padding: .5rem;
             .card-title {
                 color:  $redish-color;
                 font-size: 1.7rem;
-                margin: 1rem 0 .4rem 0;
+                /*margin: 1rem 0 .4rem 0;*/
+                margin-top: .2rem;
+                margin-bottom: 0;
                 font-weight: 600;
+                line-height: 1.2;
+                height: 85px;
             }
             .card-text {
                 color: $brown-black-color;
                 font-size: 1.3rem;
-                line-height: 1.2;
-                padding: 1rem 0.2rem 4rem 0.2rem;
-            }
-            .card-text1 {
-                color: $brown-black-color;
-                font-size: 1.3rem;
-                line-height: 1.2;
-                padding: .5rem 0.2rem 5rem 0.2rem;
-
-            }
-            .card-text2 {
-                color: $brown-black-color;
-                font-size: 1.3rem;
-                line-height: 1.2;
-                padding: .5rem 0.2rem 3.5rem 0.2rem;
-
+                line-height: 1.25;
+                padding: 1.2rem 0.2rem 0 0.2rem;
+                height: 120px;
             }
             .detail-button {
                 @include fullColorBtn;
@@ -384,7 +378,7 @@ footer {
         font-style: italic;
         font-size: 13px;
         font-weight: normal;
-        color: $white-color;
+        color: #f7f7f7;
         line-height: 20px;
         padding: 32px 0;
         text-align: center;
@@ -500,7 +494,7 @@ footer {
         cursor: pointer;
     }
     .slick-track {
-          
+
         position: relative;
         top: 0;
         left: 0;
@@ -620,6 +614,13 @@ footer {
             font-weight: 700;
             /*margin-left: 2.5rem;*/
         }
+        .pratite-nas {
+            color: $burgundy-color;
+            font-size: 2rem;
+            font-family: "Raleway", sans-serif;
+            padding-bottom: 1.2rem;
+            font-weight: 500;
+        }
         .list-info {
             list-style-type: none;
             li {
@@ -680,20 +681,32 @@ footer {
             padding-top: 0;
         }
     }
+    /*    .karte {
+            height:550px;
+            .card {
+                .card-title {
+                    font-size: 1.5rem !important;
+                    line-height: 1.2 !important;
+                }
+                .card-text {
+                    padding: .5rem .7rem 3rem .7rem !important;
+                }
+            }
+        }*/
 
-    .card {
-        .card-title {
-            font-size: 1.5rem !important;
-            line-height: 1.2 !important;
-        }
-        .card-text {
-            padding: .5rem .7rem 3rem .7rem !important;
-        }
-        .card-text1 {
-            padding: 1rem 0.5rem 4.7rem 0.4rem !important;
-        }
-        .card-text2 {
-            padding: 1rem 0.4rem 3.2rem 0.4rem !important;
+    .karte {
+        .card {
+            height: 550px;
+            .card-content {
+                .card-title {
+                    font-size: 1.5rem;
+                    height: 75px;
+                }
+                .card-text {
+                    font-size: 1.2rem;
+                    padding: 1.2rem .8rem 0 0.8rem;
+                }
+            }
         }
     }
 
@@ -740,37 +753,28 @@ footer {
 
 
 @media (max-width: 992px) {
-    .card {
-        .card-content {
-            padding-bottom: 3rem;
-        }
-        .card-content2 {
-            padding-bottom: 2rem;
-        }
-        .card-title {
-            font-size: 1.1rem !important;
-            line-height: 1.2 !important;
-        }
-        .card-text {
-            font-size: 1rem !important;
-            padding: .8rem .7rem 3rem .7rem !important;
 
-        }
-        .card-text1 {
-            padding: 2rem 0.4rem 3.2rem 0.4rem !important;
-            font-size: 1rem !important;
-
-        }
-        .card-text2 {
-            padding: 2rem 0.4rem 2rem 0.4rem !important;
-            font-size: 1rem !important;
-
-        }
-        .detail-button {
-            padding: .8em 1.6em;
-            font-size: .8rem;
+    .karte {
+        .card {
+            height: 430px;
+            .card-content {
+                .card-title {
+                    height: 55px;
+                    font-size: 1.116rem;
+                }
+                .card-text {
+                    font-size: 1rem;
+                    padding: .7rem 0 3rem 0;
+                    height: 100px;
+                    line-height: 1.4;
+                }
+                .detail-button {
+                    font-size: .8rem;
+                }
+            }
         }
     }
+
     /*NAŠE USLUGE start*/
     .services {
         h3 {
@@ -834,7 +838,7 @@ footer {
     }
 
     .bg-color-contact {
-        .contact-header {
+        .contact-header, .pratite-nas {
             margin-left: 2.8rem;
         }
         .list-info {
@@ -845,25 +849,23 @@ footer {
         }
     }
 
+
     .karte {
         .card {
-            margin-bottom: 3rem;
-            .card-title {
-                font-size: 1.4rem !important;
-            }
+            height: 700px;
             .card-content {
-                .card-text {
-                    font-size: 1.17rem !important;
-                    padding: 1.5rem 1.8rem 3rem 1.8rem !important;
+                .card-title {
+                    height: 70px;
+                    font-size: 1.4rem;
+                    line-height: 1.4;
                 }
-            }
-            .card-text2 {
-                padding: 1.5rem 1.8rem 2rem 1.8rem !important;
-                font-size: 1.17rem !important;
-            }
-            .card-text1 {
-                font-size: 1.17rem !important;
-                padding: 2rem 1.8rem 3.2rem 1.8rem !important;
+                .card-text {
+                    font-size: 1.2rem;
+                    padding: 0.7rem 2rem 3rem 2rem;
+                }
+                .detail-button {
+                    font-size: 1rem;
+                }
             }
         }
     }
@@ -902,6 +904,9 @@ footer {
                 font-size: 2rem;
                 margin-top: 3rem;
             }
+            .pratite-nas {
+                margin-left: 0.938rem;
+            }
             .list-info {
                 margin-left: 0.938rem;
                 li {
@@ -926,6 +931,7 @@ footer {
             }
         }
     }
+    
     #backToTop {
         .backToTop {
             bottom: 2.5rem;
@@ -933,11 +939,13 @@ footer {
             width: 2.5rem;
         }
     }
+    
     footer {
         .links-social {
             padding: 20px 0;
         }
     }
+    
     .services {
         margin-top: 1.8rem;
         h3 {
@@ -963,6 +971,27 @@ footer {
             padding: 10px;
         }
     }
+    
+    .karte {
+        .card {
+            height: 700px;
+            .card-content {
+                .card-title {
+                    height: 70px;
+                    font-size: 1.4rem;
+                    line-height: 1.4;
+                }
+                .card-text {
+                    font-size: 1.2rem;
+                    padding: 0.7rem 2rem 3rem 2rem;
+                }
+                .detail-button {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+    
 }
 
 

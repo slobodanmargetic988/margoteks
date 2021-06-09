@@ -84,9 +84,9 @@ function prikaziPopup(element, vecukorpi) {
     var photo = $(element).attr("photoid");
     var naziv = $(element).attr("naziv");
     var cena = $(element).attr("cena");
-    $("#popupnaziv").text(naziv);
-    $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
-    $("#popupcena").text(cena);
+   // $("#popupnaziv").text(naziv);
+  //  $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
+ //   $("#popupcena").text(cena);
     $("#addedToCart-window").css("display", "block");
     if (vecukorpi){
          $("#ProizvodDodatJS").text("Proizvod je već u korpi");

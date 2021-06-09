@@ -78,6 +78,7 @@ public class AdminShopController {
             @RequestParam(name = "pdv", defaultValue = "0") Double pdv,
             @RequestParam(name = "file", required = false) MultipartFile file,
             @RequestParam(name = "title", required = false) String title,
+            @RequestParam(name = "alt_text", required = false) String alt_text,
             @RequestParam(name = "slicniProizvod1", defaultValue = "1") Integer slicniProizvod1,
             @RequestParam(name = "slicniProizvod2", defaultValue = "3") Integer slicniProizvod2,
             @RequestParam(name = "slicniProizvod3", defaultValue = "4") Integer slicniProizvod3,
@@ -116,6 +117,7 @@ public class AdminShopController {
                 Photo photo = new Photo();
                 photo.setFilename(filename);
                 photo.setTitle(title);
+                photo.setAlt_text(alt_text);
                 photo.setGlavnazaproizvod(proizvod);
                 photo.setActive(Boolean.TRUE);
                 photoService.save(photo);
@@ -189,6 +191,7 @@ public class AdminShopController {
             @PathVariable final Integer proizvodId,
             @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,
+            @RequestParam(name = "alt_text") String alt_text,
             RedirectAttributes redirectAttributes
     ) {
         try {
@@ -196,6 +199,7 @@ public class AdminShopController {
             Photo photo = new Photo();
             photo.setFilename(filename);
             photo.setTitle(title);
+            photo.setAlt_text(alt_text);
             photo.setProizvod(proizvodiService.findFirstById(proizvodId));
             photo.setActive(Boolean.TRUE);
             photoService.save(photo);
@@ -220,6 +224,7 @@ public class AdminShopController {
     public String adminNovaSlikaSaveMargotekstil(final Model model,
             @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,
+             @RequestParam(name = "alt_text") String alt_text,
             RedirectAttributes redirectAttributes
     ) {
         try {
@@ -227,6 +232,7 @@ public class AdminShopController {
             Photo photo = new Photo();
             photo.setFilename(filename);
             photo.setTitle(title);
+            photo.setAlt_text(alt_text);
             photo.setProizvod(null);
             photo.setActive(Boolean.TRUE);
             photoService.save(photo);
@@ -330,6 +336,7 @@ model.addAttribute("trenutnaKategorija", kategorija);
             @RequestParam(name = "pdv", defaultValue = "0") Double pdv,
             @RequestParam(name = "file", required = false) MultipartFile file,
             @RequestParam(name = "title", required = false) String title,
+             @RequestParam(name = "alt_text", required = false) String alt_text,
             @RequestParam(name = "slicniProizvod1", defaultValue = "1") Integer slicniProizvod1,
             @RequestParam(name = "slicniProizvod2", defaultValue = "3") Integer slicniProizvod2,
             @RequestParam(name = "slicniProizvod3", defaultValue = "4") Integer slicniProizvod3,
@@ -367,6 +374,7 @@ model.addAttribute("trenutnaKategorija", kategorija);
                 Photo photo = new Photo();
                 photo.setFilename(filename);
                 photo.setTitle(title);
+                photo.setAlt_text(alt_text);
                 photo.setGlavnazaproizvod(proizvod);
                 photo.setActive(Boolean.TRUE);
                 photoService.save(photo);
