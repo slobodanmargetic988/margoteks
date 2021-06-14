@@ -4,59 +4,62 @@
     <head>
         <title>Margotekstil Galerija Slika</title>
 
-        <th:block th:insert="fragments/head :: head" />
+        <link th:href="@{/css/galerija.css}" rel="stylesheet" type="text/css" />
+        <link th:href="@{/css/pagination.css}" rel="stylesheet" type="text/css" />
 
-<meta name="description" content="Margotekstil galerija slika. Pogledajte neke primere onogo što smo već uradili i slobodno nam se javite ako vam se nešto sviđa. Image gallery."/> 
-    </head>
+    <th:block th:insert="fragments/head :: head" />
 
-    <body>
-        <img src="/img/galerija-img1.jpg" class="gallery-header-img" alt="header-image" >
+    <meta name="description" content="Margotekstil galerija slika. Pogledajte neke primere onogo što smo već uradili i slobodno nam se javite ako vam se nešto sviđa. Image gallery."/> 
+</head>
 
-            <th:block th:insert="fragments/navigation :: navbar" />
+<body>
+    <img src="/img/galerija-img1.jpg" class="gallery-header-img" alt="header-image" >
 
-            <div class="text-box">
-                <h2>MARGOTEKSTIL</h2>
-                <p>GALERIJA</p>
-            </div>
-  
-            <section id="gallery">
-                <div class="container">
-                      <th:block th:insert="fragments/pagination :: pagination (${listaSlika})" />
+<th:block th:insert="fragments/navigation :: navbar" />
 
-                    <div id="image-gallery">
-                        <div class="row">
-                            <th:block th:each="slika : ${listaSlika}" >  
-                            
-                            <div class="col-lg-3 col-md-6 col-sm-6 col-6 image">
-                                
-                                <div class="img-wrapper">
-                                    <a th:href="@{/photo/{photoId} (photoId=${slika.id})}"> <img class="gallery-img" th:src="@{/photo/{photoId} (photoId=${slika.id})}" th:alt="${slika.alt_text}"  th:title="${slika.title}"/></a>
-                                    <div class="img-overlay">
-                                    </div>
-                                    
-                                </div>
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>
+    <p>GALERIJA</p>
+</div>
+
+<section id="gallery">
+    <div class="container">
+        <th:block th:insert="fragments/pagination :: pagination (${listaSlika})" />
+
+        <div id="image-gallery">
+            <div class="row">
+                <th:block th:each="slika : ${listaSlika}" >  
+
+                    <div class="col-lg-3 col-md-6 col-sm-6 col-6 image">
+
+                        <div class="img-wrapper">
+                            <a th:href="@{/photo/{photoId} (photoId=${slika.id})}"> <img class="gallery-img" th:src="@{/photo/{photoId} (photoId=${slika.id})}" th:alt="${slika.alt_text}"  th:title="${slika.title}"/></a>
+                            <div class="img-overlay">
                             </div>
 
-                            </th:block>
+                        </div>
+                    </div>
 
-                        </div><!-- End row -->
-                    </div><!-- End image gallery -->
-                    
-                    <div style="padding-top: 2rem">
-                      <th:block th:insert="fragments/pagination :: pagination (${listaSlika})" />
-                      </div>
+                </th:block>
 
-</div>
-                </div><!-- End container --> 
-            </section>
+            </div><!-- End row -->
+        </div><!-- End image gallery -->
 
-            <th:block th:insert="fragments/footer :: footer" />
+        <div style="padding-top: 2rem">
+            <th:block th:insert="fragments/pagination :: pagination (${listaSlika})" />
+        </div>
 
-            <div id="backToTop"></div>
+    </div>
+</div><!-- End container --> 
+</section>
 
-            <th:block th:insert="fragments/scripts :: scripts" />
-                                <script th:src="@{/js/galerijaSlide.js}" type="text/javascript"></script>
+<th:block th:insert="fragments/footer :: footer" />
 
-    </body>
+<div id="backToTop"></div>
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script th:src="@{/js/galerijaSlide.js}" type="text/javascript"></script>
+
+</body>
 
 </html>

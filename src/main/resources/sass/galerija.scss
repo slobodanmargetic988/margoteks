@@ -1,6 +1,10 @@
 @import "./variables";
 @import "./mixins";
 
+.gallery-header-img {
+    width: 100%;
+}
+
 #gallery {
     padding-top: 3rem;
     padding-bottom: 5rem;

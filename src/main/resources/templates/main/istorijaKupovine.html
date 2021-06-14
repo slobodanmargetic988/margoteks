@@ -4,83 +4,79 @@
     <head>
         <title>Margotekstil istorija kupovine</title>
 
-        <th:block th:insert="fragments/head :: head" />
+    <th:block th:insert="fragments/head :: head" />
 
-<meta name="description" content="Margotekstil istorija kupovine. Pogledajte listu proizvoda koje ste poručili preko našeg sajta. Shop history"/> 
-    </head>
+    <link th:href="@{/css/istorijaKupovine.css}" rel="stylesheet" type="text/css" />
 
-    <body>
-        <img src="/img/sewing1.jpg" class="header-img" alt="istorija-kupovine-header-image" >
+    <meta name="description" content="Margotekstil istorija kupovine. Pogledajte listu proizvoda koje ste poručili preko našeg sajta. Shop history"/> 
+</head>
 
-            <th:block th:insert="fragments/navigation :: navbar" />
+<body>
+    <img src="/img/sewing1.jpg" class="header-img" alt="istorija-kupovine-header-image" >
 
-            <div class="text-box">
-                <h2>MARGOTEKSTIL</h2>                                              
-                <p>ISTORIJA KUPOVINE</p>
-            </div>
+<th:block th:insert="fragments/navigation :: navbar" />
 
-            <div class="container nazad-na-profil" ><a th:href="@{/profil}" class="nazad-na-profil-link" >Nazad na profil</a></div>
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>                                              
+    <p>ISTORIJA KUPOVINE</p>
+</div>
 
-
-
-            <div class="container do-sada-poruceno-box">
+<div class="container nazad-na-profil" ><a th:href="@{/profil}" class="nazad-na-profil-link" >Nazad na profil</a></div>
 
 
-                <div class="empty-purchase-history" style="display: none">
-                    <p class="empty-purchase-history-text">Još uvek niste poručili nijedan proizvod.</p>
+
+<div class="container do-sada-poruceno-box">
+
+
+    <div class="empty-purchase-history" style="display: none">
+        <p class="empty-purchase-history-text">Još uvek niste poručili nijedan proizvod.</p>
+    </div>
+
+
+    <div class="box-history">
+        <p class="dateOfPurchase">Proizvodi koje ste do sada poručili<span></span></p>
+
+        <th:block th:each="proizvod : ${kupljeniproizvodi}">
+
+            <div class="row">
+                <div class="col-lg-3 col-md-3 col-xs-3">
+                    <div class="okvirSlikeZaProizvod">
+                        <a th:href="@{/proizvod/{proizvodId} (proizvodId=${proizvod.id})}"><img class="main-prod-img img-fluid" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}" width="200" height="200" border="0"></a>
+                    </div>
                 </div>
-
-
-                <div class="box-history">
-                    <p class="dateOfPurchase">Proizvodi koje ste do sada poručili<span></span></p>
-
-                    <th:block th:each="proizvod : ${kupljeniproizvodi}">
-
-                        <div class="row">
-                            <div class="col-lg-3 col-md-3 col-xs-3">
-                                <div class="okvirSlikeZaProizvod">
-                                    <a th:href="@{/proizvod/{proizvodId} (proizvodId=${proizvod.id})}"><img class="main-prod-img img-fluid" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" width="200" height="200" border="0"></a>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-xs-3 ">
-                                <div class="centrirajTextuDiv">
-                                    <div class="centrirajPuDiv "><div class="naziv-opis-cena" >Naziv proizvoda:</div> <span th:text="${proizvod.ime}"></span> </div>
-                                </div>
-
-                            </div>
-                            <div class=" col-lg-3 col-md-3 col-xs-3" >
-                                <div class="centrirajTextuDiv">
-
-                                    <div class="centrirajPuDiv "><div class="naziv-opis-cena">Opis:</div> <span th:text="${proizvod.opis}"></span></div>
-                                </div>
-                            </div>
-                            <div class="col-lg-3 col-md-3 col-xs-3">
-                                <div class="centrirajTextuDiv">
-
-                                    <div class="centrirajPuDiv "><div class="naziv-opis-cena">Cena:</div> <span th:text="${proizvod.cena}"></span></div>
-                                </div>
-                            </div>
-                        </div>
-                    </th:block>
-
+                <div class="col-lg-3 col-md-3 col-xs-3 ">
+                    <div class="centrirajTextuDiv">
+                        <div class="centrirajPuDiv "><div class="naziv-opis-cena" >Naziv proizvoda:</div> <span th:text="${proizvod.ime}"></span> </div>
+                    </div>
 
                 </div>
+                <div class=" col-lg-3 col-md-3 col-xs-3" >
+                    <div class="centrirajTextuDiv">
 
+                        <div class="centrirajPuDiv "><div class="naziv-opis-cena">Opis:</div> <span th:text="${proizvod.opis}"></span></div>
+                    </div>
+                </div>
+                <div class="col-lg-3 col-md-3 col-xs-3">
+                    <div class="centrirajTextuDiv">
+
+                        <div class="centrirajPuDiv "><div class="naziv-opis-cena">Cena:</div> <span th:text="${proizvod.cena}"></span></div>
+                    </div>
+                </div>
             </div>
+        </th:block>
 
 
+    </div>
+
+</div>
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<div id="backToTop"></div>
 
 
+<th:block th:insert="fragments/scripts :: scripts" />
 
-
-
-            <th:block th:insert="fragments/footer :: footer" />
-
-            <div id="backToTop"></div>
-
-
-            <th:block th:insert="fragments/scripts :: scripts" />
-
-    </body>
+</body>
 
 </html>

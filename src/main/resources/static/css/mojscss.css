@@ -243,490 +243,6 @@ iframe {
     /*padding-right: 4.7rem;*/
   }
 }
-.about-section {
-  position: relative;
-  padding: 7.5rem 0 4.375rem;
-}
-.about-section .container .content-column {
-  position: relative;
-  margin-bottom: 3.125rem;
-}
-.about-section .container .content-column .inner-column {
-  position: relative;
-  /*padding-left: 1.875rem;*/
-}
-.about-section .container .content-column .inner-column .sec-title {
-  margin-bottom: 2rem;
-}
-.about-section .container .content-column .inner-column .sec-title .title {
-  position: relative;
-  display: block;
-  font-size: 1.2rem;
-  line-height: 1.5rem;
-  color: #b23539;
-  font-weight: 500;
-  margin-bottom: 0.625rem;
-}
-.about-section .container .content-column .inner-column .sec-title h2 {
-  position: relative;
-  display: block;
-  font-size: 2.5rem;
-  line-height: 1.28em;
-  color: #211b14;
-  font-weight: 600;
-  padding-bottom: 1.125rem;
-}
-.about-section .container .content-column .inner-column .sec-title h2:before {
-  position: absolute;
-  content: '';
-  left: 0px;
-  bottom: 0px;
-  width: 5rem;
-  height: 3px;
-  background-color: #d1d2d6;
-}
-.about-section .container .content-column .inner-column .text {
-  margin-bottom: 2rem;
-  font-size: 1.125rem;
-  line-height: 1.625rem;
-  color: #525252;
-}
-.about-section .container .content-column .inner-column .list-style-one {
-  margin: 0;
-  padding: 0;
-  list-style: none;
-  margin-bottom: 2.813rem;
-}
-.about-section .container .content-column .inner-column .list-style-one li {
-  position: relative;
-  font-weight: 500;
-  line-height: 1.625rem;
-  color: #211b14;
-  padding-left: 2.188rem;
-  margin-bottom: 0.75rem;
-}
-.about-section .container .content-column .inner-column .list-style-one li:before {
-  content: "\f058";
-  position: absolute;
-  left: 0;
-  top: 0px;
-  display: block;
-  font-size: 18px;
-  padding: 0px;
-  color: #b23539;
-  font-weight: 600;
-  -webkit-font-smoothing: antialiased;
-  font-style: normal;
-  font-variant: normal;
-  /*text-rendering: auto;*/
-  line-height: 1.6;
-  font-family: FontAwesome;
-  font-display: swap;
-}
-.about-section .container .content-column .inner-column .list-style-one li a {
-  color: #211b14;
-}
-.about-section .container .content-column .inner-column .btn-box {
-  position: relative;
-}
-.about-section .container .content-column .inner-column .btn-box a {
-  padding: 0.75rem 1.125rem;
-}
-.about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page {
-  cursor: pointer;
-  outline: none;
-  background: #892f2b;
-  color: white;
-  transition: outline-offset 200ms ease;
-  border-radius: .25rem;
-  outline-color: #fcfcfc;
-  position: relative;
-  display: inline-block;
-  font-size: 1.063rem;
-  line-height: 1.875rem;
-  letter-spacing: 0.02em;
-  font-weight: 600;
-  margin-bottom: .5rem;
-}
-.about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page:hover, .about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page:focus {
-  outline: 2px solid white;
-  outline-offset: -6px;
-  background-color: #b23539;
-  text-decoration: none;
-}
-.about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page {
-  background: transparent;
-  border: 2px solid #892f2b;
-  color: #892f2b;
-  transition: outline-offset 200ms ease;
-  border-radius: .25rem;
-  cursor: pointer;
-  position: relative;
-  z-index: 1;
-  transition: outline-offset 200ms ease;
-  letter-spacing: .03rem;
-  font-size: .96rem;
-  width: 175px;
-  text-align: center;
-  font-weight: 600;
-  line-height: 1.7rem;
-  margin-left: .4rem;
-}
-.about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page:hover, .about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page:focus {
-  outline: 2px solid #b23539;
-  outline-offset: -6px;
-  color: #b23539;
-  text-decoration: none;
-}
-.about-section .container .image-column {
-  position: relative;
-}
-.about-section .container .image-column .inner-column {
-  position: relative;
-  padding-left: 7.5rem;
-  padding-bottom: 7.813rem;
-}
-.about-section .container .image-column .inner-column .image-1 {
-  position: relative;
-}
-.about-section .container .image-column .inner-column .image-2 {
-  position: absolute;
-  left: 0;
-  bottom: 0;
-}
-
-@media screen and (max-width: 1200px) {
-  .about-section {
-    padding: 4rem 0 1rem;
-  }
-}
-@media screen and (max-width: 991px) {
-  .about-section .container .image-column .inner-column {
-    padding-left: 13rem;
-  }
-}
-@media screen and (max-width: 767px) {
-  .about-section .container .image-column .inner-column {
-    padding-left: 7.5rem;
-  }
-}
-@media screen and (max-width: 414px) {
-  .about-section {
-    padding: 2rem 0 0;
-  }
-  .about-section .container .content-column .inner-column .text {
-    font-size: 1rem;
-  }
-  .about-section .container .content-column .inner-column .sec-title h2 {
-    font-size: 2.2rem;
-  }
-  .about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page {
-    font-size: .95rem;
-    letter-spacing: 0.04em;
-  }
-  .about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page {
-    margin: 0.3rem 0 0 0;
-    width: 167px;
-  }
-
-  .onama-img2 {
-    width: 250px;
-    height: 250px;
-  }
-}
-@media screen and (max-width: 375px) {
-  .about-section {
-    padding: 1rem 0 0;
-  }
-  .about-section .container .content-column .inner-column .text {
-    font-size: 1rem;
-  }
-  .about-section .container .content-column .inner-column .sec-title h2 {
-    font-size: 1.95rem;
-  }
-
-  .onama-img2 {
-    max-width: 200px;
-    max-height: 200px;
-  }
-}
-@media screen and (max-width: 353px) {
-  .onama-img2 {
-    max-width: 160px;
-    max-height: 160px;
-  }
-}
-@media screen and (max-width: 280px) {
-  .about-section .container .image-column .inner-column {
-    padding-left: 6rem;
-  }
-
-  .onama-img2 {
-    max-width: 150px;
-    max-height: 150px;
-  }
-}
-#gallery {
-  padding-top: 3rem;
-  padding-bottom: 5rem;
-}
-#gallery .img-wrapper {
-  position: relative;
-  margin-top: 1.5rem;
-  width: 100%;
-  height: 15vw;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-#gallery .img-wrapper .gallery-img {
-  width: 100%;
-  object-fit: cover;
-  height: 15vw;
-}
-#gallery .img-overlay {
-  background: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.div-with-a-btn-dodajSliku-adminGalerijaPage {
-  display: block;
-  text-align: center;
-  margin-bottom: 4rem;
-}
-
-.dodajSliku-adminGalerijaPage {
-  cursor: pointer;
-  outline: none;
-  background: #892f2b;
-  color: white;
-  transition: outline-offset 200ms ease;
-  border-radius: .25rem;
-  outline-color: #fcfcfc;
-  padding: 1rem 3rem;
-  text-transform: uppercase;
-  border: none;
-  outline: none;
-  font-weight: 500;
-  box-shadow: 0 4px 4px -2px #d1d1d1;
-}
-.dodajSliku-adminGalerijaPage:hover, .dodajSliku-adminGalerijaPage:focus {
-  outline: 2px solid white;
-  outline-offset: -6px;
-  background-color: #b23539;
-  text-decoration: none;
-}
-.dodajSliku-adminGalerijaPage:hover {
-  box-shadow: none;
-}
-
-a:hover {
-  text-decoration: none !important;
-  box-shadow: none;
-}
-a .remove-img-btn-adminGalerijaPage {
-  background: transparent;
-  border: 2px solid #892f2b;
-  color: #892f2b;
-  transition: outline-offset 200ms ease;
-  border-radius: .25rem;
-  cursor: pointer;
-  padding: 0.5em;
-  position: relative;
-  z-index: 1;
-  letter-spacing: .03rem;
-  font-size: .96rem;
-  font-weight: 500;
-  width: 100%;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-  box-shadow: 0 4px 4px -2px #d1d1d1;
-}
-a .remove-img-btn-adminGalerijaPage:hover, a .remove-img-btn-adminGalerijaPage:focus {
-  outline: 2px solid #b23539;
-  outline-offset: -6px;
-  color: #b23539;
-  text-decoration: none;
-}
-a .remove-img-btn-adminGalerijaPage:hover {
-  box-shadow: none;
-}
-
-@media screen and (max-width: 1200px) {
-  #gallery .img-wrapper {
-    height: 20vw;
-  }
-  #gallery .img-wrapper .gallery-img {
-    height: 20vw;
-  }
-
-  .div-with-a-btn-dodajSliku-adminGalerijaPage {
-    margin-bottom: 3rem;
-  }
-
-  .dodajSliku-adminGalerijaPage {
-    padding: 0.9rem 2.5rem;
-  }
-}
-@media screen and (max-width: 992px) {
-  #gallery .img-wrapper {
-    height: 35vw;
-  }
-  #gallery .img-wrapper .gallery-img {
-    height: 35vw;
-  }
-
-  .div-with-a-btn-dodajSliku-adminGalerijaPage {
-    margin-bottom: 2rem;
-  }
-
-  .dodajSliku-adminGalerijaPage {
-    font-size: .95rem;
-  }
-}
-@media screen and (max-width: 767px) {
-  #gallery {
-    padding-top: 2rem;
-  }
-  #gallery .img-wrapper {
-    height: 35vw;
-  }
-  #gallery .img-wrapper .gallery-img {
-    height: 35vw;
-  }
-
-  .dodajSliku-adminGalerijaPage {
-    letter-spacing: .02rem;
-    font-size: .9rem;
-    padding: 0.8rem 1.8rem;
-  }
-}
-@media screen and (max-width: 575px) {
-  #gallery .img-wrapper {
-    height: 35vw;
-  }
-  #gallery .img-wrapper .gallery-img {
-    height: 35vw;
-  }
-
-  .dodajSliku-adminGalerijaPage {
-    padding: 0.6rem 1rem;
-    font-size: .85rem;
-  }
-}
-@media screen and (max-width: 600px) {
-  #gallery .img-wrapper {
-    height: 40vw;
-  }
-  #gallery .img-wrapper .gallery-img {
-    height: 40vw;
-  }
-}
-#overlay {
-  background: rgba(0, 0, 0, 0.7);
-  width: 100%;
-  height: 100%;
-  position: fixed;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 999;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  /*user-select: none;*/
-}
-#overlay img {
-  margin: 0;
-  width: 80%;
-  height: auto;
-  object-fit: contain;
-  padding: 5%;
-}
-@media screen and (min-width: 767px) {
-  #overlay img {
-    width: 60%;
-  }
-}
-@media screen and (min-width: 1200px) {
-  #overlay img {
-    width: 50%;
-  }
-}
-
-#nextButton, #prevButton {
-  color: white;
-  font-size: 2em;
-  transition: opacity 0.8s;
-  cursor: pointer;
-}
-#nextButton:hover, #prevButton:hover {
-  opacity: 0.7;
-}
-@media screen and (min-width: 767px) {
-  #nextButton, #prevButton {
-    font-size: 2.75em;
-  }
-}
-
-#exitButton {
-  color: white;
-  font-size: 2.75em;
-  transition: opacity 0.8s;
-  position: absolute;
-  top: 4rem;
-  right: 2rem;
-  cursor: pointer;
-}
-#exitButton:hover {
-  opacity: 0.7;
-}
-@media screen and (max-width: 767px) {
-  #exitButton {
-    font-size: 2em;
-    right: 2.8rem;
-  }
-}
-
-#prikazShow .img-wrapper {
-  /*        position: relative;
-          margin-top: 1.5rem;
-          width: 255px;
-          height: 255px;    
-          display: block;
-          margin-left: auto;
-          margin-right: auto;*/
-}
-#prikazShow .img-wrapper img {
-  max-width: 100%;
-  max-height: 100%;
-}
-#prikazShow .img-overlay {
-  background: rgba(0, 0, 0, 0.3);
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 0;
-  left: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  opacity: 0;
-  cursor: pointer;
-}
-
 #products-show {
   margin-top: 5rem;
   padding-bottom: 5rem;
@@ -1221,11 +737,13 @@ a .remove-img-btn-adminGalerijaPage:hover {
   .all-categories-left-nav-container-small-screen {
     display: block;
     text-align: left;
+    margin-bottom: 2rem;
   }
   .all-categories-left-nav-container-small-screen .btn-kategorije {
     /*border: 1px solid $burgundy-color;*/
     text-decoration: none;
     color: #211b14;
+    font-size: 1.1rem;
   }
   .all-categories-left-nav-container-small-screen .btn-kategorije:hover {
     color: #892f2b;
@@ -1506,6 +1024,61 @@ a .remove-img-btn-adminGalerijaPage:hover {
   height: 40vh;
 }
 
+.product-description {
+  font-size: 1.4rem;
+  color: #211b14;
+  margin-bottom: 0;
+  font-weight: 500;
+  text-align: center;
+  letter-spacing: 0.4px;
+  text-decoration: none;
+}
+
+.product-price {
+  font-size: 1.1rem;
+  font-family: "Lato", sans-serif;
+  font-display: swap;
+  color: #892f2b;
+  font-weight: 600;
+  text-align: center;
+}
+
+.dodajuKorpu-shop-page {
+  cursor: pointer;
+  outline: none;
+  background: #892f2b;
+  color: white;
+  transition: outline-offset 200ms ease;
+  border-radius: .25rem;
+  outline-color: #fcfcfc;
+  position: absolute;
+  right: 50%;
+  transform: translateX(50%);
+  padding: 0.5rem 1rem;
+  border: none;
+  outline: none;
+}
+.dodajuKorpu-shop-page:hover, .dodajuKorpu-shop-page:focus {
+  outline: 2px solid white;
+  outline-offset: -6px;
+  background-color: #b23539;
+  text-decoration: none;
+}
+
+/*@media (min-width: 576px){*/
+.img-list img {
+  height: 10rem;
+  width: 32.78%;
+  transition: opacity 0.3s ease;
+  cursor: pointer;
+  display: inline;
+}
+
+.img-item {
+  display: inline;
+}
+
+/*}*/
 @media screen and (max-width: 1200px) {
   .single-product-show {
     padding: 4rem 0 5rem 0;
@@ -1527,20 +1100,6 @@ a .remove-img-btn-adminGalerijaPage:hover {
     font-size: 0.9em;
   }
 }
-/*@media (min-width: 576px){*/
-.img-list img {
-  height: 10rem;
-  width: 32.78%;
-  transition: opacity 0.3s ease;
-  cursor: pointer;
-  display: inline;
-}
-
-.img-item {
-  display: inline;
-}
-
-/*}*/
 @media (max-width: 767px) {
   .img-list img {
     height: 5rem;
@@ -1593,284 +1152,9 @@ a .remove-img-btn-adminGalerijaPage:hover {
     font-size: 1.08rem;
     padding-bottom: 0;
   }
-}
-.product-description {
-  font-size: 1.4rem;
-  color: #211b14;
-  margin-bottom: 0;
-  font-weight: 500;
-  text-align: center;
-  letter-spacing: 0.4px;
-  text-decoration: none;
-}
 
-.product-price {
-  font-size: 1.1rem;
-  font-family: "Lato", sans-serif;
-  font-display: swap;
-  color: #892f2b;
-  font-weight: 600;
-  text-align: center;
-}
-
-.dodajuKorpu-shop-page {
-  cursor: pointer;
-  outline: none;
-  background: #892f2b;
-  color: white;
-  transition: outline-offset 200ms ease;
-  border-radius: .25rem;
-  outline-color: #fcfcfc;
-  position: absolute;
-  right: 50%;
-  transform: translateX(50%);
-  padding: 0.5rem 1rem;
-  border: none;
-  outline: none;
-}
-.dodajuKorpu-shop-page:hover, .dodajuKorpu-shop-page:focus {
-  outline: 2px solid white;
-  outline-offset: -6px;
-  background-color: #b23539;
-  text-decoration: none;
-}
-
-/*to remove arrows from input type number*/
-/*end of - to remove arrows from input type number*/
-#regi-login-form {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2.5rem 0;
-}
-#regi-login-form .container-registration {
-  position: relative;
-  min-height: 23.5rem;
-  background-color: white;
-  box-shadow: 0 0.1rem 2rem rgba(76, 22, 22, 0.4);
-  overflow: hidden;
-}
-#regi-login-form .container-registration .user {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-#regi-login-form .container-registration .user .formBx {
-  position: relative;
-  width: 70%;
-  height: 100%;
-  background-color: #fcfcfc;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 2.5rem;
-  transition: 0.5s;
-}
-#regi-login-form .container-registration .user .formBx form h2 {
-  font-size: 1.8rem;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 2px;
-  text-align: center;
-  width: 100%;
-  margin-bottom: 0.938rem;
-  color: #b23539;
-}
-#regi-login-form .container-registration .user .formBx form input {
-  position: relative;
-  width: 100%;
-  padding: 0.625rem;
-  background-color: #fcfcfc;
-  color: #211b14;
-  border: 1px solid #892f2b;
-  border-radius: 5px;
-  outline: none;
-  box-shadow: none;
-  margin: 0.5rem 0;
-  font-size: 0.9rem;
-  letter-spacing: 1px;
-  font-weight: 300;
-}
-#regi-login-form .container-registration .user .formBx form input:focus {
-  background-color: #fcfcfc;
-}
-#regi-login-form .container-registration .user .formBx form input[type='submit'] {
-  width: 50%;
-  cursor: pointer;
-  outline: none;
-  background: #892f2b;
-  color: white;
-  transition: outline-offset 200ms ease;
-  border-radius: .25rem;
-  outline-color: #fcfcfc;
-  text-transform: uppercase;
-}
-#regi-login-form .container-registration .user .formBx form input[type='submit']:hover, #regi-login-form .container-registration .user .formBx form input[type='submit']:focus {
-  outline: 2px solid white;
-  outline-offset: -6px;
-  background-color: #b23539;
-  text-decoration: none;
-}
-#regi-login-form .container-registration .user .formBx form .signup {
-  position: relative;
-  margin-top: 1rem;
-  font-size: 0.9rem;
-  letter-spacing: 0.2px;
-  color: #211b14;
-  text-transform: uppercase;
-  font-weight: 600;
-  margin-bottom: 0;
-  outline: none;
-  border: none;
-  background-color: #fcfcfc;
-}
-#regi-login-form .container-registration .user .formBx form .signup:hover {
-  text-decoration: underline;
-}
-#regi-login-form .container-registration .user .formBx form .singups {
-  margin-top: 0;
-}
-#regi-login-form .container-registration .user .formBx form .checkbox .rememberMe {
-  color: #211b14;
-  letter-spacing: 0.3px;
-}
-#regi-login-form .container-registration .user .formBx form .checkbox .rememberMe .remember-me {
-  width: 0.813rem;
-  height: 0.813rem;
-}
-#regi-login-form .container-registration .user .formBx form .checkbox .rememberMe .uslovi-koriscenja {
-  cursor: pointer;
-  color: #892f2b;
-}
-#regi-login-form .container-registration .user .formBx form .checkbox .rememberMe .uslovi-koriscenja:hover {
-  color: #b23539;
-  text-decoration: underline !important;
-}
-#regi-login-form .container-registration .signinBx .formBx {
-  right: 0%;
-}
-#regi-login-form .container-registration .signinBx.active .formBx {
-  right: 100%;
-}
-#regi-login-form .container-registration .signupBx {
-  pointer-events: none;
-}
-#regi-login-form .container-registration .signupBx .formBx {
-  right: 100%;
-}
-#regi-login-form .container-registration .signupBx.active {
-  pointer-events: initial;
-}
-#regi-login-form .container-registration .signupBx.active .formBx {
-  right: 0;
-}
-#regi-login-form .container-registration .forgotBx {
-  pointer-events: none;
-}
-#regi-login-form .container-registration .forgotBx .formBx {
-  right: 100%;
-}
-#regi-login-form .container-registration .forgotBx.active {
-  pointer-events: initial;
-}
-#regi-login-form .container-registration .forgotBx.active .formBx {
-  right: 0;
-}
-
-#openPassword, .openPasswordConf, .openPasswordLogin, #showPassword, #showPasswordRepeat {
-  color: #8a8383;
-}
-
-#closedPassword, .closedPasswordConf, .closedPasswordLogin, #hidePassword, #hidePasswordRepeat {
-  display: none;
-  color: #892f2b;
-}
-
-#openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf {
-  margin-top: -38px;
-  float: right;
-  position: relative;
-  font-size: 1.2rem;
-  margin-right: .8rem;
-  cursor: pointer;
-}
-
-.openPasswordLogin, .closedPasswordLogin {
-  margin-top: -46px;
-  float: right;
-  position: relative;
-  font-size: 1.2rem;
-  margin-right: .8rem;
-  cursor: pointer;
-}
-
-#showPassword, #hidePassword, #showPasswordRepeat, #hidePasswordRepeat {
-  margin-top: -40px;
-  float: right;
-  position: relative;
-  font-size: 1.2rem;
-  margin-right: .8rem;
-  cursor: pointer;
-}
-
-#label, #label-2 {
-  font-size: .85em;
-  color: #445252;
-  letter-spacing: .02rem;
-  display: none;
-}
-
-/*za telefon input*/
-.no-arrow::-webkit-inner-spin-button {
-  display: none;
-  -webkit-appearance: none;
-  margin: 0;
-}
-.no-arrow::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
-}
-
-@media (max-width: 1200px) {
-  #regi-login-form .container-registration .user .formBx form h2 {
-    font-size: 1.65rem;
-  }
-}
-@media (max-width: 992px) {
-  #regi-login-form .container-registration {
-    max-width: 600px;
-    min-height: 27rem;
-  }
-  #regi-login-form .container-registration .user .formBx {
-    width: 100%;
-  }
-}
-@media (max-width: 500px) {
-  #regi-login-form .container-registration .user .formBx form h2 {
-    font-size: 1.48rem;
-  }
-  #regi-login-form .container-registration .user .formBx form input[type='submit'] {
-    width: 100%;
-  }
-
-  #openPassword, #closedPassword, .openPasswordConf, .closedPasswordConf,
-  .openPasswordLogin, .closedPasswordLogin, #showPassword, #hidePassword,
-  #showPasswordRepeat, #hidePasswordRepeat {
-    font-size: 1rem;
-  }
-}
-@media (max-width: 362px) {
-  #regi-login-form .container-registration .user .formBx form h2 {
-    font-size: 1.3rem;
-  }
-  #regi-login-form .container-registration .user .formBx form p {
-    font-size: .85rem;
+  #products-show .breadcrumb {
+    font-size: 1.1rem;
   }
 }
 .error-page-area {
@@ -1940,89 +1224,6 @@ a .remove-img-btn-adminGalerijaPage:hover {
     font-size: .93rem;
   }
 }
-.empty-cart {
-  width: 70%;
-  margin: 0 auto;
-  padding: 7.5rem 0;
-}
-.empty-cart .cart-text {
-  border-top: 3px solid #892f2b;
-  background-color: #f7f7f7;
-  padding: 2rem;
-  margin-bottom: 2.4rem;
-  text-align: center;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-.empty-cart .return-to-shop {
-  text-align: center;
-}
-.empty-cart .return-to-shop .return-to-shop-btn {
-  cursor: pointer;
-  outline: none;
-  background: #892f2b;
-  color: white;
-  transition: outline-offset 200ms ease;
-  border-radius: .25rem;
-  outline-color: #fcfcfc;
-  padding: 0.8rem 1rem;
-}
-.empty-cart .return-to-shop .return-to-shop-btn:hover, .empty-cart .return-to-shop .return-to-shop-btn:focus {
-  outline: 2px solid white;
-  outline-offset: -6px;
-  background-color: #b23539;
-  text-decoration: none;
-}
-
-@media (max-width: 1200px) {
-  .empty-cart {
-    padding: 7rem 0;
-    width: 100%;
-  }
-}
-@media (max-width: 992px) {
-  .empty-cart {
-    padding: 7.8rem 0;
-  }
-}
-@media (max-width: 767px) {
-  .empty-cart {
-    padding: 5.4rem 0;
-  }
-  .empty-cart .cart-text {
-    font-size: 1rem;
-  }
-}
-@media (max-width: 575px) {
-  .empty-cart {
-    padding: 2rem 0;
-    width: 80%;
-  }
-  .empty-cart .cart-text {
-    padding: 1.6rem;
-    font-size: .95rem;
-    margin-bottom: 1rem;
-  }
-  .empty-cart .return-to-shop .return-to-shop-btn {
-    padding: 0.5rem 0.8rem;
-    font-size: .95rem;
-  }
-}
-/*
-@media (max-width: 536px) {
-    .empty-cart {
-        .cart-text {
-            padding: 1.6rem;
-            font-size: 1rem;
-        }
-        .return-to-shop {
-            .return-to-shop-btn {
-                @include fullColorBtn;
-                padding: .8em 1em;
-            }
-        }
-    }
-}*/
 * {
   margin: 0;
   padding: 0;
@@ -2241,7 +1442,7 @@ input[value='+'], input[value='-'] {
 }
 
 .korpa {
-  margin-top: 12.5vh;
+  margin-top: 14vh;
 }
 
 .fieldset-korpa {
@@ -2253,10 +1454,10 @@ input[value='+'], input[value='-'] {
   box-sizing: border-box;
   width: 100%;
 }
-
-h5 {
-  font-size: 1.06rem !important;
-  font-weight: 600 !important;
+.fieldset-korpa p {
+  font-size: 1.1rem;
+  margin-bottom: 0;
+  font-weight: 500;
 }
 
 #postarinatotal, #totalkilaza, #korpatotal {
@@ -3034,33 +2235,6 @@ select {
   text-transform: uppercase;
 }
 
-.body-content .content {
-  margin: 2rem 0 3rem 0;
-}
-.body-content .content h1 {
-  font-size: 2rem;
-  margin-bottom: 1rem;
-}
-.body-content .content .italic {
-  font-style: italic;
-}
-.body-content .content .email-poverenik {
-  color: #b23539;
-}
-.body-content .content .email-poverenik:hover {
-  color: #00a5b5;
-}
-
-@media screen and (max-width: 575px) {
-  .body-content .content h1 {
-    font-size: 1.8rem;
-  }
-}
-@media screen and (max-width: 400px) {
-  .body-content .content h1 {
-    font-size: 1.56rem;
-  }
-}
 .prikaz {
   width: 500px;
   height: 500px;
@@ -3220,293 +2394,6 @@ select {
         width: 400px;
     }
 }*/
-.nazad-na-profil {
-  margin-top: 2rem;
-  text-align: right;
-}
-.nazad-na-profil .nazad-na-profil-link {
-  text-decoration: underline;
-  font-size: 1.15rem;
-  color: #211b14;
-  font-weight: 500;
-}
-.nazad-na-profil .nazad-na-profil-link:hover {
-  color: #b23539;
-  text-decoration: underline !important;
-}
-
-.do-sada-poruceno-box {
-  margin: 3rem 0;
-}
-
-.box-history {
-  -webkit-box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
-  box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
-}
-.box-history .dateOfPurchase {
-  padding: 1.5rem 0 0 1rem;
-  font-weight: 600;
-  font-size: 1.3rem;
-  color: #5d4c39;
-}
-.box-history .okvirSlikeZaProizvod {
-  width: 255px;
-  height: 255px;
-}
-.box-history .okvirSlikeZaProizvod .main-prod-img {
-  padding: 1rem;
-  background: transparent;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-.box-history .centrirajTextuDiv {
-  height: 100%;
-  position: relative;
-}
-.box-history .centrirajTextuDiv .centrirajPuDiv {
-  margin: 0;
-  position: absolute;
-  top: 50%;
-  transform: translate(0, -50%);
-}
-.box-history .centrirajTextuDiv .centrirajPuDiv .naziv-opis-cena {
-  font-weight: 600;
-  margin-bottom: .5rem;
-}
-
-.empty-purchase-history {
-  width: 70%;
-  margin: 0 auto;
-  padding: 4rem 0;
-}
-.empty-purchase-history .empty-purchase-history-text {
-  border-top: 3px solid #892f2b;
-  background-color: #f7f7f7;
-  padding: 2rem;
-  margin-bottom: 2.4rem;
-  text-align: center;
-  font-weight: 500;
-  font-size: 1.1rem;
-}
-
-@media screen and (max-width: 1200px) {
-  .box-history .okvirSlikeZaProizvod {
-    width: 225px;
-    height: 225px;
-  }
-}
-@media screen and (max-width: 992px) {
-  .box-history .okvirSlikeZaProizvod {
-    width: 165px;
-    height: 165px;
-  }
-}
-@media screen and (max-width: 767px) {
-  .box-history .okvirSlikeZaProizvod {
-    width: 100%;
-    height: 80vw;
-  }
-  .box-history .centrirajTextuDiv {
-    margin-bottom: 1rem;
-  }
-  .box-history .centrirajTextuDiv .centrirajPuDiv {
-    position: static;
-    padding-left: 1rem;
-    transform: none;
-    top: 0;
-    margin: revert;
-  }
-}
-@media screen and (max-width: 575px) {
-  .nazad-na-profil .nazad-na-profil-link {
-    font-size: 1rem;
-  }
-
-  .nazad-na-profil {
-    margin-top: 1.2rem;
-  }
-
-  .do-sada-poruceno-box {
-    margin: 2rem 0 2.5rem 0;
-  }
-}
-/*start of pagination*/
-.pagination {
-  margin-right: .9rem;
-}
-.pagination > .disabled > a {
-  color: #ccc;
-  background-color: transparent;
-  border-color: rgba(18, 18, 18, 0.13);
-  cursor: not-allowed;
-}
-.pagination > .disabled > a:focus, .pagination > .disabled > a:hover {
-  color: #ccc;
-  background-color: transparent;
-  border-color: rgba(18, 18, 18, 0.13);
-  cursor: not-allowed;
-}
-.pagination > li.active > a {
-  color: white;
-  border-color: #892f2b;
-  background: #892f2b;
-}
-.pagination > li.active > a:active, .pagination > li.active > a:focus, .pagination > li.active > a:hover {
-  color: white;
-  border-color: #892f2b;
-  background: #892f2b;
-  font-weight: 600;
-}
-.pagination .page-link {
-  color: #b23539;
-}
-.pagination .page-link:hover {
-  background: transparent;
-  border-color: #b23539;
-  color: #b23539;
-}
-
-/*end of pagination*/
-@media screen and (max-width: 1200px) {
-  .page-link {
-    padding: 0.35rem 0.65rem !important;
-  }
-}
-@media screen and (max-width: 992px) {
-  .page-link {
-    padding: 0.25rem 0.55rem !important;
-  }
-}
-@media screen and (max-width: 767px) {
-  .page-link {
-    padding: 0.15rem 0.45rem !important;
-  }
-}
-@media screen and (max-width: 575px) {
-  .pagination {
-    margin-right: 1rem;
-  }
-
-  .page-link {
-    width: 48px;
-    height: 48px;
-    padding: 0.08rem 0.42rem !important;
-  }
-}
-.productShow {
-  margin-top: 3rem;
-  padding-bottom: 5rem;
-}
-
-.licniPodaciForma {
-  -webkit-box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
-  box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
-  padding-top: 4rem;
-}
-.licniPodaciForma .licniPodaci {
-  font-size: 1.3rem;
-  margin: 0 auto;
-  color: #b23539;
-  margin-bottom: 2rem;
-  font-weight: 500;
-}
-.licniPodaciForma .centrirajFormuInput {
-  margin-left: auto;
-  margin-right: auto;
-}
-.licniPodaciForma .centrirajFormuInput .input-custom-border {
-  border: 1px solid #892f2b;
-  border-radius: .2rem;
-}
-.licniPodaciForma .buttonsSaveAndBack {
-  padding-bottom: 3rem;
-  padding-top: 1rem;
-  margin: 0 auto;
-}
-.licniPodaciForma .buttonsSaveAndBack .btn-save {
-  margin-right: .2rem;
-  cursor: pointer;
-  border: 0;
-  background: #892f2b;
-  color: white;
-  padding: 0.6em 1em;
-  position: relative;
-  z-index: 1;
-  border-radius: .3rem;
-  outline: none;
-}
-.licniPodaciForma .buttonsSaveAndBack .btn-save::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #b23539;
-  z-index: -1;
-  transition: transform 200ms ease-in;
-  transform: scale(0);
-  transform-origin: top bottom;
-}
-.licniPodaciForma .buttonsSaveAndBack .btn-save:hover::after {
-  transform: scale(1);
-  transform-origin: bottom top;
-  border-radius: .3rem;
-}
-.licniPodaciForma .buttonsSaveAndBack .btn-back {
-  cursor: pointer;
-  border: 0;
-  background: none;
-  color: #b23539;
-  padding: 0.6em 1em;
-  position: relative;
-  z-index: 1;
-  border: 2px solid #b23539;
-  border-radius: .3rem;
-}
-.licniPodaciForma .buttonsSaveAndBack .btn-back::after {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: #b23539;
-  z-index: -1;
-  transition: transform 200ms ease-in;
-  transform: scale(0);
-  transform-origin: top bottom;
-}
-.licniPodaciForma .buttonsSaveAndBack .btn-back:hover {
-  color: white;
-  text-decoration: none;
-}
-.licniPodaciForma .buttonsSaveAndBack .btn-back:hover::after {
-  transform: scale(1);
-  transform-origin: bottom top;
-}
-
-@media screen and (max-width: 767px) {
-  .productShow {
-    margin-top: 1.8rem;
-    padding-bottom: 2rem;
-  }
-
-  .form-group {
-    margin-bottom: 0 !important;
-  }
-
-  .licniPodaciForma {
-    padding-top: 1rem;
-  }
-  .licniPodaciForma .licniPodaci {
-    font-size: 1.12rem;
-  }
-  .licniPodaciForma .buttonsSaveAndBack {
-    padding-bottom: 2rem;
-  }
-}
 .referenca-proudzbine-box {
   -webkit-box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
   box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
@@ -3883,6 +2770,15 @@ img {
   border-radius: unset;
   height: 620px;
 }
+.karte .card a {
+  width: 100.1%;
+  height: 45%;
+}
+.karte .card a img {
+  width: 105%;
+  object-fit: cover;
+  height: 100%;
+}
 .karte .card .card-content {
   /*padding-bottom: 4rem;*/
   padding: .5rem;
@@ -3936,7 +2832,7 @@ footer .links-social {
   background: #892f2b;
   padding: 20px 0 50px 0;
 }
-footer .links-social h3.title {
+footer .links-social p.title {
   padding-top: 40px;
   font-size: 16px;
   font-weight: normal;
@@ -4018,7 +2914,6 @@ footer .copyright a {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  /*    filter: brightness(80%);*/
   min-height: 18.75rem;
   display: flex;
   justify-content: center;
@@ -4034,7 +2929,7 @@ footer .copyright a {
   font-weight: 500;
 }
 
-/* Slider Neki od naših klijenata start*/
+/* Slider - Neki od naših klijenata start*/
 .partneri {
   margin-top: 1rem;
 }
@@ -4143,7 +3038,7 @@ footer .copyright a {
   display: none;
 }
 
-/* Slider Neki od naših klijenata end*/
+/* Slider - Neki od naših klijenata end*/
 /*posaljite nam poruku/kontaktirajte nas forma start*/
 .contact-us {
   margin-top: 3.125rem;
@@ -4295,20 +3190,8 @@ footer .copyright a {
     padding-top: 0;
   }
 
-  /*    .karte {
-          height:550px;
-          .card {
-              .card-title {
-                  font-size: 1.5rem !important;
-                  line-height: 1.2 !important;
-              }
-              .card-text {
-                  padding: .5rem .7rem 3rem .7rem !important;
-              }
-          }
-      }*/
   .karte .card {
-    height: 550px;
+    height: 600px;
   }
   .karte .card .card-content .card-title {
     font-size: 1.5rem;
@@ -4346,7 +3229,7 @@ footer .copyright a {
 }
 @media (max-width: 992px) {
   .karte .card {
-    height: 430px;
+    height: 480px;
   }
   .karte .card .card-content .card-title {
     height: 55px;
@@ -4388,9 +3271,6 @@ footer .copyright a {
     width: 2.9rem;
   }
 
-  .navbar-toggler {
-    /*            background: $white-color !important;*/
-  }
   .navbar-toggler:focus {
     outline: none;
   }
@@ -4423,7 +3303,7 @@ footer .copyright a {
   }
 
   .karte .card {
-    height: 700px;
+    height: 600px;
   }
   .karte .card .card-content .card-title {
     height: 70px;
@@ -4523,7 +3403,7 @@ footer .copyright a {
   }
 
   .karte .card {
-    height: 700px;
+    height: 600px;
   }
   .karte .card .card-content .card-title {
     height: 70px;
@@ -4535,7 +3415,8 @@ footer .copyright a {
     padding: 0.7rem 2rem 3rem 2rem;
   }
   .karte .card .card-content .detail-button {
-    font-size: 1rem;
+    font-size: .94rem;
+    margin-top: 1rem;
   }
 }
 @media screen and (max-width: 400px) {

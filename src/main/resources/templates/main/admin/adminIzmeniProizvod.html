@@ -33,56 +33,56 @@
             <div class="form-group cold">
                 <h3 class="izmena-proizvoda col-md-8">Izmena proizvoda</h3>
                 <div class="col-md-8 centrirajFormuInput">
-                    <label>Naziv proizvoda:</label>
-                    <input type="text" class=" form-control input-custom-border"  name="ime" th:value="${proizvod.ime}">
+                    <label for="ime-pr">Naziv proizvoda:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="ime" th:value="${proizvod.ime}" id="ime-pr">
                 </div>
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>Opis proizvoda:</label>
-                    <input type="text" class=" form-control input-custom-border"  name="opis" th:value="${proizvod.opis}" >
+                    <label for="opis-pr">Opis proizvoda:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="opis" th:value="${proizvod.opis}" id="opis-pr" >
                 </div>
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>Keywords (ključne reči):</label>
-                    <input type="text" class=" form-control input-custom-border"  name="keywords" th:value="${proizvod.keywords}" >
+                    <label for="kljucneReci">Keywords (ključne reči):</label>
+                    <input type="text" class=" form-control input-custom-border"  name="keywords" th:value="${proizvod.keywords}" id="kljucneReci">
                 </div>
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>Kategorija:</label>
-                    <input type="text" class=" form-control input-custom-border"  name="kategorija" th:value="${proizvod.kategorija}">
+                    <label for="kateg">Kategorija:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="kategorija" th:value="${proizvod.kategorija}" id="kateg">
                 </div> 
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>Cena:</label>
-                    <input type="text" step="0.01"  class=" form-control input-custom-border"  name="cena" th:value="${proizvod.cena}">
+                    <label for="prod-price">Cena:</label>
+                    <input type="text" step="0.01"  class=" form-control input-custom-border"  name="cena" th:value="${proizvod.cena}" id="prod-price">
                 </div>
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>PDV:</label>
-                    <input type="text" step="0.01"  class=" form-control input-custom-border"  name="pdv" th:value="${proizvod.pdv}">
+                    <label for="pdv-prod">PDV:</label>
+                    <input type="text" step="0.01"  class=" form-control input-custom-border"  name="pdv" th:value="${proizvod.pdv}" id="pdv-prod">
                 </div>  
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>Dimenzije:</label>
-                    <input type="text" class=" form-control input-custom-border"  name="dimenzije" th:value="${proizvod.dimenzije}">
+                    <label for="dimenz">Dimenzije:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="dimenzije" th:value="${proizvod.dimenzije}" id="dimenz">
                 </div>  
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>Kilaža:</label>
-                    <input type="text" step="0.01" class=" form-control input-custom-border"  name="kilaza" th:value="${proizvod.kilaza}">
+                    <label for="weight">Kilaža:</label>
+                    <input type="text" step="0.01" class=" form-control input-custom-border"  name="kilaza" th:value="${proizvod.kilaza}" id="weight">
                 </div> 
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
-                    <label>Glavna slika (naslov):</label>
-                    <th:block th:if="${proizvod.glavnaslika != null}"> <input type="text" class="form-control input-custom-border"  name="title" th:value="${proizvod.glavnaslika.title}"> 
+                    <label for="mainImg">Glavna slika (naslov):</label>
+                    <th:block th:if="${proizvod.glavnaslika != null}"> <input type="text" class="form-control input-custom-border"  name="title" th:value="${proizvod.glavnaslika.title}" id="mainImg"> 
                     </th:block>
                     <th:block th:if="${proizvod.glavnaslika == null}"> <input type="text" name="title" > 
                         </th:block>
                         </div> 
 
                         <div class="col-md-8 centrirajFormuInput mt-3"  >
-                            <label>Alternativni tekst za sliku:</label>
-                            <input type="text" class=" form-control input-custom-border" name="alt_text" th:value="${proizvod.glavnaslika.alt_text}">
+                            <label for="altImgText">Alternativni tekst za sliku:</label>
+                            <input type="text" class=" form-control input-custom-border" name="alt_text" th:value="${proizvod.glavnaslika.alt_text}" id="altImgText">
                         </div>
                 
                         <div class="col-md-8 centrirajFormuInput custom-file-upload">

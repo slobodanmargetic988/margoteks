@@ -199,6 +199,54 @@
     height: 40vh;
 }
 
+
+
+.product-description {
+    font-size: 1.4rem;
+    color: $brown-black-color;
+    margin-bottom: 0;
+    font-weight: 500;
+    text-align: center;
+    letter-spacing: 0.4px;
+    text-decoration: none;
+}
+
+.product-price {
+    font-size: 1.1rem;
+    font-family: $font-for-numbers;
+    font-display: swap;
+    color: $burgundy-color;
+    font-weight: 600;
+    text-align: center;
+}
+
+
+
+.dodajuKorpu-shop-page {
+    @include fullColorBtn;
+    position: absolute;
+    right: 50%;
+    transform: translateX(50%);
+    padding: .5rem 1rem;
+    border: none;
+    outline: none;
+}
+
+
+/*@media (min-width: 576px){*/
+.img-list img {
+    height: 10rem;
+    width: 32.78%;
+    transition: opacity 0.3s ease;
+    cursor: pointer;
+    display: inline;
+}
+.img-item {
+    display: inline;
+}
+/*}*/
+
+
 @media screen and (max-width:1200px) {
     .single-product-show {
         padding: 4rem 0 5rem 0;
@@ -222,18 +270,6 @@
 }
 
 
-/*@media (min-width: 576px){*/
-.img-list img {
-    height: 10rem;
-    width: 32.78%;
-    transition: opacity 0.3s ease;
-    cursor: pointer;
-    display: inline;
-}
-.img-item {
-    display: inline;
-}
-/*}*/
 
 
 @media (max-width: 767px){
@@ -290,41 +326,12 @@
             padding-bottom: 0;
         }
     }
+    #products-show {
+        .breadcrumb {
+            font-size: 1.1rem;
+        }
+    }
 }
-
-
-
-.product-description {
-    font-size: 1.4rem;
-    color: $brown-black-color;
-    margin-bottom: 0;
-    font-weight: 500;
-    text-align: center;
-    letter-spacing: 0.4px;
-    text-decoration: none;
-}
-
-.product-price {
-    font-size: 1.1rem;
-    font-family: $font-for-numbers;
-    font-display: swap;
-    color: $burgundy-color;
-    font-weight: 600;
-    text-align: center;
-}
-
-
-
-.dodajuKorpu-shop-page {
-    @include fullColorBtn;
-    position: absolute;
-    right: 50%;
-    transform: translateX(50%);
-    padding: .5rem 1rem;
-    border: none;
-    outline: none;
-}
-
 
 
 

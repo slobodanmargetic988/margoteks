@@ -1,0 +1,264 @@
+.gallery-header-img {
+  width: 100%;
+}
+
+#gallery {
+  padding-top: 3rem;
+  padding-bottom: 5rem;
+}
+#gallery .img-wrapper {
+  position: relative;
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 15vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+#gallery .img-wrapper .gallery-img {
+  width: 100%;
+  object-fit: cover;
+  height: 15vw;
+}
+#gallery .img-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  cursor: pointer;
+}
+
+.div-with-a-btn-dodajSliku-adminGalerijaPage {
+  display: block;
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.dodajSliku-adminGalerijaPage {
+  cursor: pointer;
+  outline: none;
+  background: #892f2b;
+  color: white;
+  transition: outline-offset 200ms ease;
+  border-radius: .25rem;
+  outline-color: #fcfcfc;
+  padding: 1rem 3rem;
+  text-transform: uppercase;
+  border: none;
+  outline: none;
+  font-weight: 500;
+  box-shadow: 0 4px 4px -2px #d1d1d1;
+}
+.dodajSliku-adminGalerijaPage:hover, .dodajSliku-adminGalerijaPage:focus {
+  outline: 2px solid white;
+  outline-offset: -6px;
+  background-color: #b23539;
+  text-decoration: none;
+}
+.dodajSliku-adminGalerijaPage:hover {
+  box-shadow: none;
+}
+
+a:hover {
+  text-decoration: none !important;
+  box-shadow: none;
+}
+a .remove-img-btn-adminGalerijaPage {
+  background: transparent;
+  border: 2px solid #892f2b;
+  color: #892f2b;
+  transition: outline-offset 200ms ease;
+  border-radius: .25rem;
+  cursor: pointer;
+  padding: 0.5em;
+  position: relative;
+  z-index: 1;
+  letter-spacing: .03rem;
+  font-size: .96rem;
+  font-weight: 500;
+  width: 100%;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  box-shadow: 0 4px 4px -2px #d1d1d1;
+}
+a .remove-img-btn-adminGalerijaPage:hover, a .remove-img-btn-adminGalerijaPage:focus {
+  outline: 2px solid #b23539;
+  outline-offset: -6px;
+  color: #b23539;
+  text-decoration: none;
+}
+a .remove-img-btn-adminGalerijaPage:hover {
+  box-shadow: none;
+}
+
+@media screen and (max-width: 1200px) {
+  #gallery .img-wrapper {
+    height: 20vw;
+  }
+  #gallery .img-wrapper .gallery-img {
+    height: 20vw;
+  }
+
+  .div-with-a-btn-dodajSliku-adminGalerijaPage {
+    margin-bottom: 3rem;
+  }
+
+  .dodajSliku-adminGalerijaPage {
+    padding: 0.9rem 2.5rem;
+  }
+}
+@media screen and (max-width: 992px) {
+  #gallery .img-wrapper {
+    height: 35vw;
+  }
+  #gallery .img-wrapper .gallery-img {
+    height: 35vw;
+  }
+
+  .div-with-a-btn-dodajSliku-adminGalerijaPage {
+    margin-bottom: 2rem;
+  }
+
+  .dodajSliku-adminGalerijaPage {
+    font-size: .95rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  #gallery {
+    padding-top: 2rem;
+  }
+  #gallery .img-wrapper {
+    height: 35vw;
+  }
+  #gallery .img-wrapper .gallery-img {
+    height: 35vw;
+  }
+
+  .dodajSliku-adminGalerijaPage {
+    letter-spacing: .02rem;
+    font-size: .9rem;
+    padding: 0.8rem 1.8rem;
+  }
+}
+@media screen and (max-width: 575px) {
+  #gallery .img-wrapper {
+    height: 35vw;
+  }
+  #gallery .img-wrapper .gallery-img {
+    height: 35vw;
+  }
+
+  .dodajSliku-adminGalerijaPage {
+    padding: 0.6rem 1rem;
+    font-size: .85rem;
+  }
+}
+@media screen and (max-width: 600px) {
+  #gallery .img-wrapper {
+    height: 40vw;
+  }
+  #gallery .img-wrapper .gallery-img {
+    height: 40vw;
+  }
+}
+#overlay {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /*user-select: none;*/
+}
+#overlay img {
+  margin: 0;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+  padding: 5%;
+}
+@media screen and (min-width: 767px) {
+  #overlay img {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #overlay img {
+    width: 50%;
+  }
+}
+
+#nextButton, #prevButton {
+  color: white;
+  font-size: 2em;
+  transition: opacity 0.8s;
+  cursor: pointer;
+}
+#nextButton:hover, #prevButton:hover {
+  opacity: 0.7;
+}
+@media screen and (min-width: 767px) {
+  #nextButton, #prevButton {
+    font-size: 2.75em;
+  }
+}
+
+#exitButton {
+  color: white;
+  font-size: 2.75em;
+  transition: opacity 0.8s;
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+  cursor: pointer;
+}
+#exitButton:hover {
+  opacity: 0.7;
+}
+@media screen and (max-width: 767px) {
+  #exitButton {
+    font-size: 2em;
+    right: 2.8rem;
+  }
+}
+
+#prikazShow .img-wrapper {
+  /*        position: relative;
+          margin-top: 1.5rem;
+          width: 255px;
+          height: 255px;    
+          display: block;
+          margin-left: auto;
+          margin-right: auto;*/
+}
+#prikazShow .img-wrapper img {
+  max-width: 100%;
+  max-height: 100%;
+}
+#prikazShow .img-overlay {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  cursor: pointer;
+}

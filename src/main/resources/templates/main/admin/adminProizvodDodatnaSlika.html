@@ -26,23 +26,16 @@
             <section id="products-show">
                 <div class="container">
                     <form th:action="@{/admin/novaSlika/{proizvodId}/save (proizvodId=${proizvodId})}" enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">
-
-
-                        
-                        
-                        
-                        
-                        
                         
                           <div class="form-group " >
                             <h3 class="dodavanje-nove-slike col-md-6">Dodavanje nove slike za proizvod</h3>
                             <div class="col-md-6 centrirajFormuInput"  >
-                                <label>Naslov slike:</label>
-                                <input type="text" class=" form-control input-custom-border"  name="title" >
+                                <label for="naslovSlike">Naslov slike:</label>
+                                <input type="text" class=" form-control input-custom-border"  name="title" id="naslovSlike" >
                             </div>
                             <div class="col-md-6 centrirajFormuInput mt-3"  >
-                                <label>Alternativni tekst:</label>
-                                <input type="text" class=" form-control input-custom-border"  name="alt_text" >
+                                <label for="altImgText">Alternativni tekst:</label>
+                                <input type="text" class=" form-control input-custom-border"  name="alt_text" id="altImgText" >
                             </div>
                         </div>
                         <div class="col-md-6 centrirajFormuChoose" >

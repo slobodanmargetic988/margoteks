@@ -69,7 +69,7 @@
                                             </div>
 
                                             <div class="small-img ">
-                                                <img src="https://im0-tub-ru.yandex.net/i?id=db3a45c2d2028ad126f1e44cddc88d25&n=13&exp=1" alt="left arrow" title="left arrow" class="icon-left"  id="prev-img">
+                                                <img src="/img/left-right-arrow.png" alt="left arrow" title="left arrow" class="icon-left"  id="prev-img">
                                                     <div class="small-container">
                                                         <th:block th:if="${not #lists.isEmpty(proizvod.photos)}">
 
@@ -90,7 +90,7 @@
                                                             </div>
                                                         </th:block>
                                                     </div>
-                                                    <img src="https://im0-tub-ru.yandex.net/i?id=db3a45c2d2028ad126f1e44cddc88d25&n=13&exp=1"  alt="right arrow" title="right arrow"class="icon-right" id="next-img">
+                                                    <img src="/img/left-right-arrow.png"  alt="right arrow" title="right arrow"class="icon-right" id="next-img">
                                                         </div>
                                                         </section></div>
 
@@ -120,10 +120,9 @@
                                                                     <input  type='text' name='quantity' value='1' class='qty'id="kolicina"  />
                                                                     <input type='button' value='+' class='plus' field='quantity' />
                                                                 </div>
-                                                                <a style="text-decoration: none;">
                                                                     <span class="add-to-cart-with-icon-productPage JSdodajUKorpuProizvodStranaNEREG" th:pid="${proizvod.getId()}"  th:photoid="${proizvod.glavnaslika.id}" th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" id="buttonAdd2Cart" >Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
                                                                     </span>
-                                                                </a>
+                                                                
 
 
                                                             </form> 

@@ -498,10 +498,12 @@
     .all-categories-left-nav-container-small-screen {
         display: block;
         text-align: left;
+        margin-bottom: 2rem;
         .btn-kategorije {
             /*border: 1px solid $burgundy-color;*/
             text-decoration: none;
             color: $brown-black-color;
+            font-size: 1.1rem;
             &:hover {
                 color: $burgundy-color;
             }

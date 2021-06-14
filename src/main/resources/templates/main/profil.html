@@ -1,106 +1,108 @@
-    <!DOCTYPE html>
-    <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-    <title>Margotekstil profil korisnika</title>
+        <title>Margotekstil profil korisnika</title>
 
-<meta name="description" content="Margotekstil profil korisnika. Ovde možete da izmenite lične podatke, podatke o dostavi, lozinku i ostalo . User profile page."/> 
+        <meta name="description" content="Margotekstil profil korisnika. Ovde možete da izmenite lične podatke, podatke o dostavi, lozinku i ostalo . User profile page."/> 
+        <link th:href="@{/css/profil.css}" rel="stylesheet" type="text/css" />
+
     <th:block th:insert="fragments/head :: head" />
 
-    </head>
+</head>
 
-    <body>
+<body>
     <img src="/img/sew1.png" class="header-img" alt="profil-header-image" >
 
-    <th:block th:insert="fragments/navigation :: navbar" />
+<th:block th:insert="fragments/navigation :: navbar" />
 
-    <div class="text-box">
+<div class="text-box">
     <h2>MARGOTEKSTIL</h2>                                              
     <p>PROFIL</p>
-    </div>
- <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
-    <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
-    <section  class="productShow">
-   
+</div>
+<th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+<th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+<section  class="productShow">
+
 
     <div class="container">
 
-    <form th:action="@{/profil/save}"  method="post" class="form-horizontal licniPodaciForma" autocomplete="off">
+        <form th:action="@{/profil/save}"  method="post" class="form-horizontal licniPodaciForma" autocomplete="off">
 
-    <div class="form-group ">
-        <div class="licniPodaci col-md-8">LIČNI PODACI 
-            <span ><a th:href="@{/istorijaKupovine}" class="istorijaKupovine-link">Istorija kupovine</a></span>
-        </div>
-    <div class="col-md-8 centrirajFormuInput">
-    <label>Ime:</label>
-    <input type="text" class=" form-control input-custom-border"  name="ime"  th:value="${userLogedIn.ime}">
+            <div class="form-group ">
+                <div class="licniPodaci col-md-8">LIČNI PODACI 
+                    <span ><a th:href="@{/istorijaKupovine}" class="istorijaKupovine-link">Istorija kupovine</a></span>
+                </div>
+                <div class="col-md-8 centrirajFormuInput">
+                    <label for="licni-podaci1">Ime:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="ime"  th:value="${userLogedIn.ime}" id="licni-podaci1">
+                </div>
+                <br>
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label for="licni-podaci2">Prezime:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="prezime" th:value="${userLogedIn.prezime}" id="licni-podaci2">
+                </div>
+                <br>
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label for="licni-podaci3">Email:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="email" th:value="${userLogedIn.email}"  id="licni-podaci3">
+                </div>  
+                <br>
+                <div class="col-md-8 centrirajFormuInput ">
+
+                    <label for="licni-podaci4">Lozinka:</label>
+                    <input type="password" class=" form-control input-custom-border" name="password" autocomplete="off" placeholder="Lozinka (minimum 8 karaktera)"  id="licni-podaci4" />
+                </div> 
+                <br>
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label for="licni-podaci5">Ponovljena lozinka:</label>
+                    <input type="password" class=" form-control input-custom-border" name="lozinkaRepeat"   id="licni-podaci5" />
+                </div> 
+                <br>
+
+
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label for="licni-podaci6">Adresa:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="adresa" th:value="${userLogedIn.adresa}"  id="licni-podaci6">
+                </div>
+                <br>
+
+
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label for="licni-podaci7">Mesto: </label>
+                    <input type="text" step="0.01"  class=" form-control input-custom-border"  name="mesto" th:value="${userLogedIn.mesto}" id="licni-podaci7">
+                </div>  
+                <br>
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label for="licni-podaci8">Poštanski broj: </label>
+                    <input type="number" step="0.01"  class=" form-control input-custom-border"  name="postanskibroj" th:value="${userLogedIn.postanski_broj}" id="licni-podaci8">
+                </div>
+                <br>
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label for="licni-podaci9">Telefon:</label>
+                    <input type="number" class=" form-control input-custom-border"  name="telefon" th:value="${userLogedIn.broj_telefona}"  id="licni-podaci9">
+                </div> 
+                <br>
+
+            </div>
+
+            <div class=" col-md-8 buttonsSaveAndBack" >
+                <button type="submit" class="btn-save">Sačuvaj</button>
+                <a th:href="@{/}" class="btn-back">Nazad</a>
+            </div>   
+
+        </form>
+
     </div>
-    <br>
-    <div class="col-md-8 centrirajFormuInput ">
-    <label>Prezime:</label>
-    <input type="text" class=" form-control input-custom-border"  name="prezime" th:value="${userLogedIn.prezime}">
-    </div>
-    <br>
-    <div class="col-md-8 centrirajFormuInput ">
-    <label>Email:</label>
-    <input type="text" class=" form-control input-custom-border"  name="email" th:value="${userLogedIn.email}" >
-    </div>  
-    <br>
-    <div class="col-md-8 centrirajFormuInput ">
-       
-    <label>Lozinka:</label>
-    <input type="password" class=" form-control input-custom-border" name="password" autocomplete="off" placeholder="Lozinka (minimum 8 karaktera)"  />
-    </div> 
-    <br>
-    <div class="col-md-8 centrirajFormuInput ">
-    <label>Ponovljena lozinka:</label>
-    <input type="password" class=" form-control input-custom-border" name="lozinkaRepeat"   />
-    </div> 
-    <br>
+</section>
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<div id="backToTop"></div>
 
 
-    <div class="col-md-8 centrirajFormuInput ">
-    <label>Adresa:</label>
-    <input type="text" class=" form-control input-custom-border"  name="adresa" th:value="${userLogedIn.adresa}" >
-    </div>
-    <br>
+<th:block th:insert="fragments/scripts :: scripts" />
 
+</body>
 
-    <div class="col-md-8 centrirajFormuInput ">
-    <label>Mesto: </label>
-    <input type="text" step="0.01"  class=" form-control input-custom-border"  name="mesto" th:value="${userLogedIn.mesto}">
-    </div>  
-    <br>
-    <div class="col-md-8 centrirajFormuInput ">
-    <label>Poštanski broj: </label>
-    <input type="number" step="0.01"  class=" form-control input-custom-border"  name="postanskibroj" th:value="${userLogedIn.postanski_broj}">
-    </div>
-    <br>
-    <div class="col-md-8 centrirajFormuInput ">
-    <label>Telefon:</label>
-    <input type="number" class=" form-control input-custom-border"  name="telefon" th:value="${userLogedIn.broj_telefona}" >
-    </div> 
-    <br>
-
-    </div>
-
-    <div class=" col-md-8 buttonsSaveAndBack" >
-    <button type="submit" class="btn-save">Sačuvaj</button>
-    <a th:href="@{/}" class="btn-back">Nazad</a>
-    </div>   
-
-    </form>
-
-    </div>
-    </section>
-
-    <th:block th:insert="fragments/footer :: footer" />
-
-    <div id="backToTop"></div>
-
-
-    <th:block th:insert="fragments/scripts :: scripts" />
-
-    </body>
-
-    </html>
+</html>

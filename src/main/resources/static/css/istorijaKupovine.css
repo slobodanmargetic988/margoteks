@@ -1,0 +1,114 @@
+.nazad-na-profil {
+  margin-top: 2rem;
+  text-align: right;
+}
+.nazad-na-profil .nazad-na-profil-link {
+  text-decoration: underline;
+  font-size: 1.15rem;
+  color: #211b14;
+  font-weight: 500;
+}
+.nazad-na-profil .nazad-na-profil-link:hover {
+  color: #b23539;
+  text-decoration: underline !important;
+}
+
+.do-sada-poruceno-box {
+  /*   
+      margin: 3rem 0;*/
+  margin-top: 2rem;
+  margin-bottom: 6rem;
+}
+
+.box-history {
+  -webkit-box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
+  box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
+}
+.box-history .dateOfPurchase {
+  padding: 1.5rem 0 0 1rem;
+  font-weight: 600;
+  font-size: 1.3rem;
+  color: #5d4c39;
+}
+.box-history .okvirSlikeZaProizvod {
+  width: 255px;
+  height: 255px;
+}
+.box-history .okvirSlikeZaProizvod .main-prod-img {
+  padding: 1rem;
+  background: transparent;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+}
+.box-history .centrirajTextuDiv {
+  height: 100%;
+  position: relative;
+}
+.box-history .centrirajTextuDiv .centrirajPuDiv {
+  margin: 0;
+  position: absolute;
+  top: 50%;
+  transform: translate(0, -50%);
+}
+.box-history .centrirajTextuDiv .centrirajPuDiv .naziv-opis-cena {
+  font-weight: 600;
+  margin-bottom: .5rem;
+}
+
+.empty-purchase-history {
+  width: 70%;
+  margin: 0 auto;
+  padding: 4rem 0;
+}
+.empty-purchase-history .empty-purchase-history-text {
+  border-top: 3px solid #892f2b;
+  background-color: #f7f7f7;
+  padding: 2rem;
+  margin-bottom: 2.4rem;
+  text-align: center;
+  font-weight: 500;
+  font-size: 1.1rem;
+}
+
+@media screen and (max-width: 1200px) {
+  .box-history .okvirSlikeZaProizvod {
+    width: 225px;
+    height: 225px;
+  }
+}
+@media screen and (max-width: 992px) {
+  .box-history .okvirSlikeZaProizvod {
+    width: 165px;
+    height: 165px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .box-history .okvirSlikeZaProizvod {
+    width: 100%;
+    height: 80vw;
+  }
+  .box-history .centrirajTextuDiv {
+    margin-bottom: 1rem;
+  }
+  .box-history .centrirajTextuDiv .centrirajPuDiv {
+    position: static;
+    padding-left: 1rem;
+    transform: none;
+    top: 0;
+    margin: revert;
+  }
+}
+@media screen and (max-width: 575px) {
+  .nazad-na-profil .nazad-na-profil-link {
+    font-size: 1rem;
+  }
+
+  .nazad-na-profil {
+    margin-top: 1.2rem;
+  }
+
+  .do-sada-poruceno-box {
+    margin: 2rem 0 2.5rem 0;
+  }
+}

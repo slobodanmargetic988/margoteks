@@ -8,7 +8,8 @@
    
     <meta name="description" content="Margotekstil prodavnica, ovde možete da pregledate naše proizvode koji su trenutno u ponudi. Shop main page for unregistered users."/> 
         <th:block th:insert="fragments/head :: head" />
-        
+                <link th:href="@{/css/pagination.css}" rel="stylesheet" type="text/css" />
+
     </head>
 
     <body>
@@ -52,7 +53,7 @@
 
                             <!--kategorije za male ekrane start-->
                             <th:block>
-                                <div class="all-categories-left-nav-container-small-screen dropdown show col-6" >
+                                <div class="all-categories-left-nav-container-small-screen dropdown show col-sm-6" >
                                     <a class="btn-kategorije shadow-none  dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                         Kategorije
                                     </a>
@@ -68,7 +69,7 @@
                             </th:block>
                             <!--kategorije za male ekrane end-->
 
-                            <div class=" col-md-6 col-sm-6 col-6 p-0">
+                            <div class=" col-md-6 col-sm-6 p-0">
                                 <th:block th:insert="fragments/pagination :: pagination (${listaProizvoda})" />
                             </div>
                         </div>

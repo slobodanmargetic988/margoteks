@@ -4,161 +4,161 @@
     <head>
         <title>Margotekstil Korpa</title>
 
-   
-    <meta name="description" content="Margotekstil vaša korpa, pregledate proizvode koji su trenutno u vašoj korpi i završite porudžbinu. Shopping cart main page."/> 
-        <th:block th:insert="fragments/head :: head" />
 
-    </head>
+        <meta name="description" content="Margotekstil vaša korpa, pregledate proizvode koji su trenutno u vašoj korpi i završite porudžbinu. Shopping cart main page."/> 
+    <th:block th:insert="fragments/head :: head" />
 
-    <body>
-        <img src="/img/shop-image.jpg" class="header-img" alt="shopping-cart-header-image">
+</head>
+
+<body>
+    <img src="/img/shop-image.jpg" class="header-img" alt="shopping-cart-header-image">
 
 
-            <th:block th:insert="fragments/navigation :: navbar" />
+<th:block th:insert="fragments/navigation :: navbar" />
 
-            <div class="text-box">
-                <h2>MARGOTEKSTIL</h2>
-                <p>KORPA</p>
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>
+    <p>KORPA</p>
+</div>
+
+
+<!-- multistep form -->
+<div class="container">
+    <div class="row">
+        <div class="empty-cart" style="display:none" >
+            <p class="cart-text">Korpa je trenutno prazna.<br>
+                Pre nego što nastavite sa plaćanjem, morate dodati neke proizvode u svoju korpu.</p>
+            <p class="return-to-shop">
+                <a class="return-to-shop-btn" th:href="@{/shop}">
+                    Nazad na shop</a>
+            </p>
+        </div>
+
+        <th:block   th:if="${not #lists.isEmpty(korpaproizvodi)}">
+            <div class="col-md-8 full-cartJS">
+                <form id="msform" method="POST" th:action="@{/korpa/zavrsiPorudzbinu}">
+                    <!-- progressbar -->
+                    <ul id="progressbar">
+                        <li class="active"><strong>Stavke</strong></li>
+                        <li><strong>Podaci kupca</strong></li>
+                        <li><strong>Pregled korpe</strong></li>
+                    </ul>
+                    <!-- fieldsets -->
+                    <fieldset>
+                        <h2 class="fs-title">Stavke </h2>
+                        <div class="container">
+                            <!--         first product -->
+
+                            <th:block th:each="korpaProizvod : ${korpaproizvodi}" >
+
+                                <th:block th:insert="fragments/shopFragment :: korpaStavka (${korpaProizvod})" />
+
+                            </th:block>
+                        </div>
+                        <input type="button" name="next" class="JSnext action-button firstDaljeBtn" value="Dalje   &LongRightArrow;" />
+                    </fieldset>
+
+                    <fieldset>
+                        <h2 class="fs-title">Podaci kupca i način plaćanja</h2>
+                        <label class="labela">Ime:</label>
+                        <input type="text" name="ime" id="predzadnjiKorakIme" th:value="${user.ime}" />
+                        <label class="labela">Prezime:</label>
+                        <input type="text" name="prezime" id="predzadnjiKorakPrezime" th:value="${user.prezime}" />
+                        <label class="labela">Telefon:</label>
+                        <input type="number" name="telefon" id="predzadnjiKorakTelefon" th:value="${user.broj_telefona}" />
+                        <label class="labela">Email:</label>
+                        <input type="text" name="email" id="predzadnjiKorakEmail" th:value="${user.email}" />
+                        <label class="labela">Adresa:</label>
+                        <input type="text" name="adresa" id="predzadnjiKorakAdresa" th:value="${user.adresa}" />
+                        <label class="labela">Poštanski broj:</label>
+                        <input type="number" name="postanskibroj" id="predzadnjiKorakPB" th:value="${user.postanski_broj}" />
+                        <label class="labela">Grad: </label>
+                        <input type="text" name="grad" th:value="${user.mesto}" id="predzadnjiKorakGrad"/>
+
+
+
+                        <div class="form-group mt-2">
+                            <label class="labela">Način plaćanja: </label>
+
+                            <select class="form-control custom-select" name="nacinplacanja" id="nacinPlacanja">
+                                <option>Plaćanje prilikom preuzimanja</option>
+                                <option>Uplata na tekući račun</option>
+                                <option>Lično preuzimanje</option>
+                            </select>
+                        </div>
+
+                        <label class="labela">Napomena:</label>
+                        <br>
+                        <textarea type="text" id="predzadnjiKorakNapomena" rows="4" cols="50" style="width: 100%"  name="komentar" placeholder="Ukoliko je adresa isporuke različita od adrese kupca, ovde napišite adresu isporuke i podatke o primaocu."></textarea>
+
+                        <br>
+                        <input type="button" name="previous" class="JSprevious nazadBtnShop action-button" value="&LongLeftArrow;   Nazad" />
+                        <input type="button" name="next" id="predzadnjiKorak" class="JSnext action-button secondDaljeBtn" value="Dalje   &LongRightArrow;" />
+
+                    </fieldset>
+
+                    <fieldset>
+                        <h2 class="fs-title">Pregled korpe</h2>
+                        <div class="container">
+
+                            <th:block th:each="korpaproizvodi  : ${korpaproizvodi}">
+
+                                <th:block th:insert="fragments/shopFragment :: korpaStavkaPregled (${korpaproizvodi})" />
+                            </th:block>
+
+                        </div>
+
+                        <div class="border-bottom mt-3 mb-2">
+                            <h4>Adresa isporuke:
+                            </h4>
+                            <div class="addr-item"><strong>Ime: </strong> <span id="zadnjiKorakIme" th:text="nista"></span></div>
+                            <div class="addr-item"><strong>Prezime: </strong><span id="zadnjiKorakPrezime">Peric </span></div>
+                            <div class="addr-item"><strong>Adresa: </strong><span id="zadnjiKorakUlica"> Ulica: </span> <span id="zadnjiKorakPB"> Poštanski broj: </span> <span id="zadnjiKorakGrad"> Mesto: </span></div>
+                            <div class="addr-item"><strong>Telefon: </strong><span id="zadnjiKorakTelefon">0651234567</span> </div>
+                            <div class="addr-item"><strong>Email: </strong><span id="zadnjiKorakEmail">peraperic@gmail.com</span></div>
+                            <div class="addr-item mb-3"><strong>Napomena: </strong><span id="zadnjiKorakNapomena"></span> </div>
+                        </div>
+
+                        <div class="border-bottom mt-2 mb-2">
+                            <h4>Način plaćanja:</h4>
+                            <div class="mb-3"><span id="zadnjiKorakNacinPlacanja">Plaćanje prilikom preuzimanja </span> </div>
+                        </div>
+
+                        <input type="button" name="previous" class="JSprevious nazadBtnShop action-button" value="&LongLeftArrow;   Nazad" />
+                        <input type="submit" name="submit" class="action-button zavrsiPorudzbinuBtn" value="Završi porudžbinu" />
+                    </fieldset>
+                </form>
             </div>
 
+            <div class="col-md-4 korpa mb-5  full-cartJS">
+                <fieldset class="fieldset-korpa">
+                    <h2 class="fs-title">Vaša korpa</h2>
+                    <p>Okvirno cena dostave: </p>
+                    <span id="postarinatotal"> oko 300 RSD</span><br><br>
+                    <p>Ukupna kilaza proizvoda: </p>
+                    <span id="totalkilaza"></span><br><br>
+                    <p>Iznos kupovine: </p>
+                    <span id="korpatotal"></span>
 
-            <!-- multistep form -->
-            <div class="container">
-                <div class="row">
-                    <div class="empty-cart" style="display:none" >
-                        <p class="cart-text">Korpa je trenutno prazna.<br>
-                                Pre nego što nastavite sa plaćanjem, morate dodati neke proizvode u svoju korpu.</p>
-                        <p class="return-to-shop">
-                            <a class="return-to-shop-btn" th:href="@{/shop}">
-                                Nazad na shop</a>
-                        </p>
-                    </div>
+                </fieldset>
 
-                    <th:block   th:if="${not #lists.isEmpty(korpaproizvodi)}">
-                        <div class="col-md-8 full-cartJS">
-                            <form id="msform" method="POST" th:action="@{/korpa/zavrsiPorudzbinu}">
-                                <!-- progressbar -->
-                                <ul id="progressbar">
-                                    <li class="active"><strong>Stavke</strong></li>
-                                    <li><strong>Podaci kupca</strong></li>
-                                    <li><strong>Pregled korpe</strong></li>
-                                </ul>
-                                <!-- fieldsets -->
-                                <fieldset>
-                                    <h2 class="fs-title">Stavke </h2>
-                                    <div class="container">
-                                        <!--         first product -->
+            </div>
+        </th:block>
+    </div>
 
-                                        <th:block th:each="korpaProizvod : ${korpaproizvodi}" >
-
-                                            <th:block th:insert="fragments/shopFragment :: korpaStavka (${korpaProizvod})" />
-
-                                        </th:block>
-                                    </div>
-                                    <input type="button" name="next" class="JSnext action-button firstDaljeBtn" value="Dalje   &LongRightArrow;" />
-                                </fieldset>
-
-                                <fieldset>
-                                    <h2 class="fs-title">Podaci kupca i način plaćanja</h2>
-                                    <label class="labela">Ime:</label>
-                                    <input type="text" name="ime" id="predzadnjiKorakIme" th:value="${user.ime}" />
-                                    <label class="labela">Prezime:</label>
-                                    <input type="text" name="prezime" id="predzadnjiKorakPrezime" th:value="${user.prezime}" />
-                                    <label class="labela">Telefon:</label>
-                                    <input type="number" name="telefon" id="predzadnjiKorakTelefon" th:value="${user.broj_telefona}" />
-                                    <label class="labela">Email:</label>
-                                    <input type="text" name="email" id="predzadnjiKorakEmail" th:value="${user.email}" />
-                                    <label class="labela">Adresa:</label>
-                                    <input type="text" name="adresa" id="predzadnjiKorakAdresa" th:value="${user.adresa}" />
-                                    <label class="labela">Poštanski broj:</label>
-                                    <input type="number" name="postanskibroj" id="predzadnjiKorakPB" th:value="${user.postanski_broj}" />
-                                    <label class="labela">Grad: </label>
-                                    <input type="text" name="grad" th:value="${user.mesto}" id="predzadnjiKorakGrad"/>
+</div>
 
 
+<div id="backToTop"></div>
 
-                                    <div class="form-group mt-2">
-                                        <label class="labela">Način plaćanja: </label>
-
-                                        <select class="form-control custom-select" name="nacinplacanja" id="nacinPlacanja">
-                                            <option>Plaćanje prilikom preuzimanja</option>
-                                            <option>Uplata na tekući račun</option>
-                                            <option>Lično preuzimanje</option>
-                                        </select>
-                                    </div>
-
-                                    <label class="labela">Napomena:</label>
-                                    <br>
-                                        <textarea type="text" id="predzadnjiKorakNapomena" rows="4" cols="50" style="width: 100%"  name="komentar" placeholder="Ukoliko je adresa isporuke različita od adrese kupca, ovde napišite adresu isporuke i podatke o primaocu."></textarea>
-
-                                        <br>
-                                            <input type="button" name="previous" class="JSprevious nazadBtnShop action-button" value="&LongLeftArrow;   Nazad" />
-                                            <input type="button" name="next" id="predzadnjiKorak" class="JSnext action-button secondDaljeBtn" value="Dalje   &LongRightArrow;" />
-
-                                            </fieldset>
-
-                                            <fieldset>
-                                                <h2 class="fs-title">Pregled korpe</h2>
-                                                <div class="container">
-
-                                                    <th:block th:each="korpaproizvodi  : ${korpaproizvodi}">
-
-                                                        <th:block th:insert="fragments/shopFragment :: korpaStavkaPregled (${korpaproizvodi})" />
-                                                    </th:block>
-
-                                                </div>
-
-                                                <div class="border-bottom mt-3 mb-2">
-                                                    <h4>Adresa isporuke:
-                                                    </h4>
-                                                    <div class="addr-item"><strong>Ime: </strong> <span id="zadnjiKorakIme" th:text="nista"></span></div>
-                                                    <div class="addr-item"><strong>Prezime: </strong><span id="zadnjiKorakPrezime">Peric </span></div>
-                                                    <div class="addr-item"><strong>Adresa: </strong><span id="zadnjiKorakUlica"> Ulica: </span> <span id="zadnjiKorakPB"> Poštanski broj: </span> <span id="zadnjiKorakGrad"> Mesto: </span></div>
-                                                    <div class="addr-item"><strong>Telefon: </strong><span id="zadnjiKorakTelefon">0651234567</span> </div>
-                                                    <div class="addr-item"><strong>Email: </strong><span id="zadnjiKorakEmail">peraperic@gmail.com</span></div>
-                                                    <div class="addr-item mb-3"><strong>Napomena: </strong><span id="zadnjiKorakNapomena"></span> </div>
-                                                </div>
-
-                                                <div class="border-bottom mt-2 mb-2">
-                                                    <h4>Način plaćanja:</h4>
-                                                    <div class="mb-3"><span id="zadnjiKorakNacinPlacanja">Plaćanje prilikom preuzimanja </span> </div>
-                                                </div>
-
-                                                <input type="button" name="previous" class="JSprevious nazadBtnShop action-button" value="&LongLeftArrow;   Nazad" />
-                                                <input type="submit" name="submit" class="action-button zavrsiPorudzbinuBtn" value="Završi porudžbinu" />
-                                            </fieldset>
-                                            </form>
-                                            </div>
-
-                                            <div class="col-md-4 korpa mb-5  full-cartJS">
-                                                <fieldset class="fieldset-korpa">
-                                                    <h2 class="fs-title">Vaša korpa</h2>
-                                                    <h5>Okvirno cena dostave: </h5>
-                                                    <span id="postarinatotal"> oko 300 RSD</span><br><br>
-                                                            <h5>Ukupna kilaza proizvoda: </h5>
-                                                            <span id="totalkilaza"></span><br><br>
-                                                                    <h5>Iznos kupovine: </h5>
-                                                                    <span id="korpatotal"></span>
-
-                                                                    </fieldset>
-
-                                                                    </div>
-                                                                    </th:block>
-                                                                    </div>
-
-                                                                    </div>
+<th:block th:insert="fragments/footer :: footer" />
 
 
-                                                                    <div id="backToTop"></div>
+<th:block th:insert="fragments/scripts :: scripts" />
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
+<th:block th:insert="fragments/scripts :: shopScriptsRegistered" />
+<script th:src="@{/js/shoppingCart.js}" type="text/javascript"></script>
+</body>
 
-                                                                    <th:block th:insert="fragments/footer :: footer" />
-
-
-                                                                    <th:block th:insert="fragments/scripts :: scripts" />
-                                                                    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.4.1/jquery.easing.min.js"></script>
-                                                                    <th:block th:insert="fragments/scripts :: shopScriptsRegistered" />
-                                                                    <script th:src="@{/js/shoppingCart.js}" type="text/javascript"></script>
-                                                                    </body>
-
-                                                                    </html>
+</html>
 

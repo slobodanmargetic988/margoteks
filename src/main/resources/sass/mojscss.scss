@@ -1,29 +1,16 @@
 @import "./variables";
 @import "./mixins";
 @import "./mojscss-contact";
-@import "./mojscss-onama";
-@import "./mojscss-galerija";
 @import "./mojscss-shop";
 @import "./mojscss-proizvod";
-@import "./mojscss-registracija";
 @import "./mojscss-error404";
-@import "./mojscss-emptyCart";
 @import "./mojscss-shoppingCart";
 @import "./mojscss-alert";
 @import "./mojscss-adminNoviProizvod";
 @import "./mojscss-adminNovaSlika";
 @import "./mojscss-adminIzmeniProizvod";
-@import "./mojscss-usloviKoriscenja";
 @import "./mojscss-proizvodSlikeCarousel";
-@import "./mojscss-istorijaKupovine";
-@import "./mojscss-pagination";
-@import "./mojscss-profil";
 @import "./mojscss-adminPregledPorudzbine";
-
-
-
-
-
 
 * {
     font-family: $font-rest;
@@ -270,6 +257,15 @@ img {
         -moz-box-shadow: 1px 10px 31px -1px rgba(179,167,167,0.79);
         border-radius: unset;
         height: 620px;
+        a {
+            width: 100.1%;
+            height: 45%;
+            img {
+                width: 105%;
+                object-fit: cover;
+                height: 100%;
+            }
+        }
         .card-content {
             /*padding-bottom: 4rem;*/
             padding: .5rem;
@@ -313,7 +309,7 @@ footer {
     .links-social {
         background: $burgundy-color;
         padding: 20px 0 50px 0;
-        h3.title {
+        p.title {
             padding-top: 40px;
             font-size: 16px;
             font-weight: normal;
@@ -411,7 +407,6 @@ footer {
 .img-parallax {
     background-image: url("/img/paralaxmozda10.jpg");
     @include headerImage();
-    /*    filter: brightness(80%);*/
     min-height: 18.75rem;
     @include flexCenter;
     box-shadow: 1px 1px 13px 7px rgba(202,199,199,0.75);
@@ -427,7 +422,7 @@ footer {
 
 
 
-/* Slider Neki od naših klijenata start*/
+/* Slider - Neki od naših klijenata start*/
 .partneri {
     margin-top:1rem;
     h2 {
@@ -548,7 +543,7 @@ footer {
         display: none;
     }
 }
-/* Slider Neki od naših klijenata end*/
+/* Slider - Neki od naših klijenata end*/
 
 
 
@@ -575,12 +570,10 @@ footer {
         input, textarea {
             background: transparent;
             border: 1px solid $brown-black-color;
-
             &:focus {
                 outline: 0;
                 border-color: $burgundy-color;
                 box-shadow: none;
-
             }
         }
         input {
@@ -681,22 +674,9 @@ footer {
             padding-top: 0;
         }
     }
-    /*    .karte {
-            height:550px;
-            .card {
-                .card-title {
-                    font-size: 1.5rem !important;
-                    line-height: 1.2 !important;
-                }
-                .card-text {
-                    padding: .5rem .7rem 3rem .7rem !important;
-                }
-            }
-        }*/
-
     .karte {
         .card {
-            height: 550px;
+            height: 600px;
             .card-content {
                 .card-title {
                     font-size: 1.5rem;
@@ -731,7 +711,6 @@ footer {
         }
     }
 
-
     .img-parallax {
         min-height: 15rem;
         p {   
@@ -744,8 +723,6 @@ footer {
             position: static;
         }
     }
-
-
 }
 
 
@@ -753,10 +730,9 @@ footer {
 
 
 @media (max-width: 992px) {
-
     .karte {
         .card {
-            height: 430px;
+            height: 480px;
             .card-content {
                 .card-title {
                     height: 55px;
@@ -787,6 +763,7 @@ footer {
     }
     /*NAŠE USLUGE end*/
 
+
     .customer-logos {
         .img-with-margin {
             margin-top: 2.5rem !important;
@@ -801,6 +778,7 @@ footer {
     }
 }
 
+
 @media screen and (max-width: 767px) {
     #backToTop {
         .backToTop {
@@ -810,15 +788,9 @@ footer {
         }
     }
 
-
-
-
     .navbar-toggler {
-        /*            background: $white-color !important;*/
-
         &:focus {
             outline: none;
-
         }
     }
     .navbar-collapse {
@@ -833,7 +805,6 @@ footer {
         margin-right: 7px;
         .maliekran {
             display: inline-block;
-
         }
     }
 
@@ -852,7 +823,7 @@ footer {
 
     .karte {
         .card {
-            height: 700px;
+            height: 600px;
             .card-content {
                 .card-title {
                     height: 70px;
@@ -877,13 +848,9 @@ footer {
             font-weight: 600;
         }
     }
-
-
 }
 
 @media screen and (max-width: 575px) {
-
-
 
     .contact-us {
         padding-bottom: 3.4rem;
@@ -892,11 +859,9 @@ footer {
             margin: 2rem 0 0 0.938rem;
             padding-bottom: 1rem;;
             font-size: 2rem;
-
         }
         .forma {
             margin-left: 0.938rem;
-
         }
         .bg-color-contact {
             .contact-header {
@@ -931,7 +896,7 @@ footer {
             }
         }
     }
-    
+
     #backToTop {
         .backToTop {
             bottom: 2.5rem;
@@ -939,13 +904,13 @@ footer {
             width: 2.5rem;
         }
     }
-    
+
     footer {
         .links-social {
             padding: 20px 0;
         }
     }
-    
+
     .services {
         margin-top: 1.8rem;
         h3 {
@@ -971,10 +936,10 @@ footer {
             padding: 10px;
         }
     }
-    
+
     .karte {
         .card {
-            height: 700px;
+            height: 600px;
             .card-content {
                 .card-title {
                     height: 70px;
@@ -986,19 +951,17 @@ footer {
                     padding: 0.7rem 2rem 3rem 2rem;
                 }
                 .detail-button {
-                    font-size: 1rem;
+                    font-size: .94rem;
+                    margin-top: 1rem;
                 }
             }
         }
     }
-    
 }
 
 
 
 @media screen and (max-width: 400px) {
-
-
     .img-parallax {
         p {   
             font-size: 4vw;
@@ -1007,19 +970,18 @@ footer {
     }
 }
 
-
-
-
 @media only screen and (min-width:575px) and (max-width:767px){
     #brandlogo {
         max-width: 140px;
     }
 }
+
 @media only screen and (min-width:447px) and (max-width:575px){
     #brandlogo {
         max-width: 140px;
     }
 }
+
 @media only screen and (max-width:447px){
     #brandlogo {
         max-width: 90px;

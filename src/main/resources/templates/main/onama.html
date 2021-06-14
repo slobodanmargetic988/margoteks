@@ -4,77 +4,80 @@
     <head>
         <title>Margotekstil O nama</title>
 
-<meta name="description" content="Margotekstil o nama. Margotekstil je firma koja se bavi uređenjem poslovnog i ličnog prostora. About us."/> 
-        <th:block th:insert="fragments/head :: head" />
+        <meta name="description" content="Margotekstil o nama. Margotekstil je firma koja se bavi uređenjem poslovnog i ličnog prostora. About us."/> 
+        
+        <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
 
-    </head>
+    <th:block th:insert="fragments/head :: head" />
 
-    <body>
-        <img src="/img/onama.jpg" class="header-img" alt="o-nama-header-image">
+</head>
 
-            <th:block th:insert="fragments/navigation :: navbar" />
+<body>
+    <img src="/img/onama.jpg" class="header-img" alt="o-nama-header-image">
 
-            <div class="text-box">
-                <h2>MARGOTEKSTIL</h2>
-                <p>O NAMA</p>
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>
+    <p>O NAMA</p>
+</div>
+
+<section class="about-section">
+    <div class="container">
+        <div class="row">                
+            <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
+                <div class="inner-column">
+                    <div class="sec-title">
+                        <span class="title">O nama</span>
+                        <h2>Šta Margotekstil izdvaja od konkurencije? </h2>
+                    </div>
+                    <div class="text" >Današnji trendovi ne koriste standardne dimenzije nameštaja i prostora. 
+                        Zato smo odlučili da Vam ponudimo usluge profesionalnog namenskog šivenja po Vašoj meri iz oblasti 
+                        HoReCa tekstila, dekorativnog tekstila i jedinstvenog domaćeg PET MANIA programa za kućne ljubimce. <br><br>
+                        Mi smo tim sa više od 20 godina dokazanog praktičnog iskustva u šivenju, i za nas u poslu nema nepoznanica. 
+                        Posedujemo stručno znanje i sve neophodne proizvodne kapacitete za ispunjavanje svih potreba naših klijenata. <br><br>
+                        Vaše je samo da zamislite - a mi u saradnji sa Vama sprovodimo Vaše želje u praksi.<br><br>
+                        Margotekstil radi za Vas sa ljubavlju i potpuno posvećeno, da svaki 
+                        komad bude savršen i jedinstven.  <br><br>
+                        Pored dokazanog vrhunskog kvaliteta, kratak rok isporuke robe je ono po čemu smo poznati kod naših klijenata.
+                        <br><br> Program koji nudimo:
+
+                    </div>
+                    <ul class="list-style-one" >
+                        <li><a th:href="@{/dekorativniProgram}" >Dekorativni tekstil za kuću</a></li>
+                        <li> <a th:href="@{/enterijer}">HoReCa tekstil</a></li>
+                        <li> <a th:href="@{/petmania}">Pet mania program</a></li>
+                    </ul>
+                    <div class="btn-box">
+                        <a th:href="@{/contact}" class="kontaktirajteNas-onama-page" type="button">Kontaktirajte nas</a>
+                        <!--<br>-->
+                        <a th:href="@{/shop}" class="shop-btn-o-nama-page" type="button">Shop</a>
+
+                    </div>
+                </div>
             </div>
 
-            <section class="about-section">
-                <div class="container">
-                    <div class="row">                
-                        <div class="content-column col-lg-6 col-md-12 col-sm-12 order-2">
-                            <div class="inner-column">
-                                <div class="sec-title">
-                                    <span class="title">O nama</span>
-                                    <h2>Šta Margotekstil izdvaja od konkurencije? </h2>
-                                </div>
-                                <div class="text" >Današnji trendovi ne koriste standardne dimenzije nameštaja i prostora. 
-                                    Zato smo odlučili da Vam ponudimo usluge profesionalnog namenskog šivenja po Vašoj meri iz oblasti 
-                                    HoReCa tekstila, dekorativnog tekstila i jedinstvenog domaćeg PET MANIA programa za kućne ljubimce. <br><br>
-                                            Mi smo tim sa više od 20 godina dokazanog praktičnog iskustva u šivenju, i za nas u poslu nema nepoznanica. 
-                                            Posedujemo stručno znanje i sve neophodne proizvodne kapacitete za ispunjavanje svih potreba naših klijenata. <br><br>
-                                                    Vaše je samo da zamislite - a mi u saradnji sa Vama sprovodimo Vaše želje u praksi.<br><br>
-                                                            Margotekstil radi za Vas sa ljubavlju i potpuno posvećeno, da svaki 
-                                                            komad bude savršen i jedinstven.  <br><br>
-                                                                    Pored dokazanog vrhunskog kvaliteta, kratak rok isporuke robe je ono po čemu smo poznati kod naših klijenata.
-                                                                    <br><br> Program koji nudimo:
-
-                                                                    </div>
-                                                                    <ul class="list-style-one" >
-                                                                        <li><a th:href="@{/dekorativniProgram}" >Dekorativni tekstil za kuću</a></li>
-                                                                       <li> <a th:href="@{/enterijer}">HoReCa tekstil</a></li>
-                                                                       <li> <a th:href="@{/petmania}">Pet mania program</a></li>
-                                                                    </ul>
-                                                                    <div class="btn-box">
-                                                                        <a th:href="@{/contact}" class="kontaktirajteNas-onama-page" type="button">Kontaktirajte nas</a>
-                                                                        <!--<br>-->
-                                                                            <a th:href="@{/shop}" class="shop-btn-o-nama-page" type="button">Shop</a>
-
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-
-                                                                    <!-- Image Column -->
-                                                                    <div class="image-column col-lg-6 col-md-12 col-sm-12">
-                                                                        <div class="inner-column " >
-                                                                            <figure class="image-1" ><a href="#" class="lightbox-image" data-fancybox="images"><img class="onama-img1"  src="/img/chairs.jpg" alt="onama-img1"></a></figure>
-                                                                            <figure class="image-2" ><a href="#" class="lightbox-image" data-fancybox="images"><img class="onama-img2" src="/img/fabrics.jpg" alt="onama-img2"></a></figure>
-                                                                        </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </div>
-                                                                    </section>
+            <!-- Image Column -->
+            <div class="image-column col-lg-6 col-md-12 col-sm-12">
+                <div class="inner-column " >
+                    <figure class="image-1" ><a href="#" class="lightbox-image" data-fancybox="images"><img class="onama-img1"  src="/img/chairs.jpg" alt="onama-img1"></a></figure>
+                    <figure class="image-2" ><a href="#" class="lightbox-image" data-fancybox="images"><img class="onama-img2" src="/img/fabrics.jpg" alt="onama-img2"></a></figure>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
 
 
-                                                                    </div>
+</div>
 
-                                                                    <th:block th:insert="fragments/footer :: footer" />
+<th:block th:insert="fragments/footer :: footer" />
 
-                                                                    <div id="backToTop"></div>
+<div id="backToTop"></div>
 
 
-                                                                    <th:block th:insert="fragments/scripts :: scripts" />
+<th:block th:insert="fragments/scripts :: scripts" />
 
-                                                                    </body>
+</body>
 
-                                                                    </html>
+</html>
