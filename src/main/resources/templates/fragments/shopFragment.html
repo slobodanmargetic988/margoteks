@@ -117,7 +117,7 @@
                                                     <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}" th:alt="${stavka.proizvod.glavnaslika.alt_text}" th:title="${stavka.proizvod.glavnaslika.title}"></div>
                                                     <div class="col nazivOpisSmallerScreen">
                                                         <div class="row naslov"><span th:text="${stavka.proizvod.getIme()}"></span></div>
-                                                        <div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>
+                                                        <!--<div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>-->
                                                     </div>
                                                     <div class="col minusiplus minusiplusSmallerScreen">
                                                         <input type='button'  value='-' class='minusBtn minusBtnSmallerScreen smanjiJS' field='quantity'  th:pid="${stavka.proizvod.id}" />
@@ -148,7 +148,7 @@
                                                     <div class="col-4 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavkaPregled  slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}" th:alt="${stavka.proizvod.glavnaslika.alt_text}" th:title="${stavka.proizvod.glavnaslika.title}"></div>
                                                     <div class="col nazivOpisSmallerScreen">
                                                         <div class="row naslov"><span th:text="${stavka.proizvod.getIme()}"></span></div>
-                                                        <div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>
+                                                        <!--<div class="row opis-proizvoda"><span th:text="${stavka.proizvod.opis}"></span></div>-->
                                                     </div>
                                                     <div class="cenaprSmallerScreenStavkaPregled">
                                                         <div class="col cenaprSmallerScreen cenaprSmallerScreenStavkaPregled" style="font-weight: 500">Kolicina:  <span class="kolicinaPregledJS" th:pid="${stavka.proizvod.id}" style="font-weight: 600"></span> </div>
@@ -175,7 +175,7 @@
                                                     </div>
                                                     <div class="col-4">
                                                         <a th:href="@{/proizvod/{proizvodId} (proizvodId=${stavka.proizvod.id})}"> <div class="naslov-porudzbinaStavkaPregled"><span th:text="${stavka.proizvod.getIme()}"></span></div></a>
-                                                        <div class="opis-proizvoda-porudzbinaStavkaPregled"><span th:text="${stavka.proizvod.opis}"></span></div>
+                                                        <!--<div class="opis-proizvoda-porudzbinaStavkaPregled"><span th:text="${stavka.proizvod.opis}"></span></div>-->
                                                     </div>
                                                     <div class="col-4">
                                                         <div class="kolicina-porudzbinaStavkaPregled">Kolicina:  <span class="kolicinaPregledJS" th:text="${stavka.kolicina}" style="font-weight: 600"></span> </div>

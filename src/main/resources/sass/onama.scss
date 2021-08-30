@@ -1,3 +1,4 @@
+
 @import "./variables";
 @import "./mixins";
 
@@ -11,7 +12,6 @@
             margin-bottom: 3.125rem;
             .inner-column {
                 position: relative;
-                /*padding-left: 1.875rem;*/
                 .sec-title {
                     margin-bottom: 2rem;
                     .title {
@@ -77,21 +77,18 @@
                             line-height: 1.6;
                             font-family: FontAwesome;
                             font-display: swap;
-                        
-                         
-                    }
-                       a {
-                                 color: $brown-black-color;
-                            }
+                        }
+                        a {
+                            color: $brown-black-color;
+                        }
                     }
                 }
-                
                 .btn-box {
                     position: relative;
                     a {
                         padding: 0.75rem 1.125rem;
                     }
-                    .kontaktirajteNas-onama-page {
+                    .shopBtn-onama-page {
                         @include fullColorBtn;
                         position: relative;
                         display: inline-block;
@@ -100,8 +97,10 @@
                         letter-spacing: 0.02em;
                         font-weight: 600;
                         margin-bottom: .5rem;
+                        width: 175px;
+                        text-align: center;
                     }
-                    .shop-btn-o-nama-page {
+                    .contactUsBtn-onama-page {
                         @include outlineBtn;
                         position: relative;
                         z-index: 1;
@@ -111,7 +110,7 @@
                         width: 175px;
                         text-align: center;
                         font-weight: 600;
-                        line-height: 1.7rem;
+                        line-height: 1.68rem;
                         margin-left: .4rem;
                     }
                 }
@@ -183,11 +182,11 @@
                         }
                     }
                     .btn-box {
-                        .kontaktirajteNas-onama-page {
+                        .shopBtn-onama-page {
                             font-size: .95rem;
                             letter-spacing: 0.04em;
                         }
-                        .shop-btn-o-nama-page {
+                        .contactUsBtn-onama-page {
                             margin: .3rem 0 0 0;
                             width: 167px;
                         }

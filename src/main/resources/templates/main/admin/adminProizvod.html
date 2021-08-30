@@ -5,6 +5,7 @@
         <title>Margotekstil Proizvod</title>
 
     <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/proizvodSlikeSlide.css}" rel="stylesheet" type="text/css" />
 
 
     <meta name="description" content="Margotekstil admin pregled proizvoda. Admin product overview page."/> 
@@ -63,12 +64,12 @@
                     <th:block th:if="${proizvod.glavnaslika!=null}">
                         <th:block th:if="${proizvod.glavnaslika!=null}">
                             <div class="row">
-                                <section id="prikazShow">
+                                <section id="prikaz-showing">
                                     <div class="prikaz img-wrapper" >
                                         <a th:href="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" id="show-img-link">      
                                             <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.title}" id="show-img" class="img-fluid">
                                         </a>
-                                        <div class="img-overlay"></div>
+                                        <div class="img-overlay-margo"></div>
                                     </div>
 
                                     <div class="small-img ">
@@ -76,10 +77,10 @@
                                         <div class="small-container">
                                             <th:block th:if="${not #lists.isEmpty(proizvod.photos)}">
 
-                                                <div id="small-img-roll" style="left: 0px;">
+                                                <div id="small-img-roll" style="left:0">
                                                     <!--                                                            <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" class="show-small-img" style="border: 1px solid rgb(149, 27, 37); padding: 2px;">-->
 
-                                                    <img id="007" th:alt="${proizvod.glavnaslika.alt_text}" class="show-small-img sledece" style="border: 1px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" />
+                                                    <img id="007" th:alt="${proizvod.glavnaslika.alt_text}" class="show-small-img sledece" style="border: 2px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" />
 
 
 

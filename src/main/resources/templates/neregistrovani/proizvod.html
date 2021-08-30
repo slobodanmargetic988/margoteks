@@ -4,187 +4,188 @@
     <head>
         <title>Margotekstil Proizvod - pregled proizvoda</title>
 
-        <th:block th:insert="fragments/head :: head" />
-        
-
-<meta name="description" content="Margotekstil pregled proizvoda. Detalji o proizvodu. Product overview."/> 
-    </head>
-
-    <body>
-        <img src="/img/proizvodi-head.jpg" class="header-img" alt="proizvod-header-image">
+    <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/proizvodSlikeSlide.css}" rel="stylesheet" type="text/css" />
 
 
-            <th:block th:insert="fragments/navigation :: navbar" />
+    <meta name="description" content="Margotekstil pregled proizvoda. Detalji o proizvodu. Product overview."/> 
+</head>
 
-            <div class="text-box">
-                <h2>MARGOTEKSTIL</h2>
-                <p>KREVET ZA PSE</p>
+<body>
+    <img src="/img/proizvodi-head.jpg" class="header-img" alt="proizvod-header-image">
+
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>
+    <p>KREVET ZA PSE</p>
+</div>
+
+<!--popup sa svime sto treba -->                            
+<div id="addedToCart-window" >
+    <div class="addedToCart-window-content ">
+        <h4 id="ProizvodDodatJS">Proizvod je dodat u korpu</h4>
+        <div class="row mt-3" style="padding:.5rem">
+            <div class="col-md-6 figure-left">
+                <div class="master-img"> <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}"  class="popup-slika img-fluid" /></div>
             </div>
-                        
-                         <!--popup sa svime sto treba -->                            
-                        <div id="addedToCart-window" >
-                            <div class="addedToCart-window-content ">
-                                <h4 id="ProizvodDodatJS">Proizvod je dodat u korpu</h4>
-                                <div class="row mt-3" style="padding:.5rem">
-                                    <div class="col-md-6 figure-left">
-                                        <div class="master-img"> <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}"  class="popup-slika img-fluid" /></div>
-                                    </div>
-                                    <div class="col-md-6 figure-right">
-                                        <span class="productName" id="popupnaziv" th:text="${proizvod.getIme()}"> </span><br>
-                                            <span class="master-price" id="popupcena" th:text="${proizvod.getCena()}"></span> <span style="">RSD</span>
-                                            <div class="shop-buttons row">
-                                                <a th:href="@{/shoppingCart}" class="btn-cart col-12">Idi u korpu</a>
-                                                 <a th:href="@{/shop}" class="btn-shop-outline col-12">Nazad na shop</a>
-                                            </div>
-                                    </div>
+            <div class="col-md-6 figure-right">
+                <span class="productName" id="popupnaziv" th:text="${proizvod.getIme()}"> </span><br>
+                <span class="master-price" id="popupcena" th:text="${proizvod.getCena()}"></span> <span style="">RSD</span>
+                <div class="shop-buttons row">
+                    <a th:href="@{/shoppingCart}" class="btn-cart col-12">Idi u korpu</a>
+                    <a th:href="@{/shop}" class="btn-shop-outline col-12">Nazad na shop</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!--popup sa svime sto treba -->   
+
+
+<div class="single-product-show">
+    <div class="container">
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
+                <li class="breadcrumb-item"><a th:href="@{/shop}">Proizvodi</a></li>
+                <li class="breadcrumb-item active" aria-current="page"><span th:text="${proizvod.ime}"></span></li>
+
+            </ol>
+        </nav>
+        <!--th:pid="${fragmentProizvod.getId()}" th:kolicina="${fragmentProizvod.getKolicina()}"-->
+        <div class="row">
+            <th:block>
+                <div class="col-sm-6">
+                    <th:block th:if="${proizvod.glavnaslika!=null}">
+                        <div class="row">
+
+                            <section id="prikaz-showing">
+                                <div class="prikaz img-wrapper" >
+                                    <a th:href="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" id="show-img-link">      
+                                        <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}"id="show-img" class="img-fluid">
+                                    </a>
+                                    <div class="img-overlay-margo"></div>
                                 </div>
-                            </div>
-                        </div>
-                        <!--popup sa svime sto treba -->   
-                        
 
-            <div class="single-product-show">
-                <div class="container">
-                    <nav aria-label="breadcrumb">
-                        <ol class="breadcrumb">
-                            <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-                            <li class="breadcrumb-item"><a th:href="@{/shop}">Proizvodi</a></li>
-                            <li class="breadcrumb-item active" aria-current="page"><span th:text="${proizvod.ime}"></span></li>
+                                <div class="small-img ">
+                                    <img src="/img/left-right-arrow.png" alt="left arrow" title="left arrow" class="icon-left"  id="prev-img">
+                                    <div class="small-container">
+                                        <th:block th:if="${not #lists.isEmpty(proizvod.photos)}">
 
-                        </ol>
-                    </nav>
-                    <!--th:pid="${fragmentProizvod.getId()}" th:kolicina="${fragmentProizvod.getKolicina()}"-->
-                    <div class="row">
-                        <th:block>
-                            <div class="col-sm-6">
-                                <th:block th:if="${proizvod.glavnaslika!=null}">
-                                    <div class="row">
+                                            <div id="small-img-roll" style="left: 0px;">
+                                                <!--   <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" class="show-small-img" style="border: 1px solid rgb(149, 27, 37); padding: 2px;">-->
 
-                                        <section id="prikazShow">
-                                            <div class="prikaz img-wrapper" >
-                                                <a th:href="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" id="show-img-link">      
-                                                    <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}"id="show-img" class="img-fluid">
-                                                </a>
-                                                <div class="img-overlay"></div>
+                                                <img id="007"  class="show-small-img sledece" style="border: 1px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}" />
+
+
+
+                                                <th:block th:each="slika,iterator:${proizvod.photos}" >       
+                                                    <!--                                                                    <img  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" th:alt="${iterator.count}+'. slika'" class="show-small-img" style="border: none; padding: 0px;" alt="now">-->
+
+                                                    <img th:id="'007'+${iterator.index}" th:alt="${slika.alt_text}" th:title="${slika.title}"  class="show-small-img sledece" style="border: none; padding: 0px;"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" />
+
+
+                                                </th:block>  
                                             </div>
-
-                                            <div class="small-img ">
-                                                <img src="/img/left-right-arrow.png" alt="left arrow" title="left arrow" class="icon-left"  id="prev-img">
-                                                    <div class="small-container">
-                                                        <th:block th:if="${not #lists.isEmpty(proizvod.photos)}">
-
-                                                            <div id="small-img-roll" style="left: 0px;">
-                                                                <!--                                                            <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" class="show-small-img" style="border: 1px solid rgb(149, 27, 37); padding: 2px;">-->
-
-                                                                <img id="007"  class="show-small-img sledece" style="border: 1px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}" />
+                                        </th:block>
+                                    </div>
+                                    <img src="/img/left-right-arrow.png"  alt="right arrow" title="right arrow"class="icon-right" id="next-img">
+                                </div>
+                            </section></div>
 
 
 
-                                                                <th:block th:each="slika,iterator:${proizvod.photos}" >       
-                                                                    <!--                                                                    <img  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" th:alt="${iterator.count}+'. slika'" class="show-small-img" style="border: none; padding: 0px;" alt="now">-->
+                        <!--<img class=""  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}">-->
+                    </th:block>
+                    <th:block th:if="${proizvod.glavnaslika==null}">
+                        <img class="" style="height: 100%; width: 100%; object-fit: cover" src="/img/imageNotFound.jpg">
+                        <!--ubaciti precrtanu sliku-->
+                    </th:block>
+                </div>
+                <div class="col-sm-6">
+                    <h1><span th:text="${proizvod.getIme()}"></span></h1>
+                    <h2><span th:text="${proizvod.getCena()}"></span>&nbsp;RSD</h2>
+                    <div class="description mt-4">
+                        <p><span th:text="${proizvod.getOpis()}"></span></p>
+                        <p><span style="font-weight: 600">Kategorija: </span><span th:text="${proizvod.getKategorija()}"></span></p>
+                        <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
+                        <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>
 
-                                                                    <img th:id="'007'+${iterator.index}" th:alt="${slika.alt_text}" th:title="${slika.title}"  class="show-small-img sledece" style="border: none; padding: 0px;"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" />
+                    </div>
 
-
-                                                                </th:block>  
-                                                            </div>
-                                                        </th:block>
-                                                    </div>
-                                                    <img src="/img/left-right-arrow.png"  alt="right arrow" title="right arrow"class="icon-right" id="next-img">
-                                                        </div>
-                                                        </section></div>
-
-
-
-                                                        <!--<img class=""  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}">-->
-                                                        </th:block>
-                                                        <th:block th:if="${proizvod.glavnaslika==null}">
-                                                            <img class="" style="height: 100%; width: 100%; object-fit: cover" src="/img/imageNotFound.jpg">
-                                                                <!--ubaciti precrtanu sliku-->
-                                                        </th:block>
-                                                        </div>
-                                                        <div class="col-sm-6">
-                                                            <h1><span th:text="${proizvod.getIme()}"></span></h1>
-                                                            <h2><span th:text="${proizvod.getCena()}"></span>&nbsp;RSD</h2>
-                                                            <div class="description mt-4">
-                                                                <p><span th:text="${proizvod.getOpis()}"></span></p>
-                                                                <p><span style="font-weight: 600">Kategorija: </span><span th:text="${proizvod.getKategorija()}"></span></p>
-                                                                <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
-                                                                <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>
-
-                                                            </div>
-
-                                                            <form id="proizvodForma" >
-                                                                <div class="quantity ">
-                                                                    <input type='button'  value='-' class='minus' field='quantity' />
-                                                                    <input  type='text' name='quantity' value='1' class='qty'id="kolicina"  />
-                                                                    <input type='button' value='+' class='plus' field='quantity' />
-                                                                </div>
-                                                                    <span class="add-to-cart-with-icon-productPage JSdodajUKorpuProizvodStranaNEREG" th:pid="${proizvod.getId()}"  th:photoid="${proizvod.glavnaslika.id}" th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" id="buttonAdd2Cart" >Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
-                                                                    </span>
-                                                                
+                    <form id="proizvodForma" >
+                        <div class="quantity ">
+                            <input type='button'  value='-' class='minus' field='quantity' />
+                            <input  type='text' name='quantity' value='1' class='qty'id="kolicina"  />
+                            <input type='button' value='+' class='plus' field='quantity' />
+                        </div>
+                        <span class="add-to-cart-with-icon-productPage JSdodajUKorpuProizvodStranaNEREG" th:pid="${proizvod.getId()}"  th:photoid="${proizvod.glavnaslika.id}" th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" id="buttonAdd2Cart" >Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
+                        </span>
 
 
-                                                            </form> 
+
+                    </form> 
 
 
-                                                            <!--                                <th:block th:insert="fragments/addToCartPopup :: addToCartPopup (${proizvod})" />-->
+                    <!--                                <th:block th:insert="fragments/addToCartPopup :: addToCartPopup (${proizvod})" />-->
 
 
-                                                        </div>
-                                                        </th:block>
+                </div>
+            </th:block>
 
-                                                        <div class="col-sm-12 mt-3">
-                                                            <h3>Slični proizvodi</h3>
-                                                        </div>
-                                                        <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}">
+            <div class="col-sm-12 mt-3">
+                <h3>Slični proizvodi</h3>
+            </div>
+            <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}">
 
-                                                            <th:block th:each="sproizvod : ${proizvod.slicniproizvodi}" >
-                                                                <th:block th:if="${sproizvod.active == true} " > 
+                <th:block th:each="sproizvod : ${proizvod.slicniproizvodi}" >
+                    <th:block th:if="${sproizvod.active == true} " > 
 
-                                                                    <th:block th:insert="fragments/shopFragment :: jedanProizvodNeregistrovan (${sproizvod})" />
+                        <th:block th:insert="fragments/shopFragment :: jedanProizvodNeregistrovan (${sproizvod})" />
 
-                                                                </th:block>
-                                                            </th:block>
-                                                        </th:block>
+                    </th:block>
+                </th:block>
+            </th:block>
 
 
-                                                        <th:block th:if="${#lists.isEmpty(proizvod.slicniproizvodi)}">
-                                                            <th:block th:each="sproizvod : ${prvaTriProizvoda}" >
-                                                                <th:block th:if="${sproizvod.active == true} " > 
+            <th:block th:if="${#lists.isEmpty(proizvod.slicniproizvodi)}">
+                <th:block th:each="sproizvod : ${prvaTriProizvoda}" >
+                    <th:block th:if="${sproizvod.active == true} " > 
 
-                                                                    <th:block th:insert="fragments/shopFragment :: jedanProizvodNeregistrovan (${sproizvod})" />
+                        <th:block th:insert="fragments/shopFragment :: jedanProizvodNeregistrovan (${sproizvod})" />
 
-                                                                </th:block>
-                                                            </th:block> 
+                    </th:block>
+                </th:block> 
 
-                                                        </th:block>
+            </th:block>
 
-                                                        </div>
-                                                        </div>
-                                                        </div>
+        </div>
+    </div>
+</div>
 
 
 
 
-                                                        <th:block th:insert="fragments/footer :: footer" />
+<th:block th:insert="fragments/footer :: footer" />
 
-                                                        <div id="backToTop"></div>
+<div id="backToTop"></div>
 
-                                                        <th:block th:insert="fragments/scripts :: scripts" />
+<th:block th:insert="fragments/scripts :: scripts" />
 
-                                                        <!--                                                        <script type="text/javascript" src="magicthumb/magicthumb.js"></script>-->
-
-
-                                                        <script th:src="@{/js/proizvodSlikeCarousel.js}" type="text/javascript"></script>
-                                                        <script th:src="@{/js/proizvodSlikeSlide.js}" type="text/javascript"></script>
-                                                        <th:block th:insert="fragments/scripts :: NOTRegisteredShop" />
-                                                        <script>   $('#proizvodForma').submit(function () {
-                                                                return false;
-                                                            });</script> <!-- disable submit on form so it doesnt refresh page -->
+<!--                                                        <script type="text/javascript" src="magicthumb/magicthumb.js"></script>-->
 
 
-                                                        </body>
+<script th:src="@{/js/proizvodSlikeCarousel.js}" type="text/javascript"></script>
+<script th:src="@{/js/proizvodSlikeSlide.js}" type="text/javascript"></script>
+<th:block th:insert="fragments/scripts :: NOTRegisteredShop" />
+<script>   $('#proizvodForma').submit(function () {
+        return false;
+    });</script> <!-- disable submit on form so it doesnt refresh page -->
 
-                                                        </html>
+
+</body>
+
+</html>
 

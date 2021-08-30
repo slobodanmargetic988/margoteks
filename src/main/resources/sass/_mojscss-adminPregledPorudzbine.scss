@@ -52,8 +52,6 @@
 
         }
     }
-
-
 }
 
 .containerImgPorudzbinaStavkaPregled {
@@ -61,9 +59,9 @@
     .slika-porudzbinaStavkaPregled {
         height: 100%;
         object-fit: cover;
-            width: 70vw;
-}
+        width: 70vw;
     }
+}
 
 
 
@@ -73,14 +71,11 @@
             .img-frame {
                 height: 420px;
             }
-
         }
     }
-
     .containerImgPorudzbinaStavkaPregled {
         height: 30vh;
     }
-
 }
 
 @media screen and (max-width:992px) {
@@ -98,15 +93,12 @@
             }
             .opis-proizvoda-porudzbinaStavkaPregled, .kolicina-porudzbinaStavkaPregled, .cena-porudzbinaStavkaPregled {
                 font-size: 1.1rem;
-
             }
         }
     }
-
     .containerImgPorudzbinaStavkaPregled {
         height: 20vh;
     }
-
 }
 
 @media screen and (max-width:767px) {
@@ -121,15 +113,12 @@
             }
             .opis-proizvoda-porudzbinaStavkaPregled, .kolicina-porudzbinaStavkaPregled, .cena-porudzbinaStavkaPregled {
                 font-size: .95rem;
-
             }
         }
     }
     .containerImgPorudzbinaStavkaPregled {
         height: 13vh;
     }
-
-
 }
 
 @media screen and (max-width:576px) {
@@ -153,12 +142,10 @@
             }
             .opis-proizvoda-porudzbinaStavkaPregled, .kolicina-porudzbinaStavkaPregled, .cena-porudzbinaStavkaPregled {
                 font-size: .85rem;
-
             }
         }
     }
     .containerImgPorudzbinaStavkaPregled {
         height: 20vw;
     }
-
 }

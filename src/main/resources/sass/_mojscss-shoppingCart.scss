@@ -8,9 +8,6 @@
 html {
     height: 100%;
 }
-body {
-    /*    font-family: Raleway, arial, verdana;*/
-}
 #msform {
     max-width: 100%;
     margin: 50px auto;
@@ -23,7 +20,6 @@ body {
         padding: 1.25rem 1.875rem;
         box-sizing: border-box;
         width: 100%;
-        /*margin: 0 10%;*/
         position: relative;
         &:not(:first-of-type) {
             display: none;
@@ -31,7 +27,7 @@ body {
     }
     input, textarea {
         padding: 0.625rem;
-        border: 1px solid #892f2b;
+        border: 1px solid $burgundy-color;
         border-radius: 0.188rem;
         margin-bottom: 0.2rem;
         width: 100%;
@@ -52,7 +48,6 @@ body {
         text-transform: uppercase;
         text-align: center;
         border: 2px solid $burgundy-color;
-
         &:hover {
             box-shadow: 0 0 0 2px $white-color, 0 0 0 3px $redish-color;
             background-color: $redish-color;
@@ -97,7 +92,6 @@ body {
     margin-bottom: 1.25rem;
     text-align: center;
     font-weight: 700;
-
 }
 #progressbar {
     margin-bottom: 1.875rem;
@@ -120,8 +114,8 @@ body {
             display: block;
             font-size: 0.813rem;
             color: #333;
-            border: 2px solid #892f2b;
-            background: #fff;
+            border: 2px solid $burgundy-color;
+            background: $white-color;
             border-radius: 0.188rem;
             margin: 0 auto 0.313rem auto;
         }
@@ -129,7 +123,7 @@ body {
             content: "";
             width: 100%;
             height: 2px;
-            background: #892f2b;
+            background: $burgundy-color;
             position: absolute;
             left: -50%;
             top: 9px;
@@ -142,16 +136,13 @@ body {
         }
     }
     li.active {
-        &:before {
-            background: #892f2b;
-            color: #fff;
-        }
-        &:after {
-            background: #892f2b;
-            color: #fff;
+        &:before, &:after {
+            background: $burgundy-color;
+            color: $white-color;
         }
     }
 }
+
 .skloni {
     cursor: pointer;
     float: right;
@@ -166,8 +157,8 @@ body {
     .ukloniSmallerScreen {
         display: none;
     }
-
 }
+
 .minusBtn, .plusBtn {
     padding: 0 .5rem !important;
     color: $white-color !important;
@@ -179,9 +170,9 @@ body {
         color: $white-color !important;
         background: $redish-color !important;
         border: 1px solid $redish-color !important;
-
     }
 }
+
 .qty {
     padding: 0 0.5rem !important;
     color: $brown-black-color !important;
@@ -197,28 +188,17 @@ input[value='+'], input[value='-'] {
     padding-right: .9rem !important;
     font-size: 1rem !important;
 }​
-/*.plusBtn {
-    background: #892f2b;
-    padding: 0 0.5rem;
-    color: #fff;
-    &:hover {
-        text-decoration: none;
-        color: #fff;
-        background: $redish-color;
-    }
-}*/
-
 
 .border-number {
-    color: black;
+    color: #000;
     padding: 0 0.5rem;
     &:hover {
-        color: black;
+        color: #000;
         text-decoration: none;
     }
 }
 .labela {
-    font-family: Raleway;
+    font-family: $font-rest;
     font-size: 0.85rem;
 }
 .custom-select {
@@ -244,78 +224,16 @@ input[value='+'], input[value='-'] {
 
 #postarinatotal, #totalkilaza, #korpatotal {
     font-weight: 700;
-
 }
 
 .naslov {
     font-weight: bold;
 }
+
 .opis-proizvoda {
     font-size: .88rem;
 }
 
-
-
-
-@media only screen and (max-width: 767px) {
-    .korpa {
-        margin-top: 0;
-        max-width: 81%;
-        margin-left: auto;
-        margin-right: auto;
-    }
-    #msform {
-        margin-bottom: 1.5rem;
-        .korpaStavkeSmallerScreen {
-            .slikaStavkaSmallerScreen {
-                .slika-korpaStavkaSmallerScreen {
-                    height: 45vw !important;
-                    width: 45vw !important;
-                }
-            }
-        }
-        .slika-korpaStavka {
-            /*max-width: 60%;*/
-            height: 120px;
-            width: 120px;
-        }
-        .slika-korpaStavkaPregled {
-            height: 100px;
-            width: 100px;
-        }
-    }
-    .qty {
-
-        width: 35% !important;
-    }
-    .skloni {
-        font-size: 1.2rem;
-
-    }
-}
-@media only screen and (max-width: 530px) {
-    #msform {
-        margin-bottom: 1.5rem;
-        .skloni {
-            font-size: 1rem !important;
-        }
-
-    }
-    .qty {
-        width: 40% !important;
-
-    }
-}
-@media only screen and (max-width: 1000px) {
-    #msform {
-        .action-button {
-            padding: 0.75rem 0.313rem;
-            margin: 0.25rem 0;
-            width: 100%;
-            text-transform: uppercase;
-        }
-    }
-}
 
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
@@ -338,7 +256,6 @@ input[type=number] {
     font-size: .95rem;
     font-weight: 700;
 }
-
 
 
 @media (max-width: 1200px) {
@@ -421,21 +338,27 @@ input[type=number] {
     }
 }
 
+@media only screen and (max-width: 1000px) {
+    #msform {
+        .action-button {
+            padding: 0.75rem 0.313rem;
+            margin: 0.25rem 0;
+            width: 100%;
+            text-transform: uppercase;
+        }
+    }
+}
+
 
 @media (max-width: 992px) {
     .minusiplus {
         span {
-            /*        &::before {
-                        content: "\a" !important;
-                    white-space: pre !important;
-                    }*/
             &::after {
                 content: "\a" !important;
                 white-space: pre !important;
             }
         }
         min-width: 18%;
-
     }
     .qty {
         width: 42% !important;
@@ -457,10 +380,7 @@ input[type=number] {
         .cenaKilazaSmallerScreen {
             margin-top: 1rem;
         }
-        /*display: none;*/
-
         .slika-korpaStavka {
-            /*max-width: 60%;*/
             height: 120px;
             width: 120px;
         }
@@ -468,6 +388,51 @@ input[type=number] {
             height: 120px;
             width: 300px;
         }
+    }
+}
+
+@media only screen and (max-width: 767px) {
+    .korpa {
+        margin-top: 0;
+        max-width: 81%;
+        margin: 0 auto;
+    }
+    #msform {
+        margin-bottom: 1.5rem;
+        .korpaStavkeSmallerScreen {
+            .slikaStavkaSmallerScreen {
+                .slika-korpaStavkaSmallerScreen {
+                    height: 45vw !important;
+                    width: 45vw !important;
+                }
+            }
+        }
+        .slika-korpaStavka {
+            height: 120px;
+            width: 120px;
+        }
+        .slika-korpaStavkaPregled {
+            height: 100px;
+            width: 100px;
+        }
+    }
+    .qty {
+        width: 35% !important;
+    }
+    .skloni {
+        font-size: 1.2rem;
+    }
+}
+
+@media only screen and (max-width: 530px) {
+    #msform {
+        margin-bottom: 1.5rem;
+        .skloni {
+            font-size: 1rem !important;
+        }
+    }
+    .qty {
+        width: 40% !important;
     }
 }
 

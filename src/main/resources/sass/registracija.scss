@@ -1,12 +1,9 @@
+
 @import "./variables";
 @import "./mixins";
 
-
-/*to remove arrows from input type number*/
-/*end of - to remove arrows from input type number*/
 #regi-login-form {
     position: relative;
-    // min-height: 80vh;
     @include flexCenter;
     padding: 2.5rem 0;
     .container-registration {
@@ -155,15 +152,12 @@
 .openPasswordLogin, .closedPasswordLogin {
     margin-top: -46px;
     @include show-hide-btn;
-
 }
 
 #showPassword, #hidePassword, #showPasswordRepeat, #hidePasswordRepeat {
     margin-top: -40px;
     @include show-hide-btn;
-
 }
-
 
 #label, #label-2 {
     font-size: .85em;
@@ -237,9 +231,7 @@
     #showPasswordRepeat, #hidePasswordRepeat {
         font-size: 1rem;
     }
-    
 }
-
 
 @media (max-width: 362px) {
     #regi-login-form {

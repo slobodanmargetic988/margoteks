@@ -1,14 +1,12 @@
 @import "./variables";
 @import "./mixins";
 
-
 .adminNoviProizvodForma {
     -webkit-box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93); 
     box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93);
     padding-top: 4rem;
     .centrirajFormuInput {
-        margin-left: auto;
-        margin-right: auto;
+        margin: 0 auto;
         .input-custom-border {
             border: 1px solid $burgundy-color; 
             border-radius: .2rem;
@@ -21,7 +19,6 @@
         .btn-save {
             @include sacuvajBtn
         }
-
         .btn-back {
             @include nazadBtn;
         }
@@ -33,13 +30,11 @@ select {
 }
 
 .btn-choose-file {
-   @include btnChooseFile;
-
+    @include btnChooseFile;
 }
 
 #file-chosen{
     margin-left: 0.3rem;
- 
 }
 
 .dodavanje-novog-proizvoda {
@@ -51,21 +46,19 @@ select {
 }
 
 .istorijaKupovine-link {
-    float:right; 
-    text-decoration:underline;
+    float: right; 
+    text-decoration: underline;
     font-size: 1.05rem;
     margin: 0 auto;
     color: $brown-black-color;
     &:hover {
         color: $redish-color;
-            text-decoration:underline !important;
-
     }
 }
 
 
 @media screen and (max-width:767px) {
     .istorijaKupovine-link {
-    font-size: 0.95rem;
+        font-size: 0.95rem;
     }
 }

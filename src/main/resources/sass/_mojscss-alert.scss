@@ -1,7 +1,6 @@
 @import "./variables";
 @import "./mixins";
 
-
 .alert-custom {
     background: darken($white-color, 9%);
     color: $burgundy-color;
@@ -85,7 +84,7 @@
     }
     .alert-naslov {
         text-align: center;
-        font-family: "Playfair Display", serif;
+        font-family: $font-big-header;
         font-size: 1.6rem;
         margin-top: 3.2rem;
         margin-bottom: 1.1rem;
@@ -95,7 +94,7 @@
     .alert-text {
         line-height: 1.6;
         text-align: center;
-        font-family: "Raleway", sans-serif;
+        font-family: $font-rest;
         font-size: 1.1rem;
         margin-top: 0;
         margin-bottom: 35px;
@@ -124,7 +123,7 @@
         text-align: center;
         margin: 0 auto;
         text-decoration: none;
-        font-family: "Raleway", sans-serif;
+        font-family: $font-rest;
         font-display: swap;
         &:hover, &:focus  {
             outline: 2px solid $white-color;
@@ -153,7 +152,6 @@
     }
 }
 
-
 @media screen and (max-width: 575px) {
     .alert-order {
         max-width: 300px;
@@ -177,8 +175,6 @@
     }
 }
 
-
-
 //alert za uspesnu prijavu
 .alert-uspesna-prijava {
     padding: 20px;
@@ -196,6 +192,7 @@
     background: $white-color;
     z-index: 1;
 }
+
 .close-btn {
     margin-left: 0.938rem;
     color: $burgundy-color;
@@ -222,6 +219,7 @@
     margin-top: 3rem;
     margin-bottom: 1rem;
 }
+
 .fa-check-circle {
     color: $burgundy-color;
 }

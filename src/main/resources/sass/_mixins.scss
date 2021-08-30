@@ -172,8 +172,7 @@
             a {
                 color: $brown-black-color;
                 &:hover {
-                    color: $redish-color;
-                    font-weight: 500;
+                    text-decoration: underline;
                 }
             }
         }
@@ -224,10 +223,10 @@
 }
 
 @mixin show-hide-btn {
-     float: right;
+    float: right;
     position: relative;
     font-size: 1.2rem;
     margin-right: .8rem;
     cursor: pointer;
-    
+
 }

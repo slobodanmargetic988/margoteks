@@ -17,16 +17,13 @@
 }
 
 .do-sada-poruceno-box {
-/*   
-    margin: 3rem 0;*/
-margin-top: 2rem;
+    margin-top: 2rem;
     margin-bottom: 6rem;
 }
 
 .box-history {
     -webkit-box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93); 
     box-shadow: 0px 1px 14px -4px rgba(193,193,193,0.93);
-
     .dateOfPurchase {
         padding:1.5rem 0 0 1rem;
         font-weight:600;
@@ -36,7 +33,6 @@ margin-top: 2rem;
     .okvirSlikeZaProizvod {
         width: 255px;
         height: 255px;
-
         .main-prod-img {
             padding:1rem;
             background:transparent;
@@ -59,8 +55,6 @@ margin-top: 2rem;
             }
         }
     }
-
-
 }
 
 
@@ -78,8 +72,6 @@ margin-top: 2rem;
         font-size: 1.1rem;
     }
 }
-
-
 
 @media screen and (max-width:1200px) {
     .box-history {
@@ -103,7 +95,7 @@ margin-top: 2rem;
     .box-history {
         .okvirSlikeZaProizvod {
             width: 100%;
-    height: 80vw;
+            height: 80vw;
         }
         .centrirajTextuDiv {
             margin-bottom: 1rem;
@@ -123,11 +115,10 @@ margin-top: 2rem;
         font-size: 1rem;
     }
     .nazad-na-profil {
-    margin-top: 1.2rem;
+        margin-top: 1.2rem;
     }
     .do-sada-poruceno-box {
-   
-    margin: 2rem 0 2.5rem 0;
-}
 
+        margin: 2rem 0 2.5rem 0;
+    }
 }

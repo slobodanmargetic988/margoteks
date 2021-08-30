@@ -1,9 +1,14 @@
 .infos {
-  margin-top: 1.8rem;
+  margin: 5rem 0;
 }
 .infos .center-info {
   text-align: center;
-  padding-top: 1.5rem;
+  padding: 2rem 0.7rem;
+  transition: transform 300ms ease 0ms;
+}
+.infos .center-info:hover {
+  transform: scaleX(1.05) scaleY(1.05) !important;
+  box-shadow: 7px 8px 14px 2px #eeeeee;
 }
 .infos .center-info i {
   padding-bottom: 1.5rem;
@@ -28,9 +33,11 @@
   color: #b23539;
 }
 
+.text-box-contact-page {
+  top: 8vw !important;
+}
+
 .contact-us-page {
-  /*    background-image: url("/img/contact3.jpg");
-      @include headerImage();*/
   margin-top: 2rem;
   margin-bottom: 4rem;
 }
@@ -73,7 +80,6 @@
 .contact-us-page .contact-form {
   max-width: 90%;
   margin: 0 auto;
-  /*margin-left: 5rem;*/
   padding-top: 2.8rem;
 }
 .contact-us-page .contact-form .contact-header-page {
@@ -160,8 +166,6 @@ iframe {
 }
 
 .floating-placeholder-textarea {
-  /*	padding-top: 20px;
-          margin-bottom: 5px;*/
   position: relative;
 }
 .floating-placeholder-textarea label {
@@ -199,10 +203,12 @@ iframe {
     margin-right: 0;
   }
 }
-@media screen and (max-width: 575px) {
-  .infos .center-info {
-    padding-top: 0;
+@media screen and (max-width: 767px) {
+  .infos {
+    margin: 2rem 0 0 0;
   }
+}
+@media screen and (max-width: 575px) {
   .infos .center-info i {
     font-size: 2em;
     padding-bottom: 1.2rem;
@@ -234,20 +240,24 @@ iframe {
     margin-right: 0;
     font-size: 1.6rem;
   }
+
+  .text-box-contact-page {
+    top: 9vw !important;
+  }
 }
 @media screen and (max-width: 407px) {
   .contact-us-page .bg-color-contact-page .social-icons-contact-page .follow {
     margin-right: 5.4rem;
-  }
-  .contact-us-page .bg-color-contact-page .social-icons-contact-page li {
-    /*padding-right: 4.7rem;*/
   }
 }
 #products-show {
   margin-top: 5rem;
   padding-bottom: 5rem;
 }
-#products-show p {
+#products-show a:hover {
+  text-decoration: none;
+}
+#products-show a p {
   font-size: 1.4rem;
   color: #211b14;
 }
@@ -261,8 +271,7 @@ iframe {
   color: #211b14;
 }
 #products-show .breadcrumb .breadcrumb-item a:hover {
-  color: #b23539;
-  font-weight: 500;
+  text-decoration: underline;
 }
 #products-show .breadcrumb {
   font-size: 1.3rem;
@@ -275,7 +284,6 @@ iframe {
   position: relative;
   margin-top: 0.938rem;
   overflow: hidden;
-  /*padding-bottom: 5.75rem;*/
   width: 273px;
   height: 273px;
   display: block;
@@ -283,15 +291,12 @@ iframe {
   margin-right: auto;
 }
 #products-show .img-wrapper a img {
-  /*width: 100%;*/
   transition-duration: 0.4s;
   margin: 0 auto;
   display: block;
 }
 #products-show .img-wrapper a img:hover {
   transform: scale(1.03);
-  -webkit-transform: scale(1.03);
-  -moz-transform: scale(1.03);
   z-index: 0;
 }
 #products-show .img-wrapper a:hover {
@@ -306,14 +311,13 @@ iframe {
   letter-spacing: 0.4px;
 }
 #products-show .img-wrapper .product-price {
-  font-size: 1.1rem;
+  font-size: 1.3rem;
   font-family: "Lato", sans-serif;
   color: #b23539;
   font-weight: 600;
   text-align: center;
 }
 #products-show .img-wrapper .dodajuKorpu-shop-page {
-  /*@include flexCenter;*/
   cursor: pointer;
   outline: none;
   background: #892f2b;
@@ -336,31 +340,30 @@ iframe {
   text-decoration: none;
 }
 
-.remove-product-btn {
-  font-size: 1.063rem;
-  line-height: 1.875rem;
-  letter-spacing: 0.02em;
-  border-radius: 0.313rem;
-  transition: 0.5s;
-  font-weight: 600;
-  cursor: pointer;
-  color: #892f2b;
-  text-align: center;
-  border: 2px solid #892f2b;
-  padding: 0.3rem 0.8rem;
-  background: white;
-  margin-top: .8rem;
-  transform: translate(60%, -20%);
-}
-.remove-product-btn:hover, .remove-product-btn:focus {
-  background-color: #b23539;
-  transition: 0.2s;
-  outline: 2px solid white;
-  outline-offset: -6px;
-  text-decoration: none;
-  color: white;
-}
-
+/*.remove-product-btn {
+    font-size: 1.063rem;
+    line-height: 1.875rem;
+    letter-spacing: 0.02em;
+    border-radius: 0.313rem;
+    transition: 0.5s;
+    font-weight: 600;
+    cursor: pointer;
+    color: $burgundy-color;
+    text-align: center;
+    border: 2px solid $burgundy-color;
+    padding: 0.3rem .8rem;
+    background: $white-color;
+    margin-top: .8rem;
+    transform: translate(60%, -20%);
+    &:hover, &:focus {
+        background-color: $redish-color;
+        transition: 0.2s;
+        outline: 2px solid $white-color;
+        outline-offset: -6px;
+        text-decoration: none;
+        color: $white-color;
+    }
+}*/
 .dodajProizvodBtn-adminShopPageLink {
   display: flex;
   justify-content: center;
@@ -783,7 +786,7 @@ iframe {
 }
 .single-product-show {
   padding: 5rem 0 5rem 0;
-  /*add to cart button*/
+  /*add to cart button start*/
   /*end of add to cart button*/
 }
 .single-product-show .breadcrumb {
@@ -796,8 +799,7 @@ iframe {
   color: #211b14;
 }
 .single-product-show .breadcrumb .breadcrumb-item a:hover {
-  color: #b23539;
-  font-weight: 500;
+  text-decoration: underline;
 }
 .single-product-show .breadcrumb {
   font-size: 1.3rem;
@@ -823,7 +825,6 @@ iframe {
 }
 .single-product-show form .quantity input {
   display: inline-block;
-  /*height: 3.125rem;*/
   padding: 0;
   text-align: center;
   border: none;
@@ -838,11 +839,9 @@ iframe {
   padding: 0.3rem 0.9rem;
 }
 .single-product-show form .quantity .minus, .single-product-show form .quantity .plus {
-  /*width: 3.125rem;*/
   background-color: #892f2b;
   color: white;
   padding: 0.3rem 0.9rem;
-  /*font-size: 1.563rem;*/
   font-family: "Raleway", sans-serif;
   font-display: swap;
   outline: none;
@@ -911,17 +910,6 @@ iframe {
   color: #892f2b;
   font-size: 1.2rem;
 }
-.single-product-show .product-img {
-  width: 570px;
-  height: 500px;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-.single-product-show .product-img img {
-  max-width: 100%;
-  max-height: 100%;
-}
 
 .add-img-btn-adminProductPage, .edit-product-adminProductPage {
   background: transparent;
@@ -941,6 +929,86 @@ iframe {
   outline-offset: -6px;
   color: #b23539;
   text-decoration: none;
+}
+
+#prikaz-showing .img-overlay-proizvod {
+  background: rgba(0, 0, 0, 0.3);
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  opacity: 0;
+  cursor: pointer;
+}
+
+#overlay-proizvod-margo {
+  background: rgba(0, 0, 0, 0.7);
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  /*user-select: none;*/
+}
+#overlay-proizvod-margo img {
+  margin: 0;
+  width: 80%;
+  height: auto;
+  object-fit: contain;
+  padding: 5%;
+  max-height: 100%;
+}
+@media screen and (min-width: 767px) {
+  #overlay-proizvod-margo img {
+    width: 60%;
+  }
+}
+@media screen and (min-width: 1200px) {
+  #overlay-proizvod-margo img {
+    width: 50%;
+  }
+}
+
+#next-button, #previous-button, #exit-button {
+  color: white;
+  transition: opacity 0.8s;
+  cursor: pointer;
+}
+#next-button:hover, #previous-button:hover, #exit-button:hover {
+  opacity: 0.7;
+}
+
+#next-button, #previous-button {
+  font-size: 2em;
+}
+@media screen and (min-width: 767px) {
+  #next-button, #previous-button {
+    font-size: 2.75em;
+  }
+}
+
+#exit-button {
+  font-size: 2.75em;
+  position: absolute;
+  top: 4rem;
+  right: 2rem;
+}
+@media screen and (max-width: 767px) {
+  #exit-button {
+    font-size: 2em;
+    right: 2.8rem;
+  }
 }
 
 @media screen and (max-width: 992px) {
@@ -979,7 +1047,6 @@ iframe {
   padding: 0.5em;
   position: relative;
   z-index: 1;
-  /*text-transform: uppercase;*/
   letter-spacing: .03rem;
   font-size: .96rem;
   width: 100%;
@@ -1005,7 +1072,6 @@ iframe {
   padding: 0.5em;
   position: relative;
   z-index: 1;
-  /*text-transform: uppercase;*/
   letter-spacing: .03rem;
   font-size: .96rem;
   font-weight: 500;
@@ -1035,12 +1101,10 @@ iframe {
 }
 
 .product-price {
-  font-size: 1.1rem;
-  font-family: "Lato", sans-serif;
   font-display: swap;
   color: #892f2b;
-  font-weight: 600;
   text-align: center;
+  font: 600 1.3rem "Lato", sans-serif;
 }
 
 .dodajuKorpu-shop-page {
@@ -1065,7 +1129,6 @@ iframe {
   text-decoration: none;
 }
 
-/*@media (min-width: 576px){*/
 .img-list img {
   height: 10rem;
   width: 32.78%;
@@ -1078,7 +1141,6 @@ iframe {
   display: inline;
 }
 
-/*}*/
 @media screen and (max-width: 1200px) {
   .single-product-show {
     padding: 4rem 0 5rem 0;
@@ -1086,7 +1148,7 @@ iframe {
 
   .proizvod-slika {
     height: 100%;
-    height: 35vh;
+    /*height: 35vh;*/
   }
   .proizvod-slika .img-list img {
     height: 8rem;
@@ -1165,11 +1227,8 @@ iframe {
   color: #892f2b;
 }
 .error-page-area h1 {
-  font-size: 8rem;
-  font-weight: 900;
-  line-height: 7.5rem;
   margin-bottom: 1.875rem;
-  font-family: "Lato", sans-serif;
+  font: 900 8rem/7.5rem "Lato", sans-serif;
   font-display: swap;
 }
 .error-page-area h2 {
@@ -1233,10 +1292,6 @@ html {
   height: 100%;
 }
 
-body {
-  /*    font-family: Raleway, arial, verdana;*/
-}
-
 #msform {
   max-width: 100%;
   margin: 50px auto;
@@ -1250,7 +1305,6 @@ body {
   padding: 1.25rem 1.875rem;
   box-sizing: border-box;
   width: 100%;
-  /*margin: 0 10%;*/
   position: relative;
 }
 #msform fieldset:not(:first-of-type) {
@@ -1349,7 +1403,7 @@ body {
   font-size: 0.813rem;
   color: #333;
   border: 2px solid #892f2b;
-  background: #fff;
+  background: white;
   border-radius: 0.188rem;
   margin: 0 auto 0.313rem auto;
 }
@@ -1366,13 +1420,9 @@ body {
 #progressbar li:first-child:after {
   content: none;
 }
-#progressbar li.active:before {
+#progressbar li.active:before, #progressbar li.active:after {
   background: #892f2b;
-  color: #fff;
-}
-#progressbar li.active:after {
-  background: #892f2b;
-  color: #fff;
+  color: white;
 }
 
 .skloni {
@@ -1423,17 +1473,17 @@ input[value='+'], input[value='-'] {
 
 ​
 .border-number {
-  color: black;
+  color: #000;
   padding: 0 0.5rem;
 }
 ​
 .border-number:hover {
-  color: black;
+  color: #000;
   text-decoration: none;
 }
 
 .labela {
-  font-family: Raleway;
+  font-family: "Raleway", sans-serif;
   font-size: 0.85rem;
 }
 
@@ -1472,59 +1522,6 @@ input[value='+'], input[value='-'] {
   font-size: .88rem;
 }
 
-@media only screen and (max-width: 767px) {
-  .korpa {
-    margin-top: 0;
-    max-width: 81%;
-    margin-left: auto;
-    margin-right: auto;
-  }
-
-  #msform {
-    margin-bottom: 1.5rem;
-  }
-  #msform .korpaStavkeSmallerScreen .slikaStavkaSmallerScreen .slika-korpaStavkaSmallerScreen {
-    height: 45vw !important;
-    width: 45vw !important;
-  }
-  #msform .slika-korpaStavka {
-    /*max-width: 60%;*/
-    height: 120px;
-    width: 120px;
-  }
-  #msform .slika-korpaStavkaPregled {
-    height: 100px;
-    width: 100px;
-  }
-
-  .qty {
-    width: 35% !important;
-  }
-
-  .skloni {
-    font-size: 1.2rem;
-  }
-}
-@media only screen and (max-width: 530px) {
-  #msform {
-    margin-bottom: 1.5rem;
-  }
-  #msform .skloni {
-    font-size: 1rem !important;
-  }
-
-  .qty {
-    width: 40% !important;
-  }
-}
-@media only screen and (max-width: 1000px) {
-  #msform .action-button {
-    padding: 0.75rem 0.313rem;
-    margin: 0.25rem 0;
-    width: 100%;
-    text-transform: uppercase;
-  }
-}
 /* Chrome, Safari, Edge, Opera */
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -1623,15 +1620,17 @@ input[type=number] {
     padding: 1.8rem 2rem 2rem 2rem;
   }
 }
+@media only screen and (max-width: 1000px) {
+  #msform .action-button {
+    padding: 0.75rem 0.313rem;
+    margin: 0.25rem 0;
+    width: 100%;
+    text-transform: uppercase;
+  }
+}
 @media (max-width: 992px) {
   .minusiplus {
     min-width: 18%;
-  }
-  .minusiplus span {
-    /*        &::before {
-                content: "\a" !important;
-            white-space: pre !important;
-            }*/
   }
   .minusiplus span::after {
     content: "\a" !important;
@@ -1642,9 +1641,6 @@ input[type=number] {
     width: 42% !important;
   }
 
-  #msform {
-    /*display: none;*/
-  }
   #msform .korpaStavkeSmallerScreen .slikaStavkaSmallerScreen {
     flex: 0 0 100%;
     max-width: 100%;
@@ -1660,13 +1656,55 @@ input[type=number] {
     margin-top: 1rem;
   }
   #msform .slika-korpaStavka {
-    /*max-width: 60%;*/
     height: 120px;
     width: 120px;
   }
   #msform .slika-korpaStavkaPregled {
     height: 120px;
     width: 300px;
+  }
+}
+@media only screen and (max-width: 767px) {
+  .korpa {
+    margin-top: 0;
+    max-width: 81%;
+    margin: 0 auto;
+  }
+
+  #msform {
+    margin-bottom: 1.5rem;
+  }
+  #msform .korpaStavkeSmallerScreen .slikaStavkaSmallerScreen .slika-korpaStavkaSmallerScreen {
+    height: 45vw !important;
+    width: 45vw !important;
+  }
+  #msform .slika-korpaStavka {
+    height: 120px;
+    width: 120px;
+  }
+  #msform .slika-korpaStavkaPregled {
+    height: 100px;
+    width: 100px;
+  }
+
+  .qty {
+    width: 35% !important;
+  }
+
+  .skloni {
+    font-size: 1.2rem;
+  }
+}
+@media only screen and (max-width: 530px) {
+  #msform {
+    margin-bottom: 1.5rem;
+  }
+  #msform .skloni {
+    font-size: 1rem !important;
+  }
+
+  .qty {
+    width: 40% !important;
   }
 }
 .alert-custom {
@@ -1890,8 +1928,7 @@ input[type=number] {
   padding-top: 4rem;
 }
 .adminNoviProizvodForma .centrirajFormuInput {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .adminNoviProizvodForma .centrirajFormuInput .input-custom-border {
   border: 1px solid #892f2b;
@@ -2003,7 +2040,6 @@ select {
 }
 .istorijaKupovine-link:hover {
   color: #b23539;
-  text-decoration: underline !important;
 }
 
 @media screen and (max-width: 767px) {
@@ -2017,24 +2053,20 @@ select {
   padding-top: 4rem;
 }
 .adminNovaSlikaForma .centrirajFormuInput {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .adminNovaSlikaForma .input-custom-border {
   border: 1px solid #892f2b;
   border-radius: .2rem;
 }
 .adminNovaSlikaForma .centrirajFormuChoose {
-  margin-left: auto;
-  margin-right: auto;
-  margin-bottom: 2rem;
+  margin: 0 auto;
 }
 .adminNovaSlikaForma .centrirajFormuChoose .control-label {
   cursor: pointer;
 }
 .adminNovaSlikaForma .centrirajFormuDugmad {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
   padding-bottom: 4rem;
 }
 .adminNovaSlikaForma .centrirajFormuDugmad .btn-save {
@@ -2100,14 +2132,14 @@ select {
   transform-origin: bottom top;
 }
 
-.btn-choose-file .btn-choose-file {
+.btn-choose-file {
   border: 2px solid #b23539;
   color: #b23539;
   padding: 0.3rem 1rem;
   cursor: pointer;
   font-weight: 600;
 }
-.btn-choose-file .btn-choose-file:hover {
+.btn-choose-file:hover {
   border: 2px solid #b23539;
   color: white;
   background-color: #b23539;
@@ -2131,8 +2163,7 @@ select {
   padding-top: 4rem;
 }
 .adminIzmeniProizvodForma .centrirajFormuInput {
-  margin-left: auto;
-  margin-right: auto;
+  margin: 0 auto;
 }
 .adminIzmeniProizvodForma .centrirajFormuInput .input-custom-border {
   border: 1px solid #892f2b;
@@ -2231,7 +2262,7 @@ select {
   font-size: 1.3rem;
   margin: 0 auto;
   color: #892f2b;
-  margin-bottom: 2rem;
+  padding-bottom: 2rem;
   text-transform: uppercase;
 }
 
@@ -2381,19 +2412,6 @@ select {
     width: 60vw;
   }
 }
-/*@media screen and (max-width:399px) {
-    .prikaz {
-        width: 300px;
-        height: 300px;
-    }
-    .small-img {
-        width: 522px;
-        margin-bottom: 2rem;
-    }
-    .small-container {
-        width: 400px;
-    }
-}*/
 .referenca-proudzbine-box {
   -webkit-box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
   box-shadow: 0px 1px 14px -4px rgba(193, 193, 193, 0.93);
@@ -2561,7 +2579,7 @@ img {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  filter: brightness(70%);
+  filter: brightness(80%);
 }
 
 .navbar-expand-xl {
@@ -2587,7 +2605,7 @@ img {
 }
 .navbar .nav-link {
   color: white;
-  font-size: 1.2vw;
+  font-size: 1.3vw;
   font-weight: 600;
 }
 .navbar .nav-link:hover {
@@ -2676,8 +2694,6 @@ img {
 }
 
 .floating-placeholder-textarea {
-  /*	padding-top: 20px;
-          margin-bottom: 5px;*/
   position: relative;
 }
 .floating-placeholder-textarea label {
@@ -2851,10 +2867,6 @@ footer .links-social .link-groups .links ul li a {
   font-size: .95rem;
   color: #d8c7c4;
   line-height: 48px;
-  -webkit-transition: all linear 0.2s;
-  -moz-transition: all linear 0.2s;
-  -ms-transition: all linear 0.2s;
-  -o-transition: all linear 0.2s;
   transition: all linear 0.2s;
 }
 footer .links-social .link-groups .links ul li a:hover, footer .links-social .link-groups .links ul li a:focus, footer .links-social .link-groups .links ul li a:active {
@@ -2870,10 +2882,6 @@ footer .links-social .social-newsletter .social-links ul li a {
   color: #FFF5F3;
   border: 1px solid #bfa6a2;
   display: inline-block;
-  -webkit-transition: all linear 0.2s;
-  -moz-transition: all linear 0.2s;
-  -ms-transition: all linear 0.2s;
-  -o-transition: all linear 0.2s;
   transition: all linear 0.2s;
 }
 footer .links-social .social-newsletter .social-links ul li a:hover, footer .links-social .social-newsletter .social-links ul li a:focus, footer .links-social .social-newsletter .social-links ul li a:active {
@@ -2919,8 +2927,6 @@ footer .copyright a {
   justify-content: center;
   align-items: center;
   box-shadow: 1px 1px 13px 7px rgba(202, 199, 199, 0.75);
-  -webkit-box-shadow: 1px 1px 13px 7px rgba(202, 199, 199, 0.75);
-  -moz-box-shadow: 1px 1px 13px 7px rgba(202, 199, 199, 0.75);
 }
 .img-parallax p {
   color: #211b14;
@@ -3055,7 +3061,6 @@ footer .copyright a {
 }
 .contact-us .forma {
   max-width: 90%;
-  /*        margin: 0 auto;*/
   margin-left: 3rem;
   padding-bottom: 2.5rem;
 }
@@ -3106,14 +3111,11 @@ footer .copyright a {
   padding-bottom: 1.7rem;
   font-size: 2.5rem;
   font-weight: 700;
-  /*margin-left: 2.5rem;*/
 }
 .contact-us .bg-color-contact .pratite-nas {
   color: #892f2b;
-  font-size: 2rem;
-  font-family: "Raleway", sans-serif;
   padding-bottom: 1.2rem;
-  font-weight: 500;
+  font: 500 2rem "Raleway", sans-serif;
 }
 .contact-us .bg-color-contact .list-info {
   list-style-type: none;
@@ -3262,6 +3264,10 @@ footer .copyright a {
   .img-parallax p {
     font-size: 3.4vw;
     line-height: 1.8;
+  }
+
+  .navbar .nav-link {
+    font-size: 1.6vw;
   }
 }
 @media screen and (max-width: 767px) {
@@ -3419,6 +3425,11 @@ footer .copyright a {
     margin-top: 1rem;
   }
 }
+@media only screen and (max-width: 447px) {
+  #brandlogo {
+    max-width: 90px;
+  }
+}
 @media screen and (max-width: 400px) {
   .img-parallax p {
     font-size: 4vw;
@@ -3433,10 +3444,5 @@ footer .copyright a {
 @media only screen and (min-width: 447px) and (max-width: 575px) {
   #brandlogo {
     max-width: 140px;
-  }
-}
-@media only screen and (max-width: 447px) {
-  #brandlogo {
-    max-width: 90px;
   }
 }

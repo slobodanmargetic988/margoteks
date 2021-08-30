@@ -2,10 +2,15 @@
 @import "./mixins";
 
 .infos {
-    margin-top: 1.8rem;
+    margin: 5rem 0;
     .center-info {
         text-align: center;
-        padding-top: 1.5rem;
+        padding: 2rem .7rem;
+        transition: transform 300ms ease 0ms;
+        &:hover {
+            transform: scaleX(1.05) scaleY(1.05)!important;
+            box-shadow: 7px 8px 14px 2px #eeeeee;
+        }
         i {
             padding-bottom: 1.5rem;
             color: $greyish-color;
@@ -31,13 +36,14 @@
     }
 }
 
+.text-box-contact-page {
+    top: 8vw !important;
+}
+
 .contact-us-page {
-    /*    background-image: url("/img/contact3.jpg");
-        @include headerImage();*/
     margin-top: 2rem;
     margin-bottom: 4rem;
     .bg-color-contact-page {
-
         p {
             font-size: 1.2rem;
             color:  $brown-black-color;
@@ -52,7 +58,6 @@
     .contact-form {
         max-width: 90%;
         margin: 0 auto;
-        /*margin-left: 5rem;*/
         padding-top: 2.8rem;
         .contact-header-page {
             color: $burgundy-color;
@@ -68,12 +73,10 @@
         input, textarea {
             background: transparent;
             border: 1px solid $brown-black-color;
-
             &:focus {
                 outline: 0;
                 border-color: $burgundy-color;
                 box-shadow: none;
-
             }
         }
         input {
@@ -99,7 +102,6 @@
     }
 }
 
-
 /*google map*/
 iframe {
     width: 100%;
@@ -107,11 +109,6 @@ iframe {
     margin-top: 3rem;
 }
 /*end of google map*/
-
-
-
-
-
 
 .floating-placeholder {
     padding-top: 20px;
@@ -136,11 +133,7 @@ iframe {
     }
 }
 
-
-
 .floating-placeholder-textarea {
-    /*	padding-top: 20px;
-            margin-bottom: 5px;*/
     position: relative;
     label {
         position: absolute;
@@ -191,12 +184,15 @@ iframe {
     }
 }
 
-
+@media screen and (max-width:767px) {
+    .infos {
+        margin: 2rem 0 0 0;
+    }
+}
 
 @media screen and (max-width:575px) {
     .infos {
         .center-info {
-            padding-top: 0;
             i {
                 font-size: 2em;
                 padding-bottom: 1.2rem;
@@ -211,7 +207,6 @@ iframe {
             }
         }
     }
-
     .contact-us-page {
         margin-top: 0;
         .contact-form {
@@ -234,8 +229,10 @@ iframe {
             }
         }
     }
+    .text-box-contact-page {
+        top: 9vw !important;
+    }
 }
-
 
 @media screen and (max-width:407px) {
     .contact-us-page  {
@@ -244,11 +241,7 @@ iframe {
                 .follow {
                     margin-right: 5.4rem;
                 }
-                li {
-                    /*padding-right: 4.7rem;*/
-                }
             }
         }
     }
-
 }

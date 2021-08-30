@@ -82,9 +82,9 @@ function prikaziPopup(element, vecukorpi) {
     var photo = $(element).attr("photoid");
     var naziv = $(element).attr("naziv");
     var cena = $(element).attr("cena");
-    // $("#popupnaziv").text(naziv);
-    //  $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
-    //   $("#popupcena").text(cena);
+     $("#popupnaziv").text(naziv);
+      $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
+       $("#popupcena").text(cena);
     $("#addedToCart-window").css("display", "block");
     if (vecukorpi) {
         $("#ProizvodDodatJS").text("Proizvod je već u korpi");
@@ -236,7 +236,7 @@ function napraviKorpaStavke() {
                     + " <div class=\"col-4 slikaStavkaSmallerScreen\"><img class=\"img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen\"  src=\"/photo/" + celaKorpa[i].idProizvoda + "/" + celaKorpa[i].photoId + "\"  alt=\"" + celaKorpa[i].alt_text + "\"  title=\"" + celaKorpa[i].title + "\"></div>"
                     + "  <div class=\"col nazivOpisSmallerScreen\">"
                     + "<div class=\"row naslov\">" + celaKorpa[i].nazivProizvoda + "</div>"
-                    + " <div class=\"row opis-proizvoda\">" + celaKorpa[i].opis + "</div>"
+//                    + " <div class=\"row opis-proizvoda\">" + celaKorpa[i].opis + "</div>"
                     + " </div>"
                     + " <div class=\"col minusiplus minusiplusSmallerScreen\">"
                     + "  <input type='button'  value='-' class='minusBtn minusBtnSmallerScreen smanjiJS' field='quantity'  pid=\"" + celaKorpa[i].idProizvoda + "\" />"

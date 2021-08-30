@@ -128,7 +128,7 @@ function napraviKorpaStavkePregled() {
                 + "           <div class=\"col-4 slikaStavkaSmallerScreen\"><img class=\"img-fluid slika-korpaStavkaPregled  slika-korpaStavkaSmallerScreen\"  src=\"/photo/" + celaKorpa[i].idProizvoda + "/" + celaKorpa[i].photoId + "\" alt=\"" +celaKorpa[i].alt_text+"\"  title=\"" +celaKorpa[i].title+"\"></div>"
                 + "          <div class=\"col nazivOpisSmallerScreen\">"                                  
                 + "          <div class=\"row naslov\"><span>" + celaKorpa[i].nazivProizvoda + "</span></div>"
-                + "          <div class=\"row opis-proizvoda\"><span >" + celaKorpa[i].opis + "</span></div>"
+//                + "          <div class=\"row opis-proizvoda\"><span >" + celaKorpa[i].opis + "</span></div>"
                 + "         </div>"
                 + "         <div class=\"cenaprSmallerScreenStavkaPregled\">"
                 + "        <div class=\"col cenaprSmallerScreen cenaprSmallerScreenStavkaPregled\" style=\"font-weight: 500\">Kolicina:  <span style=\"font-weight: 600\" class=\"kolicinaPregledJS\" >" + celaKorpa[i].kolicina + " </span> </div>"

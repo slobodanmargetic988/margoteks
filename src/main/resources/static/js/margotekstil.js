@@ -1,5 +1,4 @@
 
-// navbar background color change on scroll
 $(function () {
     //meni da promeni boju kad se skroluje
     $(document).scroll(function () {
@@ -18,16 +17,16 @@ $(function () {
 
 
 jQuery(document).ready(function () {
-    $("#backToTop").append('<a class="backToTop" style="display:none;"><img class="JSb2t" src="/img/backToTopRedish.png" alt="back to top button"></a>');
-    var $window = $(window);
-    var distance = 80;
-    if ($window.scrollTop() >= distance) {
-        $(".backToTop").fadeIn();
-        var $nav = $(".fixed-top");
-        $nav.toggleClass('scrolled', true);
-        $("#brandlogo").attr("src", "/img/logobeli.png")
-    }
-    ;
+//    $("#backToTop").append('<a class="backToTop" style="display:none;"><img class="JSb2t" src="/img/backToTopBtnGreen.png" alt="back to top button"></a>');
+//    var $window = $(window);
+//    var distance = 80;
+//    if ($window.scrollTop() >= distance) {
+//        $(".backToTop").fadeIn();
+//        var $nav = $(".fixed-top");
+//        $nav.toggleClass('scrolled', true);
+//        $("#brandlogo").attr("src", "/img/logobeli.png")
+//    }
+//    ;
 
     //alert za uspesnu prijavu/login da nestane nakon nekoliko sekundi 
     setTimeout(function () {

@@ -2,10 +2,6 @@
   margin-right: 0;
 }
 
-/*start of pagination*/
-.pagination {
-  margin-right: .9rem;
-}
 .pagination > .disabled > a {
   color: #ccc;
   background-color: transparent;
@@ -27,38 +23,16 @@
   color: white;
   border-color: #892f2b;
   background: #892f2b;
-  font-weight: 600;
 }
 .pagination .page-link {
   color: #b23539;
   text-align: center;
+  width: 48px;
+  height: 48px;
+  padding: 0.7rem 0.42rem !important;
 }
 .pagination .page-link:hover {
   background: transparent;
   border-color: #b23539;
   color: #b23539;
-}
-
-/*end of pagination*/
-@media screen and (max-width: 1200px) {
-  .page-link {
-    padding: 0.35rem 0.65rem !important;
-  }
-}
-@media screen and (max-width: 992px) {
-  .page-link {
-    padding: 0.25rem 0.55rem !important;
-  }
-}
-@media screen and (max-width: 767px) {
-  .page-link {
-    padding: 0.15rem 0.45rem !important;
-  }
-}
-@media screen and (max-width: 575px) {
-  .page-link {
-    width: 48px;
-    height: 48px;
-    padding: 0.7rem 0.42rem !important;
-  }
 }

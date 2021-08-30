@@ -1,6 +1,6 @@
+
 @import "./variables";
 @import "./mixins";
-
 
 .productShow {
     margin-top: 3rem;
@@ -30,30 +30,23 @@
         padding-bottom: 3rem;
         padding-top: 1rem;
         margin: 0 auto;
-
         .btn-save {
             @include sacuvajBtn;
         }
-
         .btn-back {
             @include nazadBtn;
         }
     }
 }
 
-
-
 @media screen and (max-width:767px) {
     .productShow {
         margin-top: 1.8rem;
         padding-bottom: 2rem;
-
-
     }
     .form-group {
         margin-bottom: 0 !important;
     }
-
     .licniPodaciForma {
         padding-top: 1rem;
         .licniPodaci {

@@ -24,7 +24,7 @@
                             <a class="nav-link nav-link-admin" id="homeLink" th:href="@{/}">HOME<span class="sr-only"></span></a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-admin" th:href="@{/onama}" >O NAMA</a>
+                            <a class="nav-link nav-link-admin" th:href="@{/onama}">O NAMA</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-link-admin" th:href="@{/shop}">SHOP</a>
@@ -35,10 +35,10 @@
                         <li class="nav-item">
                             <a class="nav-link nav-link-admin" th:href="@{/contact}">KONTAKT</a>
                         </li>
-                        <li class="nav-item"  sec:authorize="hasAnyAuthority('ADMIN')" >
+                        <li class="nav-item"  sec:authorize="hasAnyAuthority('ADMIN')">
                             <a class="nav-link nav-link-admin" th:href="@{/admin/shop}">ADMIN SHOP</a>
                         </li>
-                        <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')" >
+                        <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')">
                             <a class="nav-link nav-link-admin"  th:href="@{/admin/galerija}">ADMIN GALERIJA</a>
                         </li>
 

@@ -8,7 +8,6 @@
 }
 .about-section .container .content-column .inner-column {
   position: relative;
-  /*padding-left: 1.875rem;*/
 }
 .about-section .container .content-column .inner-column .sec-title {
   margin-bottom: 2rem;
@@ -87,7 +86,7 @@
 .about-section .container .content-column .inner-column .btn-box a {
   padding: 0.75rem 1.125rem;
 }
-.about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page {
+.about-section .container .content-column .inner-column .btn-box .shopBtn-onama-page {
   cursor: pointer;
   outline: none;
   background: #892f2b;
@@ -102,14 +101,16 @@
   letter-spacing: 0.02em;
   font-weight: 600;
   margin-bottom: .5rem;
+  width: 175px;
+  text-align: center;
 }
-.about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page:hover, .about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page:focus {
+.about-section .container .content-column .inner-column .btn-box .shopBtn-onama-page:hover, .about-section .container .content-column .inner-column .btn-box .shopBtn-onama-page:focus {
   outline: 2px solid white;
   outline-offset: -6px;
   background-color: #b23539;
   text-decoration: none;
 }
-.about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page {
+.about-section .container .content-column .inner-column .btn-box .contactUsBtn-onama-page {
   background: transparent;
   border: 2px solid #892f2b;
   color: #892f2b;
@@ -124,10 +125,10 @@
   width: 175px;
   text-align: center;
   font-weight: 600;
-  line-height: 1.7rem;
+  line-height: 1.68rem;
   margin-left: .4rem;
 }
-.about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page:hover, .about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page:focus {
+.about-section .container .content-column .inner-column .btn-box .contactUsBtn-onama-page:hover, .about-section .container .content-column .inner-column .btn-box .contactUsBtn-onama-page:focus {
   outline: 2px solid #b23539;
   outline-offset: -6px;
   color: #b23539;
@@ -175,11 +176,11 @@
   .about-section .container .content-column .inner-column .sec-title h2 {
     font-size: 2.2rem;
   }
-  .about-section .container .content-column .inner-column .btn-box .kontaktirajteNas-onama-page {
+  .about-section .container .content-column .inner-column .btn-box .shopBtn-onama-page {
     font-size: .95rem;
     letter-spacing: 0.04em;
   }
-  .about-section .container .content-column .inner-column .btn-box .shop-btn-o-nama-page {
+  .about-section .container .content-column .inner-column .btn-box .contactUsBtn-onama-page {
     margin: 0.3rem 0 0 0;
     width: 167px;
   }

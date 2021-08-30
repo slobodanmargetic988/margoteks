@@ -1,20 +1,23 @@
+
 @import "./variables";
 @import "./mixins";
-
-
 
 #products-show {
     margin-top: 5rem;
     padding-bottom: 5rem;
-    p {  
-        font-size: 1.4rem;
-        color: $brown-black-color;
+    a {
+        &:hover {
+            text-decoration: none;
+        }
+        p {  
+            font-size: 1.4rem;
+            color: $brown-black-color;
+        }
     }
     @include breadcrumb;
     .breadcrumb {
         font-size: 1.3rem;
         margin-bottom: 1.5rem;
-
     }
     .jedanProizvod {
         margin-bottom: 2rem;
@@ -23,7 +26,6 @@
         position: relative;
         margin-top: 0.938rem;
         overflow: hidden;
-        /*padding-bottom: 5.75rem;*/
         width: 273px;
         height: 273px;    
         display: block;
@@ -31,18 +33,14 @@
         margin-right: auto;
         a {
             img {
-                /*width: 100%;*/
                 transition-duration: 0.4s;
                 margin: 0 auto;
                 display: block;
                 &:hover {
                     transform: scale(1.03);
-                    -webkit-transform: scale(1.03);
-                    -moz-transform: scale(1.03);
                     z-index: 0;
                 }
             }
-
             &:hover {
                 text-decoration: none;
             }
@@ -56,14 +54,13 @@
             letter-spacing: 0.4px;
         }
         .product-price {
-            font-size: 1.1rem;
+            font-size: 1.3rem;
             font-family: $font-for-numbers;
             color: $redish-color;
             font-weight: 600;
             text-align: center;
         }
         .dodajuKorpu-shop-page {
-            /*@include flexCenter;*/
             @include fullColorBtn;
             position: absolute !important;
             bottom: 1rem;
@@ -74,19 +71,9 @@
             font-weight: 500;
         }
     }
-
 }
 
-
-
-
-
-
-
-
-
-
-.remove-product-btn {
+/*.remove-product-btn {
     font-size: 1.063rem;
     line-height: 1.875rem;
     letter-spacing: 0.02em;
@@ -109,7 +96,7 @@
         text-decoration: none;
         color: $white-color;
     }
-}
+}*/
 
 .dodajProizvodBtn-adminShopPageLink {
     display: flex;
@@ -142,8 +129,6 @@
     }
 }
 
-
-
 .all-categories-left-nav-containerADMIN {
     margin: 17.5rem 0 0 0 !important;
 }
@@ -156,7 +141,6 @@
     margin: 9rem 0 0 0;
     float: left;
     text-align:left;
-
     a {
         &:hover {
             text-decoration: none;
@@ -172,14 +156,11 @@
             }
         }
     }
-
     ul {
         list-style: none;
         li {
             margin-bottom: 1.1rem;
             width: 200px;
-
-
             a {
                 display: inline-block;
                 color: $brown-black-color;
@@ -193,9 +174,6 @@
         }
     }
 }
-
-
-
 
 #addedToCart-window {
     display: none;
@@ -254,7 +232,7 @@
             .popup-slika {
                 height: 100%;
                 object-fit: cover;
-                 width: 100%;
+                width: 100%;
             }
         }
         .productName {
@@ -310,22 +288,15 @@
     }
 }
 
-
 .currentCategoryItem {
     font-weight: 600 !important;
 }
 
-
 @media screen and (max-width: 443px) {
-
-
     .dodajProizvodBtn-adminShopPage {
         margin-bottom: 2rem;
     }
 }
-
-
-
 
 @media screen and (max-width:1199px) {
     #products-show {
@@ -354,7 +325,6 @@
 @media screen and (max-width:991px) {
     .all-categories-left-nav-container {
         margin: 7rem 0 0 0;
-
         ul {
             li {
                 width: 160px;
@@ -373,17 +343,13 @@
             height: 235px;    
         }
     }
-
     .dodajProizvodBtn-adminShopPage {
         padding: .8rem 1rem;
         font-size: .9rem;
     }
-
     .jedanProizvodSlicniNereg, .jedanProizvodSlicniReg, .jedanProizvodSlicniAdmin {
         margin-bottom: 2rem;
     }
-    
-    
     #addedToCart-window {
         .addedToCart-window-content {
             .master-img {
@@ -404,10 +370,7 @@
     }
 }
 
-
-
 @media screen and (max-width:767px) {
-
     #products-show {
         margin-top: 2rem;
         padding-bottom: 2rem;
@@ -477,7 +440,6 @@
             }
         }
     }
-
 }
 
 @media screen and (max-width:575px) {
@@ -490,7 +452,6 @@
         .jedanProizvod {
             margin-bottom: 2rem;
         }
-
     }
     .all-categories-left-nav-container {
         display: none;
@@ -507,7 +468,6 @@
             &:hover {
                 color: $burgundy-color;
             }
-
         }
         .dropdown-item:focus, .dropdown-item:hover {
             color: $redish-color;
@@ -517,11 +477,9 @@
             background-color: $burgundy-color;
         }
     }
-
     .jedanProizvodSlicniNereg, .jedanProizvodSlicniReg, .jedanProizvodSlicniAdmin {
         margin-bottom: 2rem;
     }
-
     .figure-left {
         margin-bottom: 1.5rem;
     }
@@ -538,7 +496,6 @@
         }
     }
 }
-
 
 @media screen and (max-width:460px) {
     .dodajProizvodBtn-adminShopPageLink {

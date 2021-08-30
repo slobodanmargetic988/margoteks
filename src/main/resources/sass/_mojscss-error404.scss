@@ -8,11 +8,8 @@
         color: $burgundy-color;
     }
     h1 {
-        font-size: 8rem;
-        font-weight: 900;
-        line-height: 7.5rem;
         margin-bottom: 1.875rem;
-        font-family: $font-for-numbers;
+        font: 900 8rem/7.5rem $font-for-numbers; 
         font-display: swap;
     }
     h2 {

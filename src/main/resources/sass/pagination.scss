@@ -1,13 +1,12 @@
+
 @import "./variables";
 @import "./mixins";
 
 .pagination-gallery {
-        margin-right:0;
-
+    margin-right:0;
 }
-/*start of pagination*/
+
 .pagination {
-    margin-right: .9rem;
     >.disabled {
         >a {
             color: #ccc;
@@ -32,7 +31,6 @@
                 color: $white-color;
                 border-color: $burgundy-color;
                 background: $burgundy-color;
-                font-weight: 600;
 
             }
         }
@@ -41,40 +39,15 @@
     .page-link {
         color: $redish-color;
         text-align: center;
+        width: 48px;
+        height: 48px;
+        padding: .7rem 0.42rem !important;    
         &:hover {
             background: transparent;
             border-color: $redish-color;
             color: $redish-color;
         }
     }
-
-}
-/*end of pagination*/
-
-
-
-@media screen and (max-width:1200px) {
-    .page-link {
-        padding: .35rem .65rem !important;
-    }
 }
 
-@media screen and (max-width:992px) {
-    .page-link {
-        padding: 0.25rem 0.55rem !important;
-    }
-}
 
-@media screen and (max-width:767px) {
-    .page-link {
-
-        padding: 0.15rem 0.45rem !important;
-    }
-}
-@media screen and (max-width:575px) {
-   
-    .page-link {
-        width: 48px;
-        height:48px;
-        padding: .7rem 0.42rem !important;    }
-}
