@@ -1,6 +1,44 @@
 @import "./variables";
 @import "./mixins";
 
+
+//choose color for product
+.radio-group {
+    position: relative;
+    margin-bottom: 1.5rem;
+}
+.radio {
+    display: inline-block;
+    width: 50px;
+    height: 50px;
+    /*     border-radius: 50%; */
+    background: #B2EBF2;
+    box-sizing: border-box;
+    border: 3px solid $white-color;
+    box-shadow: 0 0 2px 3px #E8F5E9;
+    cursor: pointer;
+    margin: 8px 10px 0px 0px;
+    transition: 0.3s;
+    &:hover {
+        box-shadow: 0 0 2px 2px $burgundy-color;
+        transition: 0.3s;
+    }
+    &.selected {
+        box-shadow: 0 0 2px 1px $burgundy-color;
+        transition: 0.3s;
+    }
+}
+.color-circle {
+    width: 44px;
+    height: 44px;
+    /*     border-radius: 50%; */
+    /*     transform: rotate(-45deg) */
+}
+
+
+
+
+
 .single-product-show {
     padding: 5rem 0 5rem 0;
     @include breadcrumb;
@@ -105,6 +143,19 @@
     letter-spacing: 0.02em;
     font-weight: 600;
     padding: 0.3rem .8rem;
+}
+
+.add-color-btn-adminProductPage {
+    margin-left: .3rem;
+    @media screen and (max-width: 1200px) {
+        margin: .5rem 0 0 0;
+    }
+    @media screen and (max-width: 576px) {
+        margin: 0;
+    }
+    @media screen and (max-width: 338px) {
+        margin: .7rem 0 0 0;
+    }
 }
 
 #prikaz-showing {

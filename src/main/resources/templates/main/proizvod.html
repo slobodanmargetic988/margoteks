@@ -6,7 +6,7 @@
 
         <meta name="description" content="Margotekstil strana proizvoda. Detalji o proizvodu. Product page."/> 
     <th:block th:insert="fragments/head :: head" />
-        <link th:href="@{/css/proizvodSlikeSlide.css}" rel="stylesheet" type="text/css" />
+    <link th:href="@{/css/proizvodSlikeSlide.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
@@ -77,7 +77,7 @@
                                     <div class="small-container">
                                         <th:block th:if="${not #lists.isEmpty(proizvod.photos)}">
 
-                                            <div id="small-img-rolling" style="left: 0px;">
+                                            <div id="small-img-roll" style="left: 0px;">
                                                 <!--                                                            <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" alt="Glavna slika" class="show-small-img" style="border: 1px solid rgb(149, 27, 37); padding: 2px;">-->
 
                                                 <img id="007" class="show-small-img sledece" style="border: 1px solid rgb(149, 27, 37); padding: 2px;" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}"  th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}"/>
@@ -96,6 +96,13 @@
                                     </div>
                                     <img src="/img/left-right-arrow.png" alt="right arrow" title="right arrow" class="icon-right"  id="next-img">
                                 </div>
+
+
+
+
+
+
+
                             </section></div>
 
 
@@ -116,6 +123,24 @@
                         <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
                         <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>
 
+                        <div class="radio-group">
+
+                            <th:block th:if="${not #lists.isEmpty(proizvod.boje)}">
+
+                                <th:block th:each="boja, brojac : ${proizvod.boje}" >
+                                    <th:block th:if="${boja.active == true} " > 
+                                        <th:block th:if="${brojac.index==0} " >  <div class='radio selected' th:bojaid="${boja.id}"> <img class="color-circle" th:src="@{/boja/{bojaId} (bojaId=${boja.id})}" th:alt="${boja.alt_text}" th:title="${boja.title}"> </div> </th:block>
+                                        <th:block th:if="${brojac.index != 0} " >  <div class='radio ' th:bojaid="${boja.id}" > <img class="color-circle" th:src="@{/boja/{bojaId} (bojaId=${boja.id})}" th:alt="${boja.alt_text}" th:title="${boja.title}"> </div> </th:block>
+
+                                    </th:block>
+                                </th:block> 
+
+                            </th:block>
+                            <!--<div class='radio selected'> <img class="color-circle" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.boje.id},proizvodId=${proizvod.id})}"> </div>-->
+
+
+                        </div>  
+
                     </div>
 
                     <form id="proizvodForma" >
@@ -124,10 +149,11 @@
                             <input  type='text' name='quantity' value='1' class='qty'id="kolicina"  />
                             <input type='button' value='+' class='plus' field='quantity' />
                         </div>
-                            <span class="add-to-cart-with-icon-productPage dodajKolicinuJS buttonAdd2Cart dodajuKorpu-proizvod-page" th:pid="${proizvod.getId()}"  th:photoid="${proizvod.glavnaslika.id}" th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" id="buttonAdd2Cart" >Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
-                            </span>
-                        
-
+                        <span class="add-to-cart-with-icon-productPage dodajKolicinuJS buttonAdd2Cart dodajuKorpu-proizvod-page" 
+                              id="buttonAdd2Cart" th:pid="${proizvod.getId()}" bojaid="" th:photoid="${proizvod.glavnaslika.id}" 
+                              th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" >
+                            Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
+                        </span>
 
 
                     </form> 
@@ -142,6 +168,7 @@
             <div class="col-sm-12 mt-3">
                 <h3>Slični proizvodi</h3>
             </div>
+
             <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}">
 
                 <th:block th:each="sproizvod : ${proizvod.slicniproizvodi}" >
@@ -178,11 +205,15 @@
 
 <th:block th:insert="fragments/scripts :: scripts" />
 
-<script type="text/javascript" src="magicthumb/magicthumb.js"></script>
+<!--<script type="text/javascript" src="magicthumb/magicthumb.js"></script>-->
 
 
 <script th:src="@{/js/proizvodSlikeCarousel.js}" type="text/javascript"></script>
 <script th:src="@{/js/proizvodSlikeSlide.js}" type="text/javascript"></script>
+
+<script th:src="@{/js/chooseColor.js}" type="text/javascript"></script>
+
+
 <th:block th:insert="fragments/scripts :: shopScriptsRegistered" />
 <script>
     $('#proizvodForma').submit(function () {

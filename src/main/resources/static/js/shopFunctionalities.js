@@ -198,6 +198,48 @@ if (response == "Proizvod je već u korpi!"){
         }
     });
 }
+// @GetMapping("/korpa/dodajProizvodQty/{proizvod_id}/{kolicina}")
+//proizvod strana
+function dodajProizvodQty(element, kol) {
+var id = $(element).attr("pid");
+  console.log(id);
+    var   photo = $(element).attr("photoid");
+        console.log(photo);
+      var   naziv = $(element).attr("naziv");
+      var   cena = $(element).attr("cena");
+      var boja =  $(".radio.selected").first().attr("bojaid");
+       if (isNaN(boja)){
+          boja=0; 
+       }
+      console.log(boja);
+      
+    url = "/korpa/dodajProizvodQty/" + id + "/" + kol+ "/" + boja;
+    $.ajax({
+        type: "GET",
+        contentType: "application/json",
+        url: url,
+        cache: false,
+        timeout: 600000,
+        success: function (response) {
+          
+        //   alert(response);
+if (response == "Proizvod je već u korpi!"){
+     $("#ProizvodDodatJS").text("Proizvod je već u korpi");
+}
+      //  $("#popupnaziv").text(naziv);
+     //   $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
+
+   //     $("#popupcena").text(cena);
+        $("#addedToCart-window").css("display", "block");
+
+        },
+        error: function (e) {
+            alert(e);
+        }
+    });
+}
+
+
 
 // @GetMapping("/korpa/promeniKolicinu/{proizvod_id}/{kolicina}")
 function promeniKolicinu(id, kol) {
@@ -276,40 +318,6 @@ function skloniProizvod(id) {
     });
 }
 
-// @GetMapping("/korpa/dodajProizvodQty/{proizvod_id}/{kolicina}")
-//proizvod strana
-function dodajProizvodQty(element, kol) {
-var id = $(element).attr("pid");
-  console.log(id);
-    var   photo = $(element).attr("photoid");
-        console.log(photo);
-      var   naziv = $(element).attr("naziv");
-      var   cena = $(element).attr("cena");
-    url = "/korpa/dodajProizvodQty/" + id + "/" + kol;
-    $.ajax({
-        type: "GET",
-        contentType: "application/json",
-        url: url,
-        cache: false,
-        timeout: 600000,
-        success: function (response) {
-          
-        //   alert(response);
-if (response == "Proizvod je već u korpi!"){
-     $("#ProizvodDodatJS").text("Proizvod je već u korpi");
-}
-      //  $("#popupnaziv").text(naziv);
-     //   $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
-
-   //     $("#popupcena").text(cena);
-        $("#addedToCart-window").css("display", "block");
-
-        },
-        error: function (e) {
-            alert(e);
-        }
-    });
-}
 
 
 

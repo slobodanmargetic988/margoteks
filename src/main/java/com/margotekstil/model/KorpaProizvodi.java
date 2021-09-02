@@ -39,6 +39,22 @@ public class KorpaProizvodi {
     @ManyToOne(fetch = FetchType.EAGER)
     @JoinColumn(name = "proizvod_id", nullable = false)
     private Proizvodi proizvod;
+    
+     @ManyToOne(fetch = FetchType.EAGER)
+    @JoinColumn(name = "boja", nullable = false)
+    private ColorPaleta boja;
+     
+     
+
+    public ColorPaleta getBoja() {
+        return boja;
+    }
+
+    public void setBoja(ColorPaleta boja) {
+        this.boja = boja;
+    }
+
+   
 
     public int getId() {
         return id;

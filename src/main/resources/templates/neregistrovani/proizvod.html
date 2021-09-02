@@ -113,6 +113,23 @@
                         <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
                         <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>
 
+                        <div class="radio-group">
+
+                            <th:block th:if="${not #lists.isEmpty(proizvod.boje)}">
+
+                                <th:block th:each="boja, brojac : ${proizvod.boje}" >
+                                    <th:block th:if="${boja.active == true} " > 
+                                        <th:block th:if="${brojac.index==0} " >  <div class='radio selected' th:bojaid="${boja.id}"> <img class="color-circle" th:src="@{/boja/{bojaId} (bojaId=${boja.id})}" th:alt="${boja.alt_text}" th:title="${boja.title}"> </div> </th:block>
+                                        <th:block th:if="${brojac.index != 0} " >  <div class='radio '  th:bojaid="${boja.id}"> <img class="color-circle" th:src="@{/boja/{bojaId} (bojaId=${boja.id})}" th:alt="${boja.alt_text}" th:title="${boja.title}"> </div> </th:block>
+
+                                    </th:block>
+                                </th:block> 
+
+                            </th:block>
+                            <!--<div class='radio selected'> <img class="color-circle" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.boje.id},proizvodId=${proizvod.id})}"> </div>-->
+
+
+                        </div> 
                     </div>
 
                     <form id="proizvodForma" >
@@ -179,6 +196,8 @@
 
 <script th:src="@{/js/proizvodSlikeCarousel.js}" type="text/javascript"></script>
 <script th:src="@{/js/proizvodSlikeSlide.js}" type="text/javascript"></script>
+<script th:src="@{/js/chooseColor.js}" type="text/javascript"></script>
+
 <th:block th:insert="fragments/scripts :: NOTRegisteredShop" />
 <script>   $('#proizvodForma').submit(function () {
         return false;

@@ -481,6 +481,10 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
 
         //   String jedanred="";
         for (KorpaProizvodi korpaproizvod : korpa.getKorpaproizvodi()) {
+           String boja="Osnovna";
+            if (korpaproizvod.getBoja()!=null){
+             boja= korpaproizvod.getBoja().getAlt_text();}
+       
             poruceno += "                    <tr>"
                     + "                      <td style=\"padding:0;text-align:center\" width=\"20%\" valign=\"top\">"
                     + "                        <img style=\"background:transparent; object-fit:cover;\" src=\"https://" + serverip + "/photo/" + korpaproizvod.getProizvod().getId() + "/" + korpaproizvod.getProizvod().getGlavnaslika().getId() + "\" width=\"100\" height=\"100\" border=\"0\" >"
@@ -495,6 +499,12 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                     + "                              </td>"
                     + ""
                     + "                              <td style=\"text-align:center\" width=\"20%\">"
+                    + "                                <center>"
+                    + "                                  <p style=\"margin:0;padding:0;text-align:center;font-size:14px;color:#000000;font-weight:400\">Boja/dezen: <strong>" + boja + " </strong>"
+                    + "                                  </p>"
+                    + "                                </center>"
+                    + "                              </td>"
+                               + "                              <td style=\"text-align:center\" width=\"20%\">"
                     + "                                <center>"
                     + "                                  <p style=\"margin:0;padding:0;text-align:center;font-size:14px;color:#000000;font-weight:400\">Količina: <strong>" + korpaproizvod.getKolicina() + " </strong>"
                     + "                                  </p>"

@@ -55,6 +55,9 @@ public class Proizvodi {
     @OneToMany(mappedBy = "proizvod",fetch = FetchType.EAGER)
     private List<Photo> photos;
 
+    @OneToMany(mappedBy = "proizvod",fetch = FetchType.LAZY)
+    private List<ColorPaleta> boje;
+    
     @Column(name = "keywords")
     private String keywords;
 
@@ -76,6 +79,14 @@ public class Proizvodi {
     
 @OneToOne(mappedBy = "glavnazaproizvod")   
     private Photo glavnaslika;
+
+    public List<ColorPaleta> getBoje() {
+        return boje;
+    }
+
+    public void setBoje(List<ColorPaleta> boje) {
+        this.boje = boje;
+    }
 
     public Photo getGlavnaslika() {
         return glavnaslika;

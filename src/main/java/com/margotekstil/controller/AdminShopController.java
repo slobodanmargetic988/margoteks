@@ -5,9 +5,11 @@
  */
 package com.margotekstil.controller;
 
+import com.margotekstil.model.ColorPaleta;
 import com.margotekstil.model.Photo;
 import com.margotekstil.model.Proizvodi;
 import com.margotekstil.model.ZavrsenePorudzbine;
+import com.margotekstil.service.ColorPaletaService;
 import com.margotekstil.service.PhotoService;
 import com.margotekstil.service.ProizvodiService;
 
@@ -179,13 +181,60 @@ public class AdminShopController {
         model.addAttribute("proizvodId", proizvodId);
         return "main/admin/adminProizvodDodatnaSlika";
     }
+    
+    @GetMapping(value = "/admin/izmeniProizvod/{proizvodId}/dodajBoju")
+    public String adminProizvodBojaMargotekstil(final Model model,
+            @PathVariable final Integer proizvodId
+    ) {
+        model.addAttribute("proizvodId", proizvodId);
+        return "main/admin/adminProizvodBoja";
+    }
 
     @GetMapping(value = "/admin/novaSlika")
     public String adminNovaSlikaMargotekstil(final Model model) {
 
         return "main/admin/adminNovaSlika";
     }
+    
+    
+    
+    
+        @Autowired
 
+    ColorPaletaService colorPaletaService;
+
+    
+     @PostMapping(value = "/admin/izmeniProizvod/{proizvodId}/dodajBoju")
+    public String adminBojaZaProizvodSaveMargotekstil(final Model model,
+            @PathVariable final Integer proizvodId,
+            @RequestParam("file") MultipartFile file,
+            @RequestParam(name = "title") String title,
+            @RequestParam(name = "alt_text") String alt_text,
+            RedirectAttributes redirectAttributes
+    ) {
+        try {
+            String filename = storageService.store(file, proizvodId);
+            ColorPaleta colorPaleta = new ColorPaleta();
+            colorPaleta.setFilename(filename);
+            colorPaleta.setTitle(title);
+            colorPaleta.setAlt_text(alt_text);
+            colorPaleta.setProizvod(proizvodiService.findFirstById(proizvodId));
+            colorPaleta.setActive(Boolean.TRUE);
+            colorPaletaService.save(colorPaleta);
+            redirectAttributes.addFlashAttribute("successMessage", "Boja / Dezen je uspešno dodat u listu slika za proizvod!");
+
+        } catch (Exception e) {
+            // System.out.println(e);
+            redirectAttributes.addFlashAttribute("errorMessage", ("Boja / Dezen nije uspešno dodata u listu slika za proizvod! Nevalidan tip fajla. " + e.getMessage()));
+
+        }
+        return "redirect:/admin/proizvod/" + proizvodId;
+        //  return "main/admin/adminNovaSlika";
+    }
+    
+    
+    
+//ovaj copiramo za poaletu
     @PostMapping(value = "/admin/novaSlika/{proizvodId}/save")
     public String adminDodatnaNovaSlikaProizvodSaveMargotekstil(final Model model,
             @PathVariable final Integer proizvodId,

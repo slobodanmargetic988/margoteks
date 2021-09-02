@@ -6,6 +6,7 @@
 package com.margotekstil.controller;
 
 import com.margotekstil.configuration.MargotekstilUserPrincipal;
+import com.margotekstil.model.ColorPaleta;
 import com.margotekstil.model.Korpa;
 import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Photo;
@@ -14,6 +15,7 @@ import com.margotekstil.model.ResetTokeni;
 import com.margotekstil.model.Users;
 import com.margotekstil.model.ZavrsenePorudzbine;
 import com.margotekstil.repository.UsersRepository;
+import com.margotekstil.service.ColorPaletaService;
 import com.margotekstil.service.KorpaService;
 import com.margotekstil.service.PhotoService;
 import com.margotekstil.service.ProizvodiService;
@@ -254,7 +256,22 @@ if (!lozinkaRepeat.equals("")){
                 .contentType(MediaType.IMAGE_JPEG)
                 .body(file);
     }
+    
+    @Autowired
+    ColorPaletaService colorPaletaService;
+        
+    @GetMapping(value = "/boja/{bojaId}")
+    public ResponseEntity<Resource> serveBoja(@PathVariable(name = "bojaId") final Integer bojaId) {
 
+        ColorPaleta boja = colorPaletaService.findFirstById(bojaId);
+        String filename = boja.getFilename();
+        Resource file = storageService.loadAsResource(boja.getProizvod().getId(), filename);
+        return ResponseEntity
+                .ok()
+                .contentType(MediaType.IMAGE_JPEG)
+                .body(file);
+    }
+    
     @GetMapping(value = "/photo/{proizvodId}/{photoId}")
     public ResponseEntity<Resource> servePhotoProizvod(@PathVariable(name = "proizvodId") final Integer proizvodId,
             @PathVariable(name = "photoId") final Integer photoId

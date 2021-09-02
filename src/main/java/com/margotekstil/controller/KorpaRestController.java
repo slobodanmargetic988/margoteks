@@ -11,6 +11,7 @@ import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Proizvodi;
 import com.margotekstil.model.Users;
 import com.margotekstil.model.ZavrsenePorudzbine;
+import com.margotekstil.service.ColorPaletaService;
 import com.margotekstil.service.KorpaProizvodiService;
 import com.margotekstil.service.KorpaService;
 import com.margotekstil.service.ProizvodiService;
@@ -187,9 +188,14 @@ return e.getMessage();
         return "Proizvod je uspešno dodat u korpu!";
     }
 
-    @GetMapping("/korpa/dodajProizvodQty/{proizvod_id}/{kolicina}")
+    
+       @Autowired
+    private ColorPaletaService colorPaletaService;
+       
+    @GetMapping("/korpa/dodajProizvodQty/{proizvod_id}/{kolicina}/{boja}")
     String dodajProizvodQty(@PathVariable final int proizvod_id,
-            @PathVariable final int kolicina
+            @PathVariable final int kolicina,
+            @PathVariable final int boja
     ) {
         if (kolicina < 0) {
             return "Morate uneti količinu veću od nula!";
@@ -204,7 +210,11 @@ return e.getMessage();
         novProizvod.setKorpa(korpa);
         novProizvod.setProizvod(proizvod);
         novProizvod.setKolicina(kolicina);
-
+        
+if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
+        novProizvod.setBoja(colorPaletaService.findFirstById(boja));
+}
+        
         try {
             if (postojeciProizvod == null) {
                 korpaProizvodiService.save(novProizvod);

@@ -784,6 +784,40 @@ iframe {
     font-size: 1.05rem;
   }
 }
+.radio-group {
+  position: relative;
+  margin-bottom: 1.5rem;
+}
+
+.radio {
+  display: inline-block;
+  width: 50px;
+  height: 50px;
+  /*     border-radius: 50%; */
+  background: #B2EBF2;
+  box-sizing: border-box;
+  border: 3px solid white;
+  box-shadow: 0 0 2px 3px #e8f5e9;
+  cursor: pointer;
+  margin: 8px 10px 0px 0px;
+  transition: 0.3s;
+}
+.radio:hover {
+  box-shadow: 0 0 2px 2px #892f2b;
+  transition: 0.3s;
+}
+.radio.selected {
+  box-shadow: 0 0 2px 1px #892f2b;
+  transition: 0.3s;
+}
+
+.color-circle {
+  width: 44px;
+  height: 44px;
+  /*     border-radius: 50%; */
+  /*     transform: rotate(-45deg) */
+}
+
 .single-product-show {
   padding: 5rem 0 5rem 0;
   /*add to cart button start*/
@@ -929,6 +963,25 @@ iframe {
   outline-offset: -6px;
   color: #b23539;
   text-decoration: none;
+}
+
+.add-color-btn-adminProductPage {
+  margin-left: .3rem;
+}
+@media screen and (max-width: 1200px) {
+  .add-color-btn-adminProductPage {
+    margin: 0.5rem 0 0 0;
+  }
+}
+@media screen and (max-width: 576px) {
+  .add-color-btn-adminProductPage {
+    margin: 0;
+  }
+}
+@media screen and (max-width: 338px) {
+  .add-color-btn-adminProductPage {
+    margin: 0.7rem 0 0 0;
+  }
 }
 
 #prikaz-showing .img-overlay-proizvod {
