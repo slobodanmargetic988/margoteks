@@ -41,7 +41,7 @@ public class KorpaProizvodi {
     private Proizvodi proizvod;
     
      @ManyToOne(fetch = FetchType.EAGER)
-    @JoinColumn(name = "boja", nullable = false)
+    @JoinColumn(name = "boja")
     private ColorPaleta boja;
      
      

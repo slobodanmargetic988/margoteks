@@ -100,8 +100,7 @@
                         <!--<img class=""  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}">-->
                     </th:block>
                     <th:block th:if="${proizvod.glavnaslika==null}">
-                        <img class="" style="height: 100%; width: 100%; object-fit: cover" src="/img/imageNotFound.jpg">
-                        <!--ubaciti precrtanu sliku-->
+                        <img class="" style="height: 100%; width: 100%; object-fit: cover" src="/img/imageNotFound.jpg" alt="no image" title="image not found">
                     </th:block>
                 </div>
                 <div class="col-sm-6">

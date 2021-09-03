@@ -81,7 +81,7 @@ html {
     }
     .slika-korpaStavkaPregled {
         height: 200px;
-        width: 500px;
+        width: 200px;
         object-fit: cover;
     }
 }
@@ -281,6 +281,7 @@ input[type=number] {
             }
             .nazivOpisSmallerScreen {
                 margin: 1rem 0;
+                max-width: initial;
                 .naslov {
                     font-size: 1.25rem;
                     font-weight: 600;
@@ -289,6 +290,10 @@ input[type=number] {
                     font-size: 1rem;
                     margin-top: .5rem;
                 }
+            }
+            .product-color-basketSmallerScreen {
+                max-width: initial;
+                margin: 2rem 0;
             }
 
         }

@@ -175,6 +175,7 @@ return e.getMessage();
         try {
             if (postojeciProizvod == null) {
                 korpaProizvodiService.save(novProizvod);
+                
             } else {
                 //ne radimo nista vec je u korpi
                 return "Proizvod je već u korpi!";
@@ -183,6 +184,8 @@ return e.getMessage();
             //  korpaService.save(korpa);
         } catch (Exception e) {
             System.out.println(e);
+            System.out.println("ovde");
+            
             return "Proizvod nije dodat u korpu!";
         }
         return "Proizvod je uspešno dodat u korpu!";
