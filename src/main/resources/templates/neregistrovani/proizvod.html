@@ -107,7 +107,7 @@
                     <h1><span th:text="${proizvod.getIme()}"></span></h1>
                     <h2><span th:text="${proizvod.getCena()}"></span>&nbsp;RSD</h2>
                     <div class="description mt-4">
-                        <p><span th:text="${proizvod.getOpis()}"></span></p>
+                        <p><span th:text="${proizvod.getOpis()}" style="white-space: pre-wrap"></span></p>
                         <p><span style="font-weight: 600">Kategorija: </span><span th:text="${proizvod.getKategorija()}"></span></p>
                         <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
                         <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>

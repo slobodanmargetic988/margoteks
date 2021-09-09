@@ -41,7 +41,7 @@
 .div-with-a-btn-dodajSliku-adminGalerijaPage {
   display: block;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 2rem;
 }
 
 .dodajSliku-adminGalerijaPage {
@@ -109,10 +109,6 @@ a .remove-img-btn-adminGalerijaPage:hover {
     height: 20vw;
   }
 
-  .div-with-a-btn-dodajSliku-adminGalerijaPage {
-    margin-bottom: 3rem;
-  }
-
   .dodajSliku-adminGalerijaPage {
     padding: 0.9rem 2.5rem;
   }
@@ -123,10 +119,6 @@ a .remove-img-btn-adminGalerijaPage:hover {
   }
   #gallery .img-wrapper .gallery-img {
     height: 35vw;
-  }
-
-  .div-with-a-btn-dodajSliku-adminGalerijaPage {
-    margin-bottom: 2rem;
   }
 
   .dodajSliku-adminGalerijaPage {
@@ -190,7 +182,7 @@ a .remove-img-btn-adminGalerijaPage:hover {
 #overlay img {
   margin: 0;
   width: 80%;
-  height: auto;
+  height: 90%;
   object-fit: contain;
   padding: 5%;
 }

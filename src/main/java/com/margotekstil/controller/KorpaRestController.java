@@ -47,7 +47,10 @@ public class KorpaRestController {
 
     @Autowired
     private ZavrsenePorudzbineService zavrsenePorudzbineService;
-
+    
+ @Autowired
+    private ColorPaletaService colorPaletaService;
+ 
     @GetMapping("/korpa/zavrsiPorudzbinu/neregistrovan")
     String zavrsiPorudzbinuMargotekstilNeregistrovan(
             @RequestParam("myData") String myData
@@ -81,6 +84,10 @@ public class KorpaRestController {
                 tempKP.setKorpa(tempKorpa);
                 tempKP.setProizvod(proizvodiService.findFirstById(parseInt(temp.getString("idProizvoda"))));
                 tempKP.setKolicina(temp.getInt("kolicina"));
+                int boja=temp.getInt("boja");
+                if (boja!=0){
+                tempKP.setBoja(colorPaletaService.findFirstById(boja));
+                }
                 korpaProizvodiService.saveAndFlush(tempKP);
                 templista.add(tempKP);
 
@@ -191,9 +198,7 @@ return e.getMessage();
         return "Proizvod je uspešno dodat u korpu!";
     }
 
-    
-       @Autowired
-    private ColorPaletaService colorPaletaService;
+   
        
     @GetMapping("/korpa/dodajProizvodQty/{proizvod_id}/{kolicina}/{boja}")
     String dodajProizvodQty(@PathVariable final int proizvod_id,
@@ -207,12 +212,13 @@ return e.getMessage();
         Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
         Korpa korpa = myUser.getKorpa();
         Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
+        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvodAndBoja(korpa, proizvod,colorPaletaService.findFirstById(boja));
 
         KorpaProizvodi novProizvod = new KorpaProizvodi();
         novProizvod.setKorpa(korpa);
         novProizvod.setProizvod(proizvod);
         novProizvod.setKolicina(kolicina);
+       // novProizvod.setBoja(colorPaletaService.findFirstById(boja));
         
 if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
         novProizvod.setBoja(colorPaletaService.findFirstById(boja));
@@ -222,12 +228,16 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
             if (postojeciProizvod == null) {
                 korpaProizvodiService.save(novProizvod);
             } else {
+            
                 if (postojeciProizvod.getKolicina() != kolicina) {
                     postojeciProizvod.setKolicina(kolicina);
                     korpaProizvodiService.save(postojeciProizvod);
+                    return "Proizvod je već u korpi, promenjena je količina !";
                 }
+                  return "Proizvod je već u korpi!";
+                
                 //ne radimo nista vec je u korpi
-                return "Proizvod je već u korpi!";
+              
             }
             // korpa.getKorpaproizvodi().add(novProizvod);
             //  korpaService.save(korpa);
@@ -237,8 +247,8 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
         return "Proizvod je uspešno dodat u korpu!";
     }
 
-    @GetMapping("/korpa/promeniKolicinu/{proizvod_id}/{kolicina}")
-    String promeniKolicinu(@PathVariable final int proizvod_id,
+    @GetMapping("/korpa/promeniKolicinu/{kproizvod_id}/{kolicina}/")
+    String promeniKolicinu(@PathVariable final int kproizvod_id,
             @PathVariable final int kolicina
     ) {
         if (kolicina < 0) {
@@ -247,8 +257,8 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
         Korpa korpa = myUser.getKorpa();
-        Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
+    //    Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
             postojeciProizvod.setKolicina(kolicina);
             korpaProizvodiService.save(postojeciProizvod);
@@ -258,14 +268,14 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
         return "Kolicina je uspešno izmenjena!";
     }
 
-    @GetMapping("/korpa/povecajKolicinu/{proizvod_id}")
-    String povecajKolicinu(@PathVariable final int proizvod_id
+    @GetMapping("/korpa/povecajKolicinu/{kproizvod_id}")
+    String povecajKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
         Korpa korpa = myUser.getKorpa();
-        Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
+     //   Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
             postojeciProizvod.setKolicina(postojeciProizvod.getKolicina() + 1);
 
@@ -276,38 +286,41 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
         return "Uspešno je uvećana količina!";
     }
 
-    @GetMapping("/korpa/smanjiKolicinu/{proizvod_id}")
-    String smanjiKolicinu(@PathVariable final int proizvod_id
+    @GetMapping("/korpa/smanjiKolicinu/{kproizvod_id}")
+    String smanjiKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
         Korpa korpa = myUser.getKorpa();
-        Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
-        try {
+      //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+    KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
+    try {
 
             if (postojeciProizvod.getKolicina() > 0) {
                 postojeciProizvod.setKolicina(postojeciProizvod.getKolicina() - 1);
                 korpaProizvodiService.save(postojeciProizvod);
             } else {
+                System.out.println("Kolicina je nula!");
                 return "Kolicina je nula!";
             }
 
         } catch (Exception e) {
+             System.out.println("returnolicina nije smanjena!");
             return "returnolicina nije smanjena!";
         }
+       System.out.println("Kolicina je uspešno smanjena!!");
         return "Kolicina je uspešno smanjena!";
     }
 
-    @GetMapping("/korpa/skloniProizvod/{proizvod_id}")
-    String skloniProizvod(@PathVariable final int proizvod_id
+    @GetMapping("/korpa/skloniProizvod/{kproizvod_id}")
+    String skloniProizvod(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
         Korpa korpa = myUser.getKorpa();
-        Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
-        KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
-        try {
+      //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
+    KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
+    try {
             korpaProizvodiService.delete(postojeciProizvod);
         } catch (Exception e) {
             System.out.println(e);

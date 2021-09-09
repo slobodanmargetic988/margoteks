@@ -29,11 +29,11 @@
         <h4 id="ProizvodDodatJS">Proizvod je dodat u korpu</h4>
         <div class="row mt-3" style="padding:.5rem">
             <div class="col-md-6 figure-left">
-                <div class="master-img"><img id="popupimg" src="" class="popup-slika img-fluid" /></div>
+                <div class="master-img"><img id="popupimg" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}"  class="popup-slika img-fluid" /></div>
             </div>
             <div class="col-md-6 figure-right">
-                <span class="productName" id="popupnaziv"  text=""> </span><br>
-                <span class="master-price" id="popupcena" text=""></span> <span style="">RSD</span>
+                <span class="productName" id="popupnaziv"  th:text="${proizvod.getIme()}"> </span><br>
+                <span class="master-price" id="popupcena" th:text="${proizvod.getCena()}"></span> <span style="">RSD</span>
                 <div class="shop-buttons row">
                     <a th:href="@{/shoppingCart}" class="btn-cart col-12">Idi u korpu</a>
                     <a th:href="@{/admin/shop}" class="btn-shop-outline col-12">Nazad na shop</a>
@@ -111,7 +111,7 @@
                     <h1><span th:text="${proizvod.getIme()}"></span></h1>
                     <h2><span th:text="${proizvod.getCena()}"></span>&nbsp;RSD</h2>
                     <div class="description mt-4">
-                        <p><span th:text="${proizvod.getOpis()}"></span></p>
+                        <p><span th:text="${proizvod.getOpis()}" style="white-space: pre-wrap"></span></p>
                         <p><span style="font-weight: 600">Kategorija: </span><span th:text="${proizvod.getKategorija()}"></span></p>
                         <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
                         <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>

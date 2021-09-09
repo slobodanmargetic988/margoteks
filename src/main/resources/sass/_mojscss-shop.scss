@@ -10,8 +10,9 @@
             text-decoration: none;
         }
         p {  
-            font-size: 1.4rem;
+            font-size: 1.2rem;
             color: $brown-black-color;
+                line-height: normal;
         }
     }
     @include breadcrumb;
@@ -459,7 +460,7 @@
     .all-categories-left-nav-container-small-screen {
         display: block;
         text-align: left;
-        margin-bottom: 2rem;
+        margin-bottom: 1rem;
         .btn-kategorije {
             /*border: 1px solid $burgundy-color;*/
             text-decoration: none;

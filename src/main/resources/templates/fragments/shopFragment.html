@@ -32,7 +32,7 @@
                 </a>
             </div>
 
-            <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+            <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
                 <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
             </a>
             <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
@@ -60,7 +60,7 @@
                 </a>
             </div>
 
-            <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+            <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
                 <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
             </a>
             <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
@@ -88,7 +88,7 @@
                 </a>
 
             </div>
-            <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
+            <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
                 <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
             </a>
             <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
@@ -112,7 +112,7 @@
 
     <th:block th:fragment="korpaStavka (stavka)">
 
-        <div class="row border-top border-bottom stavkaJS korpaStavkeSmallerScreen" th:pid="${stavka.proizvod.id}">
+        <div class="row border-top border-bottom stavkaJS korpaStavkeSmallerScreen" th:pid="${stavka.id}" th:boja="${stavka.boja}" >
             <div class="row main align-items-center mt-2 mb-2 w-100">
                 <div class="col-3 slikaStavkaSmallerScreen"><img class="img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${stavka.proizvod.glavnaslika.id},proizvodId=${stavka.proizvod.id})}" th:alt="${stavka.proizvod.glavnaslika.alt_text}" th:title="${stavka.proizvod.glavnaslika.title}"></div>
                 <div class="col nazivOpisSmallerScreen">
@@ -123,22 +123,25 @@
                     <th:block th:if="${stavka.boja != null} " > 
                         <img class="color-circle" th:src="@{/boja/{bojaId} (bojaId=${stavka.boja.id})}" th:alt="${stavka.boja.alt_text}" th:title="${stavka.boja.title}"> 
                     </th:block>
+                    <th:block th:if="${stavka.boja == null} " > 
+                        <span>Boja: osnovna</span>
+                    </th:block>
                 </div>
                 <div class="col minusiplus minusiplusSmallerScreen">
-                    <input type='button'  value='-' class='minusBtn minusBtnSmallerScreen smanjiJS' field='quantity'  th:pid="${stavka.proizvod.id}" />
-                    <input  type='number' name='quantity' th:value='${stavka.kolicina}' class='qty qtySmallerScreen border-number kolicinaJS'  th:pid="${stavka.proizvod.id}" />
-                    <input type='button'  value='+' class='plusBtn plusBtnSmallerScreen povecajJS' field='quantity'  th:pid="${stavka.proizvod.id}"/>
-                    <input  type='number' name='kilaza' th:value='${stavka.proizvod.kilaza}' class='qty border-number kilazaJS'  th:pid="${stavka.proizvod.id}" style="display: none" />
+                    <input type='button'  value='-' class='minusBtn minusBtnSmallerScreen smanjiJS' field='quantity'  th:pid="${stavka.id}" th:boja="${stavka.boja}"/>
+                    <input  type='number' name='quantity' th:value='${stavka.kolicina}' class='qty qtySmallerScreen border-number kolicinaJS'  th:pid="${stavka.id}" th:boja="${stavka.boja}"/>
+                    <input type='button'  value='+' class='plusBtn plusBtnSmallerScreen povecajJS' field='quantity'  th:pid="${stavka.id}" th:boja="${stavka.boja}" />
+                    <input  type='number' name='kilaza' th:value='${stavka.proizvod.kilaza}' class='qty border-number kilazaJS'  th:pid="${stavka.id}" th:boja="${stavka.boja}" style="display: none" />
                 </div>
                 <div class="col cenaKilazaSmallerScreen">
                     <div class="cenapr cenaprSmallerScreen">Cena: </div>
-                    <span class="cenaproizvoda" th:pid="${stavka.proizvod.id}" th:text="${#numbers.formatDecimal(stavka.proizvod.cena, 0, 'NONE', 2, 'POINT')}"></span>
+                    <span class="cenaproizvoda" th:pid="${stavka.id}"  th:text="${#numbers.formatDecimal(stavka.proizvod.cena, 0, 'NONE', 2, 'POINT')}"></span>
                     <span style="font-size: .95rem;font-weight: 700;"> RSD</span>
-                    <div class="cenapr cenaprSmallerScreen">Ukupna cena: </div><span class="totalcenaproizvoda" th:pid="${stavka.proizvod.id}"></span> <span style="font-size: .95rem;font-weight: 700;">RSD</span>
+                    <div class="cenapr cenaprSmallerScreen">Ukupna cena: </div><span class="totalcenaproizvoda" th:pid="${stavka.id}"th:boja="${stavka.boja}"></span> <span style="font-size: .95rem;font-weight: 700;">RSD</span>
                     <div class="cenapr cenaprSmallerScreen">Ukupna kilaza: </div>
-                    <span class="totalkilazaproizvoda" th:pid="${stavka.proizvod.id}"></span> <span style="font-size: .95rem;font-weight: 700;">kg</span>
+                    <span class="totalkilazaproizvoda" th:pid="${stavka.id}" th:boja="${stavka.boja}"></span> <span style="font-size: .95rem;font-weight: 700;">kg</span>
                 </div>
-                <span class=" skloni"  th:pid="${stavka.proizvod.id}" >&#10005;&nbsp;<span class="ukloniSmallerScreen">Ukloni</span></span>
+                <span class=" skloni"  th:pid="${stavka.id}" >&#10005;&nbsp;<span class="ukloniSmallerScreen">Ukloni</span></span>
             </div>
         </div>
 
@@ -158,6 +161,9 @@
                 <div class="col-2 product-color-basket product-color-basketSmallerScreen">
                     <th:block th:if="${stavka.boja != null} " > 
                         <img class="color-circle" th:src="@{/boja/{bojaId} (bojaId=${stavka.boja.id})}" th:alt="${stavka.boja.alt_text}" th:title="${stavka.boja.title}"> 
+                    </th:block>
+                    <th:block th:if="${stavka.boja == null} " > 
+                         <span>Boja: osnovna</span>
                     </th:block>
                 </div>
                 <div class="cenaprSmallerScreenStavkaPregled">

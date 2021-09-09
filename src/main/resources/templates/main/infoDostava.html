@@ -2,84 +2,75 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.sprinfgramework.org/schema/security" xmlns:sec2="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Dostava</title>
+        <title>Margotekstil | Dostava i reklamacija</title>
 
-<meta name="description" content="Margotekstil dostava. Informacije vezane za dostavu proizvoda poručenih preko našeg web sajta. Delivery info information."/> 
-        <th:block th:insert="fragments/head :: head" />
-        <link th:href="@{/css/usloviKoriscenja.css}" rel="stylesheet" type="text/css" />
+        <meta name="description" content="Margotekstil dostava i reklamacija. Informacije vezane za dostavu i reklamaciju proizvoda poručenih preko našeg web sajta. Delivery info information."/> 
+    <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/usloviKoriscenja.css}" rel="stylesheet" type="text/css" />
 
-    </head>
+</head>
 
-    <body>
-        <img src="/img/info-dostava-img1.jpg" class="header-img" alt="info-dostava-header-image">
+<body>
+    <img src="/img/info-dostava-img1.jpg" class="header-img" alt="info-dostava-header-image">
 
-            <th:block th:insert="fragments/navigation :: navbar" />
-            <div class="text-box">
-                <h2>MARGOTEKSTIL</h2>
-                <p>INFORMACIJE O DOSTAVI</p>
+<th:block th:insert="fragments/navigation :: navbar" />
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>
+    <p>INFORMACIJE O DOSTAVI</p>
+</div>
+
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+<section class="body-content">
+    <section class="section">
+        <div class="container">
+            <div class="content">
+                <div class="page-content">
+                    <h1>Informacije o dostavi i reklamacijama</h1>
+                    <div class="page-text">
+                        <p>Sve porudžbine ćemo se potruditi da pošaljemo prvi sledeći radni dan od dana poručivanja.</p>
+                        <p>Ukoliko nemamo nešto na stanju od poručene robe i nismo u mogućnosti da pošiljku pošaljemo sledeći radni dan, pozvaćemo Vas radi dogovora.</p>
+                        <p>Brze pošte, najčešće, isporučuju paket sledeći dan nakon što je isti poslat, ali naravno moguće je zbog raznoraznih problema
+                            (manjak radne snage zbog bolesti, god.odmora i sl, problemi sa vozilom i vremenskim uslovima, preopterećenosti...) da pošiljka
+                            bude isporučena 2-5 dana nakon što je poslata ili da se za neka udaljenija mesta ne radi dostava svaki dan.</p>
+                        <p>Imajte u vidu da brze pošte ne rade nedeljom i praznicima, a subotom rade skraćeno.</p>
+                        <p><b>CENA PROIZVODA I TROŠKOVI DOSTAVE:</b></p>
+                        <p>Sve cene na sajtu su konačne cene MARGOTEKSTIL-a za internet poručivanje. Troškove dostave snosi Kupac.
+                            Troškovi dostave varirarju u zavisnosti od težine, vrednosti porudžbine, načina plaćanja, kurirske službe i ispod su navedene približne cene
+                            po kilogramu. </p>
+                        <p>Robu šaljemo u roku od 3 dana.</p>
+                        <p>do 0.5 kg - oko 300 din</p>
+                        <p>do 1 kg - oko 350 din</p>
+                        <p>do 2 kg - oko 420 din</p>
+                        <p>do 5 kg - oko 530 din</p>
+                        <p>preko 5 kg - oko 700 din</p>
+                        <p>Molimo Vas imajte u vidu da i pakovanje ulazi u težinu paketa, a ne samo poručena roba.</p>
+                        <p>Nakon što predamo paket kurirskoj službi nemamo više uticaja na njihov rad, 
+                            niti imamo uticaj na šemu i tajming isporuke pošiljaka na Vašem terenu i da to zavisi isključivo od kurirske službe.</p>
+                        <p>Za slanje robe van granica RS, poštarina se obračunava po važećem cenovniku za medjunarodne pošiljke.</p>
+                        <p><b>REKLAMACIJE</b></p>
+                        <p> Reklamaciju i zamenu robe prihvatamo u roku od 7 dana.</p>
+                        <p>U slučaju reklamacije robe poštarinu ne snosi kupa. </p>
+                        <p>U slučaju zamene robe poštarinu snosi kupac.</p>
+                        <p>E-mail: <a class="email-poverenik" href="mailto:margoteksdoo@gmail.com" target="_blank" rel="noopener">margoteksdoo@gmail.com</a></p>
+                        <p>Telefon: +381 64 112 51 29</p>
+                    </div>
+                </div>
             </div>
-
-            <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-                <section class="body-content">
-                    <section class="section">
-                        <div class="container">
-                            <div class="content">
-                                <div class="page-content">
-                                    <h1>Informacije o dostavi i reklamacijama</h1>
-                                    <div class="page-text">
-                                        <p>Sve porudžbine ćemo se potruditi da pošaljemo prvi sledeći radni dan od dana poručivanja.</p>
-                                        <p>Ukoliko nemamo nešto na stanju od poručene robe i nismo u mogućnosti da pošiljku pošaljemo sledeći radni dan, pozvaćemo Vas radi dogovora.</p>
-                                        <p>Brze pošte, najčešće, isporučuju paket sledeći dan nakon što je isti poslat, ali naravno moguće je zbog raznoraznih problema
-                                            (manjak radne snage zbog bolesti, god.odmora i sl, problemi sa vozilom i vremenskim uslovima, preopterećenosti...) da pošiljka
-                                            bude isporučena 2-5 dana nakon što je poslata ili da se za neka udaljenija mesta ne radi dostava svaki dan.</p>
-                                        <p>Imajte u vidu da brze pošte ne rade nedeljom i praznicima, a subotom rade skraćeno.</p>
-                                        <p><b>CENA PROIZVODA I TROŠKOVI DOSTAVE:</b></p>
-                                        <p>Sve cene na sajtu su konačne cene MARGOTEKSTIL-a za internet poručivanje. Troškove dostave snosi Kupac.
-                                            Troškovi dostave varirarju u zavisnosti od težine, vrednosti porudžbine, načina plaćanja, kurirske službe i ispod su navedene približne cene
-                                            po kilogramu. </p>
-                                        <p>Robu šaljemo u roku od 3 dana.</p>
-                                        <p>do 0.5 kg - oko 300 din</p>
-                                        <p>do 1 kg - oko 350 din</p>
-                                        <p>do 2 kg - oko 420 din</p>
-                                        <p>do 5 kg - oko 530 din</p>
-                                        <p>preko 5 kg - oko 700 din</p>
-                                        <p>Molimo Vas imajte u vidu da i pakovanje ulazi u težinu paketa, a ne samo poručena roba.</p>
-                                        <p>Nakon što predamo paket kurirskoj službi nemamo više uticaja na njihov rad, 
-                                            niti imamo uticaj na šemu i tajming isporuke pošiljaka na Vašem terenu i da to zavisi isključivo od kurirske službe.</p>
-                                        <p>Za slanje robe van granica RS, poštarina se obračunava po važećem cenovniku za medjunarodne pošiljke.</p>
-                                        <p><b>REKLAMACIJE</b></p>
-                                        <p> Reklamaciju i zamenu robe prihvatamo u roku od 7 dana.</p>
-                                        <p>U slučaju reklamacije robe poštarinu ne snosi kupa. </p>
-                                        <p>U slučaju zamene robe poštarinu snosi kupac.</p>
-                                        <p>E-mail: <a class="email-poverenik" href="margoteksdoo@gmail.com" target="_blank" rel="noopener">margoteksdoo@gmail.com</a></p>
-                                        <p>Telefon: +381 64 112 51 29</p>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </section>
-                </section>
+        </div>
+    </section>
+</section>
 
 
+<th:block th:insert="fragments/footer :: footer" />
 
-                <!--color: #00a5b5; hover a email link-->
-
-
-
+<div id="backToTop"></div>
 
 
+<th:block th:insert="fragments/scripts :: scripts" />
+<script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
 
 
-                <th:block th:insert="fragments/footer :: footer" />
+</body>
 
-                <div id="backToTop"></div>
-
-
-                <th:block th:insert="fragments/scripts :: scripts" />
-                <script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
-
-
-                </body>
-
-                </html>
+</html>

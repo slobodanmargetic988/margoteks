@@ -44,6 +44,7 @@ img {
 }
 
 /*navigation start*/
+
 .navbar {
     max-width:100%;
     z-index:1;
@@ -57,11 +58,11 @@ img {
         padding: 0 0.4rem;
     }
     .nav-link-admin {
-        font-size: 1.156vw;
+        /*font-size: 1.156vw;*/
     }
     .nav-link {
         color: $white-color;
-        font-size: 1.3vw;
+        /*font-size: 1.3vw;*/
         font-weight: 600;
         &:hover {
             color: $white-color;
@@ -116,7 +117,7 @@ img {
 }
 
 #brandlogo {
-    max-width: 12vw;
+    max-width: 10vw;
 }
 
 .navbar-toggler-icon {

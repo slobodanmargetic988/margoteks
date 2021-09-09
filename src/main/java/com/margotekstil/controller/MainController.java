@@ -354,10 +354,10 @@ if (!lozinkaRepeat.equals("")){
         return "main/petmania";
     }
 
-    @GetMapping(value = "/enterijer")
-    public String publicEnterijerMargotekstil(final Model model) {
+    @GetMapping(value = "/horeca-tekstil")
+    public String publicHorecaTekstilMargotekstil(final Model model) {
 
-        return "main/enterijer";
+        return "main/horeca-tekstil";
     }
 
     @Autowired

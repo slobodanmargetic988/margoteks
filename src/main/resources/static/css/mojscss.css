@@ -258,8 +258,9 @@ iframe {
   text-decoration: none;
 }
 #products-show a p {
-  font-size: 1.4rem;
+  font-size: 1.2rem;
   color: #211b14;
+  line-height: normal;
 }
 #products-show .breadcrumb {
   font-family: "Raleway", sans-serif;
@@ -740,7 +741,7 @@ iframe {
   .all-categories-left-nav-container-small-screen {
     display: block;
     text-align: left;
-    margin-bottom: 2rem;
+    margin-bottom: 1rem;
   }
   .all-categories-left-nav-container-small-screen .btn-kategorije {
     /*border: 1px solid $burgundy-color;*/
@@ -794,7 +795,7 @@ iframe {
   width: 50px;
   height: 50px;
   /*     border-radius: 50%; */
-  background: #B2EBF2;
+  /*    background: #B2EBF2;*/
   box-sizing: border-box;
   border: 3px solid white;
   box-shadow: 0 0 2px 3px #e8f5e9;
@@ -843,19 +844,20 @@ iframe {
   font-family: "Raleway", sans-serif;
   font-display: swap;
   color: #211b14;
-  font-size: 2.3rem;
+  font-size: 1.9rem;
 }
 .single-product-show h2 {
   font-family: "Lato", sans-serif;
   font-display: swap;
   color: #892f2b;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
 }
 .single-product-show .description p {
   font-family: "Raleway", sans-serif;
   font-display: swap;
   color: #525252;
-  font-size: 1.1rem;
+  /*font-size: 1.1rem;*/
+  text-align: justify;
 }
 .single-product-show form .quantity input {
   display: inline-block;
@@ -1088,6 +1090,10 @@ iframe {
     height: 35vh;
   }
 }
+.link-product-description:hover {
+  text-decoration: none !important;
+}
+
 .dodajuKorpu-admin-shop {
   cursor: pointer;
   outline: none;
@@ -1141,6 +1147,11 @@ iframe {
   width: 40vw;
   object-fit: cover;
   height: 40vh;
+  transition-duration: 0.4s;
+}
+.proizvod-slika:hover {
+  transform: scale(1.03);
+  z-index: 0;
 }
 
 .product-description {
@@ -1157,7 +1168,8 @@ iframe {
   font-display: swap;
   color: #892f2b;
   text-align: center;
-  font: 600 1.3rem "Lato", sans-serif;
+  font: 600 1.2rem "Lato", sans-serif;
+  margin-top: .5rem;
 }
 
 .dodajuKorpu-shop-page {
@@ -1569,6 +1581,7 @@ input[value='+'], input[value='-'] {
 
 .naslov {
   font-weight: bold;
+  padding: 0 0.5rem 0 0;
 }
 
 .opis-proizvoda {
@@ -2659,11 +2672,11 @@ img {
   padding: 0 0.4rem;
 }
 .navbar .nav-link-admin {
-  font-size: 1.156vw;
+  /*font-size: 1.156vw;*/
 }
 .navbar .nav-link {
   color: white;
-  font-size: 1.3vw;
+  /*font-size: 1.3vw;*/
   font-weight: 600;
 }
 .navbar .nav-link:hover {
@@ -2708,7 +2721,7 @@ img {
 }
 
 #brandlogo {
-  max-width: 12vw;
+  max-width: 10vw;
 }
 
 .navbar-toggler-icon {

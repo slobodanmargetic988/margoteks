@@ -6,6 +6,7 @@
 package com.margotekstil.repository;
 
 import com.margotekstil.model.Korpa;
+import com.margotekstil.model.KorpaProizvodi;
 import java.util.List;
 import org.springframework.data.jpa.repository.JpaRepository;
 
@@ -23,7 +24,7 @@ public interface KorpaRepository extends JpaRepository<Korpa, Integer> {
     List<Korpa> findAllBy();
     
      Korpa findFirstById(int id);
-    
+  
   
    
 }

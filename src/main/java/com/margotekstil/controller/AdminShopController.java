@@ -46,6 +46,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 //@Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class AdminShopController {
+
     @Autowired
     ZavrsenePorudzbineService zavrsenePorudzbineService;
 
@@ -59,7 +60,6 @@ public class AdminShopController {
 
         return "main/admin/adminPregledPorudzbine";
     }
-
 
     @GetMapping(value = "/admin/noviProizvod")
     public String adminShopNoviProizvod(
@@ -111,9 +111,9 @@ public class AdminShopController {
             proizvod.setSlicniproizvodi(slicni);
             proizvod.setDimenzije(dimenzije);
             proizvod.setKilaza(kilaza);
-      if (!file.isEmpty()) {
-            proizvodiService.save(proizvod);
-      
+            if (!file.isEmpty()) {
+                proizvodiService.save(proizvod);
+
                 String filename = storageService.store(file, proizvod.getId());
 
                 Photo photo = new Photo();
@@ -127,17 +127,17 @@ public class AdminShopController {
                 proizvod.setGlavnaslika(photo);
                 proizvodiService.save(proizvod);
                 proizvodId += proizvod.getId();
-                 redirectAttributes.addFlashAttribute("successMessage", "Proizvod je uspešno dodat!");
-            }else{
-        redirectAttributes.addFlashAttribute("errorMessage", "proizvod nije uspešno dodat, morate izabrati sliku! " );
-              return "redirect:/admin/noviProizvod" ;
-      }
-           
+                redirectAttributes.addFlashAttribute("successMessage", "Proizvod je uspešno dodat!");
+            } else {
+                redirectAttributes.addFlashAttribute("errorMessage", "proizvod nije uspešno dodat, morate izabrati sliku! ");
+                return "redirect:/admin/noviProizvod";
+            }
+
             //  redirectAttributes.addFlashAttribute("errorMessage", ("proizvod nije uspesno dodat!"));
         } catch (Exception e) {
             //  System.out.println(e);
             redirectAttributes.addFlashAttribute("errorMessage", ("proizvod nije uspešno dodat! " + e.getMessage()));
-              return "redirect:/admin/noviProizvod" ;
+            return "redirect:/admin/noviProizvod";
         }
         return "redirect:/admin/proizvod/" + proizvodId;
         //     return "redirect:/admin/noviProizvod";
@@ -147,7 +147,7 @@ public class AdminShopController {
     @GetMapping(value = "/admin/galerija")
     public String adminGalerijaMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
 
-        model.addAttribute("listaSlika", photoService.findByProizvodIsNullAndGlavnazaproizvodIsNullAndActive(true,pageable));
+        model.addAttribute("listaSlika", photoService.findByProizvodIsNullAndGlavnazaproizvodIsNullAndActive(true, pageable));
 
         return "main/admin/adminGalerija";
     }
@@ -181,7 +181,7 @@ public class AdminShopController {
         model.addAttribute("proizvodId", proizvodId);
         return "main/admin/adminProizvodDodatnaSlika";
     }
-    
+
     @GetMapping(value = "/admin/izmeniProizvod/{proizvodId}/dodajBoju")
     public String adminProizvodBojaMargotekstil(final Model model,
             @PathVariable final Integer proizvodId
@@ -195,16 +195,11 @@ public class AdminShopController {
 
         return "main/admin/adminNovaSlika";
     }
-    
-    
-    
-    
-        @Autowired
 
+    @Autowired
     ColorPaletaService colorPaletaService;
 
-    
-     @PostMapping(value = "/admin/izmeniProizvod/{proizvodId}/dodajBoju")
+    @PostMapping(value = "/admin/izmeniProizvod/{proizvodId}/dodajBoju")
     public String adminBojaZaProizvodSaveMargotekstil(final Model model,
             @PathVariable final Integer proizvodId,
             @RequestParam("file") MultipartFile file,
@@ -231,10 +226,8 @@ public class AdminShopController {
         return "redirect:/admin/proizvod/" + proizvodId;
         //  return "main/admin/adminNovaSlika";
     }
-    
-    
-    
-//ovaj copiramo za poaletu
+
+//ovaj kopiramo za paletu
     @PostMapping(value = "/admin/novaSlika/{proizvodId}/save")
     public String adminDodatnaNovaSlikaProizvodSaveMargotekstil(final Model model,
             @PathVariable final Integer proizvodId,
@@ -273,7 +266,7 @@ public class AdminShopController {
     public String adminNovaSlikaSaveMargotekstil(final Model model,
             @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,
-             @RequestParam(name = "alt_text") String alt_text,
+            @RequestParam(name = "alt_text") String alt_text,
             RedirectAttributes redirectAttributes
     ) {
         try {
@@ -289,7 +282,7 @@ public class AdminShopController {
 
         } catch (Exception e) {
             // System.out.println(e);
-            redirectAttributes.addFlashAttribute("errorMessage", ("Slika nije uspešno dodata u galeriju! Nevalidan tip fajla. " + e.getMessage() ));
+            redirectAttributes.addFlashAttribute("errorMessage", ("Slika nije uspešno dodata u galeriju! Nevalidan tip fajla. " + e.getMessage()));
 
         }
         return "redirect:/admin/galerija";
@@ -300,10 +293,10 @@ public class AdminShopController {
     ProizvodiService proizvodiService;
 
     @GetMapping(value = "/admin/shop")
-    public String adminShopMargotekstil(final Model model,@PageableDefault(value = 12) final Pageable pageable) {
-    model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
-        model.addAttribute("listaProizvoda",  proizvodiService.findAllByActiveOrderByImeAsc(true,pageable));
-model.addAttribute("trenutnaKategorija", "sveKategorije");
+    public String adminShopMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
+        model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
+        model.addAttribute("listaProizvoda", proizvodiService.findAllByActiveOrderByImeAsc(true, pageable));
+        model.addAttribute("trenutnaKategorija", "sveKategorije");
         return "main/admin/adminShop";
     }
 
@@ -315,7 +308,7 @@ model.addAttribute("trenutnaKategorija", "sveKategorije");
 
         model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
         model.addAttribute("listaProizvoda", proizvodiService.findByKategorijaOrderByActiveDescImeAsc(kategorija, pageable));
-model.addAttribute("trenutnaKategorija", kategorija);
+        model.addAttribute("trenutnaKategorija", kategorija);
         return "main/admin/adminShop";
     }
 
@@ -385,7 +378,7 @@ model.addAttribute("trenutnaKategorija", kategorija);
             @RequestParam(name = "pdv", defaultValue = "0") Double pdv,
             @RequestParam(name = "file", required = false) MultipartFile file,
             @RequestParam(name = "title", required = false) String title,
-             @RequestParam(name = "alt_text", required = false) String alt_text,
+            @RequestParam(name = "alt_text", required = false) String alt_text,
             @RequestParam(name = "slicniProizvod1", defaultValue = "1") Integer slicniProizvod1,
             @RequestParam(name = "slicniProizvod2", defaultValue = "3") Integer slicniProizvod2,
             @RequestParam(name = "slicniProizvod3", defaultValue = "4") Integer slicniProizvod3,

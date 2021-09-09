@@ -5,6 +5,7 @@
  */
 package com.margotekstil.repository;
 
+import com.margotekstil.model.ColorPaleta;
 import com.margotekstil.model.Korpa;
 import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Proizvodi;
@@ -21,7 +22,7 @@ import org.springframework.stereotype.Repository;
 public interface KorpaProizvodiRepository extends JpaRepository<KorpaProizvodi, Integer> {
 
     List<KorpaProizvodi> findAllBy();
-
+    KorpaProizvodi findFirstById(Integer kproizvod_id);
     KorpaProizvodi findFirstByKorpaAndProizvod(Korpa korpa, Proizvodi proizvod);
-
+KorpaProizvodi findFirstByKorpaAndProizvodAndBoja(Korpa korpa,Proizvodi proizvod,ColorPaleta  boja);
 }

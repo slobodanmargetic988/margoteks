@@ -9,14 +9,13 @@ $(document).ready(function () {
 
     $(".skloni").on("click", function (e) {
         id = $(this).attr("pid");
+ boja = $(this).attr("boja");
 
-        $('.stavkaJS[pid="' + id + '"]').slideUp("slow", function () {
-            $('.stavkaJS[pid="' + id + '"]').remove();
-            skloniIzCookieKorpe(id);
+        $('.stavkaJS[pid="' + id + '"][boja='+boja+']').slideUp("slow", function () {
+            $('.stavkaJS[pid="' + id + '"][boja="'+boja+'"]').remove();
+            skloniIzCookieKorpe(id,boja);
             updateTotals();
         });
-
-
     });
 
     $(".smanjiJS").on("click", function (e) {
@@ -119,17 +118,28 @@ function napraviKorpaStavkePregled() {
       var stavke = "";
      if (Cookies.get('korpa') !== undefined){
     var celaKorpa = JSON.parse(Cookies.get('korpa'));
-
+ var bojatekst="";
     for (var i = 0; i < celaKorpa.length; i++) {
 
+ if (celaKorpa[i].boja != 0) {
+                bojatekst=" <img class=\"color-circle\" src=\"/boja/" + celaKorpa[i].boja + "\" > ";
+            }
+            else{
+                 bojatekst=" <span>Boja: osnovna</span>" ;
+                
+            }
 
         var stavka = "<div class=\"row border-top border-bottom stavkaPregledJS korpaStavkeSmallerScreen\" pid=\"" + celaKorpa[i].idProizvoda + "\">"
-                + "            <div class=\"row main align-items-center mt-2 mb-2\">"
+                + "            <div class=\"row main align-items-center mt-2 mb-2 w-100\">"
                 + "           <div class=\"col-4 slikaStavkaSmallerScreen\"><img class=\"img-fluid slika-korpaStavkaPregled  slika-korpaStavkaSmallerScreen\"  src=\"/photo/" + celaKorpa[i].idProizvoda + "/" + celaKorpa[i].photoId + "\" alt=\"" +celaKorpa[i].alt_text+"\"  title=\"" +celaKorpa[i].title+"\"></div>"
-                + "          <div class=\"col nazivOpisSmallerScreen\">"                                  
+                + "          <div class=\"col-2 nazivOpisSmallerScreen\">"                                  
                 + "          <div class=\"row naslov\"><span>" + celaKorpa[i].nazivProizvoda + "</span></div>"
-//                + "          <div class=\"row opis-proizvoda\"><span >" + celaKorpa[i].opis + "</span></div>"
-                + "         </div>"
+          + "         </div>"
+      + "<div class=\"col-3 product-color-basket product-color-basketSmallerScreen\">"
+                    +bojatekst
+                    +"</div>"
+        
+              
                 + "         <div class=\"cenaprSmallerScreenStavkaPregled\">"
                 + "        <div class=\"col cenaprSmallerScreen cenaprSmallerScreenStavkaPregled\" style=\"font-weight: 500\">Kolicina:  <span style=\"font-weight: 600\" class=\"kolicinaPregledJS\" >" + celaKorpa[i].kolicina + " </span> </div>"
                 + "        <div class=\"col cenaprSmallerScreen cenaprSmallerScreenStavkaPregled\" style=\"font-weight: 500; padding-bottom: 1rem;\">Cena: <br><span style=\"font-weight: 600\" >" + celaKorpa[i].cena + "</span> RSD </div>"
@@ -142,5 +152,3 @@ function napraviKorpaStavkePregled() {
     return stavke;
 }
 
-
-  

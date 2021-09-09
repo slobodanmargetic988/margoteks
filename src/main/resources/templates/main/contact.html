@@ -2,126 +2,113 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.sprinfgramework.org/schema/security" xmlns:sec2="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Kontakt</title>
+        <title>Margotekstil | Kontakt</title>
 
-        <th:block th:insert="fragments/head :: head" />
-<meta name="description" content="Margotekstil kontakt strana. Pošaljite nam email poruku, proverite brojeve telefona na koje možete da nas dobijete ili proverite našu lokaciju na mapi. Contact page."/> 
-    </head>
+    <th:block th:insert="fragments/head :: head" />
+    <meta name="description" content="Margotekstil kontakt strana. Pošaljite nam email poruku, proverite brojeve telefona na koje možete da nas dobijete ili proverite našu lokaciju na mapi. Contact page."/> 
+</head>
 
-    <body>
-        <img src="/img/kontakt2.jpg" class="header-img" alt="contact-header-image">
+<body>
+    <img src="/img/kontakt2.jpg" class="header-img" alt="contact-header-image">
 
-            <th:block th:insert="fragments/navigation :: navbar" />
-            <div class="text-box text-box-contact-page">
-                <h2>MARGOTEKSTIL</h2>
-                <p>KONTAKT</p>
+<th:block th:insert="fragments/navigation :: navbar" />
+<div class="text-box text-box-contact-page">
+    <h2>MARGOTEKSTIL</h2>
+    <p>KONTAKT</p>
+</div>
+
+<div class="container infos">
+    <div class="row">
+        <div class="col-md-4 center-info">
+            <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
+            <div class="c-info">
+                <h3>ADRESA</h3>
+                <p><a href="https://goo.gl/maps/thFoVjcg9BCFShPH8">Časlava Veljića 53, Beograd</a></p>
             </div>
-
-            <div class="container infos">
-                <div class="row">
-                    <div class="col-md-4 center-info">
-                        <i class="fa fa-map-marker fa-3x" aria-hidden="true"></i>
-                        <div class="c-info">
-                            <h3>ADRESA</h3>
-                            <p>Časlava Veljića 53, Beograd</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 center-info">
-                        <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
-                        <div class="c-info">
-                            <h3>TELEFON</h3>
-                            <p>+381 64 112 51 29</p>
-                        </div>
-                    </div>
-                    <div class="col-md-4 center-info">
-                        <i class="fa fa-envelope fa-3x"></i>
-                        <div class="c-info">
-                            <h3 class="">EMAIL</h3>
-                            <p><a href="mailto:margoteks.doo@gmail.com" target="_blank" rel="noopener">margoteks.doo@gmail.com</a></p>
-                        </div>
-                    </div>
-                </div>
+        </div>
+        <div class="col-md-4 center-info">
+            <i class="fa fa-phone fa-3x" aria-hidden="true"></i>
+            <div class="c-info">
+                <h3>TELEFON</h3>
+                <p><a href="tel:+381-64-112-51-29">+381 64 112 51 29</a></p>
             </div>
+        </div>
+        <div class="col-md-4 center-info">
+            <i class="fa fa-envelope fa-3x"></i>
+            <div class="c-info">
+                <h3 class="">EMAIL</h3>
+                <p><a href="mailto:margoteks.doo@gmail.com" target="_blank" rel="noopener">margoteks.doo@gmail.com</a></p>
+            </div>
+        </div>
+    </div>
+</div>
 
+<div class="contact-us-page" style="overflow-x: hidden">
+    <!--<img class="contact-us-img" src="/img/contact4.jpg">-->
 
+    <div class="row">
 
+        <div class="col-md-6 bg-color-contact-page" >
+            <iframe title="Pronađite nas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.8661105245433!2d20.396131715749146!3d44.74274828931129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a6e01982f14c3%3A0x8a063f5f9daa0119!2s%C4%8Caslava%20Velji%C4%87a%2053%2C%20Beograd!5e0!3m2!1sen!2srs!4v1615900354703!5m2!1sen!2srs" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
 
-            <div class="contact-us-page" style="overflow-x: hidden">
-                <!--<img class="contact-us-img" src="/img/contact4.jpg">-->
-                <div class="row">
-                    <div class="col-md-6 bg-color-contact-page" >
-                        <iframe title="Pronađite nas" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2833.8661105245433!2d20.396131715749146!3d44.74274828931129!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x475a6e01982f14c3%3A0x8a063f5f9daa0119!2s%C4%8Caslava%20Velji%C4%87a%2053%2C%20Beograd!5e0!3m2!1sen!2srs!4v1615900354703!5m2!1sen!2srs" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
+            <ul class="social-icons-contact-page">
+                <li class="follow">Pratite nas na:</li>
+                <li><a href="https://www.facebook.com/margoteks/" aria-label="Our Facebook page"><i class="fa fa-facebook fa-2x"></i></a></li>
+                <li><a href="#" aria-label="Our Instagram page"><i class="fa fa-instagram fa-2x"></i></a></li>
+            </ul>
+        </div>
 
-                        <ul class="social-icons-contact-page">
-                            <li class="follow">Pratite nas na:</li>
-                            <li><a href="https://www.facebook.com/margoteks/" aria-label="Our Facebook page"><i class="fa fa-facebook fa-2x"></i></a></li>
-                            <li><a href="#"><i class="fa fa-instagram fa-2x" aria-label="Our Instagram page"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="col-md-6">
+        <div class="col-md-6">
 
-                        <div class="fleks-center" >
-                            <form class="contact-form" th:action="@{/posaljiPoruku}" method="POST">
-                                <h4 class="contact-header-page">Pošaljite nam poruku</h4>
-                                <p>Ukoliko imate bilo kakvih pitanja ili zahteva, slobodno nam napšite poruku. <br> Potrudićemo se da Vam odgovorimo u najkraćem mogućem roku.
-                                </p>
-                                <div class="form-row">
-                                    <div class="form-group col floating-placeholder">
-                                        <!--<label for="inputIme">Ime</label>-->
-                                        <input type="text" class="form-control" name="ime" id="inputIme" placeholder="Ime">
-                                            <label></label>
-
-                                    </div>
-                                    <div class="form-group col floating-placeholder">
-                                        <!--<label for="inputPrezime">Prezime</label>-->
-                                        <input type="text" class="form-control" name="prezime" id="inputPrezime" placeholder="Prezime">
-                                            <label></label>
-
-                                    </div>
-                                </div>
-                                <div class="form-row">
-                                    <div class="form-group col floating-placeholder">
-                                        <!--<label for="inputEmail">Email</label>-->
-                                        <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
-                                            <label></label>
-
-                                    </div>
-                                    <div class="form-group col floating-placeholder">
-                                        <!--<label for="inputTelefon">Telefon</label>-->
-                                        <input type="number" name="telefon" class="form-control" id="inputTelefon" placeholder="Telefon">
-                                            <label></label>
-
-                                    </div>
-                                </div>
-                                <div class="form-group floating-placeholder-textarea">
-                                    <!--<label for="inputPoruka">Poruka</label>-->
-                                    <textarea type="text" name="poruka" class="form-control mt-3" rows="6" cols="50" id="inputPoruka" placeholder="Poruka"></textarea>
-                                    <label></label>
-
-                                </div>
-                                <button type="submit" class="posaji-btn-contact-form-page">Pošalji</button>
-
-                            </form>
-
+            <div class="fleks-center" >
+                <form class="contact-form" th:action="@{/posaljiPoruku}" method="POST">
+                    <h4 class="contact-header-page">Pošaljite nam poruku</h4>
+                    <p>Ukoliko imate bilo kakvih pitanja ili zahteva, slobodno nam napšite poruku. <br> Potrudićemo se da Vam odgovorimo u najkraćem mogućem roku.</p>
+                    <div class="form-row">
+                        <div class="form-group col floating-placeholder">
+                            <!--<label for="inputIme">Ime</label>-->
+                            <input type="text" class="form-control" name="ime" id="inputIme" placeholder="Ime">
+                            <label></label>
+                        </div>
+                        <div class="form-group col floating-placeholder">
+                            <!--<label for="inputPrezime">Prezime</label>-->
+                            <input type="text" class="form-control" name="prezime" id="inputPrezime" placeholder="Prezime">
+                            <label></label>
                         </div>
                     </div>
-                </div>
+                    <div class="form-row">
+                        <div class="form-group col floating-placeholder">
+                            <!--<label for="inputEmail">Email</label>-->
+                            <input type="email" name="email" class="form-control" id="inputEmail" placeholder="Email">
+                            <label></label>
+                        </div>
+                        <div class="form-group col floating-placeholder">
+                            <!--<label for="inputTelefon">Telefon</label>-->
+                            <input type="number" name="telefon" class="form-control" id="inputTelefon" placeholder="Telefon">
+                            <label></label>
+                        </div>
+                    </div>
+                    <div class="form-group floating-placeholder-textarea">
+                        <!--<label for="inputPoruka">Poruka</label>-->
+                        <textarea type="text" name="poruka" class="form-control mt-3" rows="6" cols="50" id="inputPoruka" placeholder="Poruka"></textarea>
+                        <label></label>
+                    </div>
+                    <button type="submit" class="posaji-btn-contact-form-page">Pošalji</button>
+                </form>
+
             </div>
+        </div>
+    </div>
+</div>
 
 
+<th:block th:insert="fragments/footer :: footer" />
 
+<div id="backToTop"></div>
 
+<th:block th:insert="fragments/scripts :: scripts" />
+<script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
 
-
-            <th:block th:insert="fragments/footer :: footer" />
-
-            <div id="backToTop"></div>
-
-
-            <th:block th:insert="fragments/scripts :: scripts" />
-            <script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
-
-
-    </body>
+</body>
 
 </html>

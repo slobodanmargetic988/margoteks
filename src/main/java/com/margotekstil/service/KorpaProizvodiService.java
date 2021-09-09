@@ -5,6 +5,7 @@
  */
 package com.margotekstil.service;
 
+import com.margotekstil.model.ColorPaleta;
 import com.margotekstil.model.Korpa;
 import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Proizvodi;
@@ -23,4 +24,8 @@ public interface KorpaProizvodiService {
     void delete(KorpaProizvodi korpaProizvod);
       KorpaProizvodi findFirstByKorpaAndProizvod(Korpa korpa,Proizvodi proizvod);
  void saveAndFlush(KorpaProizvodi korpaProizvod);
+ 
+ KorpaProizvodi findFirstByKorpaAndProizvodAndBoja(Korpa korpa,Proizvodi proizvod,ColorPaleta boja);
+  KorpaProizvodi findOne(Integer kproizvod_id);
+ 
 }

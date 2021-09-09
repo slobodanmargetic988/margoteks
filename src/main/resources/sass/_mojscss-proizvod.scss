@@ -12,7 +12,7 @@
     width: 50px;
     height: 50px;
     /*     border-radius: 50%; */
-    background: #B2EBF2;
+/*    background: #B2EBF2;*/
     box-sizing: border-box;
     border: 3px solid $white-color;
     box-shadow: 0 0 2px 3px #E8F5E9;
@@ -50,20 +50,21 @@
         font-family: $font-rest;
         font-display: swap;
         color: $brown-black-color;
-        font-size: 2.3rem;
+        font-size: 1.9rem;
     }
     h2 {
         font-family: $font-for-numbers;
         font-display: swap;
         color: $burgundy-color;
-        font-size: 1.8rem;
+        font-size: 1.7rem;
     }
     .description {
         p {
             font-family: $font-rest;
             font-display: swap;
             color: $greyish-color;
-            font-size: 1.1rem;
+            /*font-size: 1.1rem;*/
+            text-align: justify;
         }
     }
     form { 
@@ -262,6 +263,13 @@
     }
 }
 
+.link-product-description {
+    &:hover {
+        text-decoration: none !important;
+    }
+    
+}
+
 .dodajuKorpu-admin-shop {
     @include fullColorBtn;
     border: 1px solid $burgundy-color;
@@ -293,6 +301,11 @@
     width: 40vw;
     object-fit: cover; 
     height: 40vh;
+        transition-duration: 0.4s;
+    &:hover {
+        transform: scale(1.03);
+    z-index: 0;
+    }
 }
 
 .product-description {
@@ -309,7 +322,8 @@
     font-display: swap;
     color: $burgundy-color;
     text-align: center;
-    font: 600 1.3rem $font-for-numbers;
+    font: 600 1.2rem $font-for-numbers;
+    margin-top: .5rem;
 }
 
 .dodajuKorpu-shop-page {

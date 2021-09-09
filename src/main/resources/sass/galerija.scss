@@ -37,7 +37,7 @@
 .div-with-a-btn-dodajSliku-adminGalerijaPage {
     display:block; 
     text-align: center;
-    margin-bottom: 4rem;
+    margin-bottom: 2rem;
 }
 
 .dodajSliku-adminGalerijaPage {
@@ -87,9 +87,6 @@ a {
             }
         }
     }
-    .div-with-a-btn-dodajSliku-adminGalerijaPage {
-        margin-bottom: 3rem;
-    }
 
     .dodajSliku-adminGalerijaPage {
         padding: .9rem 2.5rem;
@@ -105,9 +102,6 @@ a {
                 height: 35vw;
             }
         }
-    }
-    .div-with-a-btn-dodajSliku-adminGalerijaPage {
-        margin-bottom: 2rem;
     }
     .dodajSliku-adminGalerijaPage {
         font-size: .95rem;
@@ -179,7 +173,7 @@ a {
     img {
         margin: 0;
         width: 80%;
-        height: auto;
+            height: 90%;
         object-fit: contain;
         padding: 5%;
         @media screen and (min-width:767px) {

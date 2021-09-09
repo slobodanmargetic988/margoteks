@@ -5,6 +5,7 @@
  */
 package com.margotekstil.service;
 
+import com.margotekstil.model.ColorPaleta;
 import com.margotekstil.model.Korpa;
 import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Proizvodi;
@@ -28,25 +29,35 @@ public class KorpaProizvodiServiceImpl implements KorpaProizvodiService {
         return korpaProizvodiRepository.findAllBy();
     }
 
-      @Override
+    @Override
     public void save(KorpaProizvodi korpaProizvodi) {
 
         korpaProizvodiRepository.save(korpaProizvodi);
     }
+
     @Override
     public void delete(KorpaProizvodi korpaProizvodi) {
         korpaProizvodiRepository.delete(korpaProizvodi);
     }
 
-      @Override
+    @Override
     public KorpaProizvodi findFirstByKorpaAndProizvod(Korpa korpa, Proizvodi proizvod) {
-       return korpaProizvodiRepository.findFirstByKorpaAndProizvod(korpa, proizvod);
+        return korpaProizvodiRepository.findFirstByKorpaAndProizvod(korpa, proizvod);
     }
-    
-      @Override
+
+    @Override
+    public KorpaProizvodi findFirstByKorpaAndProizvodAndBoja(Korpa korpa, Proizvodi proizvod, ColorPaleta boja) {
+        return korpaProizvodiRepository.findFirstByKorpaAndProizvodAndBoja(korpa, proizvod, boja);
+    }
+
+    @Override
     public void saveAndFlush(KorpaProizvodi korpaProizvodi) {
 
         korpaProizvodiRepository.saveAndFlush(korpaProizvodi);
     }
-    
+
+    @Override
+    public KorpaProizvodi findOne(Integer kproizvod_id) {
+        return korpaProizvodiRepository.findFirstById(kproizvod_id);
+    }
 }

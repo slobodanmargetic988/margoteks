@@ -39,7 +39,8 @@
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
                     <label for="opis-pr">Opis proizvoda:</label>
-                    <input type="text" class=" form-control input-custom-border"  name="opis" th:value="${proizvod.opis}" id="opis-pr" >
+                    <!--<input type="text" class=" form-control input-custom-border"  name="opis" th:value="${proizvod.opis}" id="opis-pr" >-->
+                    <textarea type="text" class=" form-control input-custom-border" rows="8" cols="60" name="opis" th:text="${proizvod.opis}" id="opis-pr"></textarea>
                 </div>
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
@@ -77,91 +78,95 @@
                     <th:block th:if="${proizvod.glavnaslika != null}"> <input type="text" class="form-control input-custom-border"  name="title" th:value="${proizvod.glavnaslika.title}" id="mainImg"> 
                     </th:block>
                     <th:block th:if="${proizvod.glavnaslika == null}"> <input type="text" name="title" > 
-                        </th:block>
-                        </div> 
+                    </th:block>
+                </div> 
 
-                        <div class="col-md-8 centrirajFormuInput mt-3"  >
-                            <label for="altImgText">Alternativni tekst za sliku:</label>
-                            <input type="text" class=" form-control input-custom-border" name="alt_text" th:value="${proizvod.glavnaslika.alt_text}" id="altImgText">
-                        </div>
-                
-                        <div class="col-md-8 centrirajFormuInput custom-file-upload">
-                            <label>(*.jpg, max. 80 MB)</label>
-                            <br>
-                            <!--<input type="file" name="file">-->
-
-                            <!-- actual upload which is hidden -->
-                            <input type="file" name="file" id="actual-btn" hidden/>
-
-                            <!-- custom upload button -->
-                            <label for="actual-btn"  class="btn-choose-file">Choose File</label>
-
-                            <!-- name of file chosen  changes with javascript-->
-                            <span id="file-chosen">No file chosen</span>
-                        </div> 
-                        <br>
-
-
-                        <div class="col-md-8 centrirajFormuInput ">
-                            <label>Dodavanje sličnih proizvoda:</label>
-                            <select class="col-md-12 form-control input-custom-border mb-3"  name="slicniProizvod1"  >
-                                <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}" > 
-                                    <th:block th:each="proizvodL : ${listaProizvoda}">
-                                        <th:block th:if="${proizvodL.active==true}">
-                                            <option th:value="${proizvodL.id}" 
-                                                    th:text="${proizvodL.ime}" th:selected="${proizvod.slicniproizvodi.get(0).id==proizvodL.id}">Текст</option>
-                                        </th:block> </th:block> </th:block>
-                                <th:block th:if="${ #lists.isEmpty(proizvod.slicniproizvodi)}" > 
-                                    <th:block th:each="proizvodl : ${listaProizvoda}">
-                                        <th:block th:if="${proizvodl.active==true}">
-                                            <option   th:value="${proizvodl.id}" 
-                                                      th:text="${proizvodl.ime}" >Текст</option>
-                                        </th:block> </th:block> </th:block>
-                            </select>  
-
-                            <select class="col-md-12 form-control input-custom-border mb-3"  name="slicniProizvod2"  >
-
-                                <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}" > 
-                                    <th:block th:each="proizvodl : ${listaProizvoda}">
-                                        <th:block th:if="${proizvodl.active==true}">
-                                            <option   th:value="${proizvodl.id}" 
-                                                      th:text="${proizvodl.ime}" th:selected="${proizvod.slicniproizvodi.get(1).id==proizvodl.id}">Текст</option>
-                                        </th:block> </th:block> </th:block>
-
-
-                                <th:block th:if="${ #lists.isEmpty(proizvod.slicniproizvodi)}" > 
-                                    <th:block th:each="proizvodl : ${listaProizvoda}">
-                                        <th:block th:if="${proizvodl.active==true}"> 
-                                            <option   th:value="${proizvodl.id}" 
-                                                      th:text="${proizvodl.ime}" >Текст</option>
-                                        </th:block> </th:block> </th:block>
-
-                            </select> 
-
-                            <select class="col-md-12 form-control input-custom-border"  name="slicniProizvod3"  >
-                                <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}" > 
-                                    <th:block th:each="proizvod2 : ${listaProizvoda}">
-                                        <th:block th:if="${proizvod2.active==true}">
-
-                                            <option   th:value="${proizvod2.id}" 
-                                                      th:text="${proizvod2.ime}" th:selected="${proizvod.slicniproizvodi.get(2).id==proizvod2.id}">Текст</option>
-
-                                        </th:block> </th:block> </th:block>
-                                <th:block th:if="${ #lists.isEmpty(proizvod.slicniproizvodi)}" > 
-                                    <th:block th:each="proizvodl : ${listaProizvoda}">
-                                        <th:block th:if="${proizvodl.active==true}">
-                                            <option   th:value="${proizvodl.id}" 
-                                                      th:text="${proizvodl.ime}" >Текст</option>
-                                        </th:block> </th:block> </th:block>
-                            </select> 
-                        </div>
+                <div class="col-md-8 centrirajFormuInput mt-3"  >
+                    <label for="altImgText">Alternativni tekst za sliku:</label>
+                    <input type="text" class=" form-control input-custom-border" name="alt_text" th:value="${proizvod.glavnaslika.alt_text}" id="altImgText">
                 </div>
 
+                <div class="col-md-8 centrirajFormuInput custom-file-upload">
+                    <label>(*.jpg, max. 80 MB)</label>
+                    <br>
+                    <!--<input type="file" name="file">-->
 
-                <div class=" col-md-8 buttonsSaveAndBack" >
-                    <button type="submit" class="btn-save">Sačuvaj</button>
-                    <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${proizvodId})}" class="btn-back">Nazad</a>
-                </div>   
+                    <!-- actual upload which is hidden -->
+                    <input type="file" name="file" id="actual-btn" hidden/>
+
+                    <!-- custom upload button -->
+                    <label for="actual-btn"  class="btn-choose-file">Choose File</label>
+
+                    <!-- name of file chosen  changes with javascript-->
+                    <span id="file-chosen">No file chosen</span>
+                </div> 
+                <br>
+
+                
+  
+                
+
+                <br>
+                <div class="col-md-8 centrirajFormuInput ">
+                    <label>Dodavanje sličnih proizvoda:</label>
+                    <select class="col-md-12 form-control input-custom-border mb-3"  name="slicniProizvod1"  >
+                        <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}" > 
+                            <th:block th:each="proizvodL : ${listaProizvoda}">
+                                <th:block th:if="${proizvodL.active==true}">
+                                    <option th:value="${proizvodL.id}" 
+                                            th:text="${proizvodL.ime}" th:selected="${proizvod.slicniproizvodi.get(0).id==proizvodL.id}">Текст</option>
+                                </th:block> </th:block> </th:block>
+                        <th:block th:if="${ #lists.isEmpty(proizvod.slicniproizvodi)}" > 
+                            <th:block th:each="proizvodl : ${listaProizvoda}">
+                                <th:block th:if="${proizvodl.active==true}">
+                                    <option   th:value="${proizvodl.id}" 
+                                              th:text="${proizvodl.ime}" >Текст</option>
+                                </th:block> </th:block> </th:block>
+                    </select>  
+
+                    <select class="col-md-12 form-control input-custom-border mb-3"  name="slicniProizvod2"  >
+
+                        <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}" > 
+                            <th:block th:each="proizvodl : ${listaProizvoda}">
+                                <th:block th:if="${proizvodl.active==true}">
+                                    <option   th:value="${proizvodl.id}" 
+                                              th:text="${proizvodl.ime}" th:selected="${proizvod.slicniproizvodi.get(1).id==proizvodl.id}">Текст</option>
+                                </th:block> </th:block> </th:block>
+
+
+                        <th:block th:if="${ #lists.isEmpty(proizvod.slicniproizvodi)}" > 
+                            <th:block th:each="proizvodl : ${listaProizvoda}">
+                                <th:block th:if="${proizvodl.active==true}"> 
+                                    <option   th:value="${proizvodl.id}" 
+                                              th:text="${proizvodl.ime}" >Текст</option>
+                                </th:block> </th:block> </th:block>
+
+                    </select> 
+
+                    <select class="col-md-12 form-control input-custom-border"  name="slicniProizvod3"  >
+                        <th:block th:if="${not #lists.isEmpty(proizvod.slicniproizvodi)}" > 
+                            <th:block th:each="proizvod2 : ${listaProizvoda}">
+                                <th:block th:if="${proizvod2.active==true}">
+
+                                    <option   th:value="${proizvod2.id}" 
+                                              th:text="${proizvod2.ime}" th:selected="${proizvod.slicniproizvodi.get(2).id==proizvod2.id}">Текст</option>
+
+                                </th:block> </th:block> </th:block>
+                        <th:block th:if="${ #lists.isEmpty(proizvod.slicniproizvodi)}" > 
+                            <th:block th:each="proizvodl : ${listaProizvoda}">
+                                <th:block th:if="${proizvodl.active==true}">
+                                    <option   th:value="${proizvodl.id}" 
+                                              th:text="${proizvodl.ime}" >Текст</option>
+                                </th:block> </th:block> </th:block>
+                    </select> 
+                </div>
+            </div>
+
+
+            <div class=" col-md-8 buttonsSaveAndBack" >
+                <button type="submit" class="btn-save">Sačuvaj</button>
+                <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${proizvodId})}" class="btn-back">Nazad</a>
+            </div>   
 
 
         </form>

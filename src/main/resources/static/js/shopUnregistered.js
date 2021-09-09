@@ -51,13 +51,17 @@ $(document).ready(function () {
     $(".JSdodajUKorpuProizvodStranaNEREG").on("click", function (e) {
         // prikaziPopup(this);
         var kolicina = parseInt($("#kolicina").val());
-        dodajUCookieKorpu(this, kolicina);
+        var boja =  parseInt($(".radio.selected").first().attr("bojaid"));
+        if (boja == null){ boja = 0;}
+        
+        dodajUCookieKorpu(this, kolicina,boja);
     });
 
+//i za proizvod i za shop stranu
     $(".JSdodajUKorpuProizvodStranaNEREGSlicni").on("click", function (e) {
         // prikaziPopup(this);
         var kolicina = 1;
-        dodajUCookieKorpu(this, kolicina);
+        dodajUCookieKorpu(this, kolicina,0);
     });
 
 
@@ -82,9 +86,9 @@ function prikaziPopup(element, vecukorpi) {
     var photo = $(element).attr("photoid");
     var naziv = $(element).attr("naziv");
     var cena = $(element).attr("cena");
-     $("#popupnaziv").text(naziv);
-      $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
-       $("#popupcena").text(cena);
+    $("#popupnaziv").text(naziv);
+    $("#popupimg").attr("src", "/photo" + "/" + id + "/" + photo);
+    $("#popupcena").text(cena);
     $("#addedToCart-window").css("display", "block");
     if (vecukorpi) {
         $("#ProizvodDodatJS").text("Proizvod je već u korpi");
@@ -93,10 +97,11 @@ function prikaziPopup(element, vecukorpi) {
     }
 }
 
-function skloniIzCookieKorpe(id) {
+function skloniIzCookieKorpe(id , boja) {
     var celaKorpa = JSON.parse(Cookies.get('korpa'));
     for (var i = 0; i < celaKorpa.length; i++) {
-        if (celaKorpa[i].idProizvoda === id) {
+        if ((celaKorpa[i].idProizvoda) === id && (celaKorpa[i].boja == boja)) {
+            
             celaKorpa.splice(i, 1);
             break;
         }
@@ -105,13 +110,15 @@ function skloniIzCookieKorpe(id) {
     Cookies.set('korpa', celaKorpaJSON);
 }
 
-function dodajUCookieKorpu(element, kolicina) {
+function dodajUCookieKorpu(element, kolicina, boja) {
     var id = $(element).attr("pid");
     var photo = $(element).attr("photoid");
     var naziv = $(element).attr("naziv");
     var cena = $(element).attr("cena");
     var opis = $(element).attr("opis");
     var kilaza = $(element).attr("kilaza");
+  
+
 
     //pravimo objekat korpa stavke da bi mogao lepo da se parsuje u i iz JSON
     var korpaStavka = new Object();
@@ -122,6 +129,7 @@ function dodajUCookieKorpu(element, kolicina) {
     korpaStavka.kolicina = kolicina;
     korpaStavka.opis = opis;
     korpaStavka.kilaza = kilaza;
+    korpaStavka.boja = boja;
 //ako colicic vec postoji pravimo niz korpa stavki iz kolacica pa dodajemo trenutnu stavku
     if (Cookies.get('korpa') !== undefined) {
         var celaKorpa = JSON.parse(Cookies.get('korpa'));
@@ -129,7 +137,7 @@ function dodajUCookieKorpu(element, kolicina) {
         var notfound = true;
         var foundindex = 0;
         for (var i = 0; i < celaKorpa.length; i++) {
-            if (celaKorpa[i].idProizvoda === id) {
+            if (celaKorpa[i].idProizvoda === id && celaKorpa[i].boja === boja ) {
                 notfound = false;
                 foundindex = i;
                 break;
@@ -139,8 +147,14 @@ function dodajUCookieKorpu(element, kolicina) {
             celaKorpa.push(korpaStavka);
             prikaziPopup(element, false);
         } else {//ako jeste pronadjen mozda menjamo kolicinu
+            if(celaKorpa[foundindex].boja !=boja){
+               celaKorpa.push(korpaStavka);
+            prikaziPopup(element, false); 
+                
+            }
+            else{
             celaKorpa[foundindex].kolicina = kolicina;
-            prikaziPopup(element, true);
+            prikaziPopup(element, true);}
         }
     } else {//ako colicic vec ne postoji pravimo niz korpa stavki iz jedne trenutne stavke da bi se posle parsovao kao niz 
         var celaKorpa = [korpaStavka];
@@ -153,7 +167,7 @@ function dodajUCookieKorpu(element, kolicina) {
     console.log(mojobj);
 }
 
-function updateCookie(id, kolicina) {
+function updateCookie(id, kolicina, boja) {
     var celaKorpa = JSON.parse(Cookies.get('korpa'));
     for (var i = 0; i < celaKorpa.length; i++) {
         if (celaKorpa[i].idProizvoda === id) {
@@ -228,16 +242,31 @@ function napraviKorpaStavke() {
     if (Cookies.get('korpa') !== undefined) {
 
         var celaKorpa = JSON.parse(Cookies.get('korpa'));
+        var bojatekst="";
         for (var i = 0; i < celaKorpa.length; i++) {
 
 
-            var stavka = " <div class=\"row border-top border-bottom stavkaJS korpaStavkeSmallerScreen\" pid=\"" + celaKorpa[i].idProizvoda + "\">"
-                    + " <div class=\"row main align-items-center mt-2 mb-2\">"
-                    + " <div class=\"col-4 slikaStavkaSmallerScreen\"><img class=\"img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen\"  src=\"/photo/" + celaKorpa[i].idProizvoda + "/" + celaKorpa[i].photoId + "\"  alt=\"" + celaKorpa[i].alt_text + "\"  title=\"" + celaKorpa[i].title + "\"></div>"
+
+ if (celaKorpa[i].boja != 0) {
+                bojatekst=" <img class=\"color-circle\" src=\"/boja/" + celaKorpa[i].boja + "\" > ";
+            }
+            else{
+                 bojatekst=" <span>Boja: osnovna</span>" ;
+                
+            }
+            
+            
+            var stavka = " <div class=\"row border-top border-bottom stavkaJS korpaStavkeSmallerScreen\" pid=\"" + celaKorpa[i].idProizvoda + "\" boja=\"" + celaKorpa[i].boja + "\" >"
+                    + " <div class=\"row main align-items-center mt-2 mb-2 w-100\">"
+                    + " <div class=\"col-3 slikaStavkaSmallerScreen\"><img class=\"img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen\"  src=\"/photo/" + celaKorpa[i].idProizvoda + "/" + celaKorpa[i].photoId + "\"  alt=\"" + celaKorpa[i].alt_text + "\"  title=\"" + celaKorpa[i].title + "\"></div>"
                     + "  <div class=\"col nazivOpisSmallerScreen\">"
                     + "<div class=\"row naslov\">" + celaKorpa[i].nazivProizvoda + "</div>"
-//                    + " <div class=\"row opis-proizvoda\">" + celaKorpa[i].opis + "</div>"
                     + " </div>"
+            
+                    + "<div class=\"col-2 product-color-basket product-color-basketSmallerScreen\">"
+                    +bojatekst
+                    +"</div>"
+    
                     + " <div class=\"col minusiplus minusiplusSmallerScreen\">"
                     + "  <input type='button'  value='-' class='minusBtn minusBtnSmallerScreen smanjiJS' field='quantity'  pid=\"" + celaKorpa[i].idProizvoda + "\" />"
                     + "  <input  type='number' name='quantity' value='" + celaKorpa[i].kolicina + "' class='qty qtySmallerScreen border-number kolicinaJS'  pid=\"" + celaKorpa[i].idProizvoda + "\" />"
@@ -249,7 +278,7 @@ function napraviKorpaStavke() {
                     + "  <div class=\"cenapr cenaprSmallerScreen\">Ukupna kilaza: </div>"
                     + " <span class=\"totalkilazaproizvoda\" pid=\"" + celaKorpa[i].idProizvoda + "\" tezi=\"0\"></span> <span style=\"font-size: .95rem;font-weight: 700;\">kg</span>"
                     + " </div>"
-                    + " <span class=\"skloni\"  pid=\"" + celaKorpa[i].idProizvoda + "\" >&#10005;&nbsp;<span class=\"ukloniSmallerScreen\">Ukloni</span></span>"
+                    + " <span class=\"skloni\"  pid=\"" + celaKorpa[i].idProizvoda + "\" boja=\"" + celaKorpa[i].boja + "\" >&#10005;&nbsp;<span class=\"ukloniSmallerScreen\">Ukloni</span></span>"
                     + " </div>"
                     + "  </div>";
             stavke += stavka;
@@ -257,6 +286,4 @@ function napraviKorpaStavke() {
     }
     return stavke;
 }
-
-
 

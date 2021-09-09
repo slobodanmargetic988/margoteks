@@ -9,7 +9,6 @@
         <title>Margotekstil | Početna strana</title>
         <meta name="description" content="Margotekstil početna strana. Šijemo za Vas širok asortiman proizvoda,od svih raspoloživih vrsta tekstila. Home page."/> 
     <th:block th:insert="fragments/head :: head" />
-
 </head>
 
 <body>
@@ -19,18 +18,11 @@
 
         <th:block th:insert="fragments/navigation :: navbar" />
 
-
         <div class="text-box">
             <h2 class="">MARGOTEKSTIL</h2>
             <p class="">više od <span>20</span> godina iskustva</p>
-            <!--                    <th:block th:if="${user != null}">
-                                    <p><span th:text="${user.ime}"></span></p>
-                                      <p><span th:text="${user.role}"></span></p>
-                                      <span sec:authorize="hasAnyAuthority('ADMIN')">pozdrav admine</span>
-                                          <span sec:authorize="hasAnyAuthority('SHOPPER')">pozdrav shoppere</span>
-                                </th:block>-->
-            <!--</div>-->
         </div>
+
         <th:block th:insert="fragments/alert :: gotovaporudzbina (${successMessage})"></th:block>
 
         <th:block th:insert="fragments/alert :: uspesnaPrijava (${successMessageLogin})"></th:block>
@@ -46,7 +38,7 @@
 
         <div class="container mt-5 mb-4 karte">
             <div class="row">
-                <div class="col-md-4" >
+                <div class="col-md-4">
                     <div class="card">
                         <a th:href="@{/dekorativniProgram}"><img src="/img/stolnjaci.jpg" alt="deco-textile-img"></a>
                         <a style="text-decoration: none" th:href="@{/dekorativniProgram}">
@@ -55,50 +47,43 @@
                                 <p class="card-text">Šivenje i izrada kompletnog tekstilnog programa za Vaš dom.</p>
                                 <button class="detail-button">Detaljnije</button>
                             </div>
-
                         </a>
                     </div>
                 </div>
 
-                <div class="col-md-4" >
+                <div class="col-md-4">
                     <div class="card">
                         <a th:href="@{/enterijer}"><img src="/img/enterijer.jpg" alt="horeca-textile-img"></a>
-                        <a style="text-decoration: none" th:href="@{/enterijer}">
+                        <a style="text-decoration: none" th:href="@{/horeca-tekstil}">
                             <div class="card-content card-content2">
                                 <div class="card-title">HORECA TEKSTIL</div>
                                 <p class="card-text">Skrojen ambijent po meri čini okruženje prijatnim za boravak i druženje.</p>
                                 <button class="detail-button">Detaljnije</button>
                             </div>
-
                         </a>
                     </div>
                 </div>
-                <div class="col-md-4" >
+                <div class="col-md-4">
                     <div class="card">
                         <a th:href="@{/petmania}"><img src="/img/psic.jpg" alt="petmania-img"></a>
-                        <a style="text-decoration: none" th:href="@{/enterijer}">
+                        <a style="text-decoration: none" th:href="@{/petmania}">
                             <div class="card-content card-content1">
                                 <div class="card-title">PET MANIA</div>
                                 <p class="card-text">Širok izbor ležajeva i prostirki za pse i mačke.</p>
                                 <button  class="detail-button">Detaljnije</button>
                             </div>
                         </a>
-
                     </div>
                 </div>
             </div>
         </div>
-
-
 
         <div class="img-parallax">
             <p>Naše dugogodišnje iskustvo bavljenja krojačkim zanatom <br> i širok asortiman proizvoda
                 priuštiće vašim klijentima  <br> uvek nove i nezaboravne utiske kojima će se rado vraćati.</p>
         </div>
 
-
     </div>
-
 
 
 
@@ -123,72 +108,63 @@
 
 
 
-</div>
+    <!--contact us section--> 
+    <div class=" contact-us" style="overflow-x: hidden">
+        <div class="row">
+            <div class="col-md-6" >
+                <div class="fleks-center">
+                    <h3 class="send-us-a-message-header">Pošaljite nam poruku</h3>
+                    <form class="forma" style="overflow: hidden"  th:action="@{/posaljiPoruku}" method="POST">                                                                   
+                        <div class="form-row">
+                            <div class="form-group col floating-placeholder">
+                                <label for="inputIme">Ime</label>
+                                <input type="text" class="form-control mt-2" name="ime" placeholder="Ime">
+                                <label></label>
+                            </div>
+                            <div class="form-group col floating-placeholder">
+                                <label for="inputPrezime">Prezime</label>
+                                <input type="text" class="form-control mt-2" name="prezime" placeholder="Prezime">
+                                <label></label>
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group col floating-placeholder">
+                                <label for="inputEmail">Email</label>
+                                <input type="email" name="email" class="form-control" placeholder="Email">
+                                <label></label>
+                            </div>
+                            <div class="form-group col floating-placeholder">
+                                <label for="inputTelefon">Telefon</label>
+                                <input type="number" name="telefon" class="form-control" placeholder="Telefon">
+                                <label></label>
 
-
-
-<!--contact us section--> 
-<div class=" contact-us" style="overflow-x: hidden">
-    <div class="row">
-        <div class="col-md-6" >
-            <div class="fleks-center">
-                <h3 class="send-us-a-message-header">Pošaljite nam poruku</h3>
-                <form class="forma" style="overflow: hidden"  th:action="@{/posaljiPoruku}" method="POST">                                                                   
-                    <div class="form-row">
-                        <div class="form-group col floating-placeholder">
-                            <label for="inputIme">Ime</label>
-                            <input type="text" class="form-control mt-2" name="ime" placeholder="Ime">
+                            </div>
+                        </div>
+                        <div class="form-group floating-placeholder-textarea  mt-3">
+                            <label for="inputPoruka">Poruka</label>
+                            <textarea type="text" rows="6" name="poruka" cols="50" class="form-control" placeholder="Poruka"></textarea>
                             <label></label>
                         </div>
-                        <div class="form-group col floating-placeholder">
-                            <label for="inputPrezime">Prezime</label>
-                            <input type="text" class="form-control mt-2" name="prezime" placeholder="Prezime">
-                            <label></label>
-
-                        </div>
-                    </div>
-                    <div class="form-row">
-                        <div class="form-group col floating-placeholder">
-                            <label for="inputEmail">Email</label>
-                            <input type="email" name="email" class="form-control" placeholder="Email">
-                            <label></label>
-
-                        </div>
-                        <div class="form-group col floating-placeholder">
-                            <label for="inputTelefon">Telefon</label>
-                            <input type="number" name="telefon" class="form-control" placeholder="Telefon">
-                            <label></label>
-
-                        </div>
-                    </div>
-                    <div class="form-group floating-placeholder-textarea  mt-3">
-                        <label for="inputPoruka">Poruka</label>
-                        <textarea type="text" rows="6" name="poruka" cols="50" class="form-control" placeholder="Poruka"></textarea>
-                        <label></label>
-
-                    </div>
-                    <button type="submit" class="posalji-btn-contact-form-home-page">Pošalji</button>
-
-                </form>
+                        <button type="submit" class="posalji-btn-contact-form-home-page">Pošalji</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6 bg-color-contact " >
+                <h3 class="contact-header">Kontakt</h3>
+                <ul class="list-info">
+                    <li><i class="fa fa-globe fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Časlava Veljića 53, Beograd</li>
+                    <li><i class="fa fa-envelope fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:margoteks.doo@gmail.com" target="_blank" rel="noopener">margoteks.doo@gmail.com</a></li>
+                    <li><i class="fa fa-phone fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>+381 64 112 51 29</span></li>
+                </ul>
+                <p class="pratite-nas">Pratite nas:</p>
+                <ul class="social-icons-contact">
+                    <li><a href="https://www.facebook.com/margoteks/" aria-label="Our Facebook page"><i class="fa fa-facebook fa-2x"></i></a></li>
+                    <li><a href="#"><i class="fa fa-instagram fa-2x" aria-label="Our Instagram page"></i></a></li>
+                    <li><a href="#"><i class="fa fa-twitter-square fa-2x"aria-label="Our Twitter page"></i></a></li>
+                </ul>
             </div>
         </div>
-        <div class="col-md-6 bg-color-contact " >
-            <h3 class="contact-header">Kontakt</h3>
-            <ul class="list-info">
-                <li><i class="fa fa-globe fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Časlava Veljića 53, Beograd</li>
-                <li><i class="fa fa-envelope fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="mailto:margoteks.doo@gmail.com" target="_blank" rel="noopener">margoteks.doo@gmail.com</a></li>
-                <li><i class="fa fa-phone fa-2x"></i>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>+381 64 112 51 29</span></li>
-            </ul>
-            <p class="pratite-nas">Pratite nas:</p>
-            <ul class="social-icons-contact">
-                <li><a href="https://www.facebook.com/margoteks/" aria-label="Our Facebook page"><i class="fa fa-facebook fa-2x"></i></a></li>
-                <li><a href="#"><i class="fa fa-instagram fa-2x" aria-label="Our Instagram page"></i></a></li>
-                <li><a href="#"><i class="fa fa-twitter-square fa-2x"aria-label="Our Twitter page"></i></a></li>
-            </ul>
-        </div>
     </div>
-
-</div>
 
 <th:block th:insert="fragments/footer :: footer" />
 
