@@ -101,7 +101,7 @@ $(document).ready(function () {
                 },
                 error: function (e) {
                   //  alert(e);
-                     console.log(e);
+                     console.log("ovo je error "+e);
                 }
             });
         } else {
