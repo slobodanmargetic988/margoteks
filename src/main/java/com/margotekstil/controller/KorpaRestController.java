@@ -147,7 +147,7 @@ return e.getMessage();
         } catch (Exception e) {
 
             System.out.println(e);
-             return e.getMessage();
+             return "porudzbina nije prosla";
         }
 
         return "ok";

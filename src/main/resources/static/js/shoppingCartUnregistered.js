@@ -79,7 +79,7 @@ $(document).ready(function () {
             url = "/korpa/zavrsiPorudzbinu/neregistrovan";
             $.ajax({
                 type: "GET",
-                contentType: 'text; charset=utf-8',
+                contentType: 'application/json; charset=utf-8',
                 url: url,
                 data: {"myData": JSON.stringify(myData)},
 
@@ -100,7 +100,8 @@ $(document).ready(function () {
                     }
                 },
                 error: function (e) {
-                    alert(e);
+                  //  alert(e);
+                     console.log(e);
                 }
             });
         } else {
