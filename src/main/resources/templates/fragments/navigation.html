@@ -44,7 +44,7 @@
 
                     </ul>
                     <ul class="nav navbar-icons navbar-nav flex-row flex-nowrap ">
-                        <li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/shoppingCart}" data-toggle="popover"  data-content="Korpa" aria-label="Korpa"><span  class="maliekran"  >KORPA&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i>
+                        <li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/shoppingCart}" data-toggle="popover"  data-content="Korpa" aria-label="Korpa"><span  class="maliekran"  >KORPA&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i></a> </li>
 
                                 <li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registration}" data-toggle="popover"  data-content="Uloguj se" aria-label="Uloguj se"><span class="maliekran">ULOGUJ SE&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>
 

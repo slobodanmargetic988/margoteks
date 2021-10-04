@@ -169,7 +169,9 @@ return e.getMessage();
     @GetMapping("/korpa/dodajProizvod/{proizvod_id}")
     String dodajProizvodG(@PathVariable final int proizvod_id) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
+        Users user = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
+        
+         Users myUser = userService.findFirstByEmail(user.getEmail());
         Korpa korpa = myUser.getKorpa();
         Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvod(korpa, proizvod);
@@ -209,8 +211,10 @@ return e.getMessage();
             return "Morate uneti količinu veću od nula!";
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
-        Korpa korpa = myUser.getKorpa();
+               Users user = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
+        
+         Users myUser = userService.findFirstByEmail(user.getEmail());
+         Korpa korpa = myUser.getKorpa();
         Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findFirstByKorpaAndProizvodAndBoja(korpa, proizvod,colorPaletaService.findFirstById(boja));
 
@@ -255,8 +259,10 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
             return "Morate uneti količinu veću od nula!";
         }
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
-        Korpa korpa = myUser.getKorpa();
+                Users user = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
+        
+         Users myUser = userService.findFirstByEmail(user.getEmail());
+         Korpa korpa = myUser.getKorpa();
     //    Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
@@ -272,8 +278,10 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
     String povecajKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
-        Korpa korpa = myUser.getKorpa();
+               Users user = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
+        
+         Users myUser = userService.findFirstByEmail(user.getEmail());
+         Korpa korpa = myUser.getKorpa();
      //   Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
         KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
         try {
@@ -290,8 +298,10 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
     String smanjiKolicinu(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
-        Korpa korpa = myUser.getKorpa();
+              Users user = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
+        
+         Users myUser = userService.findFirstByEmail(user.getEmail());
+         Korpa korpa = myUser.getKorpa();
       //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
     KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
     try {
@@ -316,8 +326,10 @@ if(boja>0){//default boja je 0 pa ne dodajemo ako je defaultna
     String skloniProizvod(@PathVariable final int kproizvod_id
     ) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-        Users myUser = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
-        Korpa korpa = myUser.getKorpa();
+               Users user = ((MargotekstilUserPrincipal) authentication.getPrincipal()).getUser();
+        
+         Users myUser = userService.findFirstByEmail(user.getEmail());
+         Korpa korpa = myUser.getKorpa();
       //  Proizvodi proizvod = proizvodiService.findFirstById(proizvod_id);
     KorpaProizvodi postojeciProizvod = korpaProizvodiService.findOne(kproizvod_id);
     try {

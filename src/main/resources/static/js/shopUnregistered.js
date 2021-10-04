@@ -117,9 +117,10 @@ function dodajUCookieKorpu(element, kolicina, boja) {
     var cena = $(element).attr("cena");
     var opis = $(element).attr("opis");
     var kilaza = $(element).attr("kilaza");
-  
-
-
+     var alttext = $(element).attr("photoalt");
+        var title = $(element).attr("phototitle");
+  console.log(alttext);
+  console.log(title);
     //pravimo objekat korpa stavke da bi mogao lepo da se parsuje u i iz JSON
     var korpaStavka = new Object();
     korpaStavka.idProizvoda = id;
@@ -130,6 +131,8 @@ function dodajUCookieKorpu(element, kolicina, boja) {
     korpaStavka.opis = opis;
     korpaStavka.kilaza = kilaza;
     korpaStavka.boja = boja;
+    korpaStavka.alttext =alttext;
+    korpaStavka.title =title;
 //ako colicic vec postoji pravimo niz korpa stavki iz kolacica pa dodajemo trenutnu stavku
     if (Cookies.get('korpa') !== undefined) {
         var celaKorpa = JSON.parse(Cookies.get('korpa'));
@@ -247,7 +250,7 @@ function napraviKorpaStavke() {
 
 
 
- if (celaKorpa[i].boja != 0) {
+ if (celaKorpa[i].boja != 0 && celaKorpa[i].boja != null) {
                 bojatekst=" <img class=\"color-circle\" src=\"/boja/" + celaKorpa[i].boja + "\" > ";
             }
             else{
@@ -258,7 +261,7 @@ function napraviKorpaStavke() {
             
             var stavka = " <div class=\"row border-top border-bottom stavkaJS korpaStavkeSmallerScreen\" pid=\"" + celaKorpa[i].idProizvoda + "\" boja=\"" + celaKorpa[i].boja + "\" >"
                     + " <div class=\"row main align-items-center mt-2 mb-2 w-100\">"
-                    + " <div class=\"col-3 slikaStavkaSmallerScreen\"><img class=\"img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen\"  src=\"/photo/" + celaKorpa[i].idProizvoda + "/" + celaKorpa[i].photoId + "\"  alt=\"" + celaKorpa[i].alt_text + "\"  title=\"" + celaKorpa[i].title + "\"></div>"
+                    + " <div class=\"col-3 slikaStavkaSmallerScreen\"><img class=\"img-fluid slika-korpaStavka slika-korpaStavkaSmallerScreen\"  src=\"/photo/" + celaKorpa[i].idProizvoda + "/" + celaKorpa[i].photoId + "\"  alt=\"" + celaKorpa[i].alttext + "\"  title=\"" + celaKorpa[i].title + "\"></div>"
                     + "  <div class=\"col nazivOpisSmallerScreen\">"
                     + "<div class=\"row naslov\">" + celaKorpa[i].nazivProizvoda + "</div>"
                     + " </div>"

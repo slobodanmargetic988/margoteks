@@ -151,6 +151,9 @@
             }
         }
     }
+    .mt-1-ss { /*margin top, small screen*/
+        margin-top: 1rem;
+    }
 }
 
 @media screen and (max-width:767px) {
@@ -185,10 +188,11 @@
                         .shopBtn-onama-page {
                             font-size: .95rem;
                             letter-spacing: 0.04em;
+                            width: 190px;
                         }
                         .contactUsBtn-onama-page {
                             margin: .3rem 0 0 0;
-                            width: 167px;
+                            width: 190px;
                         }
                     }
                 }

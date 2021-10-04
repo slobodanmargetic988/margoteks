@@ -65,7 +65,7 @@
             </a>
             <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
             <span th:pid="${fragmentProizvod.getId()}" class="buttonAdd2Cart" >
-                <button type="button" class="dodajuKorpu-shop-page JSdodajUKorpuProizvodStranaNEREGSlicni" th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}"th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" th:pid="${fragmentProizvod.id}" >Dodaj u korpu</button>
+                <button type="button" class="dodajuKorpu-shop-page JSdodajUKorpuProizvodStranaNEREGSlicni" th:phototitle="${fragmentProizvod.glavnaslika.title}" th:photoalt="${fragmentProizvod.glavnaslika.alt_text}" th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}"th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" th:pid="${fragmentProizvod.id}" >Dodaj u korpu</button>
             </span>
             <br><br>
         </div>

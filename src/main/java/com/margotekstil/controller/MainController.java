@@ -446,7 +446,7 @@ if (!lozinkaRepeat.equals("")){
 
             return "redirect:/registration";
         }
-        redirectAttributes.addFlashAttribute("successMessage", "Lozinka je uspešno promenjena.");
+        redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste registrovali novi nalog.");
 
         return "redirect:/registration";
     }

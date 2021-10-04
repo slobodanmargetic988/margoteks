@@ -30,7 +30,7 @@
         <div class="row mt-3" style="padding:.5rem">
             <div class="col-md-6 figure-left">
                 <div class="master-img">
-                    <img class="popup-slika img-fluid"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}"  th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}">
+                    <img class="popup-slika img-fluid" id="popupimg" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}"  th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}">
 
                 </div>
             </div>
@@ -47,6 +47,7 @@
 </div>
 <!--popup sa svime sto treba -->   
 
+                      
 
 <div class="single-product-show">
     <div class="container">

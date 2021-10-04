@@ -28,7 +28,7 @@
         <h4 id="ProizvodDodatJS">Proizvod je dodat u korpu</h4>
         <div class="row mt-3" style="padding:.5rem">
             <div class="col-md-6 figure-left">
-                <div class="master-img"> <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}"  class="popup-slika img-fluid" /></div>
+                <div class="master-img"> <img id="popupimg" th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}"  class="popup-slika img-fluid" /></div>
             </div>
             <div class="col-md-6 figure-right">
                 <span class="productName" id="popupnaziv" th:text="${proizvod.getIme()}"> </span><br>
@@ -137,7 +137,7 @@
                             <input  type='text' name='quantity' value='1' class='qty'id="kolicina"  />
                             <input type='button' value='+' class='plus' field='quantity' />
                         </div>
-                        <span class="add-to-cart-with-icon-productPage JSdodajUKorpuProizvodStranaNEREG" th:pid="${proizvod.getId()}"  th:photoid="${proizvod.glavnaslika.id}" th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" id="buttonAdd2Cart" >Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
+                        <span class="add-to-cart-with-icon-productPage JSdodajUKorpuProizvodStranaNEREG" th:pid="${proizvod.getId()}"  th:phototitle="${proizvod.glavnaslika.title}" th:photoalt="${proizvod.glavnaslika.alt_text}" th:photoid="${proizvod.glavnaslika.id}" th:proizvodid="${proizvod.id}" th:naziv="${proizvod.getIme()}" th:cena="${proizvod.cena}" th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" id="buttonAdd2Cart" >Dodaj u korpu &nbsp;<i class="fa fa-shopping-cart fa-lg"></i>
                         </span>
 
 

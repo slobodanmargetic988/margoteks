@@ -2915,6 +2915,15 @@ img {
 footer {
   /*margin-top: 10px;*/
 }
+footer .footer-kontakt-podaci a {
+  color: #d8c7c4;
+  line-height: 35px;
+  transition: all linear 0.2s;
+}
+footer .footer-kontakt-podaci a:hover {
+  color: white;
+  text-decoration: none;
+}
 footer .links-social {
   background: #892f2b;
   padding: 20px 0 50px 0;
@@ -3008,7 +3017,7 @@ footer .copyright a {
 
 /* Slider - Neki od naših klijenata start*/
 .partneri {
-  margin-top: 1rem;
+  margin: 8rem 0;
 }
 .partneri h2 {
   text-align: center;
@@ -3120,7 +3129,7 @@ footer .copyright a {
 .contact-us {
   margin-top: 3.125rem;
   padding-bottom: 3.75rem;
-  background-color: #fafafa;
+  background-color: rgba(250, 250, 250, 0.6);
 }
 .contact-us .send-us-a-message-header {
   color: #892f2b;
@@ -3340,8 +3349,16 @@ footer .copyright a {
   .navbar .nav-link {
     font-size: 1.6vw;
   }
+
+  .partneri {
+    margin: 6rem 0;
+  }
 }
 @media screen and (max-width: 767px) {
+  .popover {
+    display: none !important;
+  }
+
   #backToTop .backToTop {
     bottom: 3rem;
     right: 4rem;
@@ -3470,7 +3487,6 @@ footer .copyright a {
     min-height: 10rem;
   }
   .img-parallax p {
-    font-size: 3.2vw;
     padding: 0 0.9rem;
   }
 

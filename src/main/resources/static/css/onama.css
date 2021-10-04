@@ -160,6 +160,11 @@
   .about-section .container .image-column .inner-column {
     padding-left: 13rem;
   }
+
+  .mt-1-ss {
+    /*margin top, small screen*/
+    margin-top: 1rem;
+  }
 }
 @media screen and (max-width: 767px) {
   .about-section .container .image-column .inner-column {
@@ -179,10 +184,11 @@
   .about-section .container .content-column .inner-column .btn-box .shopBtn-onama-page {
     font-size: .95rem;
     letter-spacing: 0.04em;
+    width: 190px;
   }
   .about-section .container .content-column .inner-column .btn-box .contactUsBtn-onama-page {
     margin: 0.3rem 0 0 0;
-    width: 167px;
+    width: 190px;
   }
 
   .onama-img2 {
