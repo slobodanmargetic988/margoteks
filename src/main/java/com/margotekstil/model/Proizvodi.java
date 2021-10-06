@@ -197,6 +197,10 @@ public class Proizvodi {
         this.dimenzije = dimenzije;
     }
 
+    public void setTitle(String title) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
     
     
 }

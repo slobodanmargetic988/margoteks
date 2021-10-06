@@ -1,0 +1,120 @@
+.h-fixed {
+  height: 430px;
+}
+
+.img-fixed-wrapper {
+  height: 320px;
+  width: 100%;
+}
+.img-fixed-wrapper img {
+  object-fit: cover;
+  height: 320px;
+  width: 100%;
+}
+
+.remove-img-btn-adminChangeImg {
+  background: transparent;
+  border: 2px solid #892f2b;
+  color: #892f2b;
+  transition: outline-offset 200ms ease;
+  border-radius: .25rem;
+  cursor: pointer;
+  padding: 0.5em;
+  position: relative;
+  z-index: 1;
+  letter-spacing: .03rem;
+  font-size: .96rem;
+  font-weight: 500;
+  width: 100%;
+  display: block;
+  margin-top: .7rem;
+  text-align: center;
+  box-shadow: 0 4px 4px -2px #d1d1d1;
+}
+.remove-img-btn-adminChangeImg:hover, .remove-img-btn-adminChangeImg:focus {
+  outline: 2px solid #b23539;
+  outline-offset: -6px;
+  color: #b23539;
+  text-decoration: none;
+}
+.remove-img-btn-adminChangeImg:hover {
+  box-shadow: none;
+}
+
+.changeImgColorWrapper {
+  width: 100%;
+  height: 500px;
+}
+.changeImgColorWrapper img {
+  width: 100%;
+  height: 500px;
+  object-fit: cover;
+}
+
+@media screen and (max-width: 992px) {
+  .h-fixed {
+    height: 300px;
+  }
+
+  .img-fixed-wrapper {
+    height: 220px;
+  }
+  .img-fixed-wrapper img {
+    height: 220px;
+  }
+}
+@media screen and (max-width: 767px) {
+  .h-fixed {
+    height: 240px;
+  }
+
+  .img-fixed-wrapper {
+    height: 150px;
+  }
+  .img-fixed-wrapper img {
+    height: 150px;
+  }
+
+  .changeImgColorWrapper {
+    height: 300px;
+  }
+  .changeImgColorWrapper img {
+    height: 300px;
+  }
+}
+@media screen and (max-width: 575px) {
+  .h-fixed {
+    height: 550px;
+  }
+
+  .img-fixed-wrapper {
+    height: 450px;
+  }
+  .img-fixed-wrapper img {
+    height: 450px;
+  }
+}
+@media screen and (max-width: 430px) {
+  .h-fixed {
+    height: 450px;
+  }
+
+  .img-fixed-wrapper {
+    height: 350px;
+  }
+  .img-fixed-wrapper img {
+    height: 350px;
+  }
+}
+@media screen and (max-width: 350px) {
+  .h-fixed {
+    height: 300px;
+  }
+
+  .img-fixed-wrapper {
+    height: 200px;
+  }
+  .img-fixed-wrapper img {
+    height: 200px;
+  }
+}

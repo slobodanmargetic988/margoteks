@@ -83,9 +83,10 @@
 
                                                 <th:block th:each="slika,iterator:${proizvod.photos}" >       
                                                     <!--                                                                    <img  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" th:alt="${iterator.count}+'. slika'" class="show-small-img" style="border: none; padding: 0px;" alt="now">-->
+  <th:block th:if="${slika.active}" >       
 
                                                     <img th:id="'007'+${iterator.index}" th:alt="${slika.alt_text}" th:title="${slika.title}"  class="show-small-img sledece" style="border: none; padding: 0px;"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" />
-
+  </th:block>
 
                                                 </th:block>  
                                             </div>

@@ -86,9 +86,9 @@
 
                                                     <th:block th:each="slika,iterator:${proizvod.photos}" >       
                                                         <!--                                                                    <img  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" th:alt="${iterator.count}+'. slika'" class="show-small-img" style="border: none; padding: 0px;" alt="now">-->
-
+  <th:block th:if="${slika.active}" >       
                                                         <img th:id="'007'+${iterator.index}" th:alt="${iterator.count}+'. slika'" class="show-small-img sledece" style="border: none; padding: 0px;"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" />
-
+ </th:block> 
 
                                                     </th:block>  
                                                 </div>
@@ -146,6 +146,7 @@
                         <br>  <a th:href="@{/admin/izmeniProizvod/{proizvodId} (proizvodId=${proizvod.id})}"  class="mr-1"><button type="button" class="edit-product-adminProductPage" >Izmeni proizvod</button></a>
                         <a th:href="@{/admin/izmeniProizvod/{proizvodId}/dodajSliku (proizvodId=${proizvod.id})}"  ><button type="button" class="add-img-btn-adminProductPage" >Dodaj sliku</button></a>
                         <a th:href="@{/admin/izmeniProizvod/{proizvodId}/dodajBoju (proizvodId=${proizvod.id})}"  ><button type="button" class="add-img-btn-adminProductPage add-color-btn-adminProductPage" >Dodaj boju / dezen</button></a>
+                        <a th:href="@{/admin/izmeniProizvod/{proizvodId}/izmeniSlike (proizvodId=${proizvod.id})}"  ><button type="button" class="add-img-btn-adminProductPage mt-2" >Izmeni slike</button></a>
 
                     </form> 
 

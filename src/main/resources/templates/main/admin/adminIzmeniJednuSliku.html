@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Proizvod - boje / dezeni</title>
+
+    <th:block th:insert="fragments/head :: head" />
+    <link th:href="@{/css/izmeniSlike.css}" rel="stylesheet" type="text/css" />
+
+
+    <meta name="description" content="Margotekstil izmena proizvoda dodavanje slika. Admin product edit page - add images."/> 
+</head>
+
+<body>
+    <img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>                                              
+    <p>PRODAVNICA</p>
+</div>
+
+<th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+<th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+
+<section id="products-show">
+    <div class="container">
+
+
+        <form th:action="@{/admin/izmeniProizvod/{proizvodId}/izmeniJednuSliku/{photoId}/save (proizvodId=${proizvod.id},photoId=${photo.id})}" enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">
+
+            <div class="form-group " >
+                <h3 class="dodavanje-nove-slike col-md-6">Izmeni sliku za proizvod</h3>
+                <div class="col-md-6 centrirajFormuInput">
+                    <div class="changeImgColorWrapper">
+                        <img th:src="@{/photo/{proizvodId}/{photoId} (proizvodId=${proizvod.id},photoId=${photo.id})}" th:alt="${photo.alt_text}" th:title="${photo.title}"/>
+                    </div><br>
+                    <label for="mainImg">Naslov slike:</label>
+                    <input type="text" class="form-control input-custom-border"  name="title" th:value="${photo.title}" id="mainImg"> 
+
+
+                </div>
+                <br>
+                <div class="col-md-6 centrirajFormuInput">
+                    <label for="altImgText">Alternativni tekst za sliku:</label>
+                    <input type="text" class=" form-control input-custom-border" name="alt_text" th:value="${photo.alt_text}" id="altImgText">
+                </div>
+                <br>
+
+            </div>
+            <div class="col-md-6 centrirajFormuInput custom-file-upload">
+                <label>(*.jpg, max. 80 MB)</label>
+                <br>
+                <!--<input type="file" name="file">-->
+
+                <!-- actual upload which is hidden -->
+                <input type="file" name="file" id="actual-btn" hidden/>
+
+                <!-- custom upload button -->
+                <label for="actual-btn"  class="btn-choose-file">Choose File</label>
+
+                <!-- name of file chosen  changes with javascript-->
+                <span id="file-chosen">No file chosen</span>
+            </div>
+            <br>
+            <div class="col-md-6 centrirajFormuInput custom-control custom-checkbox">
+                <input type="checkbox" class="custom-control-input" id="customCheck1" name="aktivna"  th:checked="${photo.active}">
+                <label class="custom-control-label" for="customCheck1" style="margin-left: 1rem;">Active</label>
+            </div>
+            <br>
+            <div class="col-md-6 mt-3 centrirajFormuDugmad" >
+                <button type="submit" class="btn-save">Sačuvaj</button>
+                <a th:href="@{/admin/izmeniProizvod/{proizvodId}/izmeniSlike (proizvodId=${proizvodId})}" class="btn-back">Nazad</a>
+            </div>
+        </form>
+
+    </div>
+</section>
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<div id="backToTop"></div>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name;
+    });
+</script>
+</body>
+
+</html>

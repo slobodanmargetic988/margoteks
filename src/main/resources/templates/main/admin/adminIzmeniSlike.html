@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
+
+    <head>
+        <title>Margotekstil Proizvod - boje / dezeni</title>
+
+    <th:block th:insert="fragments/head :: head" />
+                    <link th:href="@{/css/izmeniSlike.css}" rel="stylesheet" type="text/css" />
+
+
+    <meta name="description" content="Margotekstil izmena proizvoda dodavanje slika. Admin product edit page - add images."/> 
+</head>
+
+<body>
+    <img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
+
+<th:block th:insert="fragments/navigation :: navbar" />
+
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>                                              
+    <p>IZMENA SLIKA ZA PROIZVOD</p>
+</div>
+
+<th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+<th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+
+<section id="products-show">
+    <div class="container">
+        <h3 class="dodavanje-nove-slike ">Izmeni slike za proizvod</h3>
+        
+        <br>
+        <div class="row">
+            <th:block th:each="photo : ${glavnaSlikaZaProizvod}" >  
+                <div class="col-sm-4">
+                     <div class="h-fixed">
+                        <div class="img-fixed-wrapper">
+                    <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${proizvod.glavnaslika.id},proizvodId=${proizvod.id})}" th:alt="${proizvod.glavnaslika.alt_text}" th:title="${proizvod.glavnaslika.title}" />
+                                           </div>
+                         <a th:href="@{/admin/izmeniProizvod/{proizvodId}/izmeniJednuSliku/{photoId} (proizvodId=${proizvod.id}, photoId=${photo.id})}" class="remove-img-btn-adminChangeImg">Izmeni</a>
+                </div>
+                                                 </div>
+
+            </th:block>
+
+            <th:block th:each="slika : ${listaSlikaZaProizvod}" >  
+                <div class="col-sm-4">
+                     <div class="h-fixed">
+                        <div class="img-fixed-wrapper">
+                    <img th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" th:alt="${slika.alt_text}" th:title="${slika.title}"/>
+                                           </div>
+                    <a th:href="@{/admin/izmeniProizvod/{proizvodId}/izmeniJednuSliku/{photoId} (proizvodId=${proizvod.id}, photoId=${slika.id})}" class="remove-img-btn-adminChangeImg">Izmeni</a>
+                                            </div>
+
+                </div>
+            </th:block>
+        </div>
+
+        <h3 class="dodavanje-nove-slike">Izmeni boju/dezen za proizvod</h3>
+        <div class="row">
+            <th:block th:each="boja : ${listaDezenaZaProizvod}" >  
+                <div class="col-sm-4">
+                    <div class="h-fixed">
+                        <div class="img-fixed-wrapper">
+                        <img  th:src="@{/boja/{bojaId} (bojaId=${boja.id})}" th:alt="${boja.alt_text}" th:title="${boja.title}"/>
+                        </div>
+                        <a th:href="@{/admin/izmeniProizvod/{proizvodId}/izmeniJedanDezen/{bojaId} (proizvodId=${proizvod.id}, bojaId=${boja.id})}" class="remove-img-btn-adminChangeImg">Izmeni</a>
+                    </div>
+                </div>
+
+            </th:block>
+        </div>
+
+
+       
+
+    </div>
+</section>
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<div id="backToTop"></div>
+
+
+<th:block th:insert="fragments/scripts :: scripts" />
+<script>
+    const actualBtn = document.getElementById('actual-btn');
+
+    const fileChosen = document.getElementById('file-chosen');
+
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name;
+    });
+</script>
+</body>
+
+</html>

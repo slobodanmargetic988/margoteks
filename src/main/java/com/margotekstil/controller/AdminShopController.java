@@ -346,6 +346,132 @@ public class AdminShopController {
         return "main/admin/adminProizvod";
     }
 
+    @GetMapping(value = "/admin/izmeniProizvod/{proizvodId}/izmeniSlike")
+    public String adminProizvodIzmeniSlikeMargotekstil(final Model model,
+            @PathVariable final Integer proizvodId
+    ) {
+        model.addAttribute("proizvodId", proizvodId);
+        Proizvodi proizvodi = proizvodiService.findFirstById(proizvodId);
+        model.addAttribute("proizvod", proizvodi);
+
+        proizvodi.getPhotos();
+        proizvodi.getGlavnaslika();
+        proizvodi.getBoje();
+        model.addAttribute("listaSlikaZaProizvod", proizvodi.getPhotos());
+        model.addAttribute("listaDezenaZaProizvod", proizvodi.getBoje());
+        model.addAttribute("glavnaSlikaZaProizvod", proizvodi.getGlavnaslika());
+
+        return "main/admin/adminIzmeniSlike";
+    }
+
+    @GetMapping(value = "/admin/izmeniProizvod/{proizvodId}/izmeniJednuSliku/{photoId}")
+    public String adminProizvodIzmeniJednuSlikuMargotekstil(final Model model,
+            @PathVariable final Integer proizvodId,
+            @PathVariable final Integer photoId
+    ) {
+        // model.addAttribute("proizvodId", proizvodId);
+        Proizvodi proizvodi = proizvodiService.findFirstById(proizvodId);
+        model.addAttribute("proizvod", proizvodi);
+
+        Photo photo = photoService.findFirstById(photoId);
+        model.addAttribute("photo", photo);
+
+        return "main/admin/adminIzmeniJednuSliku";
+    }
+
+    @PostMapping(value = "/admin/izmeniProizvod/{proizvodId}/izmeniJednuSliku/{photoId}/save")
+    public String adminProizvodIzmeniJednuSlikuMargotekstilSave(final Model model,
+            @PathVariable final Integer proizvodId,
+            @PathVariable final Integer photoId,
+            @RequestParam(name = "file", required = false) MultipartFile file,
+            @RequestParam(name = "title") String title,
+            @RequestParam(name = "alt_text") String alt_text,
+            @RequestParam(name = "aktivna", required = false, defaultValue = "false") Boolean aktivna,
+            RedirectAttributes redirectAttributes
+    ) {
+        try {
+
+            Photo izmenjenaJednaSlika = photoService.findFirstById(photoId);
+
+            izmenjenaJednaSlika.setAlt_text(alt_text);
+
+            izmenjenaJednaSlika.setTitle(title);
+
+            izmenjenaJednaSlika.setActive(aktivna);
+
+            if (!file.isEmpty()) {
+                String filename = storageService.store(file, proizvodId);
+                izmenjenaJednaSlika.setFilename(filename);
+            }
+
+            photoService.save(izmenjenaJednaSlika);
+            // colorPaletaService.save(izmenicolorPaletu);
+
+            redirectAttributes.addFlashAttribute("successMessage", "Slika za proizvod je uspešno izmenjena!");
+
+        } catch (Exception e) {
+            // System.out.println(e);
+            redirectAttributes.addFlashAttribute("errorMessage", ("Slika za proizvod nije uspešno izmenjena!. " + e.getMessage()));
+
+        }
+        return "redirect:/admin/proizvod/" + proizvodId;
+        //  return "main/admin/adminNovaSlika";
+    }
+
+    @GetMapping(value = "/admin/izmeniProizvod/{proizvodId}/izmeniJedanDezen/{bojaId}")
+    public String adminProizvodIzmeniJedanDezenMargotekstil(final Model model,
+            @PathVariable final Integer proizvodId,
+            @PathVariable final Integer bojaId
+    ) {
+        // model.addAttribute("proizvodId", proizvodId);
+        Proizvodi proizvodi = proizvodiService.findFirstById(proizvodId);
+        model.addAttribute("proizvod", proizvodi);
+
+        ColorPaleta colorPaleta = colorPaletaService.findFirstById(bojaId);
+        model.addAttribute("colorPaleta", colorPaleta);
+
+        return "main/admin/adminIzmeniJedanDezen";
+    }
+
+    @PostMapping(value = "/admin/izmeniProizvod/{proizvodId}/izmeniJedanDezen/{bojaId}/save")
+    public String adminProizvodIzmeniJedanDezenMargotekstilSave(final Model model,
+            @PathVariable final Integer proizvodId,
+            @PathVariable final Integer bojaId,
+            @RequestParam(name = "file", required = false) MultipartFile file,
+            @RequestParam(name = "title") String title,
+            @RequestParam(name = "alt_text") String alt_text,
+            @RequestParam(name = "aktivna", required = false, defaultValue = "false") Boolean aktivna,
+            RedirectAttributes redirectAttributes
+    ) {
+        try {
+
+            ColorPaleta izmenjenDezen = colorPaletaService.findFirstById(bojaId);
+
+            izmenjenDezen.setAlt_text(alt_text);
+
+            izmenjenDezen.setTitle(title);
+
+            izmenjenDezen.setActive(aktivna);
+
+            if (!file.isEmpty()) {
+                String filename = storageService.store(file, proizvodId);
+                izmenjenDezen.setFilename(filename);
+            }
+
+            colorPaletaService.save(izmenjenDezen);
+            // colorPaletaService.save(izmenicolorPaletu);
+
+            redirectAttributes.addFlashAttribute("successMessage", "Boja/Dezen za proizvod je uspešno izmenjena!");
+
+        } catch (Exception e) {
+            // System.out.println(e);
+            redirectAttributes.addFlashAttribute("errorMessage", ("Boja/Dezen za proizvod nije uspešno izmenjena!. " + e.getMessage()));
+
+        }
+        return "redirect:/admin/proizvod/" + proizvodId;
+        //  return "main/admin/adminNovaSlika";
+    }
+
     @GetMapping(value = "/admin/izmeniProizvod/{proizvodId}")
     public String admimProizvodIzmeniMargotekstil(final Model model,
             @PathVariable final Integer proizvodId,
@@ -404,7 +530,7 @@ public class AdminShopController {
             proizvod.setCena(cena);
             proizvod.setPdv(pdv);
             proizvod.setActive(Boolean.TRUE);
-            proizvod.setGlavnaslika(null);
+            // proizvod.setGlavnaslika(null);
             proizvod.setSlicniproizvodi(slicni);
             proizvod.setDimenzije(dimenzije);
             proizvod.setKilaza(kilaza);
