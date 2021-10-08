@@ -4,15 +4,8 @@ $(document).ready(function () {
 
     $(".firstDaljeBtn").on("click", function (e) {
         if (Cookies.get('korisnik') !== undefined) {
-            var korisnik = JSON.parse(Cookies.get('korisnik'));
-            korisnik.ime = $("#predzadnjiKorakIme").val();
-            korisnik.prezime = $("#predzadnjiKorakPrezime").val();
-            korisnik.telefon = $("#predzadnjiKorakTelefon").val();
-            korisnik.email = $("#predzadnjiKorakEmail").val();
-            korisnik.adresa = $("#predzadnjiKorakAdresa").val();
-            korisnik.postanskibroj = $("#predzadnjiKorakPB").val();
-            korisnik.grad = $("#predzadnjiKorakGrad").val();
-            korisnik.nacinplacanja = $("#nacinPlacanja").val();
+            var korisnik = JSON.parse(Cookies.get('korisnik'));          
+               console.log(korisnik);      
             $("#predzadnjiKorakIme").val(korisnik.ime);
             $("#predzadnjiKorakPrezime").val(korisnik.prezime);
             $("#predzadnjiKorakTelefon").val(korisnik.telefon);
@@ -21,6 +14,10 @@ $(document).ready(function () {
             $("#predzadnjiKorakPB").val(korisnik.postanskibroj);
             $("#predzadnjiKorakGrad").val(korisnik.grad);
             $("#nacinPlacanja").val(korisnik.nacinplacanja);
+        }
+        else{
+            console.log("nije pronadjen korisnik");
+            
         }
     });
 
