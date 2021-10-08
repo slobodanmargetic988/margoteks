@@ -99,8 +99,7 @@
 }
 .contact-us-page .contact-form input:focus, .contact-us-page .contact-form textarea:focus {
   outline: 0;
-  border-color: #892f2b;
-  box-shadow: none;
+  box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
 }
 .contact-us-page .contact-form input {
   max-width: 95%;
@@ -1385,6 +1384,9 @@ html {
   box-sizing: border-box;
   font-size: 0.813rem;
 }
+#msform input:focus, #msform textarea:focus {
+  box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
+}
 #msform .action-button {
   width: 49%;
   background: #892f2b;
@@ -1554,6 +1556,9 @@ input[value='+'], input[value='-'] {
 
 .custom-select {
   border: 1px solid #892f2b !important;
+}
+.custom-select:focus {
+  box-shadow: 0 0 8px rgba(137, 47, 43, 0.36) !important;
 }
 
 .korpa {
@@ -3150,8 +3155,7 @@ footer .copyright a {
 }
 .contact-us .forma input:focus, .contact-us .forma textarea:focus {
   outline: 0;
-  border-color: #892f2b;
-  box-shadow: none;
+  box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
 }
 .contact-us .forma input {
   max-width: 95%;

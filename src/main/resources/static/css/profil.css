@@ -23,6 +23,9 @@
   border: 1px solid #892f2b;
   border-radius: .2rem;
 }
+.licniPodaciForma .centrirajFormuInput .input-custom-border:focus {
+  box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
+}
 .licniPodaciForma .buttonsSaveAndBack {
   padding-bottom: 3rem;
   padding-top: 1rem;

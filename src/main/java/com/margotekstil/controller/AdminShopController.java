@@ -129,14 +129,14 @@ public class AdminShopController {
                 proizvodId += proizvod.getId();
                 redirectAttributes.addFlashAttribute("successMessage", "Proizvod je uspešno dodat!");
             } else {
-                redirectAttributes.addFlashAttribute("errorMessage", "proizvod nije uspešno dodat, morate izabrati sliku! ");
+                redirectAttributes.addFlashAttribute("errorMessage", "Proizvod nije uspešno dodat, morate izabrati sliku! ");
                 return "redirect:/admin/noviProizvod";
             }
 
             //  redirectAttributes.addFlashAttribute("errorMessage", ("proizvod nije uspesno dodat!"));
         } catch (Exception e) {
             //  System.out.println(e);
-            redirectAttributes.addFlashAttribute("errorMessage", ("proizvod nije uspešno dodat! " + e.getMessage()));
+            redirectAttributes.addFlashAttribute("errorMessage", ("Proizvod nije uspešno dodat! " + e.getMessage()));
             return "redirect:/admin/noviProizvod";
         }
         return "redirect:/admin/proizvod/" + proizvodId;
@@ -263,7 +263,7 @@ public class AdminShopController {
     StorageService storageService;
 
     @PostMapping(value = "/admin/novaSlika/save")
-    public String adminNovaSlikaSaveMargotekstil(final Model model,
+    public String adminNovaSlikaSaveMargotekstil(
             @RequestParam("file") MultipartFile file,
             @RequestParam(name = "title") String title,
             @RequestParam(name = "alt_text") String alt_text,
@@ -380,7 +380,7 @@ public class AdminShopController {
     }
 
     @PostMapping(value = "/admin/izmeniProizvod/{proizvodId}/izmeniJednuSliku/{photoId}/save")
-    public String adminProizvodIzmeniJednuSlikuMargotekstilSave(final Model model,
+    public String adminProizvodIzmeniJednuSlikuMargotekstilSave(
             @PathVariable final Integer proizvodId,
             @PathVariable final Integer photoId,
             @RequestParam(name = "file", required = false) MultipartFile file,
@@ -434,7 +434,7 @@ public class AdminShopController {
     }
 
     @PostMapping(value = "/admin/izmeniProizvod/{proizvodId}/izmeniJedanDezen/{bojaId}/save")
-    public String adminProizvodIzmeniJedanDezenMargotekstilSave(final Model model,
+    public String adminProizvodIzmeniJedanDezenMargotekstilSave(
             @PathVariable final Integer proizvodId,
             @PathVariable final Integer bojaId,
             @RequestParam(name = "file", required = false) MultipartFile file,
@@ -474,18 +474,9 @@ public class AdminShopController {
 
     @GetMapping(value = "/admin/izmeniProizvod/{proizvodId}")
     public String admimProizvodIzmeniMargotekstil(final Model model,
-            @PathVariable final Integer proizvodId,
-            RedirectAttributes redirectAttributes
+            @PathVariable final Integer proizvodId
     ) {
-        try {
-//            Proizvodi proizvod = new Proizvodi();
-//
-//            proizvodiService.save(proizvod);
-            redirectAttributes.addFlashAttribute("successMessage", "Proizvod je uspešno izmenjen!");
-        } catch (Exception e) {
-            //  System.out.println(e);
-            redirectAttributes.addFlashAttribute("errorMessage", ("Proizvod nije uspešno izmenjen! " + e.getMessage()));
-        }
+
         model.addAttribute("proizvod", proizvodiService.findFirstById(proizvodId));
         model.addAttribute("listaProizvoda", proizvodiService.findAllBy());
 

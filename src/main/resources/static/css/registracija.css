@@ -59,7 +59,7 @@
   font-weight: 300;
 }
 #regi-login-form .container-registration .user .formBx form input:focus {
-  background-color: #fcfcfc;
+  box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
 }
 #regi-login-form .container-registration .user .formBx form input[type='submit'] {
   width: 50%;

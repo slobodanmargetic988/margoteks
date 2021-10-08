@@ -542,8 +542,7 @@ footer {
             border: 1px solid $brown-black-color;
             &:focus {
                 outline: 0;
-                border-color: $burgundy-color;
-                box-shadow: none;
+                box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
             }
         }
         input {

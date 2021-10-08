@@ -53,7 +53,7 @@
                         letter-spacing: 1px;
                         font-weight: 300;
                         &:focus {
-                            background-color: darken($white-color, 1%);
+                            box-shadow: 0 0 8px rgba(137, 47, 43, 0.36);
                         }
                     }
                     input[type='submit'] {
