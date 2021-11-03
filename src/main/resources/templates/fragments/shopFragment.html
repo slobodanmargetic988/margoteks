@@ -19,7 +19,7 @@
 
 
     <th:block th:fragment="jedanProizvod (fragmentProizvod)">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniReg" >
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniReg" style="display: flex; flex-direction: column">
             <div class="img-wrapper">
                 <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
                     <th:block th:if="${fragmentProizvod.glavnaslika != null}">
@@ -30,24 +30,28 @@
                         <!--ubaciti precrtanu sliku kad proizvod nema sliku-->
                     </th:block>
                 </a>
+            </div>              
+            <div style="flex-grow: 1">    
+                <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
+                    <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
+                </a>
             </div>
-
-            <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
-                <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
-            </a>
-            <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
-            <span th:pid="${fragmentProizvod.getId()}" class="buttonAdd2Cart" >
+            <div>   
+                <p  class="product-price"><span  th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
+            </div>
+            <!--<span  th:pid="${fragmentProizvod.getId()}" class="buttonAdd2Cart" >-->
+            <div>       
                 <button type="button" class="dodajJS dodajuKorpu-shop-page" th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}" th:pid="${fragmentProizvod.id}" >Dodaj u korpu</button>
-            </span>
+                <!--</span>-->
+            </div>
             <br><br>
         </div>
-
     </th:block>
 
 
 
     <th:block th:fragment="jedanProizvodNeregistrovan (fragmentProizvod)">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniNereg" >
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniNereg" style="display:flex; flex-direction: column" >
             <div class="img-wrapper">
                 <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
                     <th:block th:if="${fragmentProizvod.glavnaslika != null}">
@@ -59,14 +63,19 @@
                     </th:block>
                 </a>
             </div>
-
-            <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
-                <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
-            </a>
-            <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
-            <span th:pid="${fragmentProizvod.getId()}" class="buttonAdd2Cart" >
+            <div style="flex-grow: 1">    
+                <a th:href="@{/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
+                    <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
+                </a>
+            </div>
+            <div>   
+                <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
+            </div>
+            <div>   
+                <!--<span th:pid="${fragmentProizvod.getId()}" class="buttonAdd2Cart" >-->
                 <button type="button" class="dodajuKorpu-shop-page JSdodajUKorpuProizvodStranaNEREGSlicni" th:phototitle="${fragmentProizvod.glavnaslika.title}" th:photoalt="${fragmentProizvod.glavnaslika.alt_text}" th:photoid="${fragmentProizvod.glavnaslika.id}" th:proizvodid="${fragmentProizvod.id}" th:naziv="${fragmentProizvod.getIme()}" th:cena="${fragmentProizvod.cena}"th:opis="${proizvod.opis}" th:kilaza="${proizvod.kilaza}" th:pid="${fragmentProizvod.id}" >Dodaj u korpu</button>
-            </span>
+                <!--</span>-->
+            </div>
             <br><br>
         </div>
 
@@ -75,7 +84,7 @@
 
 
     <th:block th:fragment="jedanProizvodAdmin (fragmentProizvod)">
-        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniAdmin" >
+        <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 jedanProizvod jedanProizvodSlicniAdmin" style="display: flex; flex-direction: column" >
             <div class="img-wrapper">
                 <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}">
                     <th:block th:if="${fragmentProizvod.glavnaslika != null}">
@@ -86,12 +95,15 @@
                         <!--ubaciti precrtanu sliku kad proizvod nema sliku-->
                     </th:block>
                 </a>
-
             </div>
-            <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
-                <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
-            </a>
-            <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
+            <div style="flex-grow: 1">    
+                <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${fragmentProizvod.id})}" class="link-product-description">
+                    <p class="mt-2 product-description"><span th:text="${fragmentProizvod.getIme()}"></span></p>
+                </a>
+            </div>
+            <div>   
+                <p class="product-price"><span th:text="${fragmentProizvod.getCena()}"></span>  RSD</p>
+            </div>
             <div class="row">
                 <div class="col-md-12">
                     <a href="#" class=" buttonAdd2Cart">
@@ -163,7 +175,7 @@
                         <img class="color-circle" th:src="@{/boja/{bojaId} (bojaId=${stavka.boja.id})}" th:alt="${stavka.boja.alt_text}" th:title="${stavka.boja.title}"> 
                     </th:block>
                     <th:block th:if="${stavka.boja == null} " > 
-                         <span>Boja: osnovna</span>
+                        <span>Boja: osnovna</span>
                     </th:block>
                 </div>
                 <div class="cenaprSmallerScreenStavkaPregled">

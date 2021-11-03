@@ -18,7 +18,9 @@
 
 <div class="text-box">
     <h2>MARGOTEKSTIL</h2>
-    <p>PROIZVOD</p>
+    <!--<p>PROIZVOD</p>-->
+        <!--<p><span th:text="${proizvod.getIme()}"></span></p>-->
+
 </div>
 
 
@@ -47,7 +49,7 @@
 </div>
 <!--popup sa svime sto treba -->   
 
-                      
+
 
 <div class="single-product-show">
     <div class="container">
@@ -87,10 +89,10 @@
 
                                                 <th:block th:each="slika,iterator:${proizvod.photos}" >       
                                                     <!--                                                                    <img  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}" th:alt="${iterator.count}+'. slika'" class="show-small-img" style="border: none; padding: 0px;" alt="now">-->
-  <th:block th:if="${slika.active}" >       
+                                                    <th:block th:if="${slika.active}" >       
 
-                                                    <img th:id="'007'+${iterator.index}"  class="show-small-img sledece" style="border: none; padding: 0px;"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}"  th:alt="${slika.alt_text}" th:title="${slika.title}" />
-  </th:block>
+                                                        <img th:id="'007'+${iterator.index}"  class="show-small-img sledece" style="border: none; padding: 0px;"  th:src="@{/photo/{proizvodId}/{photoId} (photoId=${slika.id},proizvodId=${proizvod.id})}"  th:alt="${slika.alt_text}" th:title="${slika.title}" />
+                                                    </th:block>
 
                                                 </th:block>  
                                             </div>
@@ -102,8 +104,8 @@
 
 
 
-
-
+                                <br>
+                                <p><span style="font-weight: 600">Ključne reči: </span><span th:text="${proizvod.getKeywords()}"></span></p>
 
                             </section></div>
 
@@ -123,6 +125,7 @@
                         <p><span style="font-weight: 600">Kategorija: </span><span th:text="${proizvod.getKategorija()}"></span></p>
                         <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
                         <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>
+
 
                         <div class="radio-group">
 

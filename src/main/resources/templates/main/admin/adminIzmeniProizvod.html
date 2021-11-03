@@ -45,7 +45,7 @@
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">
                     <label for="kljucneReci">Keywords (ključne reči):</label>
-                    <input type="text" class=" form-control input-custom-border"  name="keywords" th:value="${proizvod.keywords}" id="kljucneReci">
+                    <textarea type="text" class=" form-control input-custom-border" rows="5" cols="60" name="keywords" th:text="${proizvod.keywords}" id="kljucneReci"></textarea>
                 </div>
                 <br>
                 <div class="col-md-8 centrirajFormuInput ">

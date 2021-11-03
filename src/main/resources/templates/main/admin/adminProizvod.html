@@ -19,7 +19,9 @@
 
 <div class="text-box">
     <h2>MARGOTEKSTIL</h2>
-    <p>KREVET ZA PSE</p>
+    <!--<p>KREVET ZA PSE</p>-->
+        <!--<p><span th:text="${proizvod.getIme()}"></span></p>-->
+
 </div>
 
 
@@ -96,6 +98,9 @@
                                         </div>
                                         <img src="/img/left-right-arrow.png" class="icon-right" alt="right arrow" id="next-img" >
                                     </div>
+                                    <br>
+                                            <p><span style="font-weight: 600">Ključne reči: </span><span th:text="${proizvod.getKeywords()}"></span></p>
+
                                 </section>
 
                             </div>
@@ -115,6 +120,8 @@
                         <p><span style="font-weight: 600">Kategorija: </span><span th:text="${proizvod.getKategorija()}"></span></p>
                         <p><span style="font-weight: 600">Dimenzije: </span><span th:text="${proizvod.getDimenzije()}"></span> cm</p>
                         <p><span style="font-weight: 600">Težina: </span><span th:text="${proizvod.getKilaza()}"></span> kg</p>
+                        <!--<p><span style="font-weight: 600">Ključne reči: </span><span th:text="${proizvod.getKeywords()}"></span></p>-->
+
                         
                         <div class="radio-group">
 
@@ -185,6 +192,7 @@
             </th:block>
 
         </div>
+        <p style="font-size: 13px;margin-top: 3rem;"><span style="font-weight: 600">Ključne reči: </span><span th:text="${proizvod.getKeywords()}"></span></p>
     </div>
 </div>
 
