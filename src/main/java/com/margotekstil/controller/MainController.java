@@ -210,10 +210,7 @@ if (!lozinkaRepeat.equals("")){
         return "main/prodavnica";
     }
 
-    @GetMapping("/test")
-    public String testPage(Model model) {
-        return "main/test";
-    }
+ 
 
     @GetMapping("/usloviKoriscenja")
     public String usloviKoriscenja(Model model) {
