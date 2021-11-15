@@ -22,8 +22,8 @@
                             <span class="productName" th:text="${fragmentProizvod.getIme()}"> </span><br>
                                 <span class="master-price" th:text="${fragmentProizvod.getCena()}"></span> <span style="">RSD</span>
                                 <div class="shop-buttons ">
-                                    <a th:href="@{/shoppingCart}"><button class="btn-cart">Idi u korpu</button></a>
-                                    <a th:href="@{/shop}"><button class="btn-shop-outline">Nazad na shop</button></a>
+                                    <a th:href="@{/korpa}"><button class="btn-cart">Idi u korpu</button></a>
+                                    <a th:href="@{/prodavnica}"><button class="btn-shop-outline">Nazad na shop</button></a>
                                 </div>
                         </div>
                     </div>
@@ -43,8 +43,8 @@
                             <span class="productName" th:text="${proizvod.getIme()}"> </span><br>
                                 <span class="master-price" th:text="${proizvod.getCena()}"></span> <span style="">RSD</span>
                                 <div class="shop-buttons ">
-                                    <a th:href="@{/shoppingCart}"><button class="btn-cart">Idi u korpu</button></a>
-                                    <a th:href="@{/admin/shop}"><button class="btn-shop-outline">Nazad na shop</button></a>
+                                    <a th:href="@{/korpa}"><button class="btn-cart">Idi u korpu</button></a>
+                                    <a th:href="@{/admin/prodavnica}"><button class="btn-shop-outline">Nazad na shop</button></a>
                                 </div>
                         </div>
                     </div>

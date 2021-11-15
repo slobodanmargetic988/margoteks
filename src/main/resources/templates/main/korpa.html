@@ -2,10 +2,12 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil | Korpa</title>
+        <title>Korpa | Margotekstil</title>
 
 
-        <meta name="description" content="Margotekstil vaša korpa, pregledate proizvode koji su trenutno u vašoj korpi i završite porudžbinu. Shopping cart main page."/> 
+        <meta name="description" content="Pregledate proizvode koji su trenutno u vašoj korpi i završite kupovinu."/> 
+    <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, margotekstil usluge, uslužno šivenje, šivenje, dekorativni tekstil, dekorativni tekstil za kuću, kupovina, margotekstil kupovina, korpa, margotekstil korpa, korpa proizvoda, margotekstil korpa proizvoda, shopping cart, shopping basket"/>
+
     <th:block th:insert="fragments/head :: head" />
 
     <link th:href="@{/css/emptyCart.css}" rel="stylesheet" type="text/css" />
@@ -14,6 +16,8 @@
 </head>
 
 <body>
+        <th:block th:insert="fragments/topbar :: topbar" />
+
     <img src="/img/shop-image.jpg" class="header-img" alt="shopping-cart-header-image">
 
 
@@ -32,7 +36,7 @@
             <p class="cart-text">Korpa je trenutno prazna.<br>
                 Pre nego što nastavite sa plaćanjem, morate dodati neke proizvode u svoju korpu.</p>
             <p class="return-to-shop">
-                <a class="return-to-shop-btn" th:href="@{/shop}">
+                <a class="return-to-shop-btn" th:href="@{/prodavnica}">
                     Nazad na shop</a>
             </p>
         </div>

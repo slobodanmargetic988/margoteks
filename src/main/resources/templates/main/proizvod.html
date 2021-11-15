@@ -2,15 +2,19 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil | Proizvod</title>
+        <title>Proizvod | Margotekstil</title>
 
-        <meta name="description" content="Margotekstil strana proizvoda. Detalji o proizvodu. Product page."/> 
+        <meta name="description" content="Margotekstil strana proizvoda. Detalji o proizvodu. "/> 
+             <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, margotekstil usluge, uslužno šivenje, prodavnica, shop, online prodavnica, online shop, margotekstil prodavnica, margotekstil shop, margotekstil proizvodi, šivenje, tekstilni program za kućne ljubimce, program za kućne ljubimce, petmania, pet mania, petmania program, margotekstil petmania, ležaj za kućne ljubimce, ležaj za pse, ležaj za kučiće, ležaj za mačke, flexy ležaj za kućne ljubimce, sleep easy ležaj za kućne ljubimce, prostirka za kućne ljubimce, podmetači za posude za hranu, torba za kućne ljubimce, torba za pse, torba za mačke, vodonepropusni materijali, vrhunski kvalitet, kvalitet, margotekstil vodonepropusni materijali, margotekstil vrhunski kvalitet, margotekstil kvalitet, povoljno, detalji o proizvodu"/>
+
     <th:block th:insert="fragments/head :: head" />
     <link th:href="@{/css/proizvodSlikeSlide.css}" rel="stylesheet" type="text/css" />
 
 </head>
 
 <body>
+        <th:block th:insert="fragments/topbar :: topbar" />
+
     <img src="/img/proizvodi-head.jpg" class="header-img" alt="proizvod-header-image">
 
 
@@ -40,8 +44,8 @@
                 <span class="productName" id="popupnaziv"  th:text="${proizvod.getIme()}"> </span><br>
                 <span class="master-price" id="popupcena" th:text="${proizvod.getCena()}"></span> <span style=""> RSD</span>
                 <div class="shop-buttons row">
-                    <a th:href="@{/shoppingCart}" class="btn-cart col-12">Idi u korpu</a>
-                    <a th:href="@{/shop}" class="btn-shop-outline col-12">Nazad na shop</a>
+                    <a th:href="@{/korpa}" class="btn-cart col-12">Idi u korpu</a>
+                    <a th:href="@{/prodavnica}" class="btn-shop-outline col-12">Nazad na shop</a>
                 </div>
             </div>
         </div>
@@ -56,7 +60,7 @@
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-                <li class="breadcrumb-item"><a th:href="@{/shop}">Proizvodi</a></li>
+                <li class="breadcrumb-item"><a th:href="@{/prodavnica}">Proizvodi</a></li>
                 <li class="breadcrumb-item active" aria-current="page"><span th:text="${proizvod.ime}"></span></li>
             </ol>
         </nav>
@@ -105,7 +109,8 @@
 
 
                                 <br>
-                                <p><span style="font-weight: 600">Ključne reči: </span><span th:text="${proizvod.getKeywords()}"></span></p>
+ <br>
+                                            <p><span style="font-weight: 600;font-size:13px">Ključne reči: </span><span th:text="${proizvod.getKeywords()}" style="font-size:13px"></span></p>
 
                             </section></div>
 

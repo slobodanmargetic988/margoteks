@@ -2,80 +2,81 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Proizvod - dodatne slike</title>
+        <title>Dodavanje nove slike za proizvod | Margotekstil</title>
 
-        <th:block th:insert="fragments/head :: head" />
+    <th:block th:insert="fragments/head :: head" />
 
 
-<meta name="description" content="Margotekstil izmena proizvoda dodavanje slika. Admin product edit page - add images."/> 
-    </head>
+    <meta name="description" content="Margotekstil dodavanje nove slike za proizvod - admin"/> 
+</head>
 
-    <body>
-        <img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
+<body>
+<th:block th:insert="fragments/topbar :: topbar" />
+<img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
 
-            <th:block th:insert="fragments/navigation :: navbar" />
+<th:block th:insert="fragments/navigation :: navbar" />
 
-            <div class="text-box">
-                <h2>MARGOTEKSTIL</h2>                                              
-                <p>PRODAVNICA</p>
-            </div>
+<div class="text-box">
+    <h2>MARGOTEKSTIL</h2>                                              
+    <p>Dodavanje nove slike</p>
+</div>
 
-            <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
-            <th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
+<th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
+<th:block th:insert="fragments/alert :: success (${successMessage})"></th:block>
 
-            <section id="products-show">
-                <div class="container">
-                    <form th:action="@{/admin/novaSlika/{proizvodId}/save (proizvodId=${proizvodId})}" enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">
-                        
-                          <div class="form-group " >
-                            <h3 class="dodavanje-nove-slike col-md-6">Dodavanje nove slike za proizvod</h3>
-                            <div class="col-md-6 centrirajFormuInput"  >
-                                <label for="naslovSlike">Naslov slike:</label>
-                                <input type="text" class=" form-control input-custom-border"  name="title" id="naslovSlike" >
-                            </div>
-                            <div class="col-md-6 centrirajFormuInput mt-3"  >
-                                <label for="altImgText">Alternativni tekst:</label>
-                                <input type="text" class=" form-control input-custom-border"  name="alt_text" id="altImgText" >
-                            </div>
-                        </div>
-                        <div class="col-md-6 centrirajFormuChoose" >
-                            <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
-                            <div >
-                                <!--<input type="file" name="file">-->
+<section id="products-show">
+    <div class="container">
+        <form th:action="@{/admin/novaSlika/{proizvodId}/save (proizvodId=${proizvodId})}" enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">
 
-                                <!-- actual upload which is hidden -->
-                                <input type="file" name="file" id="actual-btn" hidden/>
-
-                                <!-- custom upload button -->
-                                <label for="actual-btn"  class="btn-choose-file">Choose File</label>
-
-                                <!-- name of file chosen changes with javascript -->
-                                <span id="file-chosen">No file chosen</span>
-                            </div>
-                        </div>
-                        <div class="col-md-6 mt-3 centrirajFormuDugmad" >
-                            <button type="submit" class="btn-save">Sačuvaj</button>
-                            <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${proizvodId})}" class="btn-back">Nazad</a>
-                        </div>
-                    </form>
+            <div class="form-group " >
+                <h3 class="dodavanje-nove-slike col-md-6">Dodavanje nove slike za proizvod</h3>
+                <div class="col-md-6 centrirajFormuInput"  >
+                    <label for="naslovSlike">Naslov slike:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="title" id="naslovSlike" >
                 </div>
-            </section>
+                <div class="col-md-6 centrirajFormuInput mt-3"  >
+                    <label for="altImgText">Alternativni tekst:</label>
+                    <input type="text" class=" form-control input-custom-border"  name="alt_text" id="altImgText" >
+                </div>
+            </div>
+            <div class="col-md-6 centrirajFormuChoose" >
+                <label  class=" control-label"  >(*.jpg, max. 80 MB)</label>
+                <div >
+                    <!--<input type="file" name="file">-->
 
-            <th:block th:insert="fragments/footer :: footer" />
+                    <!-- actual upload which is hidden -->
+                    <input type="file" name="file" id="actual-btn" hidden/>
 
-            <div id="backToTop"></div>
+                    <!-- custom upload button -->
+                    <label for="actual-btn"  class="btn-choose-file">Choose File</label>
+
+                    <!-- name of file chosen changes with javascript -->
+                    <span id="file-chosen">No file chosen</span>
+                </div>
+            </div>
+            <div class="col-md-6 mt-3 centrirajFormuDugmad" >
+                <button type="submit" class="btn-save">Sačuvaj</button>
+                <a th:href="@{/admin/proizvod/{proizvodId} (proizvodId=${proizvodId})}" class="btn-back">Nazad</a>
+            </div>
+        </form>
+    </div>
+</section>
+
+<th:block th:insert="fragments/footer :: footer" />
+
+<div id="backToTop"></div>
 
 
-            <th:block th:insert="fragments/scripts :: scripts" />
-  <script>
-                                                                                const actualBtn = document.getElementById('actual-btn');
+<th:block th:insert="fragments/scripts :: scripts" />
+<script>
+    const actualBtn = document.getElementById('actual-btn');
 
-                                                                                const fileChosen = document.getElementById('file-chosen');
+    const fileChosen = document.getElementById('file-chosen');
 
-                                                                                actualBtn.addEventListener('change', function () {
-                                                                                    fileChosen.textContent = this.files[0].name;
-                                                                                });
-                                                                            </script>
-    </body>
+    actualBtn.addEventListener('change', function () {
+        fileChosen.textContent = this.files[0].name;
+    });
+</script>
+</body>
 
 </html>

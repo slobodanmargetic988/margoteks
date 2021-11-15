@@ -2,16 +2,19 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil | Horeca Tekstil</title>
-
+        <title>Horeca Tekstil | Margotekstil</title>
+  <meta name="description" content="Horeca Tekstil. Prostor uređen po Vašoj meri. Od HoReCa programa nudimo Vam izuzetan kvalitet, povoljne cene i kratke rokove izrade..."/> 
+         <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, margotekstil usluge, uslužno šivenje, šivenje, dekorativni tekstil, dekorativni tekstil za kuću, tekstilni program, tekstilni program za proslave, tekstilni program za venčanja, tekstilni program za svadbe, margotekstil stolnjaci, margotekstil dekorativne jastučnice, dekorativne jastučnice, stolnjaci, nadstolnjaci, prostirke, prekrivači, salvete, margotesktil stolnjaci, margotesktil nadstolnjaci, margotesktil prostirke, margotesktil prekrivači, margotesktil salvete, raneri, margotesktil raneri, stoper za vrata, navlake za stolice, horeca, horeca tekstil, restorani, hoteli, dekorativni tekstil za restorane, dekorativni tekstil za hotele"/>
+   
     <th:block th:insert="fragments/head :: head" />
 
     <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
 
-    <meta name="description" content="Margotekstil horeca program. Nudimo širok asortiman usluga za sređivanje vašeg poslovnog prostora. Navlake za stolice i stolove, stoljnjaci, zavese, salvete itd. Home and business decoration HoReCa."/> 
 </head>
 
 <body>
+        <th:block th:insert="fragments/topbar :: topbar" />
+
     <img src="/img/horeca4.jpg" class="header-img" alt="header-image">
 
 <th:block th:insert="fragments/navigation :: navbar" />
@@ -39,14 +42,14 @@
                     <ul class="list-style-one">
                         <li>Stolnjake i nadstolnjake</li>
                         <li>Presvlake za stolove i stolice - STRETCH (univerzalne)</li>
-                        <li>Ukrasne jastuke</li>
+                        <li>Ukrasne jastučnice</li>
                         <li>Dekoracija za svečane sale</li>
                         <li>Zavese i draperi</li>
                         <li>Mnoštvo drugih proizvoda po porudžbini</li>
                     </ul>
                     <div class="btn-box">
-                        <a th:href="@{/shop}" class="shopBtn-onama-page" type="button">Shop</a>
-                        <a th:href="@{/contact}" class="contactUsBtn-onama-page" type="button">Kontaktirajte nas</a>
+                        <a th:href="@{/prodavnica}" class="shopBtn-onama-page" type="button">Shop</a>
+                        <a th:href="@{/kontakt}" class="contactUsBtn-onama-page" type="button">Kontaktirajte nas</a>
                         <!-- <br>
                         <a th:href="@{/proizvodi}" class="btn-style-two" type="button">Shop</a>-->
                     </div>

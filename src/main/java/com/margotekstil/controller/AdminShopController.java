@@ -292,7 +292,7 @@ public class AdminShopController {
     @Autowired
     ProizvodiService proizvodiService;
 
-    @GetMapping(value = "/admin/shop")
+    @GetMapping(value = "/admin/prodavnica")
     public String adminShopMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
         model.addAttribute("listakategorija", proizvodiService.findListaKategorija());
         model.addAttribute("listaProizvoda", proizvodiService.findAllByActiveOrderByImeAsc(true, pageable));
@@ -300,7 +300,7 @@ public class AdminShopController {
         return "main/admin/adminShop";
     }
 
-    @GetMapping(value = "/admin/shop/{kategorija}")
+    @GetMapping(value = "/admin/prodavnica/{kategorija}")
     public String adminShopKategorijaMargotekstil(final Model model,
             @PageableDefault(value = 12) final Pageable pageable,
             @PathVariable final String kategorija
@@ -331,7 +331,7 @@ public class AdminShopController {
 
         model.addAttribute("listaProizvoda", proizvodiService.findAllBy());
 
-        return "redirect:/admin/shop";
+        return "redirect:/admin/prodavnica";
         //return "main/admin/adminShop";
     }
 

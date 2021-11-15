@@ -2,8 +2,10 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil | Dekorativni programa</title>
-
+        <title>Dekorativni program | Margotekstil</title>
+    <meta name="description" content="Dekorativni tekstil za kuću. Vaš lični prostor je ono što pruža toplinu, sigurnost i asocira na ognjište i komfor. On je centar svih okupljanja kako u svakodnevnici, tako i u ključnim životnim prilikama..."/> 
+         <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, margotekstil usluge, uslužno šivenje, šivenje, dekorativni tekstil, dekorativni tekstil za kuću, tekstilni program, tekstilni program za kuću, margotekstil stolnjaci, margotekstil dekorativne jastučnice, dekorativne jastučnice, stolnjaci, nadstolnjaci, prostirke, prekrivači, salvete, margotesktil stolnjaci, margotesktil nadstolnjaci, margotesktil prostirke, margotesktil prekrivači, margotesktil salvete, raneri, margotesktil raneri, stoper za vrata, navlake za stolice"/>
+   
     <th:block th:insert="fragments/head :: head" />
     
     <link th:href="@{/css/onama.css}" rel="stylesheet" type="text/css" />
@@ -12,6 +14,8 @@
 </head>
 
 <body>
+        <th:block th:insert="fragments/topbar :: topbar" />
+
     <img src="/img/dekorativnitekstil1.jpg" class="header-img" alt="dekorativni-tekstil-header-image">
 
 <th:block th:insert="fragments/navigation :: navbar" />
@@ -39,15 +43,15 @@
                     </div>
                     <ul class="list-style-one"  >
                         <li>Stolnjaci </li>
-                        <li>Dekorativni jastuci</li>
+                        <li>Dekorativne jastučnice</li>
                         <li>Zavese i draperi</li>
                         <li>Prekrivači i posteljina</li>
 
 
                     </ul>
                     <div class="btn-box">
-                        <a th:href="@{/shop}" class="shopBtn-onama-page" type="button">Shop</a>
-                        <a th:href="@{/contact}" class="contactUsBtn-onama-page" type="button">Kontaktirajte nas</a>
+                        <a th:href="@{/prodavnica}" class="shopBtn-onama-page" type="button">Shop</a>
+                        <a th:href="@{/kontakt}" class="contactUsBtn-onama-page" type="button">Kontaktirajte nas</a>
                     </div>
                 </div>
             </div>

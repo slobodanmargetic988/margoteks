@@ -27,16 +27,16 @@
                             <a class="nav-link nav-link-admin" th:href="@{/onama}">O NAMA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-admin" th:href="@{/shop}">SHOP</a>
+                            <a class="nav-link nav-link-admin" th:href="@{/prodavnica}">SHOP</a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link nav-link-admin" th:href="@{/galerija}">GALERIJA</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link nav-link-admin" th:href="@{/contact}">KONTAKT</a>
+                            <a class="nav-link nav-link-admin" th:href="@{/kontakt}">KONTAKT</a>
                         </li>
                         <li class="nav-item"  sec:authorize="hasAnyAuthority('ADMIN')">
-                            <a class="nav-link nav-link-admin" th:href="@{/admin/shop}">ADMIN SHOP</a>
+                            <a class="nav-link nav-link-admin" th:href="@{/admin/prodavnica}">ADMIN SHOP</a>
                         </li>
                         <li class="nav-item" sec:authorize="hasAnyAuthority('ADMIN')">
                             <a class="nav-link nav-link-admin"  th:href="@{/admin/galerija}">ADMIN GALERIJA</a>
@@ -44,9 +44,9 @@
 
                     </ul>
                     <ul class="nav navbar-icons navbar-nav flex-row flex-nowrap ">
-                        <li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/shoppingCart}" data-toggle="popover"  data-content="Korpa" aria-label="Korpa"><span  class="maliekran"  >KORPA&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i></a> </li>
+                        <li class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/korpa}" data-toggle="popover"  data-content="Korpa" aria-label="Korpa"><span  class="maliekran"  >KORPA&nbsp;&nbsp;</span><i class="fa fa-shopping-cart fa-lg"></i></a> </li>
 
-                                <li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registration}" data-toggle="popover"  data-content="Uloguj se" aria-label="Uloguj se"><span class="maliekran">ULOGUJ SE&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>
+                                <li sec:authorize="not hasAnyAuthority('ADMIN','SHOPPER')" class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/registracija}" data-toggle="popover"  data-content="Uloguj se" aria-label="Uloguj se"><span class="maliekran">ULOGUJ SE&nbsp;&nbsp;</span><i class="fa fa-user fa-lg"></i></a> </li>
 
                                 <li sec:authorize="hasAnyAuthority('ADMIN','SHOPPER')"  class="nav-item nav-item-custom"><a class="nav-link nav-link-custom nav-link-admin" th:href="@{/profil}" data-toggle="popover"  data-content="Profil" aria-label="Profil"><span style="text-transform: uppercase" th:text ="${#authentication.getPrincipal().getUser().getIme()}" ></span>&nbsp;<i class="fa fa-user fa-lg"></i></a> </li>
 

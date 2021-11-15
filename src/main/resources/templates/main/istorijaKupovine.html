@@ -2,17 +2,21 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil istorija kupovine</title>
+        <title>Istorija kupovine korsinika | Margotekstil</title>
 
     <th:block th:insert="fragments/head :: head" />
 
     <link th:href="@{/css/istorijaKupovine.css}" rel="stylesheet" type="text/css" />
 
-    <meta name="description" content="Margotekstil istorija kupovine. Pogledajte listu proizvoda koje ste poručili preko našeg sajta. Shop history"/> 
+    <meta name="description" content="Margotekstil istorija kupovine. Ovde možete pronaći listu proizvoda koje ste poručili preko našeg sajta."/> 
+    <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, margotekstil usluge, uslužno šivenje, šivenje, dekorativni tekstil, dekorativni tekstil za kuću, profil, margotekstil profil, profil korisnika, margotekstil profil korisnika, istorija kupovine, margotekstil istorija kupovine, kupljeni proizvodi, naručeni proizvodi, poručeni proizvodi"/>
+
 </head>
 
 <body>
-    <img src="/img/sewing1.jpg" class="header-img" alt="istorija-kupovine-header-image" >
+<th:block th:insert="fragments/topbar :: topbar" />
+
+<img src="/img/sewing1.jpg" class="header-img" alt="istorija-kupovine-header-image" >
 
 <th:block th:insert="fragments/navigation :: navbar" />
 

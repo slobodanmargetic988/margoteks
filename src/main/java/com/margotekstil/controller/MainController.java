@@ -66,7 +66,7 @@ public class MainController {
     public String login(final Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
 
-        return "main/registration";
+        return "main/registracija";
     }
 
     @GetMapping("/")
@@ -179,7 +179,7 @@ if (!lozinkaRepeat.equals("")){
     
     
     
-    @GetMapping(value = "/shop")
+    @GetMapping(value = "/prodavnica")
     public String publicShopMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable) {
 
         model.addAttribute("listaProizvoda", proizvodiService.findAllByActiveOrderByImeAsc(true, pageable));
@@ -187,15 +187,15 @@ if (!lozinkaRepeat.equals("")){
          model.addAttribute("trenutnaKategorija", "sveKategorije");
          Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.getPrincipal().equals("anonymousUser")) {
-                   return "neregistrovani/shop";
+                   return "neregistrovani/prodavnica";
 
             
         }
         
-        return "main/shop";
+        return "main/prodavnica";
     }
 
-    @GetMapping(value = "/shop/{kategorija}")
+    @GetMapping(value = "/prodavnica/{kategorija}")
     public String shopKategorijaMargotekstil(final Model model, @PageableDefault(value = 12) final Pageable pageable,
             @PathVariable final String kategorija
     ) {
@@ -205,9 +205,9 @@ if (!lozinkaRepeat.equals("")){
          
           Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (authentication.getPrincipal().equals("anonymousUser")) {
-                   return "neregistrovani/shop";
+                   return "neregistrovani/prodavnica";
         }
-        return "main/shop";
+        return "main/prodavnica";
     }
 
     @GetMapping("/test")
@@ -225,10 +225,10 @@ if (!lozinkaRepeat.equals("")){
         return "main/infoDostava";
     }
 
-    @GetMapping(value = "/contact")
+    @GetMapping(value = "/kontakt")
     public String publicContactMargotekstil(final Model model) {
 
-        return "main/contact";
+        return "main/kontakt";
     }
 
     @GetMapping(value = "/onama")
@@ -330,10 +330,10 @@ if (!lozinkaRepeat.equals("")){
 
     }
 
-    @GetMapping(value = "/registration")
+    @GetMapping(value = "/registracija")
     public String publicRegistrationMargotekstil(final Model model) {
 
-        return "main/registration";
+        return "main/registracija";
     }
 
     @GetMapping(value = "/error404")
@@ -406,7 +406,7 @@ if (!lozinkaRepeat.equals("")){
  if(userService.findFirstByEmail(email)!=null){
  redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetom email adresom već postoji.");
 
-                return "redirect:/registration";
+                return "redirect:/registracija";
  }
  
         Users user = new Users();
@@ -433,22 +433,22 @@ if (!lozinkaRepeat.equals("")){
                 } catch (Exception e) {
                     redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-                    return "redirect:/registration";
+                    return "redirect:/registracija";
                 }
             } else {
                 redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera");
 
-                return "redirect:/registration";
+                return "redirect:/registracija";
             }
 
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
 
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
         redirectAttributes.addFlashAttribute("successMessage", "Uspešno ste registrovali novi nalog.");
 
-        return "redirect:/registration";
+        return "redirect:/registracija";
     }
 
     @Autowired
@@ -462,7 +462,7 @@ if (!lozinkaRepeat.equals("")){
    
         if (userService.findFirstByEmail(email)==null) {
             redirectAttributes.addFlashAttribute("errorMessage", "Korisnik sa unetim emailom ne postoji.");
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
         
  Users user = userService.findFirstByEmail(email);
@@ -489,7 +489,7 @@ if (!lozinkaRepeat.equals("")){
 
         redirectAttributes.addFlashAttribute("successMessage", "Poslat vam je link na email za resetovanje lozinke.");
 
-        return "redirect:/registration";
+        return "redirect:/registracija";
     }
 
     @GetMapping(value = "/resetPassword")
@@ -528,22 +528,22 @@ if (!lozinkaRepeat.equals("")){
                 } catch (Exception e) {
                     redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-                    return "redirect:/registration";
+                    return "redirect:/registracija";
                 }
             } else {
                 redirectAttributes.addFlashAttribute("errorMessage", "Lozinka mora imati najmanje 8 karaktera");
 
-                return "redirect:/registration";
+                return "redirect:/registracija";
             }
 
         } else {
             redirectAttributes.addFlashAttribute("errorMessage", "Ponovljena lozinka nije ista kao lozinka");
 
-            return "redirect:/registration";
+            return "redirect:/registracija";
         }
         redirectAttributes.addFlashAttribute("successMessage", "Lozinka je uspešno promenjena.");
 
-        return "redirect:/registration";
+        return "redirect:/registracija";
     }
 
     @Autowired
