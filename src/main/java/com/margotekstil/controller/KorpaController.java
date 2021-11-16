@@ -56,7 +56,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Controller
 public class KorpaController {
 
-    @GetMapping(value = "/shoppingCart")
+    @GetMapping(value = "/korpa")
     public String publicShoppingCart2Margotekstil(final Model model) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if (!authentication.getPrincipal().equals("anonymousUser")) {
@@ -68,10 +68,10 @@ public class KorpaController {
             model.addAttribute("korpa", user.getKorpa());
 
         } else {
-            return "neregistrovani/shoppingCart";
+            return "neregistrovani/korpa";
         }
 
-        return "main/shoppingCart";
+        return "main/korpa";
     }
 
     @Autowired

@@ -2,22 +2,25 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Proizvodi- novi proizvod</title>
+        <title>Dodavanje proizvoda | Margotekstil</title>
 
         <th:block th:insert="fragments/head :: head" />
 
 
-<meta name="description" content="Margotekstil dodavanje proizvoda. Admin product add page."/> 
+<meta name="description" content="Margotekstil dodavanje proizvoda - admin"/> 
+    <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, galerija, margotekstil proiyvod, margotekstil shop, prodavnica, margotekstil prodavnica"/>
+
     </head>
 
     <body>
-        <img src="/img/proizvodi-head.jpg" class="header-img" alt="novi-proizvod-header-image">
+         <th:block th:insert="fragments/topbar :: topbar" />
+   <img src="/img/proizvodi-head.jpg" class="header-img" alt="novi-proizvod-header-image">
 
             <th:block th:insert="fragments/navigation :: navbar" />
 
             <div class="text-box">
                 <h2>MARGOTEKSTIL</h2>                                              
-                <p>PRODAVNICA</p>
+                <p>Dodavanje proizvoda</p>
             </div>
 
             <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
@@ -127,7 +130,7 @@
 
                                                                 <div class=" col-md-8 buttonsSaveAndBack" >
                                                                     <button type="submit" class="btn-save">Sačuvaj</button>
-                                                                    <a th:href="@{/admin/shop}" class="btn-back">Nazad</a>
+                                                                    <a th:href="@{/admin/prodavnica}" class="btn-back">Nazad</a>
                                                                 </div>   
 
                                                                 </form>

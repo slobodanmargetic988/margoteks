@@ -2,10 +2,11 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Shop | Pogledajte naše proizvode</title>
+        <title>Online Prodavnica | Margotekstil</title>
      
-   
-    <meta name="description" content="Margotekstil prodavnica, ovde možete da pregledate naše proizvode koji su trenutno u ponudi. Shop main page."/> 
+    <meta name="description" content="Margotekstil online prodavnica, ovde možete da pregledate naše proizvode koji su trenutno u ponudi."/> 
+             <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, margotekstil usluge, uslužno šivenje, prodavnica, shop, online prodavnica, online shop, margotekstil prodavnica, margotekstil shop, margotekstil proizvodi, šivenje, tekstilni program za kućne ljubimce, program za kućne ljubimce, petmania, pet mania, petmania program, margotekstil petmania, ležaj za kućne ljubimce, ležaj za pse, ležaj za kučiće, ležaj za mačke, flexy ležaj za kućne ljubimce, sleep easy ležaj za kućne ljubimce, prostirka za kućne ljubimce, podmetači za posude za hranu, torba za kućne ljubimce, torba za pse, torba za mačke, vodonepropusni materijali, vrhunski kvalitet, kvalitet, margotekstil vodonepropusni materijali, margotekstil vrhunski kvalitet, margotekstil kvalitet"/>
+
         <th:block th:insert="fragments/head :: head" />
                 <link th:href="@{/css/pagination-custom.css}" rel="stylesheet" type="text/css" />
 
@@ -15,6 +16,8 @@
     </head>
 
     <body>
+            <th:block th:insert="fragments/topbar :: topbar" />
+
         <div class="kontejner">
             <img src="/img/proizvodi-head.jpg" class="header-img" alt="shop-header-image">
 
@@ -28,10 +31,10 @@
                 <div class="container">
                     <th:block>
                         <div class="all-categories-left-nav-container">
-                            <a  th:href="@{/shop}"><p  id="sveKategorije" th:classappend="${trenutnaKategorija.equals('sveKategorije') ? 'currentCategoryItem' : ''}">Sve kategorije</p></a>
+                            <a  th:href="@{/prodavnica}"><p  id="sveKategorije" th:classappend="${trenutnaKategorija.equals('sveKategorije') ? 'currentCategoryItem' : ''}">Sve kategorije</p></a>
                             <ul id="myCategory">
                                 <th:block th:each="jednaKategorija:${listakategorija}">
-                                    <li class="category"><a th:classappend="${trenutnaKategorija.equals(jednaKategorija) ? 'currentCategoryItem' : ''}" th:href="@{/shop/{kategorija} (kategorija=${jednaKategorija})}" ><span th:text="${jednaKategorija}"></span></a></li>
+                                    <li class="category"><a th:classappend="${trenutnaKategorija.equals(jednaKategorija) ? 'currentCategoryItem' : ''}" th:href="@{/prodavnica/{kategorija} (kategorija=${jednaKategorija})}" ><span th:text="${jednaKategorija}"></span></a></li>
                                 </th:block>
                             </ul>
 
@@ -47,8 +50,8 @@
                                     <nav aria-label="breadcrumb" >
                                         <ol class="breadcrumb  ">
                                             <li class="breadcrumb-item"><a th:href="@{/}">Home</a></li>
-                                            <li class="breadcrumb-item active" aria-current="page"><a th:href="@{/shop}">Proizvodi</a></li>
-                                            <li th:if="${not trenutnaKategorija.equals('sveKategorije')}" class="breadcrumb-item"><a th:href="@{/shop/{kategorija} (kategorija=${trenutnaKategorija})}" th:text="${trenutnaKategorija}"></a></li>
+                                            <li class="breadcrumb-item active" aria-current="page"><a th:href="@{/prodavnica}">Proizvodi</a></li>
+                                            <li th:if="${not trenutnaKategorija.equals('sveKategorije')}" class="breadcrumb-item"><a th:href="@{/prodavnica/{kategorija} (kategorija=${trenutnaKategorija})}" th:text="${trenutnaKategorija}"></a></li>
                                         </ol>
 
                                     </nav>
@@ -62,10 +65,10 @@
                                         </a>
 
                                         <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                            <a class="dropdown-item" th:href="@{/shop}">Sve kategorije</a>
+                                            <a class="dropdown-item" th:href="@{/prodavnica}">Sve kategorije</a>
 
                                             <th:block th:each="jednaKategorija:${listakategorija}">
-                                                <a th:href="@{/shop/{kategorija} (kategorija=${jednaKategorija})}" class="dropdown-item"><span th:text="${jednaKategorija}"></span></a>
+                                                <a th:href="@{/prodavnica/{kategorija} (kategorija=${jednaKategorija})}" class="dropdown-item"><span th:text="${jednaKategorija}"></span></a>
                                             </th:block>
                                         </div>
                                     </div>
@@ -90,7 +93,7 @@
                                             <span class="productName" id="popupnaziv"  text=""> </span><br>
                                                 <span class="master-price" id="popupcena" text=""></span> <span style="">RSD</span>
                                                 <div class="shop-buttons row">
-                                                    <a th:href="@{/shoppingCart}" class="btn-cart col-12">Idi u korpu</a>
+                                                    <a th:href="@{/korpa}" class="btn-cart col-12">Idi u korpu</a>
                                                     <a class="btn-shop-outline col-12" id="nazad-na-shop-btn">Nazad na shop</a>
                                                 </div>
                                         </div>

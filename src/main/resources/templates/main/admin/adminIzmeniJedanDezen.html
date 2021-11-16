@@ -2,23 +2,26 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Proizvod - boje / dezeni</title>
+        <title>Izmeni boju / dezen za proizvod | Margotekstil</title>
 
     <th:block th:insert="fragments/head :: head" />
     <link th:href="@{/css/izmeniSlike.css}" rel="stylesheet" type="text/css" />
 
 
-    <meta name="description" content="Margotekstil izmena proizvoda dodavanje slika. Admin product edit page - add images."/> 
+    <meta name="description" content="Margotekstil izmena proizvoda - izmena boje / dezena za proizvod - admin"/> 
+    <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, galerija, margotekstil proiyvod, margotekstil shop, prodavnica, margotekstil prodavnica"/>
+
 </head>
 
 <body>
-    <img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
+        <th:block th:insert="fragments/topbar :: topbar" />
+<img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
 <div class="text-box">
     <h2>MARGOTEKSTIL</h2>                                              
-    <p>PRODAVNICA</p>
+    <p>Izmena boje/ dezena za proizvod</p>
 </div>
 
 <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
@@ -31,7 +34,7 @@
         <form th:action="@{/admin/izmeniProizvod/{proizvodId}/izmeniJedanDezen/{bojaId}/save (proizvodId=${proizvodId},bojaId=${colorPaleta.id})}" enctype="multipart/form-data"  method="post" class="form-horizontal adminNovaSlikaForma" autocomplete="off">
 
             <div class="form-group " >
-                <h3 class="dodavanje-nove-slike col-md-6">Izmeni boju/dezen za proizvod</h3>
+                <h3 class="dodavanje-nove-slike col-md-6">Izmeni boju / dezen za proizvod</h3>
 
                 <div class="col-md-6 centrirajFormuInput mt-3"  >
                     <div class="changeImgColorWrapper"> 

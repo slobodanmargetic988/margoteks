@@ -2,17 +2,19 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Proizvod - boje / dezeni</title>
+        <title>Izmena slika za proizvod | Margotekstil</title>
 
     <th:block th:insert="fragments/head :: head" />
                     <link th:href="@{/css/izmeniSlike.css}" rel="stylesheet" type="text/css" />
 
+<meta name="description" content="Margotekstil izmena slika za proizvod - admin"/> 
+    <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, galerija, margotekstil proiyvod, margotekstil shop, prodavnica, margotekstil prodavnica"/>
 
-    <meta name="description" content="Margotekstil izmena proizvoda dodavanje slika. Admin product edit page - add images."/> 
 </head>
 
 <body>
-    <img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
+     <th:block th:insert="fragments/topbar :: topbar" />
+   <img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
 
 <th:block th:insert="fragments/navigation :: navbar" />
 

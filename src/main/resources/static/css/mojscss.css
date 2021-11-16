@@ -2633,6 +2633,24 @@ body {
   overflow-x: hidden;
 }
 
+/*header top*/
+.header-top {
+  padding: 0.5rem 2rem;
+  background: #892f2b;
+}
+.header-top p {
+  font-size: 13px !important;
+  margin-bottom: 0;
+  color: white;
+}
+.header-top p a {
+  color: white;
+}
+
+.header-right {
+  text-align: right;
+}
+
 img {
   height: auto;
   max-width: 100%;
@@ -2663,6 +2681,14 @@ img {
 }
 
 /*navigation start*/
+.fixed-top {
+  top: 2.5rem !important;
+}
+
+.fixed-top.scrolled {
+  top: 0 !important;
+}
+
 .navbar {
   max-width: 100%;
   z-index: 1;
@@ -3314,6 +3340,14 @@ footer .copyright a {
   }
 }
 @media (max-width: 992px) {
+  .header-top {
+    display: none;
+  }
+
+  .fixed-top {
+    top: 0 !important;
+  }
+
   .karte .card {
     height: 480px;
   }

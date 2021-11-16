@@ -682,7 +682,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
                 + "                 Zdravo " + ime + " " + prezime + ","
                 + "               </p> "
                 + "               <p style=\"margin:0;padding:0;text-align:left;margin-top:10px;font-size:18px;color:#000000;\"> "
-                + "                 Hvala što ste napravili nalog na Margotekstil. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate narudžbine, promenite lozinku i u druge svrhe, na adresi: <a href=\"https://" + serverip + "/registration/\" rel=\"nofollow\" style=\"color:#3fabd6;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.margotekstil.rs/<wbr>moj-nalog/</a>  "
+                + "                 Hvala što ste napravili nalog na Margotekstil. Vaše korisničko ime je <span style=\"font-weight:normal\"> " + email + "</span>. Svom nalogu možete pristupiti da pogledate narudžbine, promenite lozinku i u druge svrhe, na adresi: <a href=\"https://" + serverip + "/registracija/\" rel=\"nofollow\" style=\"color:#3fabd6;font-weight:normal;text-decoration:underline\" target=\"_blank\" data-saferedirecturl=\"\">https://www.margotekstil.rs/<wbr>moj-nalog/</a>  "
                 + "                 <br> <br> "
                 + "                 Nadamo se da ćemo vas uskoro videti. "
                 + "                </p> "

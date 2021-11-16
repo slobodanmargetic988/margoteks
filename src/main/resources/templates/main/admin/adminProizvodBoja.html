@@ -2,22 +2,25 @@
 <html lang="srb"xmlns="https://www.w3.org/1999/xhtml" xmlns:th="https://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/extras/spring-security">
 
     <head>
-        <title>Margotekstil Proizvod - boje / dezeni</title>
+        <title>Dodavanje boje / dezena za proizvod | Margotekstil</title>
 
     <th:block th:insert="fragments/head :: head" />
 
 
-    <meta name="description" content="Margotekstil izmena proizvoda dodavanje slika. Admin product edit page - add images."/> 
+    <meta name="description" content="Margotekstil Ddodavanje boje / dezena za proizvod - admin"/> 
+                 <meta name="keywords" content="margotekstil, margo, tekstil, margo tekstil, margoteks, beograd, margotekstil beograd, margotekstil usluge, uslužno šivenje, prodavnica, shop, online prodavnica, online shop, margotekstil prodavnica, margotekstil shop, margotekstil proizvodi, šivenje, tekstilni program za kućne ljubimce, program za kućne ljubimce, petmania, pet mania, petmania program, margotekstil petmania, ležaj za kućne ljubimce, ležaj za pse, ležaj za kučiće, ležaj za mačke, flexy ležaj za kućne ljubimce, sleep easy ležaj za kućne ljubimce, prostirka za kućne ljubimce, podmetači za posude za hranu, torba za kućne ljubimce, torba za pse, torba za mačke, vodonepropusni materijali, vrhunski kvalitet, kvalitet, margotekstil vodonepropusni materijali, margotekstil vrhunski kvalitet, margotekstil kvalitet, povoljno, detalji o proizvodu"/>
+
 </head>
 
 <body>
-    <img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
+        <th:block th:insert="fragments/topbar :: topbar" />
+<img src="/img/proizvodi-head.jpg" class="header-img" alt="dodatna-slika-header-image">
 
 <th:block th:insert="fragments/navigation :: navbar" />
 
 <div class="text-box">
     <h2>MARGOTEKSTIL</h2>                                              
-    <p>PRODAVNICA</p>
+    <p>Dodavanje boje / dezena za proizvod </p>
 </div>
 
 <th:block th:insert="fragments/alert :: error (${errorMessage})"></th:block>
