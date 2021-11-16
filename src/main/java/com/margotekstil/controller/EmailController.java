@@ -5,13 +5,19 @@
  */
 package com.margotekstil.controller;
 
+import com.google.zxing.BarcodeFormat;
+import com.google.zxing.client.j2se.MatrixToImageWriter;
+import com.google.zxing.common.BitMatrix;
+import com.google.zxing.qrcode.QRCodeWriter;
 import static com.margotekstil.controller.EmailController.uplatnicaSlika;
+import static com.margotekstil.controller.TestController.generateQRCodeImage;
 import com.margotekstil.model.Korpa;
 import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Users;
 import com.margotekstil.model.ZavrsenePorudzbine;
 import com.margotekstil.storage.StorageFileNotFoundException;
 import com.margotekstil.storage.StorageService;
+import java.awt.image.BufferedImage;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.InputStream;
@@ -24,6 +30,7 @@ import java.util.Date;
 import java.util.Properties;
 import javax.activation.DataHandler;
 import javax.activation.DataSource;
+import javax.imageio.ImageIO;
 import javax.mail.Message;
 import javax.mail.Session;
 import javax.mail.Transport;
@@ -32,7 +39,14 @@ import javax.mail.internet.MimeBodyPart;
 import javax.mail.internet.MimeMessage;
 import javax.mail.internet.MimeMultipart;
 import javax.mail.util.ByteArrayDataSource;
+import org.apache.pdfbox.cos.COSArray;
+import org.apache.pdfbox.cos.COSDictionary;
+import org.apache.pdfbox.cos.COSName;
 import org.apache.pdfbox.pdmodel.PDDocument;
+import org.apache.pdfbox.pdmodel.PDPageContentStream;
+import org.apache.pdfbox.pdmodel.common.PDRectangle;
+import org.apache.pdfbox.pdmodel.graphics.image.LosslessFactory;
+import org.apache.pdfbox.pdmodel.graphics.image.PDImageXObject;
 import org.apache.pdfbox.pdmodel.interactive.form.PDAcroForm;
 import org.apache.pdfbox.pdmodel.interactive.form.PDField;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -55,7 +69,8 @@ public class EmailController {
     static final String FROMNAME = "Margotekstil";
     static final String brojtekucegracuna="265-1680310001802-85";
     static final String pathtouplatnicatemplate = "classpath:/static/img/uplatnicatemplate.pdf";
-
+ static final String pathtoqrtemplate2 = "classpath:/static/img/qrtemplate.pdf";
+ static final String pathtoqrtemplate = "classpath:/static/img/uplatnicatemplateQR.pdf";
     static final String TO = "slobagamer@hotmail.com";
 
     static final String SMTP_USERNAME = "slobodanmargetic988@gmail.com";
@@ -350,7 +365,7 @@ try {
          
            ClassLoader cl = ClassLoader.class.getClassLoader();
 ResourcePatternResolver resolver = new PathMatchingResourcePatternResolver(cl);
-Resource resource = resolver.getResource(pathtouplatnicatemplate);
+Resource resource = resolver.getResource(pathtoqrtemplate/*pathtouplatnicatemplate*/);
 
        
 
@@ -376,16 +391,66 @@ Resource resource = resolver.getResource(pathtouplatnicatemplate);
      //fieldName8.setValue("2");
       PDField fieldName9 = pDAcroForm.getField("poziv");
      fieldName9.setValue("210"+korpa.getId());
-   pDDocument.save(outputStream);
+                                   // pDDocument.save(outputStream);
 //pDDocument.save("uplatnicatest.pdf");
 //pDDocument.close();
 
 
            
+       
+           /* 
+            
+            
+            ByteArrayOutputStream outputStream2= new ByteArrayOutputStream();
+           Resource resource2 = resolver.getResource(pathtoqrtemplate);
+ 
+       
+
+           InputStream is2=resource2.getInputStream();
+                   
+      PDDocument pDDocument2 = PDDocument.load(is2);
+ PDAcroForm pDAcroFormqr = pDDocument.getDocumentCatalog().getAcroForm();*/
+   // PDField fieldNameqr = pDAcroFormqr.getField("QRcode");
+   // PDImageXObject = pDAcroFormqr.g
+    
+    
+    
+    /*
+    ByteArrayOutputStream baos = new ByteArrayOutputStream();
+ImageIO.write(generateQRCodeImage( "emobilnost.rs") , "jpg", baos);
+   byte[] imageInByte = baos.toByteArray();
+   */
+   
+  BufferedImage  bim =generateQRCodeImage( "emobilnost.rs");
+  PDDocument newpdd = new PDDocument();
+    PDImageXObject pdImage = LosslessFactory.createFromImage(newpdd, bim);
+   // PDImageXObject.createFromByteArray() //moze i ovo
+   //if (fieldNameqr != null) {
+    //PDRectangle rectangle = getFieldArea(fieldNameqr);
+   // float size = rectangle.getHeight();
+   // float x = rectangle.getLowerLeftX();
+   // float y = rectangle.getLowerLeftY();
+
+    try {
+            PDPageContentStream contentStream = new PDPageContentStream(pDDocument, 
+        pDDocument.getPage(0), PDPageContentStream.AppendMode.APPEND, true);
+      contentStream.drawImage(pdImage, 300, 45, 120, 120);
+      contentStream.close();  
+    }catch (Exception e){}
+  //}
+  // fieldNameqr.set
+       pDDocument.save(outputStream);//////////////
             byte[] bytes = outputStream.toByteArray();
             
             DataSource dataSource = new ByteArrayDataSource(bytes, "application/pdf");
-           
+ //  byte[] bytes2 = outputStream2.toByteArray();
+            
+          //  DataSource dataSource2 = new ByteArrayDataSource(bytes2, "application/pdf");      
+      //      MimeBodyPart pdfBodyPart2 = new MimeBodyPart();
+            
+     //   pdfBodyPart2.setDataHandler(new DataHandler(dataSource2));
+      //      pdfBodyPart2.setFileName("qrkod.pdf");
+            
             MimeBodyPart pdfBodyPart = new MimeBodyPart();
         pdfBodyPart.setDataHandler(new DataHandler(dataSource));
             pdfBodyPart.setFileName("uplatnica.pdf");
@@ -393,7 +458,7 @@ Resource resource = resolver.getResource(pathtouplatnicatemplate);
         MimeMultipart mimeMultipart = new MimeMultipart();
             mimeMultipart.addBodyPart(textBodyPart);
             mimeMultipart.addBodyPart(pdfBodyPart);
-        
+       //  mimeMultipart.addBodyPart(pdfBodyPart2);
         
         msg.setContent(mimeMultipart, "text/html;charset=utf-8");
         // Add a configuration set header. Comment or delete the
@@ -413,7 +478,25 @@ Resource resource = resolver.getResource(pathtouplatnicatemplate);
             transport.close();
         }
     }
+   public static BufferedImage generateQRCodeImage(String barcodeText) throws Exception {
 
+        QRCodeWriter barcodeWriter = new QRCodeWriter();
+
+        BitMatrix bitMatrix = barcodeWriter.encode(barcodeText, BarcodeFormat.QR_CODE, 200, 200);
+
+        return MatrixToImageWriter.toBufferedImage(bitMatrix);
+
+    }
+   private static PDRectangle getFieldArea(PDField field) {
+  COSDictionary fieldDict = field.getCOSObject();
+  COSArray fieldAreaArray = (COSArray) fieldDict.getDictionaryObject(COSName.RECT);
+  return new PDRectangle(fieldAreaArray);
+}
+   
+   
+   
+   
+   
     //email da stigne Violeti o tome sta je kupac narucio
     public static void SendkorisnikPorucioEmail(Users user, ZavrsenePorudzbine zavrsenePorudzbine) throws Exception { //String recipient,
         // Create a Properties object to contain connection configuration information.
