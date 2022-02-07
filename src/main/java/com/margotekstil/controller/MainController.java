@@ -12,6 +12,7 @@ import com.margotekstil.model.KorpaProizvodi;
 import com.margotekstil.model.Photo;
 import com.margotekstil.model.Proizvodi;
 import com.margotekstil.model.ResetTokeni;
+import com.margotekstil.model.Spameri;
 import com.margotekstil.model.Users;
 import com.margotekstil.model.ZavrsenePorudzbine;
 import com.margotekstil.repository.UsersRepository;
@@ -20,6 +21,7 @@ import com.margotekstil.service.KorpaService;
 import com.margotekstil.service.PhotoService;
 import com.margotekstil.service.ProizvodiService;
 import com.margotekstil.service.ResetTokeniService;
+import com.margotekstil.service.SpameriService;
 
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -61,6 +63,8 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 @Scope(WebApplicationContext.SCOPE_REQUEST)
 @Controller
 public class MainController {
+        @Autowired
+    private SpameriService spamService;
 
     @GetMapping("/loginTry")
     public String login(final Model model) {
@@ -376,15 +380,50 @@ if (!lozinkaRepeat.equals("")){
             @RequestParam(name = "telefon") String telefon,
             @RequestParam(name = "poruka") String poruka
     ) {
-        try {
-            EmailController.SendEmailPoruka(ime, prezime, email, telefon, poruka);
-            EmailController.SendEmailPorukaPoslata(email, ime, prezime);
-        } catch (Exception e) {
-            redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
 
-            return "redirect:/";
-        }
+        
+  
+            try {
+                //   request 
+                String ipAddress = request.getHeader("X-Forwarded-For");
+                Spameri spamer = spamService.findByIpadresa(ipAddress);
+                if (spamer == null) {
+                    Spameri novspamer = new Spameri();
+                    novspamer.setBrojac(1);
+                    novspamer.setIpadresa(ipAddress);
+                    spamService.save(novspamer);
+                } else {
+                    spamer.setBrojac(spamer.getBrojac() + 1);
+                    spamService.save(spamer);
+                    if (spamer.getBrojac() > 3) {
+                        redirectAttributes.addFlashAttribute("errorMessage", "Previše ste poruka poslali, pokušajte kasnije.");
+
+                        return "redirect:/";
+                    }
+                }
+
+                EmailController.SendEmailPoruka(ime,prezime, telefon,email , poruka);
+                EmailController.SendEmailPorukaPoslata(email, ime,prezime);
+            } catch (Exception e) {
+                redirectAttributes.addFlashAttribute("errorMessage", e.getMessage());
+
+                return "redirect:/";
+            }
+        
         return "redirect:/";
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
