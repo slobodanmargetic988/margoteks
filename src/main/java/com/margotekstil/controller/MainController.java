@@ -389,7 +389,16 @@ if (!lozinkaRepeat.equals("")){
                 Spameri spamer = spamService.findByIpadresa(ipAddress);
                 if (spamer == null) {
                     Spameri novspamer = new Spameri();
-                    novspamer.setBrojac(1);
+                          novspamer.setBrojac(1);
+                    if (prezime.length()>20||ime.length()>20){//ako je predugacko ime ili prezime verovatno su botovi uneli random stvari u polje za ime i prezime pa ih banujemo
+                       novspamer.setBrojac(9000);
+                         novspamer.setIpadresa(ipAddress);
+                    spamService.save(novspamer);
+                      redirectAttributes.addFlashAttribute("errorMessage", "Previše ste poruka poslali, pokušajte kasnije.");
+
+                        return "redirect:/";
+                    }
+              
                     novspamer.setIpadresa(ipAddress);
                     spamService.save(novspamer);
                 } else {
