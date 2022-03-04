@@ -137,7 +137,8 @@ public class EmailController {
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         //    msg.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
+     //   msg.setRecipient(Message.RecipientType.TO, new InternetAddress("margoteks.doo@gmail.com"));
+   msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("sanja.048@gmail.com,margoteks.doo@gmail.com"));
 
         msg.setSubject(SUBJECTPrimljena);
         String BODY = String.join(
@@ -508,7 +509,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         // msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-        msg.setRecipient(Message.RecipientType.TO, new InternetAddress("sanja.048@gmail.com"));
+        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse("sanja.048@gmail.com,margoteks.doo@gmail.com"));
 
         msg.setSubject(SUBJECTPORUCENAROBA, "UTF-8");
         String BODY = String.join(
