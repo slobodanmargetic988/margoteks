@@ -3,4 +3,3 @@ uploads/
 target/
 src/main/resources/application.properties
 mvnw
-pom.xml
