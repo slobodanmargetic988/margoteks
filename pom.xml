@@ -178,31 +178,32 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
-
-            <plugin>
-                <groupId>org.jasig.maven</groupId>
-                <artifactId>sass-maven-plugin</artifactId>
-                <version>1.1.0</version>
-                <executions>
-                    <execution>
-                        <id>compilecss</id>
-                        <phase>prepare-package</phase>
-                        <goals>
-                            <goal>update-stylesheets</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                    <resources>
-                        <resource>
-                            <source>
-                                <directory>${basedir}/src/main/resources/sass</directory>
-                            </source>
-                            <destination>${basedir}/src/main/resources/static/css</destination>
-                        </resource>
-                    </resources>
-                </configuration>
-            </plugin>
+            <!-- sass dependancies end -->
+            <!--        <plugin>
+                     <groupId>org.jasig.maven</groupId>
+                     <artifactId>sass-maven-plugin</artifactId>
+                     <version>1.1.0</version>
+                     <executions>
+                         <execution>
+                             <id>compilecss</id>
+                             <phase>prepare-package</phase>
+                             <goals>
+                                 <goal>update-stylesheets</goal>
+                             </goals>
+                         </execution>
+                     </executions>
+                     <configuration>
+                         <resources>
+                             <resource>
+                                 <source>
+                                     <directory>${basedir}/src/main/resources/sass</directory>
+                                 </source>
+                                 <destination>${basedir}/src/main/resources/static/css</destination>
+                             </resource>
+                         </resources>
+                     </configuration>
+                 </plugin>
+                 <!-- sass end -->
         </plugins>
     </build>
 
