@@ -64,7 +64,7 @@
         <div class="col-md-6">
 
             <div class="fleks-center" >
-                <form class="contact-form" th:action="@{/posaljiPoruku}" method="POST">
+                <form class="contact-form" id="captcha-form" th:action="@{/posaljiPoruku}" method="POST">
                     <h4 class="contact-header-page">Pošaljite nam poruku</h4>
                     <p>Ukoliko imate bilo kakvih pitanja ili zahteva, slobodno nam napšite poruku. <br> Potrudićemo se da Vam odgovorimo u najkraćem mogućem roku.</p>
                     <div class="form-row">
@@ -96,7 +96,7 @@
                         <textarea type="text" name="poruka" class="form-control mt-3" rows="6" cols="50" id="inputPoruka" placeholder="Poruka"></textarea>
                         <label></label>
                     </div>
-                    <button type="submit" class="posaji-btn-contact-form-page">Pošalji</button>
+                    <button type="submit" class="posalji-btn-contact-form-page g-recaptcha" data-sitekey="6LdbyrwnAAAAAF0iVdveF4opMpjB_NjXp5daAFO7" data-callback="onSubmit">Pošalji</button>
                 </form>
 
             </div>
@@ -111,7 +111,14 @@
 
 <th:block th:insert="fragments/scripts :: scripts" />
 <script th:src="@{/js/floatingPlaceholder.js}" type="text/javascript"></script>
-
+        <!--CAPTCHA-->
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
+        <script>
+       function onSubmit(token) {
+         document.getElementById("captcha-form").submit();
+       }
+     </script>
+        <!--CAPTCHA-->
 </body>
 
 </html>

@@ -22,13 +22,16 @@ import com.margotekstil.service.PhotoService;
 import com.margotekstil.service.ProizvodiService;
 import com.margotekstil.service.ResetTokeniService;
 import com.margotekstil.service.SpameriService;
-
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
 import javax.servlet.http.HttpServletRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.util.LinkedMultiValueMap;
+import org.springframework.util.MultiValueMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -52,6 +55,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.client.RestTemplate;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
@@ -370,6 +374,21 @@ if (!lozinkaRepeat.equals("")){
     private KorpaService korpaService;
 
     //  @PostMapping(value = "/posaljiPoruku")
+    private boolean verifyRecaptcha(String captchaResponse) {
+        String url = "https://www.google.com/recaptcha/api/siteverify";
+        String secretKey = "6LdbyrwnAAAAAIIBtHqsOpnBiPILRHYo9yqN3kCM"; // Replace with your secret key
+
+        RestTemplate restTemplate = new RestTemplate();
+        MultiValueMap<String, String> requestMap = new LinkedMultiValueMap<>();
+        requestMap.add("secret", secretKey);
+        requestMap.add("response", captchaResponse);
+
+        ResponseEntity<String> response = restTemplate.postForEntity(url, requestMap, String.class);
+        JsonObject jsonObject = new JsonParser().parse(response.getBody()).getAsJsonObject();
+
+        return jsonObject.get("success").getAsBoolean();
+    }
+
     @RequestMapping(value = "/posaljiPoruku", method = RequestMethod.POST)
     public String posaljiPoruku(final Model model,
             final HttpServletRequest request,
@@ -378,15 +397,17 @@ if (!lozinkaRepeat.equals("")){
             @RequestParam(name = "ime") String ime,
             @RequestParam(name = "email") String email,
             @RequestParam(name = "telefon") String telefon,
-            @RequestParam(name = "poruka") String poruka
+            @RequestParam(name = "poruka") String poruka,
+            @RequestParam(name = "g-recaptcha-response") String captcha_response
     ) {
-
-        
-  
             try {
-                //   request 
+                //   request
+                System.out.println();
                 String ipAddress = request.getHeader("X-Forwarded-For");
                 Spameri spamer = spamService.findByIpadresa(ipAddress);
+
+                if (!verifyRecaptcha(captcha_response)) {  redirectAttributes.addFlashAttribute("errorMessage", "Pali ste na Google captcha verifikaciji.");
+                    return "redirect:/";}
                 if (spamer == null) {
                     Spameri novspamer = new Spameri();
                           novspamer.setBrojac(1);
@@ -398,7 +419,6 @@ if (!lozinkaRepeat.equals("")){
 
                         return "redirect:/";
                     }
-              
                     novspamer.setIpadresa(ipAddress);
                     spamService.save(novspamer);
                 } else {
@@ -410,7 +430,6 @@ if (!lozinkaRepeat.equals("")){
                         return "redirect:/";
                     }
                 }
-
                 EmailController.SendEmailPoruka(ime,prezime, telefon,email , poruka);
                 EmailController.SendEmailPorukaPoslata(email, ime,prezime);
             } catch (Exception e) {
@@ -418,21 +437,8 @@ if (!lozinkaRepeat.equals("")){
 
                 return "redirect:/";
             }
-        
         return "redirect:/";
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
+
     }
 
     @RequestMapping(value = "/register", method = RequestMethod.POST)
