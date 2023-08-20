@@ -60,7 +60,7 @@ public class EmailController {
  static final String pathtoqrtemplate2 = "classpath:/static/img/qrtemplate.pdf";
  static final String pathtoqrtemplate = "classpath:/static/img/uplatnicatemplateQR.pdf";
     static final String TO = "slobagamer@hotmail.com";
-
+    static final String maminaadresa = "margoteks.doo@gmail.com";
     static final String SMTP_USERNAME = "slobodanmargetic988@gmail.com";
     static final String SMTP_PASSWORD = "plujxpfcbjabxpfj";
     // The name of the Configuration Set to use for this message.
@@ -138,7 +138,7 @@ public class EmailController {
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         //    msg.setRecipient(Message.RecipientType.TO, new InternetAddress(user.getEmail()));
      //   msg.setRecipient(Message.RecipientType.TO, new InternetAddress("margoteks.doo@gmail.com"));
-   msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(FROM+",margoteks.doo@gmail.com"));
+   msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(maminaadresa));
 
         msg.setSubject(SUBJECTPrimljena);
         String BODY = String.join(
@@ -509,7 +509,7 @@ String nacinisporuke=zavrsenePorudzbine.getNacin_placanja();
         MimeMessage msg = new MimeMessage(session);
         msg.setFrom(new InternetAddress(FROM, FROMNAME));
         // msg.setRecipient(Message.RecipientType.TO, new InternetAddress(recipient));
-        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(FROM+",margoteks.doo@gmail.com"));
+        msg.setRecipients(Message.RecipientType.TO, InternetAddress.parse(maminaadresa));
 
         msg.setSubject(SUBJECTPORUCENAROBA, "UTF-8");
         String BODY = String.join(
